@@ -10,9 +10,12 @@ import {
   ShieldCheck, 
   Building2, 
   Award, 
-  Flame
+  Flame,
+  Landmark,
+  Calendar
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
+import { handleImageError } from '../../utils/imageUtils';
 
 export default function MonumentDetailCard({ monument, confidence = 99.2, features = [] }) {
   const { playAudio, pauseAudio, audioState, setActiveTab, setCurrentCityId } = useTravel();
@@ -50,73 +53,99 @@ export default function MonumentDetailCard({ monument, confidence = 99.2, featur
     <div className="w-full bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300">
       
       {/* Top Identification Header */}
-      <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-800 text-white p-6 sm:p-8">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-          <div className="flex items-center gap-2">
-            <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-full text-xs font-bold flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Match Confidence: {confidence}%</span>
-            </span>
-            <span className="px-3 py-1 bg-sky-500/20 border border-sky-500/40 text-sky-300 rounded-full text-xs font-semibold">
-              AI Vision Verified
-            </span>
-          </div>
-
-          <button
-            onClick={handleOpenOnMap}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition-colors"
-          >
-            <Compass className="w-3.5 h-3.5 text-sky-400" />
-            <span>Locate on Map</span>
-          </button>
-        </div>
-
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 text-sm text-sky-300 font-medium mb-1">
-              <MapPin className="w-4 h-4 text-amber-400" />
-              <span>{monument.city}, {monument.state} • {monument.country}</span>
-            </div>
-            <h1 className="font-display font-black text-3xl sm:text-4xl tracking-tight text-white">
-              {monument.name}
-            </h1>
-            {monument.hindiName && (
-              <p className="text-base text-slate-300 font-serif italic mt-0.5">
-                {monument.hindiName}
-              </p>
-            )}
-          </div>
-
-          {/* Audio Tour Guide Button */}
-          <button
-            onClick={handleAudioToggle}
-            className={`flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-xs shadow-lg transition-all transform hover:scale-105 active:scale-95 flex-shrink-0 ${
-              isCurrentAudioPlaying
-                ? 'bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/30'
-                : 'bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white shadow-sky-500/30'
-            }`}
-          >
-            {isCurrentAudioPlaying ? (
-              <>
-                <VolumeX className="w-4 h-4" />
-                <span>Pause Audio Guide</span>
-              </>
-            ) : (
-              <>
-                <Volume2 className="w-4 h-4" />
-                <span>Listen to Smart Audio Guide</span>
-              </>
-            )}
-          </button>
-        </div>
-
-        {/* UNESCO Status Bar */}
-        {monument.unescoStatus && (
-          <div className="mt-4 pt-4 border-t border-slate-800/80 flex items-center gap-2 text-xs text-amber-300">
-            <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
-            <span className="font-semibold">{monument.unescoStatus}</span>
+      <div className="relative bg-gradient-to-r from-slate-950 via-slate-900 to-slate-800 text-white p-6 sm:p-8 overflow-hidden">
+        {monument.primaryImage && (
+          <div className="absolute inset-0 z-0 opacity-25">
+            <img
+              src={monument.primaryImage}
+              alt={monument.name}
+              onError={handleImageError}
+              className="w-full h-full object-cover filter blur-[2px] scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
           </div>
         )}
+
+        <div className="relative z-10">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-md">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Match Confidence: {confidence}%</span>
+              </span>
+              <span className="px-3 py-1 bg-sky-500/20 border border-sky-500/40 text-sky-300 rounded-full text-xs font-semibold backdrop-blur-md">
+                AI Vision Verified
+              </span>
+            </div>
+
+            <button
+              onClick={handleOpenOnMap}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700/80 backdrop-blur-md transition-colors"
+            >
+              <Compass className="w-3.5 h-3.5 text-sky-400" />
+              <span>Locate on Map</span>
+            </button>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              {monument.primaryImage && (
+                <div className="hidden sm:block w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-white/20 shadow-xl flex-shrink-0">
+                  <img
+                    src={monument.primaryImage}
+                    alt={monument.name}
+                    onError={handleImageError}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div>
+                <div className="flex items-center gap-2 text-sm text-sky-300 font-medium mb-1">
+                  <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                  <span>{monument.city}, {monument.state} • {monument.zone} Zone, {monument.country}</span>
+                </div>
+                <h1 className="font-display font-black text-2xl sm:text-4xl tracking-tight text-white">
+                  {monument.name}
+                </h1>
+                {monument.hindiName && (
+                  <p className="text-base text-slate-300 font-serif italic mt-0.5">
+                    {monument.hindiName}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Audio Tour Guide Button */}
+            <button
+              onClick={handleAudioToggle}
+              className={`flex items-center gap-2 px-5 py-3.5 rounded-2xl font-bold text-xs shadow-lg transition-all transform hover:scale-105 active:scale-95 flex-shrink-0 ${
+                isCurrentAudioPlaying
+                  ? 'bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/30 ring-2 ring-rose-300'
+                  : 'bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white shadow-sky-500/30'
+              }`}
+            >
+              {isCurrentAudioPlaying ? (
+                <>
+                  <VolumeX className="w-4 h-4" />
+                  <span>Pause Audio Guide</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 className="w-4 h-4" />
+                  <span>Listen to Smart Audio Guide</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* UNESCO Status Bar */}
+          {monument.unescoStatus && (
+            <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center gap-2 text-xs text-amber-300">
+              <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
+              <span className="font-semibold">{monument.unescoStatus}</span>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Main Content Body */}
@@ -205,6 +234,15 @@ export default function MonumentDetailCard({ monument, confidence = 99.2, featur
                 <span className="text-slate-500">Weekly Closing:</span>
                 <span className="font-bold text-rose-600">{monument.closedOn}</span>
               </div>
+              {monument.bestTimeToVisit && (
+                <div className="flex justify-between py-1.5 border-b border-slate-100">
+                  <span className="text-slate-500 flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>Best Time to Visit:</span>
+                  </span>
+                  <span className="font-bold text-emerald-600">{monument.bestTimeToVisit}</span>
+                </div>
+              )}
               <div className="flex justify-between py-1.5">
                 <span className="text-slate-500">Physical Dimensions:</span>
                 <span className="font-semibold text-slate-700 text-right">{monument.dimensions}</span>
@@ -295,6 +333,36 @@ export default function MonumentDetailCard({ monument, confidence = 99.2, featur
                   <div className="text-[11px] font-semibold text-rose-600 bg-rose-50/80 p-2 rounded-lg">
                     🍴 Specialty: {food.specialty}
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Nearby Temples & Attractions */}
+        {monument.nearbyAttractions && monument.nearbyAttractions.length > 0 && (
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-display font-bold text-base text-slate-900 flex items-center gap-2">
+                <Landmark className="w-4 h-4 text-amber-500" />
+                <span>Nearby Temples, Forts & Tourist Attractions</span>
+              </h3>
+              <span className="text-xs text-slate-500 font-medium">Adjacent sights to bundle</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {monument.nearbyAttractions.map((attr, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3 hover:border-amber-300 transition-colors"
+                >
+                  <div>
+                    <h4 className="font-bold text-xs text-slate-900">{attr.name}</h4>
+                    <p className="text-[11px] text-slate-500 mt-0.5">{attr.type}</p>
+                  </div>
+                  <span className="text-[10px] font-bold text-amber-800 bg-amber-100/80 px-2.5 py-1 rounded-full whitespace-nowrap">
+                    {attr.distance}
+                  </span>
                 </div>
               ))}
             </div>
