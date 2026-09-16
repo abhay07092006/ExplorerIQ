@@ -13,6 +13,7 @@ import {
   Lightbulb
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
+import { handleImageError } from '../../utils/imageUtils';
 
 const CATEGORY_COLORS = {
   heritage: { bg: 'bg-purple-100 text-purple-700 border-purple-200', label: 'Heritage & History' },
@@ -41,6 +42,7 @@ export default function PlaceDrawer() {
   const activeFoodList = selectedPlace.localFoodSpecialties || currentCity.localFoodSpecialties || [];
   const activeOverview = selectedPlace.cityOverview || currentCity.overview;
   const activeBestTime = selectedPlace.bestTimeToVisit || currentCity.bestTimeToVisit;
+  const activeBestDuration = selectedPlace.bestDuration || currentCity.bestDuration;
 
   const bookmarked = isBookmarked(selectedPlace.id);
   const catStyle = CATEGORY_COLORS[selectedPlace.category] || {
@@ -69,6 +71,7 @@ export default function PlaceDrawer() {
             <img
               src={selectedPlace.image}
               alt={selectedPlace.name}
+              onError={handleImageError}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
@@ -237,11 +240,12 @@ export default function PlaceDrawer() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 {activeOverview}
               </p>
-              {activeBestTime && (
-                <div className="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-                  <span>Best Season: {activeBestTime}</span>
-                </div>
-              )}
+              <div className="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                <span>Best Season: {activeBestTime}</span>
+                {activeBestDuration && (
+                  <span className="text-sky-300 font-semibold">{activeBestDuration}</span>
+                )}
+              </div>
             </div>
 
           </div>

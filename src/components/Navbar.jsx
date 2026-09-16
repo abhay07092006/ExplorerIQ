@@ -15,6 +15,7 @@ import {
 import { useTravel } from '../context/useTravel';
 import { CITIES_DATA } from '../data/travelData';
 import BookmarkModal from './Common/BookmarkModal';
+import { handleImageError } from '../utils/imageUtils';
 
 export default function Navbar() {
   const { 
@@ -143,6 +144,7 @@ export default function Navbar() {
                           <img
                             src={city.heroImage}
                             alt={city.name}
+                            onError={handleImageError}
                             className="w-7 h-7 rounded-lg object-cover border border-slate-700"
                           />
                           <div>

@@ -1,5 +1,6 @@
 import { X, Bookmark, Trash2, MapPin, ExternalLink, Compass } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
+import { handleImageError } from '../../utils/imageUtils';
 
 export default function BookmarkModal({ isOpen, onClose }) {
   const { bookmarks, toggleBookmark, openPlaceDrawer, setActiveTab } = useTravel();
@@ -47,6 +48,7 @@ export default function BookmarkModal({ isOpen, onClose }) {
                   <img
                     src={item.image || item.heroImage || item.primaryImage}
                     alt={item.name}
+                    onError={handleImageError}
                     className="w-14 h-14 rounded-xl object-cover border border-slate-200 flex-shrink-0"
                   />
                   <div className="min-w-0">

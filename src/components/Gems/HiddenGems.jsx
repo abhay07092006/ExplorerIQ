@@ -10,6 +10,7 @@ import {
 import { useTravel } from '../../context/useTravel';
 import { CITIES_DATA } from '../../data/travelData';
 import AddGemModal from './AddGemModal';
+import { handleImageError, DEFAULT_AVATAR_FALLBACK } from '../../utils/imageUtils';
 
 const CATEGORY_TAGS = [
   'All',
@@ -128,6 +129,7 @@ export default function HiddenGems() {
                   <img
                     src={gem.avatar}
                     alt={gem.author}
+                    onError={(e) => handleImageError(e, DEFAULT_AVATAR_FALLBACK)}
                     className="w-9 h-9 rounded-full object-cover border border-slate-200"
                   />
                   <div>

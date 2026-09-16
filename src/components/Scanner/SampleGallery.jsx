@@ -1,6 +1,7 @@
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { SAMPLE_MONUMENTS } from '../../data/monumentsData';
 import { useTravel } from '../../context/useTravel';
+import { handleImageError } from '../../utils/imageUtils';
 
 export default function SampleGallery({ onSelectSample }) {
   const { scanImage } = useTravel();
@@ -42,6 +43,7 @@ export default function SampleGallery({ onSelectSample }) {
               <img
                 src={sample.image}
                 alt={sample.name}
+                onError={handleImageError}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <span className="absolute top-2 left-2 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-950/70 text-white backdrop-blur-xs">

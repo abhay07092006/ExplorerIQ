@@ -22,6 +22,7 @@ import {
 import { useTravel } from '../../context/useTravel';
 import { CITIES_DATA, ALL_PLACES, CATEGORY_FILTERS } from '../../data/travelData';
 import PlaceDrawer from '../Map/PlaceDrawer';
+import { handleImageError } from '../../utils/imageUtils';
 
 const ICON_MAP = {
   Sparkles,
@@ -42,12 +43,15 @@ const CATEGORY_STYLES = {
 
 const POPULAR_SEARCH_SUGGESTIONS = [
   'Taj Mahal',
-  'Jaipur',
-  'Varanasi Ghats',
-  'Chinese Fishing Nets',
-  'Biryani & Street Food',
-  'Qutub Minar',
-  'Hampi Boulder Ruins'
+  'Kolkata',
+  'Amritsar',
+  'Goa',
+  'Udaipur',
+  'Hampi',
+  'Madurai',
+  'Shimla',
+  'Varanasi',
+  'Srinagar'
 ];
 
 export default function SmartSearchExplorer() {
@@ -223,6 +227,7 @@ export default function SmartSearchExplorer() {
                 <img
                   src={city.heroImage}
                   alt={city.name}
+                  onError={handleImageError}
                   className="w-5 h-5 rounded-full object-cover border border-white/40"
                 />
                 <span>{city.name}</span>
@@ -330,15 +335,23 @@ export default function SmartSearchExplorer() {
                   <img
                     src={place.image}
                     alt={place.name}
+                    onError={handleImageError}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
                   {/* Top Bar Badges */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border backdrop-blur-md shadow-xs ${catStyle.bg}`}>
-                      {catStyle.label}
-                    </span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border backdrop-blur-md shadow-xs ${catStyle.bg}`}>
+                        {catStyle.label}
+                      </span>
+                      {place.bestDuration && (
+                        <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-slate-950/80 text-sky-300 border border-sky-500/30 backdrop-blur-md hidden sm:inline-block">
+                          {place.bestDuration}
+                        </span>
+                      )}
+                    </div>
 
                     <button
                       onClick={(e) => {

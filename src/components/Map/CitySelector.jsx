@@ -1,6 +1,7 @@
 import { MapPin, Sparkles } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
 import { CITIES_DATA } from '../../data/travelData';
+import { handleImageError } from '../../utils/imageUtils';
 
 export default function CitySelector() {
   const { currentCityId, setCurrentCityId } = useTravel();
@@ -36,6 +37,7 @@ export default function CitySelector() {
               <img
                 src={city.heroImage}
                 alt={city.name}
+                onError={handleImageError}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
