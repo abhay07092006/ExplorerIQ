@@ -53,7 +53,7 @@ export const CITIES_DATA = [
           28.5244,
           77.1855
         ],
-        "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
         "timing": "7:00 AM - 7:00 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "72.5-meter red sandstone victory tower built in 1192 CE, surrounded by 4th-century rustless iron pillar.",
@@ -67,7 +67,7 @@ export const CITIES_DATA = [
           28.6129,
           77.2295
         ],
-        "image": "https://images.unsplash.com/photo-1597040663342-45b6af3d91a3?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
         "timing": "Open 24/7 (Illuminated 7:00 PM - 11:00 PM)",
         "fee": "Free",
         "shortDesc": "42-meter triumphal arch war memorial honoring 84,000 soldiers, fronted by illuminated boulevards.",
@@ -81,7 +81,7 @@ export const CITIES_DATA = [
           28.6127,
           77.2773
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "10:00 AM - 8:00 PM (Mondays Closed)",
         "fee": "Free Temple entry (Exhibitions ₹250)",
         "shortDesc": "Colossal modern sandstone and Italian Carrara marble temple with 234 carved pillars and water fountain show.",
@@ -186,7 +186,7 @@ export const CITIES_DATA = [
           27.1795,
           78.0211
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "₹50 (Indians) / ₹650 (Foreigners)",
         "shortDesc": "Vast 16th-century red sandstone fortress residence where Shah Jahan spent his final years gazing at the Taj.",
@@ -242,7 +242,7 @@ export const CITIES_DATA = [
           27.18,
           78.0425
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Charbagh botanical garden across the Yamuna perfectly aligned with the Taj Mahal for mirror reflections.",
@@ -291,7 +291,7 @@ export const CITIES_DATA = [
           26.9239,
           75.8267
         ],
-        "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1676444490527-cf8f7894e9f0?auto=format&fit=crop&w=800&q=80",
         "timing": "9:00 AM - 5:00 PM Daily",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
         "shortDesc": "Five-story pink sandstone facade with 953 carved jharokha casements designed for royal purdah ladies.",
@@ -529,7 +529,7 @@ export const CITIES_DATA = [
           25.3811,
           83.0214
         ],
-        "image": "https://images.unsplash.com/photo-1590077428573-683c301a08d6?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "Sunrise to Sunset",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Sacred Buddhist sanctuary where Lord Buddha gave his first sermon after attaining enlightenment.",
@@ -620,7 +620,7 @@ export const CITIES_DATA = [
           31.6047,
           74.5731
         ],
-        "image": "https://images.unsplash.com/photo-1597040663342-45b6af3d91a3?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
         "timing": "4:30 PM - 5:30 PM (Arrive by 3:00 PM for seating)",
         "fee": "Free entry",
         "shortDesc": "Electrifying daily military parade with coordinated high kicks and flag lowering by Indian BSF and Pakistani Rangers.",
@@ -634,7 +634,7 @@ export const CITIES_DATA = [
           31.6205,
           74.8801
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "6:30 AM - 7:30 PM",
         "fee": "Free",
         "shortDesc": "Sacred national memorial garden preserving the bullet marks and historic well from the tragic 1919 British massacre.",
@@ -680,7 +680,7 @@ export const CITIES_DATA = [
       77.1734
     ],
     "tagline": "The Queen of Hills and historic summer capital of the British Raj.",
-    "heroImage": "https://images.unsplash.com/photo-1626014303757-646654b9d009?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1200&q=80",
     "bestTimeToVisit": "March to June (Pleasant) & Dec to Feb (Snow)",
     "bestDuration": "2-3 Days",
     "climate": "Crisp alpine mountain air with snow-dusted pine forests in winter",
@@ -711,7 +711,7 @@ export const CITIES_DATA = [
           31.1042,
           77.175
         ],
-        "image": "https://images.unsplash.com/photo-1626014303757-646654b9d009?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "Spacious open esplanade offering unobstructed views of snow-clad Himalayan peaks, centered around northern India’s second-oldest church.",
@@ -907,7 +907,7 @@ export const CITIES_DATA = [
           34.148,
           74.872
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "9:00 AM - 7:00 PM",
         "fee": "₹24 (Indians) / ₹100 (Foreigners)",
         "shortDesc": "Finest terraced royal garden built in 1619 by Emperor Jahangir for his queen Nur Jahan, featuring black marble pavilions and water canals.",
@@ -1012,7 +1012,7 @@ export const CITIES_DATA = [
           9.9658,
           76.2413
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "7:00 AM - 6:30 PM",
         "fee": "Free",
         "shortDesc": "Oldest European church in India built in 1503 by Portuguese Franciscan friars, original burial site of explorer Vasco da Gama.",
@@ -1058,7 +1058,7 @@ export const CITIES_DATA = [
       78.1198
     ],
     "tagline": "The Athens of the East centered around the towering gopurams of Meenakshi Temple.",
-    "heroImage": "https://images.unsplash.com/photo-1609137144822-477038e92592?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1621682372775-533449e550ed?auto=format&fit=crop&w=1200&q=80",
     "bestTimeToVisit": "October to March (20°C - 30°C)",
     "bestDuration": "1-2 Days",
     "climate": "Warm tropical climate with fragrant jasmine breeze and temple chimes",
@@ -1089,7 +1089,7 @@ export const CITIES_DATA = [
           9.9195,
           78.1193
         ],
-        "image": "https://images.unsplash.com/photo-1609137144822-477038e92592?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1621682372775-533449e550ed?auto=format&fit=crop&w=800&q=80",
         "timing": "5:00 AM - 12:30 PM & 4:00 PM - 10:00 PM",
         "fee": "Free (Hall of Thousand Pillars ₹50)",
         "shortDesc": "Architectural masterpiece with 14 towering gateway gopurams encrusted with 33,000 brightly painted mythological sculptures.",
@@ -1103,7 +1103,7 @@ export const CITIES_DATA = [
           9.915,
           78.1235
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "9:00 AM - 5:00 PM (Light & Sound Show 6:45 PM)",
         "fee": "₹10 (Indians) / ₹50 (Foreigners)",
         "shortDesc": "17th-century palace built by King Thirumalai Nayak, famous for giant circular white stucco pillars over 80 feet high.",
@@ -1131,7 +1131,7 @@ export const CITIES_DATA = [
           9.912,
           78.156
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "Open all day",
         "fee": "Free",
         "shortDesc": "Colossal rectangular temple tank fed by underground channels from Vaigai River, centered around a mandapam island.",
@@ -1208,7 +1208,7 @@ export const CITIES_DATA = [
           12.423,
           76.572
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "6:30 AM - 9:00 PM (Musical Fountain 6:30 PM - 8:00 PM)",
         "fee": "₹50 entry",
         "shortDesc": "Terraced formal gardens below Krishna Raja Sagara dam modeled after the Shalimar Gardens of Kashmir, famous for musical water fountain.",
@@ -1240,7 +1240,7 @@ export const CITIES_DATA = [
       78.4867
     ],
     "tagline": "City of Pearls and Nizams, where cyber towers meet medieval granite citadels.",
-    "heroImage": "https://images.unsplash.com/photo-1605649487212-47bdab064df8?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1617854818583-09e7f077a156?auto=format&fit=crop&w=1200&q=80",
     "bestTimeToVisit": "October to February (15°C - 28°C)",
     "bestDuration": "2-3 Days",
     "climate": "Pleasant winter weather ideal for exploring sprawling fortresses and culinary bazaars",
@@ -1271,7 +1271,7 @@ export const CITIES_DATA = [
           17.3616,
           78.4747
         ],
-        "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df8?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1617854818583-09e7f077a156?auto=format&fit=crop&w=800&q=80",
         "timing": "9:30 AM - 5:30 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "1591 CE monumental arch with four 56-meter minarets, built to commemorate the eradication of plague in the city.",
@@ -1285,7 +1285,7 @@ export const CITIES_DATA = [
           17.3833,
           78.4011
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "9:00 AM - 5:30 PM (Sound & Light Show 6:30 PM)",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Impregnable granite fortress once controlling the world’s only diamond trade (producing Koh-i-Noor and Hope diamonds).",
@@ -1327,7 +1327,7 @@ export const CITIES_DATA = [
           17.4239,
           78.4738
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "8:00 AM - 10:00 PM",
         "fee": "Free (Boat to Buddha statue ₹100)",
         "shortDesc": "Heart-shaped 16th-century lake centered around the world’s tallest single-rock monolithic Buddha statue (18 meters tall).",
@@ -1345,7 +1345,7 @@ export const CITIES_DATA = [
       76.46
     ],
     "tagline": "Surreal granite boulder landscape and ruins of the medieval Vijayanagara Empire.",
-    "heroImage": "https://images.unsplash.com/photo-1600100397608-f010f4438317?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&w=1200&q=80",
     "bestTimeToVisit": "November to February (16°C - 30°C)",
     "bestDuration": "2-3 Days",
     "climate": "Dry sunny days ideal for renting a bicycle and exploring sprawling stone ruins",
@@ -1371,7 +1371,7 @@ export const CITIES_DATA = [
           15.3358,
           76.4602
         ],
-        "image": "https://images.unsplash.com/photo-1600100397608-f010f4438317?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&w=800&q=80",
         "timing": "6:00 AM - 1:00 PM & 5:00 PM - 9:00 PM",
         "fee": "₹25 entry",
         "shortDesc": "The oldest functioning Shiva temple in Hampi with a 50-meter gopuram tower, active since the 7th century CE.",
@@ -1485,7 +1485,7 @@ export const CITIES_DATA = [
           12.6178,
           80.1925
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "World’s largest open-air rock relief measuring 96 by 43 feet, depicting celestial beings, elephants, and monkeys.",
@@ -1590,7 +1590,7 @@ export const CITIES_DATA = [
           12.9763,
           77.5929
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "6:00 AM - 7:00 PM",
         "fee": "Free",
         "shortDesc": "300-acre green lung in central Bengaluru adjacent to the majestic neo-Dravidian state legislature Vidhana Soudha.",
@@ -1662,7 +1662,7 @@ export const CITIES_DATA = [
           10.106,
           77.124
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "9:00 AM - 5:00 PM",
         "fee": "₹10 entry (Speedboats ₹500 - ₹1,000)",
         "shortDesc": "Masonry gravity dam nestled within verdant tea hills, famous for still water boating and natural acoustic echo point.",
@@ -1925,7 +1925,7 @@ export const CITIES_DATA = [
           27.028,
           88.261
         ],
-        "image": "https://images.unsplash.com/photo-1590077428573-683c301a08d6?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "4:30 AM - 7:00 PM",
         "fee": "Free",
         "shortDesc": "White domed Buddhist sanctuary built under Nichidatsu Fujii, enshrining four gold-polished avatars of Lord Buddha.",
@@ -2025,7 +2025,7 @@ export const CITIES_DATA = [
           27.329,
           88.613
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "Open all day (Shops open 10:00 AM - 8:00 PM)",
         "fee": "Free",
         "shortDesc": "Pristine, vehicle-free stone-paved promenade lined with Victorian lampposts, cafes, and mountain souvenir boutiques.",
@@ -2232,7 +2232,7 @@ export const CITIES_DATA = [
           18.94,
           72.8353
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "Open 24 Hours",
         "fee": "Free",
         "shortDesc": "UNESCO World Heritage Italian Gothic railway palace designed by F. W. Stevens, featuring stone gargoyles and stained glass.",
@@ -2337,7 +2337,7 @@ export const CITIES_DATA = [
           15.4925,
           73.7736
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "9:30 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "17th-century Portuguese coastal fortress on Sinquerim beach with a freshwater cistern that supplied passing ships.",
@@ -2456,7 +2456,7 @@ export const CITIES_DATA = [
           23.028,
           72.582
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "6:00 AM - 7:00 PM",
         "fee": "Free",
         "shortDesc": "1573 CE mosque celebrated globally for its ten semi-circular marble screens carved into delicate intertwined tree branches.",
@@ -2484,7 +2484,7 @@ export const CITIES_DATA = [
           23.006,
           72.603
         ],
-        "image": "https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
         "timing": "4:00 AM - 10:00 PM (Closed Mondays)",
         "fee": "₹25 entry",
         "shortDesc": "Circular lake commissioned in 1451 with a central Nagina Wadi garden island, light shows, and tree-lined jogging paths.",
@@ -2588,7 +2588,7 @@ export const CITIES_DATA = [
       73.8567
     ],
     "tagline": "The Cultural Capital of Maharashtra and historical seat of the Maratha Peshwas.",
-    "heroImage": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=80",
     "bestTimeToVisit": "October to March (14°C - 29°C)",
     "bestDuration": "2 Days",
     "climate": "Cool Sahyadri mountain breeze with pleasant sunny winters and green monsoons",
@@ -2619,7 +2619,7 @@ export const CITIES_DATA = [
           18.5196,
           73.8553
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "9:30 AM - 5:30 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Historic 18th-century seven-story palace fort built in 1732 by Peshwa Baji Rao I, with massive teak spike-studded Dilli Darwaza.",
@@ -2693,7 +2693,7 @@ export const CITIES_DATA = [
       75.3433
     ],
     "tagline": "City of Gates and gateway to the UNESCO rock-cut wonders of Ajanta & Ellora.",
-    "heroImage": "https://images.unsplash.com/photo-1590077428573-683c301a08d6?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=80",
     "bestTimeToVisit": "October to March (14°C - 28°C)",
     "bestDuration": "2-3 Days",
     "climate": "Dry, pleasant Deccan plateau climate with cool winter breezes",
@@ -2733,7 +2733,7 @@ export const CITIES_DATA = [
           20.5519,
           75.7033
         ],
-        "image": "https://images.unsplash.com/photo-1590077428573-683c301a08d6?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "9:00 AM - 5:00 PM (Mondays Closed)",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "30 rock-cut Buddhist cave monuments dating from 2nd century BCE, containing master frescoes of the Jataka tales.",
@@ -2761,7 +2761,7 @@ export const CITIES_DATA = [
           19.943,
           75.213
         ],
-        "image": "https://images.unsplash.com/photo-1592635196078-9ffc7f113782?auto=format&fit=crop&w=800&q=80",
+        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "12th-century conical hilltop citadel with ingenious defense mechanisms including pitch-dark mazes (Andhari) and moats.",

@@ -1,7 +1,7 @@
 // ExplorerIQ Image Fallback Utility
 // Provides high-reliability default placeholder images & error handling
 
-export const DEFAULT_TRAVEL_FALLBACK = 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80';
+export const DEFAULT_TRAVEL_FALLBACK = 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80';
 export const DEFAULT_AVATAR_FALLBACK = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80';
 
 /**

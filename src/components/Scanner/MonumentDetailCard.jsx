@@ -69,22 +69,32 @@ export default function MonumentDetailCard({ monument, confidence = 99.2, featur
         <div className="relative z-10">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-md">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Match Confidence: {confidence}%</span>
+              <span className={`px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-md ${
+                monument.isUncatalogued
+                  ? 'bg-amber-500/20 border border-amber-500/40 text-amber-300'
+                  : 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-300'
+              }`}>
+                <ShieldCheck className={`w-3.5 h-3.5 ${monument.isUncatalogued ? 'text-amber-400' : 'text-emerald-400'}`} />
+                <span>{monument.isUncatalogued ? 'Uncatalogued Landmark (Feature Analysis)' : `Match Confidence: ${confidence}%`}</span>
               </span>
-              <span className="px-3 py-1 bg-sky-500/20 border border-sky-500/40 text-sky-300 rounded-full text-xs font-semibold backdrop-blur-md">
-                AI Vision Verified
+              <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md ${
+                monument.isUncatalogued
+                  ? 'bg-purple-500/20 border border-purple-500/40 text-purple-300'
+                  : 'bg-sky-500/20 border border-sky-500/40 text-sky-300'
+              }`}>
+                {monument.isUncatalogued ? 'Architectural Feature Scan' : 'AI Vision Verified'}
               </span>
             </div>
 
-            <button
-              onClick={handleOpenOnMap}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700/80 backdrop-blur-md transition-colors"
-            >
-              <Compass className="w-3.5 h-3.5 text-sky-400" />
-              <span>Locate on Map</span>
-            </button>
+            {!monument.isUncatalogued && (
+              <button
+                onClick={handleOpenOnMap}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700/80 backdrop-blur-md transition-colors"
+              >
+                <Compass className="w-3.5 h-3.5 text-sky-400" />
+                <span>Locate on Map</span>
+              </button>
+            )}
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -102,7 +112,11 @@ export default function MonumentDetailCard({ monument, confidence = 99.2, featur
               <div>
                 <div className="flex items-center gap-2 text-sm text-sky-300 font-medium mb-1">
                   <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                  <span>{monument.city}, {monument.state} • {monument.zone} Zone, {monument.country}</span>
+                  <span>
+                    {monument.isUncatalogued
+                      ? 'Pan-Indian Architectural Study • Uncatalogued Site'
+                      : `${monument.city}, ${monument.state} • ${monument.zone} Zone, ${monument.country}`}
+                  </span>
                 </div>
                 <h1 className="font-display font-black text-2xl sm:text-4xl tracking-tight text-white">
                   {monument.name}
