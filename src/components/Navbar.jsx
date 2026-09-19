@@ -23,6 +23,8 @@ export default function Navbar() {
     setActiveTab, 
     currentCityId, 
     setCurrentCityId, 
+    destinations = [],
+    currentCity,
     bookmarks,
     audioState
   } = useTravel();
@@ -31,7 +33,7 @@ export default function Navbar() {
   const [isBookmarkModalOpen, setIsBookmarkModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const currentCity = CITIES_DATA.find((c) => c.id === currentCityId) || CITIES_DATA[0];
+  const activeCity = currentCity || destinations.find((c) => c.id === currentCityId) || destinations[0] || { name: 'Explore', state: '' };
 
   const navItems = [
     { id: 'explore', label: 'Search & Discover', icon: Search, badge: 'Smart Filter' },
@@ -118,7 +120,7 @@ export default function Navbar() {
                   className="flex items-center gap-2 px-3 py-2 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors"
                 >
                   <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="font-semibold">{currentCity.name}</span>
+                  <span className="font-semibold">{activeCity?.name || 'Explore'}</span>
                   <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                 </button>
 
@@ -128,7 +130,7 @@ export default function Navbar() {
                       Select Destination
                     </p>
                     <div className="max-h-60 overflow-y-auto space-y-1">
-                      {CITIES_DATA.map((city) => (
+                      {destinations.map((city) => (
                         <button
                           key={city.id}
                           onClick={() => {
@@ -231,7 +233,7 @@ export default function Navbar() {
                 }}
                 className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
               >
-                {CITIES_DATA.map((city) => (
+                {destinations.map((city) => (
                   <option key={city.id} value={city.id}>
                     {city.name} ({city.state})
                   </option>

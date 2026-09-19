@@ -21,7 +21,7 @@ const CATEGORY_TAGS = [
 ];
 
 export default function HiddenGems() {
-  const { communityGems, likeGem, destinations: CITIES_DATA = [] } = useTravel();
+  const { communityGems, likeGem, destinations = [] } = useTravel();
   const [selectedTag, setSelectedTag] = useState('All');
   const [cityFilter, setCityFilter] = useState('All');
   const [search, setSearch] = useState('');
@@ -81,7 +81,7 @@ export default function HiddenGems() {
               className="bg-transparent text-xs text-slate-700 font-semibold focus:outline-none"
             >
               <option value="All">All Cities</option>
-              {CITIES_DATA.map((c) => (
+              {destinations.map((c) => (
                 <option key={c.id} value={c.name}>{c.name}</option>
               ))}
             </select>

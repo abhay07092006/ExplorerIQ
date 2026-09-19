@@ -62,7 +62,9 @@ export default function SmartSearchExplorer() {
     openPlaceDrawer,
     toggleBookmark,
     isBookmarked,
-    setActiveTab
+    setActiveTab,
+    destinations = [],
+    allPlaces = []
   } = useTravel();
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -70,7 +72,7 @@ export default function SmartSearchExplorer() {
 
   // Filter destination places matching search query, selected city, and category filters
   const filteredPlaces = useMemo(() => {
-    return ALL_PLACES.filter((place) => {
+    return allPlaces.filter((place) => {
       // City Filter
       const matchesCity = selectedCityFilter === 'all' || place.cityId === selectedCityFilter;
 
@@ -89,16 +91,16 @@ export default function SmartSearchExplorer() {
 
       return matchesCity && matchesCategory && matchesSearch;
     });
-  }, [searchQuery, selectedCityFilter, activeCategories]);
+  }, [allPlaces, searchQuery, selectedCityFilter, activeCategories]);
 
   // Calculate live count per category
   const getCategoryCount = (categoryId) => {
     if (categoryId === 'all') {
-      return ALL_PLACES.filter((p) =>
+      return allPlaces.filter((p) =>
         selectedCityFilter === 'all' || p.cityId === selectedCityFilter
       ).length;
     }
-    return ALL_PLACES.filter((p) => {
+    return allPlaces.filter((p) => {
       const cityMatch = selectedCityFilter === 'all' || p.cityId === selectedCityFilter;
       return cityMatch && p.category === categoryId;
     }).length;
@@ -195,7 +197,7 @@ export default function SmartSearchExplorer() {
             </h2>
           </div>
           <span className="text-xs text-slate-500 font-medium">
-            {CITIES_DATA.length} Cultural Regions
+            {destinations.length} Cultural Regions
           </span>
         </div>
 
@@ -209,10 +211,10 @@ export default function SmartSearchExplorer() {
             }`}
           >
             <Compass className="w-4 h-4 text-sky-400" />
-            <span>All Regions ({ALL_PLACES.length})</span>
+            <span>All Regions ({allPlaces.length})</span>
           </button>
 
-          {CITIES_DATA.map((city) => {
+          {destinations.map((city) => {
             const isSelected = selectedCityFilter === city.id;
             return (
               <button

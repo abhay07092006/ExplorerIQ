@@ -12,11 +12,11 @@ const GEM_CATEGORIES = [
 ];
 
 export default function AddGemModal({ isOpen, onClose }) {
-  const { addCommunityGem, currentCityId } = useTravel();
+  const { addCommunityGem, currentCityId, destinations = [] } = useTravel();
 
   const [title, setTitle] = useState('');
   const [city, setCity] = useState(
-    CITIES_DATA.find((c) => c.id === currentCityId)?.name || 'Agra'
+    () => destinations.find((c) => c.id === currentCityId)?.name || 'Agra'
   );
   const [category, setCategory] = useState(GEM_CATEGORIES[0]);
   const [author, setAuthor] = useState('');
@@ -94,7 +94,7 @@ export default function AddGemModal({ isOpen, onClose }) {
                 onChange={(e) => setCity(e.target.value)}
                 className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
               >
-                {CITIES_DATA.map((c) => (
+                {destinations.map((c) => (
                   <option key={c.id} value={c.name}>
                     {c.name}
                   </option>

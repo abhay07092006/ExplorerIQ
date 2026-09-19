@@ -65,7 +65,7 @@ const BUDGET_TIERS = [
 ];
 
 export default function ItineraryPlanner() {
-  const { currentCityId, setCurrentCityId, openPlaceDrawer, setActiveTab } = useTravel();
+  const { currentCityId, setCurrentCityId, openPlaceDrawer, setActiveTab, destinations = [] } = useTravel();
 
   // Wizard state
   const [selectedDays, setSelectedDays] = useState(3);
@@ -90,21 +90,27 @@ export default function ItineraryPlanner() {
   const [saveSuccessMessage, setSaveSuccessMessage] = useState('');
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
 
-  const city = CITIES_DATA.find((c) => c.id === currentCityId) || CITIES_DATA[0];
+  const city = destinations.find((c) => c.id === currentCityId) || destinations[0] || {
+    id: 'agra',
+    name: 'Agra',
+    state: 'Uttar Pradesh',
+    zone: 'North',
+    places: []
+  };
 
   // Zones available
   const zones = ['All', 'North', 'South', 'East', 'West', 'Central'];
 
   // Filtered cities list
   const filteredCities = useMemo(() => {
-    return CITIES_DATA.filter((c) => {
+    return destinations.filter((c) => {
       const matchesZone = zoneFilter === 'All' || c.zone === zoneFilter;
       const matchesSearch = 
         c.name.toLowerCase().includes(citySearch.toLowerCase()) ||
         c.state.toLowerCase().includes(citySearch.toLowerCase());
       return matchesZone && matchesSearch;
     });
-  }, [zoneFilter, citySearch]);
+  }, [destinations, zoneFilter, citySearch]);
 
   const toggleStyle = (id) => {
     setSelectedStyles((prev) => {
@@ -406,10 +412,10 @@ export default function ItineraryPlanner() {
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div>
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-                Step 1: Destination ({CITIES_DATA.length} Cities Across India)
+                Step 1: Destination ({destinations.length} Cities Across India)
               </span>
               <p className="text-xs text-slate-600 mt-0.5">
-                Current destination: <span className="font-bold text-sky-600">{city.name}, {city.state}</span> ({city.zone} Zone)
+                Current destination: <span className="font-bold text-sky-600">{city?.name || 'Agra'}, {city?.state || 'Uttar Pradesh'}</span> ({city?.zone || 'North'} Zone)
               </p>
             </div>
 

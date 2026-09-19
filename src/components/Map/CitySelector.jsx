@@ -4,7 +4,7 @@ import { useTravel } from '../../context/useTravel';
 import { handleImageError } from '../../utils/imageUtils';
 
 export default function CitySelector() {
-  const { currentCityId, setCurrentCityId, destinations: CITIES_DATA = [] } = useTravel();
+  const { currentCityId, setCurrentCityId, destinations = [] } = useTravel();
 
   return (
     <div className="w-full mb-4">
@@ -16,12 +16,12 @@ export default function CitySelector() {
           </h2>
         </div>
         <span className="text-xs text-slate-500 font-medium">
-          {CITIES_DATA.length} Curated Cultural Regions
+          {destinations.length} Curated Cultural Regions
         </span>
       </div>
 
       <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none snap-x">
-        {CITIES_DATA.map((city) => {
+        {destinations.map((city) => {
           const isSelected = city.id === currentCityId;
           return (
             <button
