@@ -10,10 +10,9 @@ import {
   Sparkles
 } from 'lucide-react';
 import { 
-  getPlaceImage, 
-  fetchWikipediaPlaceImage, 
-  handlePlaceImageError, 
-  generateUniquePlaceSvg 
+  getPlacePhoto, 
+  fetchWikipediaPlacePhoto, 
+  handlePlacePhotoError 
 } from '../../utils/getPlaceImage';
 
 export default function PlaceCard({
@@ -22,17 +21,16 @@ export default function PlaceCard({
   index = 0,
   isBookmarked = false,
   onBookmarkToggle,
-  onOpenDetails,
-  assignedUrls = null
+  onOpenDetails
 }) {
-  const [imageSrc, setImageSrc] = useState(() => getPlaceImage(place, city, index, assignedUrls));
+  const [imageSrc, setImageSrc] = useState(() => getPlacePhoto(place, city, index));
   const [isOfficialWiki, setIsOfficialWiki] = useState(false);
 
-  // Attempt to resolve high-fidelity official photograph via Wikipedia PageImages API
+  // Dynamically resolve authentic official photograph of this specific place
   useEffect(() => {
     let isMounted = true;
 
-    // If place already has an official non-unsplash image, keep it
+    // If place already has an official direct image, keep it
     if (
       place.image &&
       typeof place.image === 'string' &&
@@ -44,13 +42,13 @@ export default function PlaceCard({
 
     async function loadOfficialPhoto() {
       try {
-        const wikiPhoto = await fetchWikipediaPlaceImage(place.name);
+        const wikiPhoto = await fetchWikipediaPlacePhoto(place.name, city);
         if (isMounted && wikiPhoto) {
           setImageSrc(wikiPhoto);
           setIsOfficialWiki(true);
         }
-      } catch (err) {
-        // Fallback remains active
+      } catch {
+        // Fallback authentic photo remains active
       }
     }
 
@@ -59,7 +57,7 @@ export default function PlaceCard({
     return () => {
       isMounted = false;
     };
-  }, [place.name, place.image]);
+  }, [place.name, place.image, city]);
 
   return (
     <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-sky-300 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
@@ -69,7 +67,7 @@ export default function PlaceCard({
           <img
             src={imageSrc}
             alt={place.name}
-            onError={(e) => handlePlaceImageError(e, place, city)}
+            onError={(e) => handlePlacePhotoError(e, place.category, index)}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
@@ -83,7 +81,7 @@ export default function PlaceCard({
             {place.category}
           </span>
 
-          {/* Official Wiki Badge if applicable */}
+          {/* Official Photo Badge */}
           {isOfficialWiki && (
             <span className="absolute bottom-10 left-3 inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-md bg-black/60 text-emerald-300 border border-emerald-500/30 backdrop-blur-sm">
               <Sparkles className="w-2.5 h-2.5" />
