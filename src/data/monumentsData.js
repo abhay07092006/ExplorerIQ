@@ -11,6 +11,11 @@ export const RECOGNIZED_MONUMENTS = [
     "state": "Uttar Pradesh",
     "zone": "North",
     "country": "India",
+    "coordinates": [27.1751, 78.0421],
+    "coordObj": {
+      "lat": 27.1751,
+      "lng": 78.0421
+    },
     "unescoStatus": "UNESCO World Heritage Site (1983) & New 7 Wonders of the World",
     "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg",
     "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg",
@@ -90,6 +95,11 @@ export const RECOGNIZED_MONUMENTS = [
     "state": "Delhi NCR",
     "zone": "North",
     "country": "India",
+    "coordinates": [28.6562, 77.2410],
+    "coordObj": {
+      "lat": 28.6562,
+      "lng": 77.2410
+    },
     "unescoStatus": "UNESCO World Heritage Site (2007)",
     "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Delhi_fort.jpg/1280px-Delhi_fort.jpg",
     "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Delhi_fort.jpg/1280px-Delhi_fort.jpg",
@@ -610,6 +620,11 @@ export const RECOGNIZED_MONUMENTS = [
     "state": "Uttar Pradesh",
     "zone": "North",
     "country": "India",
+    "coordinates": [27.1795, 78.0211],
+    "coordObj": {
+      "lat": 27.1795,
+      "lng": 78.0211
+    },
     "unescoStatus": "UNESCO World Heritage Site (1983)",
     "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/1280px-Agra_03-2016_16_Agra_Fort.jpg",
     "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/1280px-Agra_03-2016_16_Agra_Fort.jpg",

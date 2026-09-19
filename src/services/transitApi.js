@@ -1,8 +1,11 @@
-/**
- * Live Multi-Modal Transit & Routing Service
- * Handles HTML5 Geolocation, OpenStreetMap Nominatim Geocoding,
- * OSRM Road Routing, and Multi-Modal Cost/Time/Carbon Comparison.
- */
+import {
+  calculateHaversineDistance,
+  calculateRoadDistance,
+  fetchLiveRoadRoute,
+  resolveLandmarkLocation,
+  EARTH_RADIUS_KM,
+  DEFAULT_CIRCUITY_FACTOR
+} from '../utils/distanceCalculator.js';
 
 // Metro-enabled cities in India (operational networks)
 const METRO_CITIES = [
@@ -37,21 +40,13 @@ export const hasMetroNetwork = (cityName) => {
   return METRO_CITIES.some((city) => norm.includes(city) || city.includes(norm));
 };
 
-/**
- * Calculate Haversine direct spherical distance between two coordinates in km
- */
-export const calculateHaversineDistance = (lat1, lon1, lat2, lon2) => {
-  const R = 6371; // Earth's radius in km
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return Number((R * c).toFixed(2));
+export {
+  calculateHaversineDistance,
+  calculateRoadDistance,
+  fetchLiveRoadRoute,
+  resolveLandmarkLocation,
+  EARTH_RADIUS_KM,
+  DEFAULT_CIRCUITY_FACTOR
 };
 
 /**
@@ -165,70 +160,33 @@ export const reverseGeocode = async (lat, lng) => {
 /**
  * Calculate driving / road route using Open Source Routing Machine (OSRM)
  * Returns road distance in km, duration in minutes, and polyline coordinates [[lat, lng], ...]
- * Fallback to direct Haversine curve if OSRM is offline or throttled.
+ * Fallback to direct Haversine with Circuity Factor if OSRM is offline or throttled.
  */
-export const calculateRoute = async ({ startCoords, destCoords, mode = 'driving' }) => {
+export const calculateRoute = async ({
+  startCoords,
+  destCoords,
+  mode = 'driving',
+  destinationName = '',
+  cityContext = {}
+}) => {
   if (!startCoords || !destCoords) {
     throw new Error('Start and destination coordinates are required.');
   }
 
-  const { lat: lat1, lng: lon1 } = startCoords;
-  const { lat: lat2, lng: lon2 } = destCoords;
+  let resolvedDest = destCoords;
 
-  try {
-    // OSRM expects coordinates in {lon},{lat} order
-    const osrmUrl = `https://router.project-osrm.org/route/v1/${mode}/${lon1},${lat1};${lon2},${lat2}?overview=full&geometries=geojson`;
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
-
-    const res = await fetch(osrmUrl, { signal: controller.signal });
-    clearTimeout(timeoutId);
-
-    if (res.ok) {
-      const data = await res.json();
-      if (data.routes && data.routes.length > 0) {
-        const route = data.routes[0];
-        const distanceKm = Number((route.distance / 1000).toFixed(2));
-        const durationMinutes = Math.max(1, Math.round(route.duration / 60));
-
-        // Convert [lon, lat] pairs to Leaflet [lat, lon] pairs
-        const polyline = (route.geometry?.coordinates || []).map(([lon, lat]) => [lat, lon]);
-
-        return {
-          success: true,
-          isLiveRoute: true,
-          distanceKm,
-          durationMinutes,
-          polyline: polyline.length > 0 ? polyline : [[lat1, lon1], [lat2, lon2]]
-        };
-      }
+  // Disambiguate destination if name is provided (e.g. Agra Fort vs Delhi Red Fort)
+  if (destinationName) {
+    const disambiguated = resolveLandmarkLocation(destinationName, {
+      startCoords,
+      ...cityContext
+    });
+    if (disambiguated && disambiguated.coordObj) {
+      resolvedDest = disambiguated.coordObj;
     }
-  } catch (err) {
-    console.warn('[transitApi.calculateRoute] OSRM query timed out or failed, using geometric fallback:', err.message);
   }
 
-  // Robust fallback: Haversine distance with 1.3x road curvature factor
-  const straightDist = calculateHaversineDistance(lat1, lon1, lat2, lon2);
-  const roadDist = Number((straightDist * 1.3).toFixed(2));
-  const avgSpeedKmh = 30;
-  const fallbackDuration = Math.max(2, Math.round((roadDist / avgSpeedKmh) * 60));
-
-  // Generate a smooth intermediate waypoint for visual polyline
-  const midLat = (lat1 + lat2) / 2 + 0.003;
-  const midLng = (lon1 + lon2) / 2 - 0.003;
-
-  return {
-    success: true,
-    isLiveRoute: false,
-    distanceKm: roadDist,
-    durationMinutes: fallbackDuration,
-    polyline: [
-      [lat1, lon1],
-      [midLat, midLng],
-      [lat2, lon2]
-    ]
-  };
+  return await fetchLiveRoadRoute(startCoords, resolvedDest, true);
 };
 
 /**

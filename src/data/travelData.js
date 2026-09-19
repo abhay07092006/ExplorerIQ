@@ -98,7 +98,7 @@ export const CITIES_DATA = [
       },
       {
         "id": "delhi-red-fort",
-        "name": "Red Fort (Lal Qila)",
+        "name": "Red Fort (Lal Qila, Delhi)",
         "city": "Old Delhi",
         "state": "Delhi",
         "category": "heritage",
@@ -278,7 +278,7 @@ export const CITIES_DATA = [
       },
       {
         "id": "agra-fort",
-        "name": "Agra Fort (Lal Qila)",
+        "name": "Agra Fort (Agra Red Fort)",
         "city": "Agra",
         "state": "Uttar Pradesh",
         "category": "heritage",

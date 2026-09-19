@@ -83,6 +83,21 @@ export default function RoutePlanner({
     return destination?.cityName || destination?.city || currentCity?.name || 'Jaipur';
   }, [destination, currentCity]);
 
+  // Group places for intuitive selector
+  const currentCityPlaces = useMemo(() => {
+    return allPlaces.filter((p) => {
+      const pCity = (p.cityName || p.city || '').toLowerCase();
+      return pCity.includes(destCityName.toLowerCase()) || destCityName.toLowerCase().includes(pCity);
+    });
+  }, [allPlaces, destCityName]);
+
+  const otherPlaces = useMemo(() => {
+    return allPlaces.filter((p) => {
+      const pCity = (p.cityName || p.city || '').toLowerCase();
+      return !pCity.includes(destCityName.toLowerCase()) && !destCityName.toLowerCase().includes(pCity);
+    });
+  }, [allPlaces, destCityName]);
+
   // Trigger browser GPS on initial open if no startCoords
   useEffect(() => {
     if (isOpen && !startCoords && !isManualStart) {
@@ -164,7 +179,12 @@ export default function RoutePlanner({
       .calculateRoute({
         startCoords,
         destCoords,
-        mode: 'driving'
+        mode: 'driving',
+        destinationName: destination?.name,
+        cityContext: {
+          city: destCityName,
+          startCoords
+        }
       })
       .then((res) => {
         if (!isCancelled) {
@@ -183,15 +203,43 @@ export default function RoutePlanner({
     return () => {
       isCancelled = true;
     };
-  }, [startCoords, destCoords, isOpen]);
+  }, [startCoords, destCoords, isOpen, destination?.name, destCityName]);
 
   // Compute Multi-Modal Comparison Matrix
   const multiModal = useMemo(() => {
     const dist = routeData?.distanceKm || (startCoords && destCoords
-      ? transitApi.calculateHaversineDistance(startCoords.lat, startCoords.lng, destCoords.lat, destCoords.lng) * 1.3
+      ? transitApi.calculateRoadDistance(startCoords.lat, startCoords.lng, destCoords.lat, destCoords.lng)
       : 5);
     return transitApi.calculateMultiModalEstimates(dist, destCityName);
   }, [routeData, startCoords, destCoords, destCityName]);
+
+  // Check for potential Red Fort (Delhi) vs Agra Fort (Agra) confusion
+  const regionalMismatchNotice = useMemo(() => {
+    if (!startCoords || !destination) return null;
+
+    const isStartInAgra = transitApi.calculateHaversineDistance(startCoords.lat, startCoords.lng, 27.1751, 78.0421) < 50;
+    const isStartInDelhi = transitApi.calculateHaversineDistance(startCoords.lat, startCoords.lng, 28.6139, 77.2090) < 50;
+
+    if (isStartInAgra && destination.id === 'delhi-red-fort') {
+      const agraFortPlace = allPlaces.find(p => p.id === 'agra-fort');
+      return {
+        message: 'You selected Red Fort in Delhi (~210 km from Agra).',
+        suggestionText: 'Switch to Agra Fort (Agra Red Fort) ~2.5 km away',
+        targetPlace: agraFortPlace
+      };
+    }
+
+    if (isStartInDelhi && destination.id === 'agra-fort') {
+      const delhiRedFortPlace = allPlaces.find(p => p.id === 'delhi-red-fort');
+      return {
+        message: 'You selected Agra Fort in Agra (~210 km from Delhi).',
+        suggestionText: 'Switch to Red Fort (Delhi Lal Qila) ~12 km away',
+        targetPlace: delhiRedFortPlace
+      };
+    }
+
+    return null;
+  }, [startCoords, destination, allPlaces]);
 
   // Initialize and update Leaflet Map
   useEffect(() => {
@@ -431,11 +479,24 @@ export default function RoutePlanner({
                 }}
                 className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-sky-500 focus:border-sky-500 shadow-xs"
               >
-                {allPlaces.map((place) => (
-                  <option key={place.id} value={place.id}>
-                    {place.name} ({place.cityName || place.city})
-                  </option>
-                ))}
+                {currentCityPlaces.length > 0 && (
+                  <optgroup label={`📍 Monuments in ${destCityName}`}>
+                    {currentCityPlaces.map((place) => (
+                      <option key={place.id} value={place.id}>
+                        {place.name} ({place.cityName || place.city})
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
+                {otherPlaces.length > 0 && (
+                  <optgroup label="🌐 Other Landmarks Across India">
+                    {otherPlaces.map((place) => (
+                      <option key={place.id} value={place.id}>
+                        {place.name} ({place.cityName || place.city})
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
               </select>
 
               {destination && (
@@ -448,6 +509,27 @@ export default function RoutePlanner({
               )}
             </div>
           </div>
+
+          {/* Regional Mismatch Alert Banner (e.g. Red Fort Delhi vs Agra Fort) */}
+          {regionalMismatchNotice && (
+            <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-amber-900 animate-in fade-in">
+              <div className="flex items-start sm:items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5 sm:mt-0" />
+                <span>
+                  {regionalMismatchNotice.message}{' '}
+                  <strong>Did you mean {regionalMismatchNotice.suggestionText}?</strong>
+                </span>
+              </div>
+              {regionalMismatchNotice.targetPlace && (
+                <button
+                  onClick={() => setDestination(regionalMismatchNotice.targetPlace)}
+                  className="px-3.5 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-[11px] whitespace-nowrap shadow-xs transition-colors self-end sm:self-auto"
+                >
+                  Switch Destination
+                </button>
+              )}
+            </div>
+          )}
 
           {/* Route Overview & Distance Banner */}
           <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
