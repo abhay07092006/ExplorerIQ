@@ -13,7 +13,8 @@ import {
   ShieldCheck,
   X,
   Upload,
-  Send
+  Send,
+  Trash2
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
 import { DEFAULT_HIDDEN_GEMS } from '../../data/hiddenGemsData';
@@ -85,13 +86,36 @@ export default function HiddenGems() {
   useEffect(() => {
     try {
       const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
-      const merged = [...savedGems];
+      const deletedIds = JSON.parse(localStorage.getItem('explorer_deleted_gems') || '[]');
+
+      // Clean saved gems that were marked as deleted
+      const activeSaved = savedGems.filter(s => !deletedIds.includes(s.id));
+
+      // Build merged list:
+      // If a default gem has updated image/details, sync it unless it was deleted
+      const merged = [...activeSaved];
       for (const def of DEFAULT_HIDDEN_GEMS) {
-        if (!merged.some(s => s.id === def.id || (s.title && s.title.toLowerCase() === def.title.toLowerCase()))) {
+        if (deletedIds.includes(def.id)) continue;
+        const existingIdx = merged.findIndex(
+          s => s.id === def.id || (s.title && s.title.toLowerCase() === def.title.toLowerCase())
+        );
+        if (existingIdx >= 0) {
+          // Sync with latest verified image, title, and city from DEFAULT_HIDDEN_GEMS
+          merged[existingIdx] = {
+            ...merged[existingIdx],
+            image: def.image,
+            imageUrl: def.imageUrl,
+            title: def.title,
+            city: def.city,
+            category: def.category
+          };
+        } else {
           merged.push(def);
         }
       }
+
       setSecrets(merged);
+      localStorage.setItem('explorer_hidden_gems', JSON.stringify(merged));
     } catch (_err) {
       setSecrets(DEFAULT_HIDDEN_GEMS);
     } finally {
@@ -149,6 +173,80 @@ export default function HiddenGems() {
     // Close modal & reset form
     setIsModalOpen(false);
     resetForm();
+  };
+
+  // 4. Delete Gem Option (Card Level)
+  const handleDeleteGem = (gemId, e) => {
+    if (e) e.stopPropagation();
+    if (!window.confirm('Are you sure you want to delete this secret from the community feed?')) return;
+
+    // Update React state
+    setSecrets(prev => prev.filter(g => g.id !== gemId));
+
+    // Remove from saved localStorage gems
+    try {
+      const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
+      const updated = savedGems.filter(g => g.id !== gemId);
+      localStorage.setItem('explorer_hidden_gems', JSON.stringify(updated));
+
+      // Track deleted IDs so default items don't re-appear
+      const deletedIds = JSON.parse(localStorage.getItem('explorer_deleted_gems') || '[]');
+      if (!deletedIds.includes(gemId)) {
+        localStorage.setItem('explorer_deleted_gems', JSON.stringify([...deletedIds, gemId]));
+      }
+    } catch (_e) {}
+  };
+
+  // 5. Delete Individual Review Option (Inside Accordion)
+  const handleDeleteReview = (gemId, reviewId) => {
+    setSecrets(prev => {
+      const updated = prev.map(g => {
+        if (g.id === gemId) {
+          const newReviews = (g.reviews || []).filter(r => r.id !== reviewId);
+          const newTotal = newReviews.length;
+          const newAvg = newTotal > 0
+            ? parseFloat((newReviews.reduce((sum, r) => sum + (r.rating || 5), 0) / newTotal).toFixed(1))
+            : 5.0;
+
+          return {
+            ...g,
+            reviews: newReviews,
+            totalReviews: newTotal,
+            reviewsCount: newTotal,
+            averageRating: newAvg,
+            rating: newAvg
+          };
+        }
+        return g;
+      });
+
+      // Sync to localStorage
+      try {
+        const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
+        const updatedSaved = savedGems.map(s => {
+          if (s.id === gemId) {
+            const newReviews = (s.reviews || []).filter(r => r.id !== reviewId);
+            const newTotal = newReviews.length;
+            const newAvg = newTotal > 0
+              ? parseFloat((newReviews.reduce((sum, r) => sum + (r.rating || 5), 0) / newTotal).toFixed(1))
+              : 5.0;
+
+            return {
+              ...s,
+              reviews: newReviews,
+              totalReviews: newTotal,
+              reviewsCount: newTotal,
+              averageRating: newAvg,
+              rating: newAvg
+            };
+          }
+          return s;
+        });
+        localStorage.setItem('explorer_hidden_gems', JSON.stringify(updatedSaved));
+      } catch (_e) {}
+
+      return updated;
+    });
   };
 
   // Upvote / Like Handler with LocalStorage Persistence
@@ -378,17 +476,17 @@ export default function HiddenGems() {
           return (
             <div
               key={gem.id}
-              className="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group relative"
             >
               <div>
-                {/* Header: Author & Date */}
+                {/* Header: Author & Date with City Badge and Delete Icon */}
                 <div className="flex items-center justify-between gap-3 mb-3.5">
                   <div className="flex items-center gap-2.5">
                     <img
                       src={displayAvatar}
                       alt={displayAuthor}
                       onError={(e) => handleImageError(e, DEFAULT_AVATAR_FALLBACK)}
-                      className="w-9 h-9 rounded-full object-cover border border-slate-200"
+                      className="w-9 h-9 rounded-full object-cover border border-slate-200 flex-shrink-0"
                     />
                     <div>
                       <h4 className="font-bold text-xs text-slate-900 leading-tight">
@@ -398,9 +496,18 @@ export default function HiddenGems() {
                     </div>
                   </div>
 
-                  <span className="px-2.5 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded-md text-[10px] font-bold">
-                    {gem.city}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="px-2.5 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded-md text-[10px] font-bold">
+                      {gem.city}
+                    </span>
+                    <button
+                      onClick={(e) => handleDeleteGem(gem.id, e)}
+                      className="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                      title="Delete Secret"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
 
                 {/* Rating & Tag Row */}
@@ -417,7 +524,7 @@ export default function HiddenGems() {
                   </div>
                 </div>
 
-                {/* Gem Authentic Photo */}
+                {/* Gem Authentic Photo matching exact title & place */}
                 {displayImage && (
                   <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3 border border-slate-100 bg-slate-100">
                     <img
@@ -438,7 +545,7 @@ export default function HiddenGems() {
                   {gem.description}
                 </p>
 
-                {/* Expandable Reviews Accordion */}
+                {/* Expandable Reviews Accordion with Delete Review Option */}
                 {gem.reviews && gem.reviews.length > 0 && (
                   <div className="border-t border-slate-100 pt-2.5 mb-3">
                     <button
@@ -455,7 +562,7 @@ export default function HiddenGems() {
                     {isReviewsExpanded && (
                       <div className="mt-2 space-y-2 max-h-48 overflow-y-auto pr-1">
                         {gem.reviews.map((rev) => (
-                          <div key={rev.id} className="p-2.5 bg-slate-50 border border-slate-100 rounded-xl text-xs space-y-1">
+                          <div key={rev.id} className="p-2.5 bg-slate-50 border border-slate-100 rounded-xl text-xs space-y-1 relative group/rev">
                             <div className="flex items-center justify-between">
                               <span className="font-bold text-slate-800 text-[11px] flex items-center gap-1">
                                 {rev.author}
@@ -463,10 +570,20 @@ export default function HiddenGems() {
                                   <ShieldCheck className="w-3 h-3 text-emerald-500 inline" title="Verified Traveler" />
                                 )}
                               </span>
-                              <div className="flex items-center gap-0.5">
-                                {[...Array(rev.rating || 5)].map((_, i) => (
-                                  <Star key={i} className="w-2.5 h-2.5 text-amber-400 fill-amber-400" />
-                                ))}
+                              <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-0.5">
+                                  {[...Array(rev.rating || 5)].map((_, i) => (
+                                    <Star key={i} className="w-2.5 h-2.5 text-amber-400 fill-amber-400" />
+                                  ))}
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteReview(gem.id, rev.id)}
+                                  className="text-slate-400 hover:text-rose-600 p-0.5 rounded transition-colors"
+                                  title="Delete this review"
+                                >
+                                  <Trash2 className="w-3 h-3" />
+                                </button>
                               </div>
                             </div>
                             <p className="text-[11px] text-slate-600">{rev.comment}</p>
@@ -482,7 +599,7 @@ export default function HiddenGems() {
                 )}
               </div>
 
-              {/* Footer Actions: Upvote & Write Review */}
+              {/* Footer Actions: Upvote, Write Review, Delete Card */}
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                 <button
                   onClick={() => handleLike(gem.id)}
@@ -496,13 +613,24 @@ export default function HiddenGems() {
                   <span>{gem.likes || 0}</span>
                 </button>
 
-                <button
-                  onClick={() => handleOpenReviewModal(gem)}
-                  className="flex items-center gap-1 px-3 py-1.5 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded-xl text-xs font-bold transition-colors"
-                >
-                  <Star className="w-3 h-3 text-sky-600" />
-                  <span>Rate & Review</span>
-                </button>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => handleOpenReviewModal(gem)}
+                    className="flex items-center gap-1 px-3 py-1.5 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded-xl text-xs font-bold transition-colors"
+                  >
+                    <Star className="w-3 h-3 text-sky-600" />
+                    <span>Rate & Review</span>
+                  </button>
+
+                  <button
+                    onClick={(e) => handleDeleteGem(gem.id, e)}
+                    className="flex items-center gap-1 px-2.5 py-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-xl text-xs font-semibold transition-colors"
+                    title="Delete this secret"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Delete</span>
+                  </button>
+                </div>
               </div>
             </div>
           );
