@@ -12,7 +12,8 @@ import {
   Compass, 
   CalendarPlus,
   Info,
-  Lightbulb
+  Lightbulb,
+  Navigation
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
 import { handleImageError } from '../../utils/imageUtils';
@@ -34,7 +35,8 @@ export default function PlaceDrawer() {
     isBookmarked,
     playAudio,
     currentCity,
-    setActiveTab
+    setActiveTab,
+    openRoutePlanner
   } = useTravel();
 
   const [liveEateries, setLiveEateries] = useState(null);
@@ -141,20 +143,31 @@ export default function PlaceDrawer() {
           </div>
 
           {/* Quick Action Bar */}
-          <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-3">
+          <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
             <button
               onClick={handlePlayAudio}
-              className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white rounded-xl text-xs font-bold shadow-md shadow-sky-500/20 transition-all"
+              className="flex-1 min-w-[120px] flex items-center justify-center gap-1.5 px-3 py-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white rounded-xl text-xs font-bold shadow-md shadow-sky-500/20 transition-all"
             >
               <Volume2 className="w-4 h-4" />
-              <span>Listen Audio Guide</span>
+              <span>Audio Guide</span>
+            </button>
+            <button
+              onClick={() => {
+                closePlaceDrawer();
+                openRoutePlanner && openRoutePlanner(selectedPlace);
+              }}
+              className="flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-colors shadow-xs"
+              title="Get Directions & Route Options"
+            >
+              <Navigation className="w-3.5 h-3.5 text-sky-400" />
+              <span>Plan Route</span>
             </button>
             <button
               onClick={() => {
                 closePlaceDrawer();
                 setActiveTab('planner');
               }}
-              className="flex items-center justify-center gap-1.5 px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold transition-colors"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold transition-colors"
             >
               <CalendarPlus className="w-3.5 h-3.5 text-amber-500" />
               <span>Add to Plan</span>

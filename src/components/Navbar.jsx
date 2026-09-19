@@ -10,7 +10,8 @@ import {
   ChevronDown, 
   Menu, 
   X, 
-  Volume2
+  Volume2,
+  Navigation
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
 
@@ -26,7 +27,8 @@ export default function Navbar() {
     destinations = [],
     currentCity,
     bookmarks,
-    audioState
+    audioState,
+    openRoutePlanner
   } = useTravel();
 
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
@@ -160,6 +162,16 @@ export default function Navbar() {
                 )}
               </div>
 
+              {/* Route Planner Quick Button */}
+              <button
+                onClick={() => openRoutePlanner && openRoutePlanner(null)}
+                className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-sky-500/15 to-blue-500/15 hover:from-sky-500/25 hover:to-blue-500/25 border border-sky-500/30 rounded-xl text-xs font-semibold text-sky-300 hover:text-white transition-all shadow-xs"
+                title="Live Multi-Modal Transit & Route Planner"
+              >
+                <Navigation className="w-3.5 h-3.5 text-sky-400" />
+                <span className="hidden lg:inline">Route Planner</span>
+              </button>
+
               {/* Bookmarks Counter Button */}
               <button
                 onClick={() => setIsBookmarkModalOpen(true)}
@@ -219,6 +231,18 @@ export default function Navbar() {
                 );
               })}
             </div>
+
+            {/* Mobile Route Planner Button */}
+            <button
+              onClick={() => {
+                openRoutePlanner && openRoutePlanner(null);
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full p-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-sky-500/20"
+            >
+              <Navigation className="w-4 h-4" />
+              <span>Open Live Route & Transit Planner</span>
+            </button>
 
             {/* Mobile Destination Selector */}
             <div className="pt-2">

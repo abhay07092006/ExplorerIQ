@@ -85,6 +85,10 @@ export function TravelProvider({ children }) {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [isPlaceDrawerOpen, setIsPlaceDrawerOpen] = useState(false);
 
+  // Multi-Modal Route Planner State
+  const [routeDestination, setRouteDestination] = useState(null);
+  const [isRoutePlannerOpen, setIsRoutePlannerOpen] = useState(false);
+
   // Bookmarks with local persistence
   const [bookmarks, setBookmarks] = useState(() => {
     try {
@@ -141,6 +145,15 @@ export function TravelProvider({ children }) {
 
   const closePlaceDrawer = () => {
     setIsPlaceDrawerOpen(false);
+  };
+
+  const openRoutePlanner = (place = null) => {
+    setRouteDestination(place);
+    setIsRoutePlannerOpen(true);
+  };
+
+  const closeRoutePlanner = () => {
+    setIsRoutePlannerOpen(false);
   };
 
   // AI Monument Scanner State (Powered by POST /api/v1/monuments/identify)
@@ -376,6 +389,11 @@ export function TravelProvider({ children }) {
         isPlaceDrawerOpen,
         openPlaceDrawer,
         closePlaceDrawer,
+        routeDestination,
+        setRouteDestination,
+        isRoutePlannerOpen,
+        openRoutePlanner,
+        closeRoutePlanner,
         bookmarks,
         toggleBookmark,
         isBookmarked,

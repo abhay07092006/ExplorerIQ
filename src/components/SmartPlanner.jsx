@@ -30,7 +30,8 @@ import {
   TrendingDown,
   Coins,
   ShieldAlert,
-  Percent
+  Percent,
+  Navigation
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
 import { handleImageError } from '../utils/imageUtils';
@@ -53,6 +54,7 @@ export default function SmartPlanner() {
     setCurrentCityId, 
     destinations = [], 
     openPlaceDrawer,
+    openRoutePlanner,
     plannerParams,
     setPlannerParams,
     plannerResult,
@@ -971,13 +973,24 @@ export default function SmartPlanner() {
                           </div>
 
                           {slot.place && (
-                            <button
-                              onClick={() => openPlaceDrawer(slot.place)}
-                              className="mt-2 text-[11px] font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1"
-                            >
-                              <span>View details & photos</span>
-                              <ArrowRight className="w-3 h-3" />
-                            </button>
+                            <div className="mt-2 flex items-center justify-between gap-2">
+                              <button
+                                onClick={() => openPlaceDrawer(slot.place)}
+                                className="text-[11px] font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1"
+                              >
+                                <span>View details</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </button>
+
+                              <button
+                                onClick={() => openRoutePlanner && openRoutePlanner(slot.place)}
+                                className="text-[11px] font-bold text-slate-700 hover:text-sky-600 flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 hover:bg-sky-50 transition-colors"
+                                title="Plan Route & Transit to Stop"
+                              >
+                                <Navigation className="w-3 h-3 text-sky-500" />
+                                <span>Directions</span>
+                              </button>
+                            </div>
                           )}
                         </div>
                       );

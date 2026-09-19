@@ -6,10 +6,17 @@ import MonumentScanner from './components/Scanner/MonumentScanner';
 import SmartPlanner from './components/SmartPlanner';
 import HiddenGems from './components/Gems/HiddenGems';
 import AudioGuidePlayer from './components/Common/AudioGuidePlayer';
+import RoutePlanner from './components/RoutePlanner';
 import { Compass } from 'lucide-react';
 
 function AppContent() {
-  const { activeTab, setActiveTab } = useTravel();
+  const { 
+    activeTab, 
+    setActiveTab, 
+    isRoutePlannerOpen, 
+    closeRoutePlanner, 
+    routeDestination 
+  } = useTravel();
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900 selection:bg-sky-500 selection:text-white">
@@ -23,6 +30,13 @@ function AppContent() {
         {activeTab === 'planner' && <SmartPlanner />}
         {activeTab === 'gems' && <HiddenGems />}
       </main>
+
+      {/* Live Multi-Modal Route Planner Modal */}
+      <RoutePlanner
+        isOpen={isRoutePlannerOpen}
+        onClose={closeRoutePlanner}
+        initialDestination={routeDestination}
+      />
 
       {/* Persistent Audio Tour Guide Floating Bar */}
       <AudioGuidePlayer />
