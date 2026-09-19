@@ -18,16 +18,29 @@ import {
 } from '../controllers/destinationController.js';
 
 import {
-  getCommunityGems,
-  createCommunityGem,
-  addGemReview,
-  likeCommunityGem
+  getGems,
+  createGem,
+  upvoteGem
+} from '../controllers/gemsController.js';
+
+import {
+  addGemReview
 } from '../controllers/gemController.js';
 
 import {
   getHotelPricing,
   getMonumentPricing
 } from '../controllers/pricingController.js';
+
+import {
+  generateItinerary,
+  saveItinerary,
+  getItineraryById
+} from '../controllers/plannerController.js';
+
+import {
+  calculateRoute
+} from '../controllers/routeController.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -58,29 +71,47 @@ router.get('/health', (req, res) => {
   res.json({
     status: 'online',
     platform: 'ExplorerIQ REST API Engine',
-    version: 'v1.1.0',
+    version: 'v2.0.0',
     timestamp: new Date().toISOString()
   });
 });
 
-// Monuments API
+// ==========================================
+// 1. SMART PLANNER API
+// ==========================================
+router.post('/planner/generate', generateItinerary);
+router.post('/planner/save', saveItinerary);
+router.get('/planner/itineraries/:id', getItineraryById);
+
+// ==========================================
+// 2. ROUTE PLANNER & TRANSIT API
+// ==========================================
+router.post('/route/calculate', calculateRoute);
+
+// ==========================================
+// 3. COMMUNITY HIDDEN GEMS API
+// ==========================================
+router.get('/gems', getGems);
+router.post('/gems', createGem);
+router.post('/gems/create', createGem);
+router.post('/gems/:id/upvote', upvoteGem);
+router.post('/gems/:id/like', upvoteGem);
+router.post('/gems/:id/reviews', addGemReview);
+
+// ==========================================
+// 4. MONUMENTS & AI RECOGNITION API
+// ==========================================
 router.post('/monuments/identify', upload.single('image'), identifyMonument);
 router.get('/monuments/samples', getSampleMonuments);
 router.get('/monuments/:id', getMonumentById);
 router.get('/monuments', getAllMonuments);
 
-// Destinations & Places API
+// ==========================================
+// 5. DESTINATIONS & PRICING API
+// ==========================================
 router.get('/destinations', getDestinations);
 router.get('/destinations/:id', getDestinationById);
 router.get('/places/nearby', getNearbyEateries);
-
-// Community Gems & Reviews API
-router.get('/gems', getCommunityGems);
-router.post('/gems', createCommunityGem);
-router.post('/gems/:id/reviews', addGemReview);
-router.post('/gems/:id/like', likeCommunityGem);
-
-// Live Pricing & Verified Monument Fees API
 router.get('/pricing/hotels', getHotelPricing);
 router.get('/pricing/monuments', getMonumentPricing);
 
