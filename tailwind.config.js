@@ -7,52 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        charcoal: {
-          base: '#0B0F14',
-          card: '#121824',
-          elevated: '#1A2232',
-          surface: '#161E2C',
-          border: '#232E42',
-          subtle: '#2A374E'
-        },
-        gold: {
-          DEFAULT: '#D4AF37',
-          light: '#F5D061',
-          amber: '#F59E0B',
-          bright: '#FBBF24',
-          dark: '#AA820A',
-          muted: '#8A7129'
-        },
-        saffron: {
-          DEFAULT: '#FF7722',
-          warm: '#EA580C',
-          dark: '#C2410C',
-          glow: '#FB923C'
-        },
-        sand: {
-          50: '#FDFBF7',
-          100: '#F5F0E6',
-          200: '#E6DCB8',
-          300: '#C8BA96',
-          400: '#94A3B8',
-          500: '#64748B'
-        },
         brand: {
-          navy: '#0B0F14',
-          dark: '#070A0E',
-          teal: '#D4AF37',
-          cyan: '#F59E0B',
+          navy: '#0F172A',
+          dark: '#090D16',
+          teal: '#0EA5E9',
+          cyan: '#06B6D4',
           amber: '#F59E0B',
-          sunset: '#FF7722',
+          sunset: '#EA580C',
           emerald: '#10B981',
-          cream: '#0B0F14',
+          cream: '#F8FAFC',
         }
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
-        editorial: ['"Playfair Display"', 'Georgia', 'serif'],
-        display: ['"Cinzel"', '"Playfair Display"', 'serif'],
+        display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
       },
       animation: {
         'scanner-laser': 'laser 2s ease-in-out infinite',

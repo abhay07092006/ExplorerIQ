@@ -370,21 +370,21 @@ export default function ItineraryPlanner() {
       
       {/* Top Banner */}
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-serif font-bold mb-2">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-xs font-bold mb-2">
           <CalendarDays className="w-4 h-4 text-amber-500" />
           <span>Smart Automated Multi-Day Travel Planner</span>
         </div>
-        <h1 className="font-serif font-bold text-2xl sm:text-4xl text-[#E2D9CC] tracking-tight">
+        <h1 className="font-display font-black text-2xl sm:text-4xl text-slate-900 tracking-tight">
           AI Smart Travel Itinerary Planner
         </h1>
-        <p className="text-xs sm:text-sm text-slate-400 font-sans mt-2">
+        <p className="text-sm text-slate-600 mt-2">
           Generate hour-by-hour schedules, travel time estimates, entry fee breakdowns, and live expense calculations across India's top 29 destinations.
         </p>
       </div>
 
       {/* Saved Trip Notification Toast */}
       {saveSuccessMessage && (
-        <div className="max-w-md mx-auto p-3.5 bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-bold rounded-2xl flex items-center justify-between shadow-md animate-in fade-in slide-in-from-top-2">
+        <div className="max-w-md mx-auto p-3.5 bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold rounded-2xl flex items-center justify-between shadow-md animate-in fade-in slide-in-from-top-2">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
             <span>{saveSuccessMessage}</span>
@@ -399,23 +399,23 @@ export default function ItineraryPlanner() {
       )}
 
       {/* Configuration Wizard Panel */}
-      <div className="bg-[#121824] rounded-3xl border border-amber-500/30 p-6 sm:p-8 shadow-2xl max-w-4xl mx-auto space-y-8">
+      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xl max-w-4xl mx-auto space-y-8">
         
         {/* Step 1: Destination Selection (29 Destinations with Quick Zones) */}
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div>
-              <span className="text-xs font-serif font-bold text-amber-400 uppercase tracking-wider block">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
                 Step 1: Destination ({CITIES_DATA.length} Cities Across India)
               </span>
-              <p className="text-xs text-slate-400 mt-0.5 font-sans">
-                Current destination: <span className="font-serif font-bold text-amber-400">{city.name}, {city.state}</span> ({city.zone} Zone)
+              <p className="text-xs text-slate-600 mt-0.5">
+                Current destination: <span className="font-bold text-sky-600">{city.name}, {city.state}</span> ({city.zone} Zone)
               </p>
             </div>
 
             <button
               onClick={() => setIsCitySelectorOpen(!isCitySelectorOpen)}
-              className="flex items-center gap-1 px-3 py-1.5 bg-[#1A2232] hover:bg-[#222C3E] text-amber-300 border border-amber-500/30 rounded-xl text-xs font-serif font-bold transition-colors cursor-pointer"
+              className="flex items-center gap-1 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors"
             >
               <span>{isCitySelectorOpen ? 'Close City Grid' : 'Browse All Cities'}</span>
               {isCitySelectorOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -423,7 +423,7 @@ export default function ItineraryPlanner() {
           </div>
 
           {/* Quick Active City Banner */}
-          <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 bg-[#0B0F14] text-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+          <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 text-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
             <div className="absolute inset-0 z-0 opacity-30">
               <img
                 src={city.heroImage}
@@ -457,7 +457,7 @@ export default function ItineraryPlanner() {
 
           {/* Expandable Destination Picker */}
           {isCitySelectorOpen && (
-            <div className="mt-4 p-4 rounded-2xl bg-[#0B0F14] border border-amber-500/20 space-y-3 animate-in fade-in duration-200">
+            <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 animate-in fade-in duration-200">
               {/* Search & Zone Filter Bar */}
               <div className="flex flex-col sm:flex-row items-center gap-2.5">
                 <div className="relative flex-1 w-full">
@@ -467,7 +467,7 @@ export default function ItineraryPlanner() {
                     value={citySearch}
                     onChange={(e) => setCitySearch(e.target.value)}
                     placeholder="Search city, state (e.g. Jaipur, Varanasi, Kerala)..."
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-amber-500/30 bg-[#1A2232] text-[#E2D9CC] placeholder-slate-400 focus:outline-none focus:border-amber-400"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-white focus:outline-hidden focus:border-sky-500"
                   />
                 </div>
 
@@ -478,8 +478,8 @@ export default function ItineraryPlanner() {
                       onClick={() => setZoneFilter(z)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
                         zoneFilter === z
-                          ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-serif font-bold'
-                          : 'bg-[#1A2232] border border-amber-500/20 text-slate-400 hover:text-amber-300'
+                          ? 'bg-slate-900 text-white'
+                          : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
                       }`}
                     >
                       {z}
@@ -499,8 +499,8 @@ export default function ItineraryPlanner() {
                     }}
                     className={`p-2 rounded-xl border text-left transition-all flex items-center gap-2 ${
                       c.id === currentCityId
-                        ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-serif font-bold border-amber-400 shadow-sm'
-                        : 'bg-[#1A2232] text-slate-300 border border-amber-500/20 hover:border-amber-500/40'
+                        ? 'bg-sky-500 text-white border-sky-500 shadow-sm'
+                        : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
                     }`}
                   >
                     <div className="w-7 h-7 rounded-lg overflow-hidden flex-shrink-0 bg-slate-200">
@@ -526,7 +526,7 @@ export default function ItineraryPlanner() {
 
         {/* Step 2: Trip Duration (1, 2, 3, 5, 7 Days) */}
         <div>
-          <label className="text-xs font-serif font-bold text-amber-400 uppercase tracking-wider block mb-2.5">
+          <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
             Step 2: Trip Duration
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
@@ -536,17 +536,17 @@ export default function ItineraryPlanner() {
                 onClick={() => setSelectedDays(opt.days)}
                 className={`p-3.5 rounded-2xl border text-left transition-all ${
                   selectedDays === opt.days
-                    ? 'border-amber-400 bg-amber-500/15 ring-2 ring-amber-400/30 shadow-md text-[#E2D9CC]'
-                    : 'border-amber-500/20 bg-[#1A2232] hover:border-amber-500/40 text-slate-400'
+                    ? 'border-sky-500 bg-sky-50/70 ring-2 ring-sky-500/20 shadow-sm'
+                    : 'border-slate-200 bg-slate-50 hover:bg-slate-100/80'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-lg">{opt.icon}</span>
                   {selectedDays === opt.days && (
-                    <span className="w-2 h-2 rounded-full bg-amber-400" />
+                    <span className="w-2 h-2 rounded-full bg-sky-500" />
                   )}
                 </div>
-                <span className="font-serif font-bold text-sm text-[#E2D9CC] block">
+                <span className="font-extrabold text-sm text-slate-900 block">
                   {opt.label}
                 </span>
                 <span className="text-[11px] text-slate-500 mt-0.5 block truncate">
@@ -559,7 +559,7 @@ export default function ItineraryPlanner() {
 
         {/* Step 3: Travel Style / Vibe Choice Chips */}
         <div>
-          <label className="text-xs font-serif font-bold text-amber-400 uppercase tracking-wider block mb-2.5">
+          <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
             Step 3: Travel Style & Vibes (Select all that fit you)
           </label>
           <div className="flex flex-wrap gap-2.5">
@@ -571,13 +571,13 @@ export default function ItineraryPlanner() {
                   onClick={() => toggleStyle(style.id)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold border transition-all ${
                     isSelected
-                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-400 font-serif font-bold shadow-md scale-102'
-                      : 'bg-[#1A2232] text-slate-400 border border-amber-500/20 hover:text-amber-300 hover:border-amber-500/40'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm scale-102'
+                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                   }`}
                 >
                   <span className="text-sm">{style.icon}</span>
                   <span>{style.label}</span>
-                  {isSelected && <Check className="w-3.5 h-3.5 text-slate-950 font-bold" />}
+                  {isSelected && <Check className="w-3.5 h-3.5 text-sky-400" />}
                 </button>
               );
             })}
@@ -586,7 +586,7 @@ export default function ItineraryPlanner() {
 
         {/* Step 4: Budget Tier Selection */}
         <div>
-          <label className="text-xs font-serif font-bold text-amber-400 uppercase tracking-wider block mb-2.5">
+          <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
             Step 4: Budget & Comfort Level
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -596,17 +596,17 @@ export default function ItineraryPlanner() {
                 onClick={() => setSelectedBudget(tier.id)}
                 className={`p-4 rounded-2xl border text-left transition-all ${
                   selectedBudget === tier.id
-                    ? 'border-amber-400 bg-amber-500/15 ring-2 ring-amber-400/30 shadow-md text-[#E2D9CC]'
-                    : 'border-amber-500/20 bg-[#1A2232] hover:border-amber-500/40 text-slate-400'
+                    ? 'border-emerald-500 bg-emerald-50/70 ring-2 ring-emerald-500/20 shadow-sm'
+                    : 'border-slate-200 bg-slate-50 hover:bg-slate-100/80'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xl">{tier.icon}</span>
-                  <span className="text-xs font-serif font-bold text-amber-300 bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
                     ~₹{tier.dailyRates.stay + tier.dailyRates.food + tier.dailyRates.transport + tier.dailyRates.tickets}/day
                   </span>
                 </div>
-                <h4 className="font-serif font-bold text-sm text-[#E2D9CC]">
+                <h4 className="font-display font-extrabold text-sm text-slate-900">
                   {tier.label}
                 </h4>
                 <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
@@ -618,14 +618,14 @@ export default function ItineraryPlanner() {
         </div>
 
         {/* Step 5: Live Budget & Expense Calculator Widget */}
-        <div className="p-5 sm:p-6 bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 rounded-3xl space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-500/20 pb-3">
+        <div className="p-5 sm:p-6 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-200 rounded-3xl space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-200/60 pb-3">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-gradient-to-br from-amber-500 to-orange-500 text-slate-950 rounded-xl shadow-md">
+              <div className="p-2 bg-emerald-500 text-white rounded-xl shadow-xs">
                 <Wallet className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-serif font-bold text-sm sm:text-base text-[#E2D9CC]">
+                <h3 className="font-display font-bold text-sm sm:text-base text-slate-900">
                   Live Travel Budget & Expense Calculator
                 </h3>
                 <p className="text-[11px] text-slate-500">
@@ -638,7 +638,7 @@ export default function ItineraryPlanner() {
               <span className="text-[10px] uppercase font-bold text-slate-400 block">
                 Total Estimated Trip Cost
               </span>
-              <span className="font-serif font-bold text-2xl text-amber-400">
+              <span className="font-display font-black text-2xl text-emerald-700">
                 ₹{budgetBreakdown.total.toLocaleString('en-IN')}
               </span>
               <span className="text-[10px] text-slate-500 block">
@@ -648,12 +648,12 @@ export default function ItineraryPlanner() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="p-3.5 bg-[#1A2232]/80 rounded-2xl border border-amber-500/20 shadow-xs">
+            <div className="p-3 bg-white rounded-2xl border border-emerald-100 shadow-xs">
               <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mb-1">
                 <Building className="w-3.5 h-3.5 text-sky-500" />
                 <span>Stay / Hotel</span>
               </div>
-              <p className="font-serif font-bold text-sm text-[#E2D9CC]">
+              <p className="font-extrabold text-sm text-slate-900">
                 ₹{budgetBreakdown.stay.toLocaleString('en-IN')}
               </p>
               <span className="text-[10px] text-slate-400">
@@ -661,12 +661,12 @@ export default function ItineraryPlanner() {
               </span>
             </div>
 
-            <div className="p-3.5 bg-[#1A2232]/80 rounded-2xl border border-amber-500/20 shadow-xs">
+            <div className="p-3 bg-white rounded-2xl border border-emerald-100 shadow-xs">
               <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mb-1">
                 <Utensils className="w-3.5 h-3.5 text-rose-500" />
                 <span>Food & Dining</span>
               </div>
-              <p className="font-serif font-bold text-sm text-[#E2D9CC]">
+              <p className="font-extrabold text-sm text-slate-900">
                 ₹{budgetBreakdown.food.toLocaleString('en-IN')}
               </p>
               <span className="text-[10px] text-slate-400">
@@ -674,12 +674,12 @@ export default function ItineraryPlanner() {
               </span>
             </div>
 
-            <div className="p-3.5 bg-[#1A2232]/80 rounded-2xl border border-amber-500/20 shadow-xs">
+            <div className="p-3 bg-white rounded-2xl border border-emerald-100 shadow-xs">
               <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mb-1">
                 <Car className="w-3.5 h-3.5 text-amber-500" />
                 <span>Local Transit</span>
               </div>
-              <p className="font-serif font-bold text-sm text-[#E2D9CC]">
+              <p className="font-extrabold text-sm text-slate-900">
                 ₹{budgetBreakdown.transport.toLocaleString('en-IN')}
               </p>
               <span className="text-[10px] text-slate-400">
@@ -687,12 +687,12 @@ export default function ItineraryPlanner() {
               </span>
             </div>
 
-            <div className="p-3.5 bg-[#1A2232]/80 rounded-2xl border border-amber-500/20 shadow-xs">
+            <div className="p-3 bg-white rounded-2xl border border-emerald-100 shadow-xs">
               <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mb-1">
                 <Ticket className="w-3.5 h-3.5 text-purple-500" />
                 <span>Entry Tickets</span>
               </div>
-              <p className="font-serif font-bold text-sm text-[#E2D9CC]">
+              <p className="font-extrabold text-sm text-slate-900">
                 ₹{budgetBreakdown.tickets.toLocaleString('en-IN')}
               </p>
               <span className="text-[10px] text-slate-400">
@@ -708,12 +708,12 @@ export default function ItineraryPlanner() {
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Output Controls Header */}
-        <div className="flex flex-wrap items-center justify-between gap-3 bg-[#121824] p-4 sm:p-5 rounded-2xl border border-amber-500/30 shadow-xl">
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
           <div>
             <span className="text-xs font-semibold text-slate-400 uppercase">
               Generated Itinerary for
             </span>
-            <h2 className="font-serif font-bold text-lg sm:text-xl text-[#E2D9CC]">
+            <h2 className="font-display font-extrabold text-lg sm:text-xl text-slate-900">
               {city.name} • {selectedDays}-Day Curated Travel Route
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
@@ -724,7 +724,7 @@ export default function ItineraryPlanner() {
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handleSaveTrip}
-              className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 rounded-xl text-xs font-serif font-bold shadow-lg transition-all active:scale-95 cursor-pointer"
+              className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white rounded-xl text-xs font-bold shadow-md shadow-sky-500/20 transition-all active:scale-95"
             >
               <Bookmark className="w-3.5 h-3.5" />
               <span>Save Trip to Device</span>
@@ -733,7 +733,7 @@ export default function ItineraryPlanner() {
             {savedTrips.length > 0 && (
               <button
                 onClick={() => setIsSavedDrawerOpen(!isSavedDrawerOpen)}
-                className="flex items-center gap-1.5 px-3 py-2 bg-[#1A2232] hover:bg-[#222C3E] text-amber-300 border border-amber-500/30 rounded-xl text-xs font-serif font-bold transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors"
               >
                 <span>Saved Trips ({savedTrips.length})</span>
                 {isSavedDrawerOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -742,7 +742,7 @@ export default function ItineraryPlanner() {
 
             <button
               onClick={handlePrint}
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-[#1A2232] hover:bg-[#222C3E] text-amber-300 border border-amber-500/30 rounded-xl text-xs font-serif font-bold transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print / Export PDF</span>
@@ -752,9 +752,9 @@ export default function ItineraryPlanner() {
 
         {/* Saved Trips Drawer Panel */}
         {isSavedDrawerOpen && savedTrips.length > 0 && (
-          <div className="p-5 rounded-3xl bg-[#121824] border border-amber-500/30 shadow-2xl space-y-3 animate-in fade-in duration-200">
-            <div className="flex items-center justify-between border-b border-amber-500/20 pb-2">
-              <h3 className="font-serif font-bold text-sm text-[#E2D9CC] flex items-center gap-2">
+          <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3 animate-in fade-in duration-200">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 className="font-display font-bold text-sm text-slate-900 flex items-center gap-2">
                 <Bookmark className="w-4 h-4 text-sky-500" />
                 <span>Your Saved Itineraries</span>
               </h3>
@@ -765,11 +765,11 @@ export default function ItineraryPlanner() {
               {savedTrips.map((t) => (
                 <div
                   key={t.id}
-                  className="p-3.5 rounded-2xl border border-amber-500/20 bg-[#1A2232] hover:border-amber-500/40 flex flex-col justify-between transition-all"
+                  className="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100/80 flex flex-col justify-between transition-all"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-serif font-bold rounded-md uppercase">
+                      <span className="px-2 py-0.5 bg-sky-100 text-sky-700 text-[10px] font-bold rounded-md uppercase">
                         {t.days} Days
                       </span>
                       <button
@@ -780,14 +780,14 @@ export default function ItineraryPlanner() {
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
-                    <h4 className="font-serif font-bold text-sm text-[#E2D9CC]">{t.cityName}</h4>
+                    <h4 className="font-display font-bold text-sm text-slate-900">{t.cityName}</h4>
                     <p className="text-[11px] text-slate-500">{t.state} • Saved {t.savedAt}</p>
-                    <p className="text-xs font-serif font-bold text-amber-400 mt-1">Est. ₹{t.totalCost?.toLocaleString('en-IN')}</p>
+                    <p className="text-xs font-bold text-emerald-600 mt-1">Est. ₹{t.totalCost?.toLocaleString('en-IN')}</p>
                   </div>
 
                   <button
                     onClick={() => handleLoadTrip(t)}
-                    className="mt-3 w-full py-1.5 bg-[#121824] border border-amber-500/30 hover:border-amber-400 text-amber-300 text-xs font-serif font-bold rounded-xl transition-colors cursor-pointer"
+                    className="mt-3 w-full py-1.5 bg-white border border-slate-200 hover:border-sky-500 hover:text-sky-600 text-slate-700 text-xs font-bold rounded-xl shadow-2xs transition-colors"
                   >
                     Load Itinerary
                   </button>
@@ -801,15 +801,15 @@ export default function ItineraryPlanner() {
         {generatedSchedule.map((dayPlan) => (
           <div
             key={dayPlan.dayNumber}
-            className="bg-[#121824] rounded-3xl border border-amber-500/30 p-6 sm:p-8 shadow-2xl space-y-6"
+            className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xl space-y-6"
           >
             {/* Day Header */}
-            <div className="border-b border-amber-500/20 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="px-3 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-300 rounded-full text-xs font-serif font-bold uppercase tracking-wider">
+                <span className="px-3 py-1 bg-sky-500/10 text-sky-600 rounded-full text-xs font-bold uppercase tracking-wider">
                   Day {dayPlan.dayNumber} of {selectedDays}
                 </span>
-                <h3 className="font-serif font-bold text-xl text-[#E2D9CC] mt-1.5">
+                <h3 className="font-display font-black text-xl text-slate-900 mt-1.5">
                   {dayPlan.title}
                 </h3>
               </div>
@@ -821,7 +821,7 @@ export default function ItineraryPlanner() {
             </div>
 
             {/* Step Timeline */}
-            <div className="space-y-4 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-amber-500/20">
+            <div className="space-y-4 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-slate-200">
               {dayPlan.slots.map((slot) => {
                 const isChecked = !!completedStops[slot.id];
                 return (
@@ -836,8 +836,8 @@ export default function ItineraryPlanner() {
                       onClick={() => toggleStop(slot.id)}
                       className={`absolute left-1.5 top-3 w-6 h-6 rounded-full flex items-center justify-center border-2 transition-all ${
                         isChecked
-                          ? 'bg-amber-500 border-amber-500 text-slate-950'
-                          : 'bg-[#1A2232] border-amber-500/40 hover:border-amber-400'
+                          ? 'bg-emerald-500 border-emerald-500 text-white'
+                          : 'bg-white border-slate-300 hover:border-sky-500'
                       }`}
                       title="Mark as visited"
                     >
@@ -849,9 +849,9 @@ export default function ItineraryPlanner() {
                     </button>
 
                     {/* Content Box */}
-                    <div className="p-4 sm:p-5 rounded-2xl border border-amber-500/20 bg-[#1A2232]/70 hover:border-amber-500/40 transition-colors">
+                    <div className="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-slate-100/80 transition-colors">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="text-xs font-serif font-bold text-amber-400 flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-lg">
+                        <span className="text-xs font-bold text-sky-600 flex items-center gap-1.5 bg-sky-50 px-2.5 py-1 rounded-lg">
                           <Clock className="w-3.5 h-3.5" />
                           <span>{slot.time}</span>
                         </span>
@@ -860,8 +860,8 @@ export default function ItineraryPlanner() {
                           <span
                             className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${
                               slot.isFood
-                                ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 font-serif'
-                                : 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-serif'
+                                ? 'bg-rose-100 text-rose-700'
+                                : 'bg-sky-100 text-sky-700'
                             }`}
                           >
                             {slot.type}
@@ -869,30 +869,30 @@ export default function ItineraryPlanner() {
                         </div>
                       </div>
 
-                      <h4 className={`font-serif font-bold text-base text-[#E2D9CC] ${isChecked ? 'line-through text-slate-500' : ''}`}>
+                      <h4 className={`font-display font-bold text-base text-slate-900 ${isChecked ? 'line-through' : ''}`}>
                         {slot.title}
                       </h4>
 
                       {slot.location && (
-                        <p className="text-xs font-serif font-semibold text-amber-300/80 flex items-center gap-1 mt-0.5">
+                        <p className="text-xs font-semibold text-slate-600 flex items-center gap-1 mt-0.5">
                           <MapPin className="w-3.5 h-3.5 text-amber-500" />
                           <span>{slot.location}</span>
                         </p>
                       )}
 
-                      <p className="text-xs text-slate-300 mt-1.5 leading-relaxed font-sans">
+                      <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
                         {slot.desc}
                       </p>
 
                       {/* Travel Badges Row: Transit Time & Entry Ticket */}
                       <div className="mt-3 flex flex-wrap items-center gap-2">
                         {slot.transit && (
-                          <span className="px-2.5 py-1 bg-[#0B0F14] border border-amber-500/20 text-slate-300 text-[11px] font-serif font-bold rounded-lg">
+                          <span className="px-2.5 py-1 bg-white border border-slate-200 text-slate-700 text-[11px] font-bold rounded-lg shadow-2xs">
                             {slot.transit}
                           </span>
                         )}
                         {slot.entryFee && (
-                          <span className="px-2.5 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-serif font-bold rounded-lg">
+                          <span className="px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold rounded-lg shadow-2xs">
                             🎟️ {slot.entryFee}
                           </span>
                         )}
@@ -900,20 +900,20 @@ export default function ItineraryPlanner() {
 
                       {/* Insider Pro-Tip */}
                       {slot.tip && (
-                        <div className="mt-2.5 p-2.5 bg-amber-500/10 border border-amber-500/25 rounded-xl text-[11px] text-amber-200 font-sans">
+                        <div className="mt-2.5 p-2.5 bg-sky-500/10 border border-sky-500/20 rounded-xl text-[11px] text-sky-900 font-medium">
                           💡 <span className="font-bold">Insider Pro-Tip:</span> {slot.tip}
                         </div>
                       )}
 
                       {/* Map Drawer Shortcut */}
                       {slot.place && (
-                        <div className="mt-3 pt-2.5 border-t border-amber-500/15 flex items-center justify-between">
+                        <div className="mt-3 pt-2.5 border-t border-slate-200/60 flex items-center justify-between">
                           <button
                             onClick={() => {
                               openPlaceDrawer(slot.place);
                               setActiveTab('explore');
                             }}
-                            className="text-xs font-serif font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer"
+                            className="text-xs font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1"
                           >
                             <span>View spot details & live map</span>
                             <ArrowRight className="w-3.5 h-3.5" />
