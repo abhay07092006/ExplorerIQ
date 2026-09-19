@@ -152,6 +152,18 @@ export default function HiddenGems() {
                 </span>
               </div>
 
+              {/* Gem Authentic Photo */}
+              {gem.image && (
+                <div className="relative h-40 w-full rounded-2xl overflow-hidden mb-3 border border-slate-100 bg-slate-100">
+                  <img
+                    src={gem.image}
+                    alt={gem.title}
+                    onError={handleImageError}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+
               {/* Title & Description */}
               <h3 className="font-display font-bold text-sm text-slate-900 mb-2 leading-snug group-hover:text-sky-600 transition-colors">
                 {gem.title}

@@ -213,17 +213,29 @@ export default function PlaceDrawer() {
                 {activeFoodList.map((food, idx) => (
                   <div
                     key={idx}
-                    className="p-3 bg-white border border-slate-200 rounded-xl hover:border-slate-300 transition-colors"
+                    className="p-3 bg-white border border-slate-200 rounded-xl hover:border-slate-300 transition-colors flex items-center gap-3"
                   >
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-xs text-slate-900">{food.name}</h4>
-                      <span className="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
-                        {food.place}
-                      </span>
+                    {food.image && (
+                      <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100 border border-slate-100">
+                        <img
+                          src={food.image}
+                          alt={food.name}
+                          onError={handleImageError}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <h4 className="font-bold text-xs text-slate-900 truncate">{food.name}</h4>
+                        <span className="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full flex-shrink-0">
+                          {food.place}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 mt-1 leading-normal line-clamp-2">
+                        {food.desc}
+                      </p>
                     </div>
-                    <p className="text-[11px] text-slate-600 mt-1 leading-normal">
-                      {food.desc}
-                    </p>
                   </div>
                 ))}
               </div>

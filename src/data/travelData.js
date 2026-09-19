@@ -31,17 +31,20 @@ export const CITIES_DATA = [
       {
         "name": "Old Delhi Nihari & Butter Chicken",
         "desc": "Slow-cooked overnight spiced lamb stew and original 1947 tandoori butter chicken.",
-        "place": "Karim’s & Moti Mahal, Chandni Chowk"
+        "place": "Karim’s & Moti Mahal, Chandni Chowk",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Nalli_Nihari_India.jpg/1280px-Nalli_Nihari_India.jpg"
       },
       {
         "name": "Stuffed Paranthas",
         "desc": "Crispy pan-fried breads stuffed with paneer, potato, and rabri served with sweet pumpkin chutney.",
-        "place": "Pt. Kanhaiyalal Durgaprasad, Paranthe Wali Gali"
+        "place": "Pt. Kanhaiyalal Durgaprasad, Paranthe Wali Gali",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Triangle_paratha_%28cropped%29.JPG/1280px-Triangle_paratha_%28cropped%29.JPG"
       },
       {
         "name": "Chole Bhature",
         "desc": "Fluffy fried leavened bread served with tangy Punjabi chickpeas and pickled amla.",
-        "place": "Sita Ram Diwan Chand, Paharganj"
+        "place": "Sita Ram Diwan Chand, Paharganj",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Chole_Bhature_from_Nagpur.JPG/1280px-Chole_Bhature_from_Nagpur.JPG"
       }
     ],
     "places": [
@@ -53,7 +56,7 @@ export const CITIES_DATA = [
           28.5244,
           77.1855
         ],
-        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Qutb_Minar_2022.jpg/1280px-Qutb_Minar_2022.jpg",
         "timing": "7:00 AM - 7:00 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "72.5-meter red sandstone victory tower built in 1192 CE, surrounded by 4th-century rustless iron pillar.",
@@ -67,7 +70,7 @@ export const CITIES_DATA = [
           28.6129,
           77.2295
         ],
-        "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_in_the_Evening.jpg",
         "timing": "Open 24/7 (Illuminated 7:00 PM - 11:00 PM)",
         "fee": "Free",
         "shortDesc": "42-meter triumphal arch war memorial honoring 84,000 soldiers, fronted by illuminated boulevards.",
@@ -81,7 +84,7 @@ export const CITIES_DATA = [
           28.6127,
           77.2773
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/New_Delhi_Temple.jpg",
         "timing": "10:00 AM - 8:00 PM (Mondays Closed)",
         "fee": "Free Temple entry (Exhibitions ₹250)",
         "shortDesc": "Colossal modern sandstone and Italian Carrara marble temple with 234 carved pillars and water fountain show.",
@@ -95,7 +98,7 @@ export const CITIES_DATA = [
           28.6118,
           77.2193
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/India_national_museum_01.jpg/1280px-India_national_museum_01.jpg",
         "timing": "10:00 AM - 6:00 PM (Mondays Closed)",
         "fee": "₹20 (Indians) / ₹650 (Foreigners)",
         "shortDesc": "Premier museum housing 200,000 artifacts from the Indus Valley Civilization (Dancing Girl) and sacred Buddhist relics.",
@@ -109,7 +112,7 @@ export const CITIES_DATA = [
           28.6558,
           77.2315
         ],
-        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Paratha_wali_gali.jpeg",
         "timing": "9:00 AM - 11:00 PM",
         "fee": "₹80 - ₹150 per parantha",
         "shortDesc": "Narrow culinary lane serving pure vegetarian deep-fried stuffed paranthas since the 1870s.",
@@ -123,7 +126,7 @@ export const CITIES_DATA = [
           28.5933,
           77.2197
         ],
-        "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lodhi_Gardens_on_a_sunny_day.jpg/1280px-Lodhi_Gardens_on_a_sunny_day.jpg",
         "timing": "6:00 AM - 8:00 PM",
         "fee": "Free",
         "shortDesc": "90-acre lush heritage park dotted with 15th-century Sayyid and Lodhi dynasty domed mausoleums.",
@@ -150,7 +153,8 @@ export const CITIES_DATA = [
       {
         "name": "Agra Petha",
         "desc": "Candied ash gourd translucent sweet in flavors like Angoori, Kesar, and Paan.",
-        "place": "Panchi Petha, Sadar Bazaar"
+        "place": "Panchi Petha, Sadar Bazaar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Petha_kesari.JPG/1280px-Petha_kesari.JPG"
       },
       {
         "name": "Bedai & Jalebi",
@@ -172,7 +176,7 @@ export const CITIES_DATA = [
           27.1751,
           78.0421
         ],
-        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg",
         "timing": "Sunrise to Sunset (Closed on Fridays)",
         "fee": "₹50 (Indians) / ₹1,100 (Foreigners)",
         "shortDesc": "UNESCO World Heritage ivory-white marble mausoleum commissioned in 1632 by Shah Jahan for Mumtaz Mahal.",
@@ -186,7 +190,7 @@ export const CITIES_DATA = [
           27.1795,
           78.0211
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/1280px-Agra_03-2016_16_Agra_Fort.jpg",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "₹50 (Indians) / ₹650 (Foreigners)",
         "shortDesc": "Vast 16th-century red sandstone fortress residence where Shah Jahan spent his final years gazing at the Taj.",
@@ -200,7 +204,7 @@ export const CITIES_DATA = [
           27.0945,
           77.6679
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg/1280px-Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg",
         "timing": "6:00 AM - 6:30 PM",
         "fee": "₹50 (Indians) / ₹610 (Foreigners)",
         "shortDesc": "Preserved red sandstone Mughal capital built by Akbar, featuring the towering 54-meter Buland Darwaza.",
@@ -214,7 +218,7 @@ export const CITIES_DATA = [
           27.1852,
           78.0146
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/IAshishTripathi_Mankameshwar_Temple_Agra.jpg/1280px-IAshishTripathi_Mankameshwar_Temple_Agra.jpg",
         "timing": "5:00 AM - 10:00 PM",
         "fee": "Free Entry",
         "shortDesc": "Ancient Shiva temple nestled near Rawatpara, where Lord Shiva is believed to have rested in the Dvapara Yuga.",
@@ -228,7 +232,7 @@ export const CITIES_DATA = [
           27.1748,
           78.041
         ],
-        "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg",
         "timing": "10:00 AM - 5:00 PM (Fridays Closed)",
         "fee": "Included with Taj ticket",
         "shortDesc": "Exhibits 17th-century Mughal coins, architectural blue-prints, and celadon dishes that cracked if touched by poison.",
@@ -242,7 +246,7 @@ export const CITIES_DATA = [
           27.18,
           78.0425
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mehtab_Bagh_facing_Taj_Mahal.JPG/1280px-Mehtab_Bagh_facing_Taj_Mahal.JPG",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Charbagh botanical garden across the Yamuna perfectly aligned with the Taj Mahal for mirror reflections.",
@@ -269,17 +273,20 @@ export const CITIES_DATA = [
       {
         "name": "Dal Baati Churma",
         "desc": "Baked wheat balls dipped in pure desi ghee, served with spicy lentil curry and sweet crumbled jaggery.",
-        "place": "Laxmi Mishthan Bhandar (LMB), Johari Bazaar"
+        "place": "Laxmi Mishthan Bhandar (LMB), Johari Bazaar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/DalBati.jpg"
       },
       {
         "name": "Pyaaz Kachori & Lassi",
         "desc": "Crisp layered pastry filled with spiced onion mixture, paired with thick clay-pot sweet lassi.",
-        "place": "Rawat Mishthan Bhandar, Station Road"
+        "place": "Rawat Mishthan Bhandar, Station Road",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Rajasthani_Raj_Kachori.jpg"
       },
       {
         "name": "Laal Maas",
         "desc": "Fiery smoked mutton curry prepared with Rajasthani Mathania red chilies and garlic.",
-        "place": "1135 AD, Amer Fort"
+        "place": "1135 AD, Amer Fort",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/97/Laal-Maans.jpg"
       }
     ],
     "places": [
@@ -291,7 +298,7 @@ export const CITIES_DATA = [
           26.9239,
           75.8267
         ],
-        "image": "https://images.unsplash.com/photo-1676444490527-cf8f7894e9f0?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/1280px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg",
         "timing": "9:00 AM - 5:00 PM Daily",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
         "shortDesc": "Five-story pink sandstone facade with 953 carved jharokha casements designed for royal purdah ladies.",
@@ -305,7 +312,7 @@ export const CITIES_DATA = [
           26.9855,
           75.8513
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/1280px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg",
         "timing": "8:00 AM - 5:30 PM & Night Tour 6:30 PM - 9:00 PM",
         "fee": "₹100 (Indians) / ₹500 (Foreigners)",
         "shortDesc": "Hilltop fortress with yellow and pink sandstone ramparts overlooking Maota Lake, famous for the Sheesh Mahal mirror palace.",
@@ -319,7 +326,7 @@ export const CITIES_DATA = [
           26.9248,
           75.8246
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jantar_Mantar_at_Jaipur.jpg/1280px-Jantar_Mantar_at_Jaipur.jpg",
         "timing": "9:00 AM - 5:00 PM",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
         "shortDesc": "UNESCO World Heritage astronomical complex featuring nineteen architectural stone instruments, including the world’s largest stone sundial.",
@@ -333,7 +340,7 @@ export const CITIES_DATA = [
           26.9276,
           75.8242
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Govind_dev_ji.jpg",
         "timing": "4:30 AM - 12:00 PM & 5:00 PM - 9:00 PM",
         "fee": "Free",
         "shortDesc": "Located inside the City Palace complex, housing the sacred Govind Devji Krishna deity that Maharaja Sawai Jai Singh brought from Vrindavan.",
@@ -347,7 +354,7 @@ export const CITIES_DATA = [
           26.9372,
           75.8156
         ],
-        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Nahargarh_13.jpg",
         "timing": "10:00 AM - 10:00 PM",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
         "shortDesc": "Perched high on the Aravalli Ridge offering breathtaking sunset views of the entire illuminated pink city below.",
@@ -374,12 +381,14 @@ export const CITIES_DATA = [
       {
         "name": "Dal Baati & Gatte Ki Sabzi",
         "desc": "Gram flour dumplings cooked in rich yoghurt gravy paired with ghee-topped baatis.",
-        "place": "Krishna Dal Bati Restro, Jal Borg"
+        "place": "Krishna Dal Bati Restro, Jal Borg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/DalBati.jpg"
       },
       {
         "name": "Kachori & Mirchi Vada",
         "desc": "Spicy chili fritter stuffed with seasoned potato and crunchy green chilies.",
-        "place": "Shastri Circle Food Stalls"
+        "place": "Shastri Circle Food Stalls",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Rajasthani_Raj_Kachori.jpg"
       },
       {
         "name": "Boiled Egg Bhurji & Kulcha",
@@ -396,7 +405,7 @@ export const CITIES_DATA = [
           24.5764,
           73.6835
         ],
-        "image": "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Udaipur_City_Palace.jpg/1280px-Udaipur_City_Palace.jpg",
         "timing": "9:00 AM - 5:30 PM",
         "fee": "₹300 (Adults) / ₹100 (Children)",
         "shortDesc": "Rajasthan’s largest palace complex, blending Rajasthani and Mughal architectural splendors on Lake Pichola’s eastern bank.",
@@ -410,7 +419,7 @@ export const CITIES_DATA = [
           24.575,
           73.678
         ],
-        "image": "https://images.unsplash.com/photo-1585123388867-3bfe6dd4bdbf?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Udaipur_Lake_India.JPG/1280px-Udaipur_Lake_India.JPG",
         "timing": "9:00 AM - 6:00 PM",
         "fee": "₹400 - ₹700 (includes Jag Mandir island stop)",
         "shortDesc": "Centuries-old artificial freshwater lake flanked by bathing ghats, whitewashed havelis, and palace pavilions.",
@@ -424,7 +433,7 @@ export const CITIES_DATA = [
           24.579,
           73.684
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Jagdish_Temple_Udaipur.jpg/1280px-Jagdish_Temple_Udaipur.jpg",
         "timing": "5:00 AM - 2:30 PM & 4:00 PM - 10:00 PM",
         "fee": "Free",
         "shortDesc": "Three-story Indo-Aryan temple built in 1651 by Maharana Jagat Singh, dedicated to Lord Vishnu with carved stone elephant friezes.",
@@ -438,7 +447,7 @@ export const CITIES_DATA = [
           24.5798,
           73.6806
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Bagore_ki_Haveli%2C_Rajasthan.jpg",
         "timing": "10:00 AM - 5:30 PM (Dharohar Folk Dance at 7:00 PM)",
         "fee": "₹100 Museum / ₹150 Dharohar Dance Show",
         "shortDesc": "Historic 18th-century waterfront haveli at Gangaur Ghat exhibiting traditional costumes, royal puppets, and live Rajasthani folk dances.",
@@ -452,7 +461,7 @@ export const CITIES_DATA = [
           24.6042,
           73.6883
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Saheliyon-ki-Bari_Fountain.JPG/1280px-Saheliyon-ki-Bari_Fountain.JPG",
         "timing": "8:00 AM - 7:00 PM",
         "fee": "₹20 (Indians) / ₹100 (Foreigners)",
         "shortDesc": "Royal gardens landscaped with marble pavilions, lotus pools, and gravity-fed fountains designed for royal maidens.",
@@ -484,12 +493,14 @@ export const CITIES_DATA = [
       {
         "name": "Kachori Sabzi & Jalebi",
         "desc": "Fried crisp bread with spicy hing (asafoetida) potato-chana curry and saffron jalebis.",
-        "place": "Ram Bhandar, Thatheri Bazaar"
+        "place": "Ram Bhandar, Thatheri Bazaar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Basavanagudi_Kadalekai_Parishe_%282025%29_Bangalore_%2886%29.jpg/1280px-Basavanagudi_Kadalekai_Parishe_%282025%29_Bangalore_%2886%29.jpg"
       },
       {
         "name": "Banarasi Paan & Malaiyo",
         "desc": "Winter cloud-like saffron milk foam froth sprinkled with pistachios, followed by royal Meetha Paan.",
-        "place": "Keshav Tambool Bhandar, Assi Ghat"
+        "place": "Keshav Tambool Bhandar, Assi Ghat",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Betel_1.jpg/1280px-Betel_1.jpg"
       }
     ],
     "places": [
@@ -501,7 +512,7 @@ export const CITIES_DATA = [
           25.3109,
           83.0107
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Kashi_Vishwanath.jpg",
         "timing": "3:00 AM - 11:00 PM",
         "fee": "Free (VIP Darshan ₹300 optional)",
         "shortDesc": "One of the twelve sacred Jyotirlingas, crowned by a gold-plated spire donated by Maharaja Ranjit Singh.",
@@ -515,7 +526,7 @@ export const CITIES_DATA = [
           25.3073,
           83.0103
         ],
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dasaswamedh_ghat-varanasi_india-andres_larin.jpg/1280px-Dasaswamedh_ghat-varanasi_india-andres_larin.jpg",
         "timing": "Aarti begins at 6:45 PM daily",
         "fee": "Free from steps",
         "shortDesc": "The primary and oldest ghat where young Vedic priests perform synchronized brass lamp ceremonies to venerate River Ganga.",
@@ -529,7 +540,7 @@ export const CITIES_DATA = [
           25.3811,
           83.0214
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Dhamek_Stupa%2C_Sarnath.jpg/1280px-Dhamek_Stupa%2C_Sarnath.jpg",
         "timing": "Sunrise to Sunset",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Sacred Buddhist sanctuary where Lord Buddha gave his first sermon after attaining enlightenment.",
@@ -543,7 +554,7 @@ export const CITIES_DATA = [
           25.309,
           83.0065
         ],
-        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Dahi_puri%2C_Doi_phuchka.jpg/1280px-Dahi_puri%2C_Doi_phuchka.jpg",
         "timing": "4:00 PM - 10:30 PM",
         "fee": "₹40 - ₹80 per plate",
         "shortDesc": "Iconic streetside chaat destination celebrated for piping-hot Tamatar Chaat in terracotta bowls.",
@@ -557,7 +568,7 @@ export const CITIES_DATA = [
           25.289,
           83.006
         ],
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Assi_Ghat_Varanasi_morning_Aarti.jpg",
         "timing": "5:00 AM - 7:30 AM",
         "fee": "Free",
         "shortDesc": "Southernmost ghat where the river Assi meets Ganga; famous for dawn yoga, classical music recitals, and morning aarti.",
@@ -584,12 +595,14 @@ export const CITIES_DATA = [
       {
         "name": "Amritsari Kulcha & Chole",
         "desc": "Crisp layered tandoori bread stuffed with spiced potato and onion, drenched in butter.",
-        "place": "Kulcha Land & Bhai Kulwant Singh Kulchian Wale"
+        "place": "Kulcha Land & Bhai Kulwant Singh Kulchian Wale",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Chole_Kulcha_Meal_-_Order_Food_Online_in_Mumbai_%2831013272937%29.jpg/1280px-Chole_Kulcha_Meal_-_Order_Food_Online_in_Mumbai_%2831013272937%29.jpg"
       },
       {
         "name": "Maa Ki Dal & Lachha Paratha",
         "desc": "Slow-cooked black lentils simmered for 12 hours with fresh country butter.",
-        "place": "Kesar Da Dhaba, Chowk Passian"
+        "place": "Kesar Da Dhaba, Chowk Passian",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Triangle_paratha_%28cropped%29.JPG/1280px-Triangle_paratha_%28cropped%29.JPG"
       },
       {
         "name": "Creamy Amritsari Lassi",
@@ -606,7 +619,7 @@ export const CITIES_DATA = [
           31.62,
           74.8765
         ],
-        "image": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/1280px-The_Golden_Temple_of_Amrithsar_7.jpg",
         "timing": "Open 24 Hours Daily",
         "fee": "Free (All are welcome)",
         "shortDesc": "Central spiritual sanctuary of Sikhism, plated with 500 kg of pure gold leaf and surrounded by the sacred Amrit Sarovar lake.",
@@ -620,7 +633,7 @@ export const CITIES_DATA = [
           31.6047,
           74.5731
         ],
-        "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/The_SAARC_Car_Rally_2007_being_welcomed_by_traditional_Drummers_at_the_Wagah_Border_on_March_28%2C_2007.jpg/1280px-The_SAARC_Car_Rally_2007_being_welcomed_by_traditional_Drummers_at_the_Wagah_Border_on_March_28%2C_2007.jpg",
         "timing": "4:30 PM - 5:30 PM (Arrive by 3:00 PM for seating)",
         "fee": "Free entry",
         "shortDesc": "Electrifying daily military parade with coordinated high kicks and flag lowering by Indian BSF and Pakistani Rangers.",
@@ -634,7 +647,7 @@ export const CITIES_DATA = [
           31.6205,
           74.8801
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jallianwala_Bagh%2C_Amritsar_01.jpg/1280px-Jallianwala_Bagh%2C_Amritsar_01.jpg",
         "timing": "6:30 AM - 7:30 PM",
         "fee": "Free",
         "shortDesc": "Sacred national memorial garden preserving the bullet marks and historic well from the tragic 1919 British massacre.",
@@ -648,7 +661,7 @@ export const CITIES_DATA = [
           31.6247,
           74.877
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Amritsar_9125.jpg/1280px-Amritsar_9125.jpg",
         "timing": "10:00 AM - 6:00 PM (Mondays Closed)",
         "fee": "₹10 (Indians) / ₹250 (Foreigners)",
         "shortDesc": "World’s first museum dedicated to the 1947 Partition of India, featuring oral histories, refugee letters, and historic relics.",
@@ -662,7 +675,7 @@ export const CITIES_DATA = [
           31.6212,
           74.8741
         ],
-        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pranjal_Dhaba_-_National_Highway_76_-_Shivrajpur_-_Shankargarh_-_Allahabad_2014-07-04_5674.JPG/1280px-Pranjal_Dhaba_-_National_Highway_76_-_Shivrajpur_-_Shankargarh_-_Allahabad_2014-07-04_5674.JPG",
         "timing": "11:00 AM - 11:00 PM",
         "fee": "₹200 - ₹450 per meal",
         "shortDesc": "Legendary 100-year-old vegetarian culinary destination that migrated from Sheikhupura in 1947, famous for slow-simmered Maa Ki Dal.",
@@ -711,7 +724,7 @@ export const CITIES_DATA = [
           31.1042,
           77.175
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/The_Ridge_Shimla_5.jpg/1280px-The_Ridge_Shimla_5.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "Spacious open esplanade offering unobstructed views of snow-clad Himalayan peaks, centered around northern India’s second-oldest church.",
@@ -725,7 +738,7 @@ export const CITIES_DATA = [
           31.1011,
           77.185
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Jakhoo_temple.jpg/1280px-Jakhoo_temple.jpg",
         "timing": "7:00 AM - 8:00 PM",
         "fee": "Free (Ropeway ₹500 roundtrip)",
         "shortDesc": "Ancient hilltop shrine on Shimla’s highest peak (2,455 m), crowned by a colossal 108-foot orange Hanuman statue.",
@@ -739,7 +752,7 @@ export const CITIES_DATA = [
           31.1031,
           77.1408
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Viceregal_Lodge%2C_Simla%2C_India.jpg/1280px-Viceregal_Lodge%2C_Simla%2C_India.jpg",
         "timing": "10:00 AM - 5:00 PM (Mondays Closed)",
         "fee": "₹40 (Indians) / ₹85 (Foreigners)",
         "shortDesc": "Majestic Jacobethan-style stone estate designed by Henry Irwin that served as the summer headquarters of British viceroys.",
@@ -753,7 +766,7 @@ export const CITIES_DATA = [
           31.103,
           77.168
         ],
-        "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/KSR_Steam_special_at_Taradevi_05-02-13_56.jpeg",
         "timing": "Multiple departures daily",
         "fee": "₹70 - ₹500 depending on train class",
         "shortDesc": "Historic narrow-gauge railway opened in 1903 traversing 102 tunnels, 864 bridges, and deep pine valleys.",
@@ -802,7 +815,7 @@ export const CITIES_DATA = [
           30.1245,
           78.3292
         ],
-        "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Rishikesh-Lakshman_Jhula_by_Kaustubh_Nayyar.jpg/1280px-Rishikesh-Lakshman_Jhula_by_Kaustubh_Nayyar.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "Iconic 450-foot iron suspension bridge spanning the emerald Ganges, connecting ashrams and temple spires.",
@@ -816,7 +829,7 @@ export const CITIES_DATA = [
           30.103,
           78.2975
         ],
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Triveni_Ghat_Krishna_Arjun_Rath.jpg",
         "timing": "6:00 PM - 7:00 PM Daily",
         "fee": "Free",
         "shortDesc": "Confluence point of Ganga, Yamuna, and Saraswati rivers, renowned for synchronized conch shells and floating leaf lamps.",
@@ -830,7 +843,7 @@ export const CITIES_DATA = [
           30.113,
           78.314
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Beatles_Ashram_01.jpg/1280px-Beatles_Ashram_01.jpg",
         "timing": "9:00 AM - 4:00 PM",
         "fee": "₹150 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "Former Maharishi Mahesh Yogi ashram where the Beatles composed the White Album in 1968, filled with vibrant graffiti art.",
@@ -844,7 +857,7 @@ export const CITIES_DATA = [
           30.145,
           78.342
         ],
-        "image": "https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/1280px-Trayambakeshwar_Temple_VK.jpg",
         "timing": "8:00 AM - 6:00 PM",
         "fee": "₹30 entry",
         "shortDesc": "Multi-tiered natural limestone waterfall tumbling into turquoise natural plunge pools hidden within tropical forest.",
@@ -871,7 +884,8 @@ export const CITIES_DATA = [
       {
         "name": "Kashmiri Wazwan Feast",
         "desc": "Royally crafted multi-course banquet of Rogan Josh, Rista, and yogurt-based Gushtaba.",
-        "place": "Ahdoos Restaurant & Mughal Darbar, Residency Road"
+        "place": "Ahdoos Restaurant & Mughal Darbar, Residency Road",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rogan_Josh_Kashmiri.jpg/1280px-Rogan_Josh_Kashmiri.jpg"
       },
       {
         "name": "Kahwa & Bakarkhani",
@@ -893,7 +907,7 @@ export const CITIES_DATA = [
           34.09,
           74.845
         ],
-        "image": "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Dal_Lake_Hazratbal_Srinagar.jpg/1280px-Dal_Lake_Hazratbal_Srinagar.jpg",
         "timing": "5:00 AM - 9:00 PM",
         "fee": "₹700 - ₹1,200 per hour for private shikara",
         "shortDesc": "18-sq-km crystalline mirror lake surrounded by snow-capped Pir Panjal peaks, lotus gardens, and cedar wood houseboats.",
@@ -907,7 +921,7 @@ export const CITIES_DATA = [
           34.148,
           74.872
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shalimar_Bagh_1.jpg/1280px-Shalimar_Bagh_1.jpg",
         "timing": "9:00 AM - 7:00 PM",
         "fee": "₹24 (Indians) / ₹100 (Foreigners)",
         "shortDesc": "Finest terraced royal garden built in 1619 by Emperor Jahangir for his queen Nur Jahan, featuring black marble pavilions and water canals.",
@@ -921,7 +935,7 @@ export const CITIES_DATA = [
           34.072,
           74.848
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/The_Ancient_Shankaracharya_Temple_%28Srinagar%2C_Jammu_and_Kashmir%29_%28cropped%29.jpg/1280px-The_Ancient_Shankaracharya_Temple_%28Srinagar%2C_Jammu_and_Kashmir%29_%28cropped%29.jpg",
         "timing": "7:00 AM - 8:00 PM",
         "fee": "Free",
         "shortDesc": "Ancient 9th-century stone temple perched 1,000 feet above the valley floor on Gopadri Hill, visited by Adi Shankara.",
@@ -935,7 +949,7 @@ export const CITIES_DATA = [
           34.0665,
           74.821
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sri_Pratap_Singh_Museum_Bowels_4th_Century_AD.jpg/1280px-Sri_Pratap_Singh_Museum_Bowels_4th_Century_AD.jpg",
         "timing": "10:00 AM - 4:30 PM (Mondays Closed)",
         "fee": "₹20 (Indians) / ₹100 (Foreigners)",
         "shortDesc": "Museum exhibiting 2nd-century Harwan terracotta tiles, antique papier-mâché, and rare Mughal copperware.",
@@ -962,12 +976,14 @@ export const CITIES_DATA = [
       {
         "name": "Kerala Seafood Moilee & Appam",
         "desc": "Mild coconut milk fish curry with spongy fermented rice hoppers.",
-        "place": "Oceanos Restaurant, Elphinstone Road"
+        "place": "Oceanos Restaurant, Elphinstone Road",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Appam_-_%E0%AE%85%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%AE%E0%AF%8D.jpg"
       },
       {
         "name": "Kochi Parotta & Roast",
         "desc": "Flaky layered Kerala parotta served with caramelized onion and black pepper roast.",
-        "place": "Kayees Rahmathulla Hotel, Mattancherry"
+        "place": "Kayees Rahmathulla Hotel, Mattancherry",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Malabar_Porotta_%28cropped%29.jpg/1280px-Malabar_Porotta_%28cropped%29.jpg"
       },
       {
         "name": "Artisan Cold Brew & Carrot Cake",
@@ -984,7 +1000,7 @@ export const CITIES_DATA = [
           9.9692,
           76.2411
         ],
-        "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Chinese_Fishing_Net_Raising_Birds_Sunrise_Ashtamudi_Kollam_Mar22_A7C_01784.jpg/1280px-Chinese_Fishing_Net_Raising_Birds_Sunrise_Ashtamudi_Kollam_Mar22_A7C_01784.jpg",
         "timing": "Sunrise to Sunset",
         "fee": "Free to observe",
         "shortDesc": "Iconic 14th-century cantilevered sea nets introduced by Chinese trader Zheng He, operated with teak counterweights.",
@@ -998,7 +1014,7 @@ export const CITIES_DATA = [
           9.9583,
           76.2592
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mattancherry_Palace_DSC_0899.JPG/1280px-Mattancherry_Palace_DSC_0899.JPG",
         "timing": "9:45 AM - 4:45 PM (Fridays Closed)",
         "fee": "₹5 entry",
         "shortDesc": "Portuguese-built palace gifted to the Raja of Kochi in 1555, featuring intricate tempera murals illustrating the Ramayana.",
@@ -1012,7 +1028,7 @@ export const CITIES_DATA = [
           9.9658,
           76.2413
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/St_Francis_Church_Fort_Kochi_DSC_1048.JPG/1280px-St_Francis_Church_Fort_Kochi_DSC_1048.JPG",
         "timing": "7:00 AM - 6:30 PM",
         "fee": "Free",
         "shortDesc": "Oldest European church in India built in 1503 by Portuguese Franciscan friars, original burial site of explorer Vasco da Gama.",
@@ -1026,7 +1042,7 @@ export const CITIES_DATA = [
           9.9575,
           76.2597
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Jewish_synagouge_kochi_india.jpg",
         "timing": "10:00 AM - 5:00 PM (Fridays & Saturdays restricted)",
         "fee": "₹10 entry",
         "shortDesc": "Constructed in 1568, containing hand-painted blue Cantonese willow porcelain floor tiles and Belgian glass chandeliers.",
@@ -1040,7 +1056,7 @@ export const CITIES_DATA = [
           9.966,
           76.244
         ],
-        "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Kathakali_-Play_with_Kaurava.jpg/1280px-Kathakali_-Play_with_Kaurava.jpg",
         "timing": "5:00 PM Makeup / 6:00 PM - 7:30 PM Performance Daily",
         "fee": "₹400 - ₹500",
         "shortDesc": "Intimate theater dedicated to the classical dance-drama of Kerala, featuring intricate face makeup and martial art demonstrations.",
@@ -1072,7 +1088,8 @@ export const CITIES_DATA = [
       {
         "name": "Jigarthanda",
         "desc": "Iconic iced dessert drink made with condensed milk, almond tree gum, and nannari syrup.",
-        "place": "Famous Jigarthanda, East Marret Street"
+        "place": "Famous Jigarthanda, East Marret Street",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Jigarthanda.JPG/1280px-Jigarthanda.JPG"
       },
       {
         "name": "Bun Parotta",
@@ -1089,7 +1106,7 @@ export const CITIES_DATA = [
           9.9195,
           78.1193
         ],
-        "image": "https://images.unsplash.com/photo-1621682372775-533449e550ed?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg/1280px-An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg",
         "timing": "5:00 AM - 12:30 PM & 4:00 PM - 10:00 PM",
         "fee": "Free (Hall of Thousand Pillars ₹50)",
         "shortDesc": "Architectural masterpiece with 14 towering gateway gopurams encrusted with 33,000 brightly painted mythological sculptures.",
@@ -1103,7 +1120,7 @@ export const CITIES_DATA = [
           9.915,
           78.1235
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Madurai_Nayak_Palace_Collage.jpg",
         "timing": "9:00 AM - 5:00 PM (Light & Sound Show 6:45 PM)",
         "fee": "₹10 (Indians) / ₹50 (Foreigners)",
         "shortDesc": "17th-century palace built by King Thirumalai Nayak, famous for giant circular white stucco pillars over 80 feet high.",
@@ -1117,7 +1134,7 @@ export const CITIES_DATA = [
           9.932,
           78.141
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Gandhi_Memorial_Museum.jpg/1280px-Gandhi_Memorial_Museum.jpg",
         "timing": "10:00 AM - 1:00 PM & 2:00 PM - 5:45 PM",
         "fee": "Free",
         "shortDesc": "Housed in the historic Rani Mangammal Palace, preserving Mahatma Gandhi’s bloodstained dhoti worn during his 1948 assassination.",
@@ -1131,7 +1148,7 @@ export const CITIES_DATA = [
           9.912,
           78.156
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Vandiyur_Mariamman_Temple_34.jpg/1280px-Vandiyur_Mariamman_Temple_34.jpg",
         "timing": "Open all day",
         "fee": "Free",
         "shortDesc": "Colossal rectangular temple tank fed by underground channels from Vaigai River, centered around a mandapam island.",
@@ -1158,12 +1175,14 @@ export const CITIES_DATA = [
       {
         "name": "Mysore Masala Dosa",
         "desc": "Crisp buttery red rice crepe spread with spicy red garlic chili chutney, stuffed with potato mash.",
-        "place": "Mylari Restaurant, Nazarbad"
+        "place": "Mylari Restaurant, Nazarbad",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Masala_Dosa_2023.jpg/1280px-Masala_Dosa_2023.jpg"
       },
       {
         "name": "Authentic Mysore Pak",
         "desc": "Warm fudge sweet crafted from chickpea flour, sugar, and generous pure desi ghee that melts on the tongue.",
-        "place": "Guru Sweets, Sayyaji Rao Road"
+        "place": "Guru Sweets, Sayyaji Rao Road",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Mysore_pak.jpg/1280px-Mysore_pak.jpg"
       },
       {
         "name": "Mysore Filter Coffee",
@@ -1180,7 +1199,7 @@ export const CITIES_DATA = [
           12.3052,
           76.6552
         ],
-        "image": "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/1280px-Mysore_Palace_Morning.jpg",
         "timing": "10:00 AM - 5:30 PM (Illumination Sundays 7:00 PM - 7:45 PM)",
         "fee": "₹100 (Indians) / ₹200 (Foreigners)",
         "shortDesc": "Indo-Saracenic palace designed by Henry Irwin, illuminated by 97,000 golden incandescent bulbs every Sunday evening.",
@@ -1194,7 +1213,7 @@ export const CITIES_DATA = [
           12.2725,
           76.671
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Chamundeshwari_Temple_Mysore.jpg/1280px-Chamundeshwari_Temple_Mysore.jpg",
         "timing": "7:30 AM - 2:00 PM & 3:30 PM - 6:00 PM",
         "fee": "Free (Special Darshan ₹100)",
         "shortDesc": "Ancient hill temple dedicated to Goddess Durga perched atop Chamundi Hills (1,062 m), featuring a 16-foot monolithic Nandi bull.",
@@ -1208,7 +1227,7 @@ export const CITIES_DATA = [
           12.423,
           76.572
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Brindavan_Gardens.JPG/1280px-Brindavan_Gardens.JPG",
         "timing": "6:30 AM - 9:00 PM (Musical Fountain 6:30 PM - 8:00 PM)",
         "fee": "₹50 entry",
         "shortDesc": "Terraced formal gardens below Krishna Raja Sagara dam modeled after the Shalimar Gardens of Kashmir, famous for musical water fountain.",
@@ -1222,7 +1241,7 @@ export const CITIES_DATA = [
           12.3075,
           76.6495
         ],
-        "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/A_view_of_Jaganmohan_Palace.jpg/1280px-A_view_of_Jaganmohan_Palace.jpg",
         "timing": "8:30 AM - 5:30 PM",
         "fee": "₹50 (Adults) / ₹25 (Children)",
         "shortDesc": "Original royal residence housing one of the largest art collections in South India, including master oil paintings by Raja Ravi Varma.",
@@ -1249,12 +1268,14 @@ export const CITIES_DATA = [
       {
         "name": "Hyderabadi Dum Biryani",
         "desc": "Fragrant basmati rice slow-cooked on dum with marinated mutton, saffron, and fried onions.",
-        "place": "Paradise Food Court & Cafe Bahar"
+        "place": "Paradise Food Court & Cafe Bahar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hyderabadi_Chicken_Biryani.jpg/1280px-Hyderabadi_Chicken_Biryani.jpg"
       },
       {
         "name": "Haleem & Irani Chai",
         "desc": "Velvety wheat and meat stew slow-cooked for 8 hours, followed by sweet condensed milk Irani tea with Osmania biscuits.",
-        "place": "Pista House & Nimrah Cafe, Charminar"
+        "place": "Pista House & Nimrah Cafe, Charminar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Pakistani_Haleem_served_with_garnish.jpg/1280px-Pakistani_Haleem_served_with_garnish.jpg"
       },
       {
         "name": "Double Ka Meetha & Qubani Ka Meetha",
@@ -1271,7 +1292,7 @@ export const CITIES_DATA = [
           17.3616,
           78.4747
         ],
-        "image": "https://images.unsplash.com/photo-1617854818583-09e7f077a156?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Charminar_Hyderabad_1.jpg/1280px-Charminar_Hyderabad_1.jpg",
         "timing": "9:30 AM - 5:30 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "1591 CE monumental arch with four 56-meter minarets, built to commemorate the eradication of plague in the city.",
@@ -1285,7 +1306,7 @@ export const CITIES_DATA = [
           17.3833,
           78.4011
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Golconda_Fort_005.jpg/1280px-Golconda_Fort_005.jpg",
         "timing": "9:00 AM - 5:30 PM (Sound & Light Show 6:30 PM)",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Impregnable granite fortress once controlling the world’s only diamond trade (producing Koh-i-Noor and Hope diamonds).",
@@ -1299,7 +1320,7 @@ export const CITIES_DATA = [
           17.3713,
           78.4804
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Salar_Jung_Museum%2C_Hyderabad%2C_India.jpg/1280px-Salar_Jung_Museum%2C_Hyderabad%2C_India.jpg",
         "timing": "10:00 AM - 5:00 PM (Fridays Closed)",
         "fee": "₹50 (Indians) / ₹500 (Foreigners)",
         "shortDesc": "One of the world’s largest one-man art collections, featuring the famous double-sided wooden sculpture of Mephistopheles and Margaretta.",
@@ -1313,7 +1334,7 @@ export const CITIES_DATA = [
           17.4062,
           78.4691
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Birla_Mandir%2C_Hyderabad.png/1280px-Birla_Mandir%2C_Hyderabad.png",
         "timing": "7:00 AM - 12:00 PM & 3:00 PM - 9:00 PM",
         "fee": "Free",
         "shortDesc": "Built entirely from 2,000 tons of pure white Rajasthani marble atop the 280-foot Naubat Pahad hill overlooking Hussain Sagar.",
@@ -1327,7 +1348,7 @@ export const CITIES_DATA = [
           17.4239,
           78.4738
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg/1280px-Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg",
         "timing": "8:00 AM - 10:00 PM",
         "fee": "Free (Boat to Buddha statue ₹100)",
         "shortDesc": "Heart-shaped 16th-century lake centered around the world’s tallest single-rock monolithic Buddha statue (18 meters tall).",
@@ -1371,7 +1392,7 @@ export const CITIES_DATA = [
           15.3358,
           76.4602
         ],
-        "image": "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Complex_of_Virupaksha_Temple%2C_Hampi_%2804%29.jpg/1280px-Complex_of_Virupaksha_Temple%2C_Hampi_%2804%29.jpg",
         "timing": "6:00 AM - 1:00 PM & 5:00 PM - 9:00 PM",
         "fee": "₹25 entry",
         "shortDesc": "The oldest functioning Shiva temple in Hampi with a 50-meter gopuram tower, active since the 7th century CE.",
@@ -1385,7 +1406,7 @@ export const CITIES_DATA = [
           15.3392,
           76.4746
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/View_of_the_Virupaksha_temple_complex_from_Hemakuta_hill.JPG/1280px-View_of_the_Virupaksha_temple_complex_from_Hemakuta_hill.JPG",
         "timing": "8:30 AM - 5:30 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "Iconic stone chariot dedicated to Garuda (depicted on the Indian ₹50 note) and 56 musical pillars.",
@@ -1399,7 +1420,7 @@ export const CITIES_DATA = [
           15.3325,
           76.467
         ],
-        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Enroute_to_Matanga_hills%2C_Hampi.jpg/1280px-Enroute_to_Matanga_hills%2C_Hampi.jpg",
         "timing": "Open 24/7 (Climb before 5:45 AM)",
         "fee": "Free",
         "shortDesc": "Highest point in central Hampi offering a 360-degree panorama of boulder fields and river bend.",
@@ -1413,7 +1434,7 @@ export const CITIES_DATA = [
           15.362,
           76.442
         ],
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg/1280px-Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg",
         "timing": "7:00 AM - 6:00 PM",
         "fee": "Free (Coracle ride ₹300 - ₹500)",
         "shortDesc": "Tranquil reservoir surrounded by gigantic granite boulders on the Hippie Island side of the Tungabhadra.",
@@ -1457,7 +1478,7 @@ export const CITIES_DATA = [
           12.6163,
           80.1983
         ],
-        "image": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Shore_Temple_-Mamallapuram_-Tamil_Nadu_-N-TN-C55.jpg/1280px-Shore_Temple_-Mamallapuram_-Tamil_Nadu_-N-TN-C55.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "Structural granite temple built in 700-728 CE directly overlooking the breaking waves of the Bay of Bengal.",
@@ -1471,7 +1492,7 @@ export const CITIES_DATA = [
           12.6094,
           80.1945
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Five_Rathas_at_Mahaballipuram%2CTamil_Nadu.jpg/1280px-Five_Rathas_at_Mahaballipuram%2CTamil_Nadu.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "Included with Shore Temple ticket",
         "shortDesc": "Five monolithic rock shrines carved from a single outcropping of granite, each styled as a chariot named after the Pandavas.",
@@ -1485,7 +1506,7 @@ export const CITIES_DATA = [
           12.6178,
           80.1925
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Descent_of_the_Ganges_01.jpg/1280px-Descent_of_the_Ganges_01.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "World’s largest open-air rock relief measuring 96 by 43 feet, depicting celestial beings, elephants, and monkeys.",
@@ -1499,7 +1520,7 @@ export const CITIES_DATA = [
           12.6186,
           80.192
         ],
-        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Krishna_Butterball_Below_Mahabalipuram_Sep22_A7C_02490.jpg/1280px-Krishna_Butterball_Below_Mahabalipuram_Sep22_A7C_02490.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "Free",
         "shortDesc": "Gigantic 250-ton granite boulder balancing precariously on a 45-degree smooth rock slope for over 1,200 years.",
@@ -1526,7 +1547,8 @@ export const CITIES_DATA = [
       {
         "name": "Benne Masala Dosa",
         "desc": "Crispy butter-infused fermented rice crepe with spiced potato filling and fresh coconut chutney.",
-        "place": "Vidyarthi Bhavan, Gandhi Bazaar"
+        "place": "Vidyarthi Bhavan, Gandhi Bazaar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Masala_Dosa_2023.jpg/1280px-Masala_Dosa_2023.jpg"
       },
       {
         "name": "Rava Idli & Filter Kaapi",
@@ -1548,7 +1570,7 @@ export const CITIES_DATA = [
           12.9988,
           77.5921
         ],
-        "image": "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bangalore_Mysore_Maharaja_Palace.jpg/1280px-Bangalore_Mysore_Maharaja_Palace.jpg",
         "timing": "10:00 AM - 5:30 PM",
         "fee": "₹250 (Indians) / ₹450 (Foreigners)",
         "shortDesc": "19th-century Tudor-style royal palace featuring fortified towers, battlements, and Spanish stained-glass windows.",
@@ -1562,7 +1584,7 @@ export const CITIES_DATA = [
           12.9507,
           77.5848
         ],
-        "image": "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Glasshouse_and_fountain_at_lalbagh.jpg/1280px-Glasshouse_and_fountain_at_lalbagh.jpg",
         "timing": "6:00 AM - 7:00 PM",
         "fee": "₹30 entry",
         "shortDesc": "240-acre botanical haven commissioned by Hyder Ali in 1760, home to centuries-old trees and a London Crystal Palace replica.",
@@ -1576,7 +1598,7 @@ export const CITIES_DATA = [
           12.9424,
           77.5681
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Dodda_Ganeshana_Gudi_Hindu_temple%2C_Basavanagudi%2C_Karnataka%2C_India.jpg",
         "timing": "6:00 AM - 8:00 PM",
         "fee": "Free",
         "shortDesc": "16th-century Vijayanagara shrine housing a colossal 4.5-meter monolithic Nandi bull carved from single granite.",
@@ -1590,7 +1612,7 @@ export const CITIES_DATA = [
           12.9763,
           77.5929
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cubbon_Park_W.jpg/1280px-Cubbon_Park_W.jpg",
         "timing": "6:00 AM - 7:00 PM",
         "fee": "Free",
         "shortDesc": "300-acre green lung in central Bengaluru adjacent to the majestic neo-Dravidian state legislature Vidhana Soudha.",
@@ -1617,7 +1639,8 @@ export const CITIES_DATA = [
       {
         "name": "Kerala Spiced Fish Fry & Kappa",
         "desc": "Fresh mountain catch rubbed with crushed red chilies and served with boiled tapioca.",
-        "place": "Rapsy Restaurant, Main Bazaar"
+        "place": "Rapsy Restaurant, Main Bazaar",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Etroplus_suratensis.jpg/1280px-Etroplus_suratensis.jpg"
       },
       {
         "name": "Fresh Cardamom Tea & Banana Fritters",
@@ -1634,7 +1657,7 @@ export const CITIES_DATA = [
           10.15,
           77.06
         ],
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/1280px-Eravikulam_National_Park_%2849444006652%29.jpg",
         "timing": "7:30 AM - 4:00 PM",
         "fee": "₹200 (Indians) / ₹500 (Foreigners)",
         "shortDesc": "Sanctuary for the rare endangered Nilgiri Tahr mountain goat, featuring rolling shola grasslands and views of Anamudi peak.",
@@ -1648,7 +1671,7 @@ export const CITIES_DATA = [
           10.093,
           77.052
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Le_mus%C3%A9e_du_th%C3%A9_%28Munnar%2C_Inde%29_%2813694719014%29.jpg/1280px-Le_mus%C3%A9e_du_th%C3%A9_%28Munnar%2C_Inde%29_%2813694719014%29.jpg",
         "timing": "9:00 AM - 5:00 PM (Mondays Closed)",
         "fee": "₹125 entry (includes tea tasting session)",
         "shortDesc": "Historic tea factory tracing the evolution of tea plantations in Munnar since 1876 with live tea processing demos.",
@@ -1662,7 +1685,7 @@ export const CITIES_DATA = [
           10.106,
           77.124
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Mattupetty_Dam.jpg/1280px-Mattupetty_Dam.jpg",
         "timing": "9:00 AM - 5:00 PM",
         "fee": "₹10 entry (Speedboats ₹500 - ₹1,000)",
         "shortDesc": "Masonry gravity dam nestled within verdant tea hills, famous for still water boating and natural acoustic echo point.",
@@ -1689,12 +1712,14 @@ export const CITIES_DATA = [
       {
         "name": "Kolkata Kathi Roll",
         "desc": "Flaky paratha layered with egg, tender marinated chicken, onions, and lime.",
-        "place": "Nizam’s, New Market"
+        "place": "Nizam’s, New Market",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Triangle_paratha_%28cropped%29.JPG/1280px-Triangle_paratha_%28cropped%29.JPG"
       },
       {
         "name": "Rosogolla & Sandesh",
         "desc": "Spongy cottage cheese balls simmered in light sugar syrup, and Nolen Gur date palm sandesh.",
-        "place": "K.C. Das & Balaram Mullick"
+        "place": "K.C. Das & Balaram Mullick",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Rasgulla.jpg/1280px-Rasgulla.jpg"
       },
       {
         "name": "Kolkata Mutton Biryani",
@@ -1711,7 +1736,7 @@ export const CITIES_DATA = [
           22.5448,
           88.3426
         ],
-        "image": "https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Victoria_Memorial_situated_in_Kolkata.jpg/1280px-Victoria_Memorial_situated_in_Kolkata.jpg",
         "timing": "10:00 AM - 5:00 PM (Gardens open 5:30 AM - 6:30 PM)",
         "fee": "₹50 (Indians) / ₹500 (Foreigners)",
         "shortDesc": "Grand white Makrana marble monument built between 1906 and 1921, surrounded by 64 acres of landscaped gardens.",
@@ -1725,7 +1750,7 @@ export const CITIES_DATA = [
           22.5851,
           88.3468
         ],
-        "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Howrah_bridge_at_night.jpg/1280px-Howrah_bridge_at_night.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "Engineering marvel balanced cantilever bridge spanning the Hooghly River without a single pillar in the riverbed.",
@@ -1739,7 +1764,7 @@ export const CITIES_DATA = [
           22.653,
           88.357
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Dakhineshwar_Temple_beside_the_Hoogly%2C_West_Bengal.JPG/1280px-Dakhineshwar_Temple_beside_the_Hoogly%2C_West_Bengal.JPG",
         "timing": "6:00 AM - 12:30 PM & 3:00 PM - 8:30 PM",
         "fee": "Free",
         "shortDesc": "Navaratna-style 19th-century temple complex built by Rani Rashmoni where mystic Ramakrishna Paramahamsa served as priest.",
@@ -1753,7 +1778,7 @@ export const CITIES_DATA = [
           22.5579,
           88.3511
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Indian_Museum%2C_Courtyard%2C_Kolkata%2C_India.jpg/1280px-Indian_Museum%2C_Courtyard%2C_Kolkata%2C_India.jpg",
         "timing": "10:00 AM - 5:00 PM (Mondays Closed)",
         "fee": "₹50 (Indians) / ₹500 (Foreigners)",
         "shortDesc": "Oldest and largest multipurpose museum in the Asia-Pacific region (founded 1814), housing rare fossils and Egyptian mummies.",
@@ -1767,7 +1792,7 @@ export const CITIES_DATA = [
           22.556,
           88.332
         ],
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/PrincepGhat.jpg/1280px-PrincepGhat.jpg",
         "timing": "Open all day",
         "fee": "Free (Wooden boat ride ₹300 - ₹500)",
         "shortDesc": "Palladian Greek-style columned pavilion on the riverbanks, overlooking the towering Vidyasagar Setu cable-stayed bridge.",
@@ -1811,7 +1836,7 @@ export const CITIES_DATA = [
           19.8048,
           85.8179
         ],
-        "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Shri_Jagannath_temple.jpg/1280px-Shri_Jagannath_temple.jpg",
         "timing": "5:30 AM - 10:00 PM",
         "fee": "Free (Only practicing Hindus permitted inside inner sanctum)",
         "shortDesc": "Sprawling 12th-century Kalinga-style temple dedicated to Lord Jagannath, Balabhadra, and Subhadra, home of the annual Ratha Yatra.",
@@ -1825,7 +1850,7 @@ export const CITIES_DATA = [
           19.8876,
           86.0945
         ],
-        "image": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/1280px-Konarka_Temple.jpg",
         "timing": "6:00 AM - 8:00 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "UNESCO World Heritage 13th-century chariot temple with 24 carved stone wheels that function as accurate astronomical sundials.",
@@ -1839,7 +1864,7 @@ export const CITIES_DATA = [
           19.798,
           85.828
         ],
-        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Puri_Sea_Beach_viewed_from_the_light_house.jpg/1280px-Puri_Sea_Beach_viewed_from_the_light_house.jpg",
         "timing": "Open 24/7",
         "fee": "Free (Clean certified Blue Flag zone ₹20)",
         "shortDesc": "Certified eco-friendly Blue Flag golden sand beach with safe swimming zones, palm promenades, and evening sand art displays.",
@@ -1853,7 +1878,7 @@ export const CITIES_DATA = [
           19.87,
           85.83
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Entrance_of_Raghurajpur.jpg/1280px-Entrance_of_Raghurajpur.jpg",
         "timing": "9:00 AM - 6:00 PM",
         "fee": "Free",
         "shortDesc": "Artisan village where every family creates ancient Pattachitra scroll paintings, palm leaf engravings, and wooden masks.",
@@ -1880,7 +1905,8 @@ export const CITIES_DATA = [
       {
         "name": "Darjeeling Steamed Momos",
         "desc": "Delicate flour dumplings stuffed with seasoned chicken or seasonal hill vegetables.",
-        "place": "Kunga Restaurant, Gandhi Road"
+        "place": "Kunga Restaurant, Gandhi Road",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Momo_nepal.jpg/1280px-Momo_nepal.jpg"
       },
       {
         "name": "First Flush Darjeeling Tea & Pastries",
@@ -1897,7 +1923,7 @@ export const CITIES_DATA = [
           27.001,
           88.283
         ],
-        "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tiger_Hill_Darjeeling_West_Bengal_India_%283%29.JPG/1280px-Tiger_Hill_Darjeeling_West_Bengal_India_%283%29.JPG",
         "timing": "4:00 AM - 6:30 AM (Depart hotel at 3:30 AM)",
         "fee": "₹50 - ₹100 for observatory tower",
         "shortDesc": "Famous 2,590-meter viewpoint where dawn sunbeams illuminate the towering peak of Mt. Kanchenjunga in hues of gold.",
@@ -1911,7 +1937,7 @@ export const CITIES_DATA = [
           27.0165,
           88.2485
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Batasia_Loop_War_Memorial_with_Kanchanjunga.jpg/1280px-Batasia_Loop_War_Memorial_with_Kanchanjunga.jpg",
         "timing": "5:00 AM - 6:00 PM",
         "fee": "₹20 entry",
         "shortDesc": "A spiral railway loop where the Toy Train negotiates a steep 1,000-foot descent around manicured flower gardens.",
@@ -1925,7 +1951,7 @@ export const CITIES_DATA = [
           27.028,
           88.261
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Peace_Pagoda%2C_Darjeeling_-_Dec_2006-2.jpg",
         "timing": "4:30 AM - 7:00 PM",
         "fee": "Free",
         "shortDesc": "White domed Buddhist sanctuary built under Nichidatsu Fujii, enshrining four gold-polished avatars of Lord Buddha.",
@@ -1939,7 +1965,7 @@ export const CITIES_DATA = [
           27.052,
           88.261
         ],
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Happy_Valley_Tea_Estate%2C_Darjeeling.jpg",
         "timing": "9:30 AM - 4:30 PM (Closed Mondays)",
         "fee": "₹100 guided factory tour",
         "shortDesc": "Established in 1854, one of the oldest tea gardens in Darjeeling producing organic black, green, and white teas.",
@@ -1966,7 +1992,8 @@ export const CITIES_DATA = [
       {
         "name": "Sikkimese Steamed Momos & Thukpa",
         "desc": "Hand-crafted dumplings served in piping hot clear bone broth with home-fermented gundruk.",
-        "place": "The Taste of Tibet, MG Marg"
+        "place": "The Taste of Tibet, MG Marg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Thukpa%2C_Tibetan_noodle_in_Osaka%2C_Japan.jpg/1280px-Thukpa%2C_Tibetan_noodle_in_Osaka%2C_Japan.jpg"
       },
       {
         "name": "Shaphalay (Tibetan Meat Pies)",
@@ -1983,7 +2010,7 @@ export const CITIES_DATA = [
           27.3,
           88.56
         ],
-        "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rumtek_Monastery_alias_Dharma_Chakra_Centre_near_Gangtok%2C_East_Sikkim_09.jpg/1280px-Rumtek_Monastery_alias_Dharma_Chakra_Centre_near_Gangtok%2C_East_Sikkim_09.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹10 entry",
         "shortDesc": "Seat of the Karmapa Lama and Kagyu lineage, housing priceless Tibetan religious artwork and sacred golden stupas.",
@@ -1997,7 +2024,7 @@ export const CITIES_DATA = [
           27.3742,
           88.7619
         ],
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Tsongmo_Lake_or_Changu_Lake_-_East_Sikkim.jpg/1280px-Tsongmo_Lake_or_Changu_Lake_-_East_Sikkim.jpg",
         "timing": "Permits required (Day visit only)",
         "fee": "Permit approx ₹200 (Vehicle extra)",
         "shortDesc": "Sacred high-altitude glacial lake at 3,753 meters altitude that freezes solid in winter and reflects prayer flags in summer.",
@@ -2011,7 +2038,7 @@ export const CITIES_DATA = [
           27.316,
           88.604
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Namgyal_Institute_of_Tibetology_Front_Panorama.jpg/1280px-Namgyal_Institute_of_Tibetology_Front_Panorama.jpg",
         "timing": "10:00 AM - 4:00 PM (Sundays Closed)",
         "fee": "₹10 entry",
         "shortDesc": "Autonomous research institute housed in traditional Tibetan architecture, featuring rare Sanskrit and Tibetan palm-leaf manuscripts.",
@@ -2025,7 +2052,7 @@ export const CITIES_DATA = [
           27.329,
           88.613
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kangch-Goechala.jpg/1280px-Kangch-Goechala.jpg",
         "timing": "Open all day (Shops open 10:00 AM - 8:00 PM)",
         "fee": "Free",
         "shortDesc": "Pristine, vehicle-free stone-paved promenade lined with Victorian lampposts, cafes, and mountain souvenir boutiques.",
@@ -2069,7 +2096,7 @@ export const CITIES_DATA = [
           25.66,
           91.89
         ],
-        "image": "https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Umiam_Lake_-_by_Vikramjit_Kakati.png",
         "timing": "Sunrise to Sunset",
         "fee": "Free (Water sports ₹200 - ₹500)",
         "shortDesc": "Vast reservoir surrounded by pine-clad Khasi hills, offering kayaking, water-skiing, and panoramic sunset viewpoints.",
@@ -2083,7 +2110,7 @@ export const CITIES_DATA = [
           25.536,
           91.823
         ],
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Elephant_Falls_Meghalaya.jpg",
         "timing": "9:00 AM - 5:00 PM",
         "fee": "₹20 entry",
         "shortDesc": "Three-tiered mountain waterfall tumbling over fern-carpeted black rocks, named after an elephant-shaped rock.",
@@ -2097,7 +2124,7 @@ export const CITIES_DATA = [
           25.599,
           91.905
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Don_Bosco_Museum%2C_Shillong.jpg/1280px-Don_Bosco_Museum%2C_Shillong.jpg",
         "timing": "9:00 AM - 5:30 PM (Sundays Closed)",
         "fee": "₹100 (Indians) / ₹250 (Foreigners)",
         "shortDesc": "Seven-story hexagonal museum housing seventeen galleries showcasing the tribal dress, weapons, and customs of all eight North-East states.",
@@ -2141,7 +2168,7 @@ export const CITIES_DATA = [
           26.166,
           91.705
         ],
-        "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kamakhya_Temple_-_DEV_8829.jpg/1280px-Kamakhya_Temple_-_DEV_8829.jpg",
         "timing": "5:30 AM - 1:00 PM & 2:30 PM - 5:30 PM",
         "fee": "Free (VIP entry ₹500)",
         "shortDesc": "One of the oldest and most revered 51 Shaktipeeths atop Nilachal Hill, dedicated to the mother goddess of tantric worship.",
@@ -2155,7 +2182,7 @@ export const CITIES_DATA = [
           26.185,
           91.745
         ],
-        "image": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ganges-Brahmaputra-Meghna_basins.jpg/1280px-Ganges-Brahmaputra-Meghna_basins.jpg",
         "timing": "Evening departures (4:30 PM - 6:30 PM)",
         "fee": "₹400 - ₹1,500 with dinner",
         "shortDesc": "Cruising along one of the widest rivers in the world, with opportunities to spot endangered Gangetic river dolphins.",
@@ -2169,7 +2196,7 @@ export const CITIES_DATA = [
           26.184,
           91.751
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Assam_State_Museum.jpg",
         "timing": "10:00 AM - 5:00 PM (Mondays Closed)",
         "fee": "₹20 entry",
         "shortDesc": "Extensive museum near Dighalipukhuri displaying medieval Ahom dynasty swords, royal armor, and village bamboo crafts.",
@@ -2196,7 +2223,8 @@ export const CITIES_DATA = [
       {
         "name": "Vada Pav & Pav Bhaji",
         "desc": "Spicy potato fritter in bun with garlic chutney, and buttery mashed vegetable curry with toasted pav.",
-        "place": "Cannon Pav Bhaji & Ashok Vada Pav"
+        "place": "Cannon Pav Bhaji & Ashok Vada Pav",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Vada_Pav-Indian_street_food.JPG/1280px-Vada_Pav-Indian_street_food.JPG"
       },
       {
         "name": "Bombay Duck Fry & Koli Prawns",
@@ -2218,7 +2246,7 @@ export const CITIES_DATA = [
           18.922,
           72.8347
         ],
-        "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg/1280px-Mumbai_03-2016_30_Gateway_of_India.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "26-meter basalt arch monument built in 1924 facing Mumbai Harbour, symbol of British entry and departure.",
@@ -2232,7 +2260,7 @@ export const CITIES_DATA = [
           18.94,
           72.8353
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chhatrapati_shivaji_terminus%2C_esterno_01.jpg/1280px-Chhatrapati_shivaji_terminus%2C_esterno_01.jpg",
         "timing": "Open 24 Hours",
         "fee": "Free",
         "shortDesc": "UNESCO World Heritage Italian Gothic railway palace designed by F. W. Stevens, featuring stone gargoyles and stained glass.",
@@ -2246,7 +2274,7 @@ export const CITIES_DATA = [
           18.9432,
           72.823
         ],
-        "image": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg/1280px-Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "3.6-kilometer C-shaped coastal promenade along Netaji Subhash Chandra Bose Road lined with Art Deco residences.",
@@ -2260,7 +2288,7 @@ export const CITIES_DATA = [
           19.0169,
           72.8304
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Shree_Siddhivinayak_Temple_Mumbai.jpg/1280px-Shree_Siddhivinayak_Temple_Mumbai.jpg",
         "timing": "5:30 AM - 9:50 PM",
         "fee": "Free",
         "shortDesc": "Revered temple dedicated to Lord Ganesha, featuring a gold-plated inner sanctum dome and black stone deity.",
@@ -2274,7 +2302,7 @@ export const CITIES_DATA = [
           18.9269,
           72.8327
         ],
-        "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Chhatrapati_Shivaji_Maharaj_Vastu_Sangrahalaya.jpg/1280px-Chhatrapati_Shivaji_Maharaj_Vastu_Sangrahalaya.jpg",
         "timing": "10:15 AM - 6:00 PM",
         "fee": "₹150 (Indians) / ₹650 (Foreigners)",
         "shortDesc": "Indo-Saracenic museum surrounded by palm gardens, housing priceless collections of ancient sculptures, miniature art, and weaponry.",
@@ -2301,12 +2329,14 @@ export const CITIES_DATA = [
       {
         "name": "Goan Fish Curry & Rice",
         "desc": "Fresh Kingfish cooked in coconut milk, dried Kashmiri chilies, and sour kokum.",
-        "place": "Fisherman’s Wharf & Ritz Classic, Panaji"
+        "place": "Fisherman’s Wharf & Ritz Classic, Panaji",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Beef_Vindaloo_-_Chilli_Mama%2C_Chadstone_%283014236693%29.jpg/1280px-Beef_Vindaloo_-_Chilli_Mama%2C_Chadstone_%283014236693%29.jpg"
       },
       {
         "name": "Pork Vindaloo & Poi Bread",
         "desc": "Fiery garlic, vinegar, and chili braised pork paired with crusty Goan poi bread.",
-        "place": "Viva Panjim, Fontainhas"
+        "place": "Viva Panjim, Fontainhas",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Beef_Vindaloo_-_Chilli_Mama%2C_Chadstone_%283014236693%29.jpg/1280px-Beef_Vindaloo_-_Chilli_Mama%2C_Chadstone_%283014236693%29.jpg"
       },
       {
         "name": "Bebinca Layered Cake",
@@ -2323,7 +2353,7 @@ export const CITIES_DATA = [
           15.5009,
           73.9116
         ],
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Front_Elevation_of_Basilica_of_Bom_Jesus.jpg/1280px-Front_Elevation_of_Basilica_of_Bom_Jesus.jpg",
         "timing": "9:00 AM - 6:30 PM",
         "fee": "Free",
         "shortDesc": "UNESCO World Heritage baroque church built in 1605, holding the sacred relic mortal remains of St. Francis Xavier.",
@@ -2337,7 +2367,7 @@ export const CITIES_DATA = [
           15.4925,
           73.7736
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Fort_aguada.jpg",
         "timing": "9:30 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "17th-century Portuguese coastal fortress on Sinquerim beach with a freshwater cistern that supplied passing ships.",
@@ -2351,7 +2381,7 @@ export const CITIES_DATA = [
           15.01,
           74.023
         ],
-        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Palolem_Beach%2C_South_Goa.jpg/1280px-Palolem_Beach%2C_South_Goa.jpg",
         "timing": "Open 24/7",
         "fee": "Free",
         "shortDesc": "Picturesque crescent-shaped bay with calm turquoise waters, coconut palms, and colorful beachfront wooden shacks.",
@@ -2365,7 +2395,7 @@ export const CITIES_DATA = [
           15.443,
           73.968
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Shri-Mangesh-Temple%2CGoa.JPG",
         "timing": "6:00 AM - 10:00 PM",
         "fee": "Free",
         "shortDesc": "Famous 450-year-old Hindu temple dedicated to Lord Shiva, featuring a striking seven-story white Deepastambha lamp tower.",
@@ -2379,7 +2409,7 @@ export const CITIES_DATA = [
           15.314,
           74.314
         ],
-        "image": "https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Doodhsagar_Fall.jpg/1280px-Doodhsagar_Fall.jpg",
         "timing": "Safari departs 8:30 AM - 3:30 PM",
         "fee": "Jeep safari approx ₹500 - ₹800",
         "shortDesc": "One of India’s tallest four-tiered waterfalls (310 meters), resembling a cascading \"Sea of Milk\" amidst Western Ghats jungle.",
@@ -2411,7 +2441,8 @@ export const CITIES_DATA = [
       {
         "name": "Khaman Dhokla & Fafda Jalebi",
         "desc": "Spongy steamed gram flour snacks with crisp gram flour strips and hot papaya sambharo.",
-        "place": "Das Khaman & Chandravilas"
+        "place": "Das Khaman & Chandravilas",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Dhokla_on_Gujrart.jpg"
       },
       {
         "name": "Manek Chowk Midnight Kulfi & Sandwiches",
@@ -2428,7 +2459,7 @@ export const CITIES_DATA = [
           23.0605,
           72.58
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/GANDHI_ASHRAM_03.jpg/1280px-GANDHI_ASHRAM_03.jpg",
         "timing": "8:30 AM - 6:30 PM",
         "fee": "Free",
         "shortDesc": "Headquarters of Mahatma Gandhi from 1917 to 1930 from where the historic Salt March to Dandi was launched.",
@@ -2442,7 +2473,7 @@ export const CITIES_DATA = [
           23.1667,
           72.5833
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Adalaj_ki_Vav_Gujarat_240A1370_72.jpg/1280px-Adalaj_ki_Vav_Gujarat_240A1370_72.jpg",
         "timing": "8:00 AM - 6:00 PM",
         "fee": "Free",
         "shortDesc": "Five-story deep underground architectural marvel built in 1498 with Solanki carvings and subterranean temperature cooling.",
@@ -2456,7 +2487,7 @@ export const CITIES_DATA = [
           23.028,
           72.582
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sidi_Saiyyed_Mosque%2C_Ahmedabad.jpg/1280px-Sidi_Saiyyed_Mosque%2C_Ahmedabad.jpg",
         "timing": "6:00 AM - 7:00 PM",
         "fee": "Free",
         "shortDesc": "1573 CE mosque celebrated globally for its ten semi-circular marble screens carved into delicate intertwined tree branches.",
@@ -2470,7 +2501,7 @@ export const CITIES_DATA = [
           23.056,
           72.593
         ],
-        "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Calico_Museum_of_Textiles_Ahmedabad.jpg/1280px-Calico_Museum_of_Textiles_Ahmedabad.jpg",
         "timing": "Guided tours only (10:30 AM - 1:00 PM, Prior booking required)",
         "fee": "Free (Strict pre-registration online)",
         "shortDesc": "Premier textile museum in India showcasing 500 years of handwoven textiles, royal court costumes, and Kashmiri pashminas.",
@@ -2484,7 +2515,7 @@ export const CITIES_DATA = [
           23.006,
           72.603
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kankaria_Carnival_2_Ahmedabad.JPG/1280px-Kankaria_Carnival_2_Ahmedabad.JPG",
         "timing": "4:00 AM - 10:00 PM (Closed Mondays)",
         "fee": "₹25 entry",
         "shortDesc": "Circular lake commissioned in 1451 with a central Nagina Wadi garden island, light shows, and tree-lined jogging paths.",
@@ -2528,7 +2559,7 @@ export const CITIES_DATA = [
           24.853,
           79.9195
         ],
-        "image": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Khajuraho.KandariyaMahadeva.jpg/1280px-Khajuraho.KandariyaMahadeva.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "The largest and most magnificent temple in Khajuraho with 84 miniature spires recreating Mt. Meru, covered in 800 sculptures.",
@@ -2542,7 +2573,7 @@ export const CITIES_DATA = [
           24.8535,
           79.9205
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/1_Khajuraho.jpg/1280px-1_Khajuraho.jpg",
         "timing": "6:00 AM - 6:00 PM (Light & Sound Show 6:30 PM)",
         "fee": "Included with ticket",
         "shortDesc": "Pristinely landscaped UNESCO garden complex housing Lakshmana Temple, Matangeshwar Temple, and Chitragupta Temple.",
@@ -2556,7 +2587,7 @@ export const CITIES_DATA = [
           24.91,
           79.98
         ],
-        "image": "https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Raneh_Falls.jpg/1280px-Raneh_Falls.jpg",
         "timing": "8:00 AM - 5:00 PM",
         "fee": "₹50 entry + vehicle permit",
         "shortDesc": "Breathtaking 5-km-long natural canyon carved through crystalline multi-colored granite rocks by Ken River.",
@@ -2570,7 +2601,7 @@ export const CITIES_DATA = [
           24.851,
           79.924
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Khajuraho.KandariyaMahadeva.jpg/1280px-Khajuraho.KandariyaMahadeva.jpg",
         "timing": "9:00 AM - 5:00 PM (Fridays Closed)",
         "fee": "₹5 entry",
         "shortDesc": "Housing rare 10th-century Chandela stone statues including the colossal seated Nandi bull and dancing Ganesha.",
@@ -2597,7 +2628,8 @@ export const CITIES_DATA = [
       {
         "name": "Puneri Misal Pav",
         "desc": "Spicy sprouted lentil curry topped with crispy farsan, fresh onions, and buttered pav.",
-        "place": "Katakirr Misal & Bedekar Tea Stall"
+        "place": "Katakirr Misal & Bedekar Tea Stall",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kolhapuri_Misal_Pav.jpg/1280px-Kolhapuri_Misal_Pav.jpg"
       },
       {
         "name": "Bun Maska & Irani Chai",
@@ -2619,7 +2651,7 @@ export const CITIES_DATA = [
           18.5196,
           73.8553
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Front_view_of_Shaniwar_Wada_illuminated.jpg/1280px-Front_view_of_Shaniwar_Wada_illuminated.jpg",
         "timing": "9:30 AM - 5:30 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Historic 18th-century seven-story palace fort built in 1732 by Peshwa Baji Rao I, with massive teak spike-studded Dilli Darwaza.",
@@ -2633,7 +2665,7 @@ export const CITIES_DATA = [
           18.5524,
           73.9015
         ],
-        "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Pune_Palace.jpg/1280px-Pune_Palace.jpg",
         "timing": "9:00 AM - 5:30 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "Italianate palace built in 1892 where Mahatma Gandhi and Kasturba Gandhi were interned following the 1942 Quit India Resolution.",
@@ -2647,7 +2679,7 @@ export const CITIES_DATA = [
           18.5165,
           73.8561
         ],
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Dagdusheth_Ganpati_Temple_Decorated_during_Ganesh_Chaturti_September_2012_%281%29.JPG/1280px-Dagdusheth_Ganpati_Temple_Decorated_during_Ganesh_Chaturti_September_2012_%281%29.JPG",
         "timing": "6:00 AM - 11:00 PM",
         "fee": "Free",
         "shortDesc": "One of the most revered and lavish Ganesha temples in Maharashtra, adorned with 40 kg of pure gold ornaments.",
@@ -2661,7 +2693,7 @@ export const CITIES_DATA = [
           18.3663,
           73.7558
         ],
-        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sinhagad.jpg/1280px-Sinhagad.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹50 entry per vehicle",
         "shortDesc": "Hilltop fortress perched 1,312 meters atop the Sahyadris, site of Tanaji Malusare’s heroic 1670 battle.",
@@ -2675,7 +2707,7 @@ export const CITIES_DATA = [
           18.511,
           73.854
         ],
-        "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Building_of_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg/1280px-Building_of_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg",
         "timing": "10:00 AM - 5:30 PM",
         "fee": "₹50 (Adults) / ₹20 (Children)",
         "shortDesc": "Fascinating collection of 20,000 medieval Indian everyday artifacts, carved wooden doors, and musical instruments.",
@@ -2719,7 +2751,7 @@ export const CITIES_DATA = [
           20.0268,
           75.178
         ],
-        "image": "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/en/f/fc/Kailash_temple_%28Ellora_cave_no_15%29_at_Verul.png",
         "timing": "Sunrise to Sunset (Tuesdays Closed)",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "World’s largest monolithic rock excavation, carved top-to-bottom from a single basalt cliff by Rashtrakuta King Krishna I.",
@@ -2733,7 +2765,7 @@ export const CITIES_DATA = [
           20.5519,
           75.7033
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ajanta_%2863%29.jpg",
         "timing": "9:00 AM - 5:00 PM (Mondays Closed)",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
         "shortDesc": "30 rock-cut Buddhist cave monuments dating from 2nd century BCE, containing master frescoes of the Jataka tales.",
@@ -2747,7 +2779,7 @@ export const CITIES_DATA = [
           19.9014,
           75.3203
         ],
-        "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/The_Tomb_of_Dilras_Banu_Begum.jpg/1280px-The_Tomb_of_Dilras_Banu_Begum.jpg",
         "timing": "6:00 AM - 10:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "1660 CE marble mausoleum commissioned by Prince Azam Shah for his mother Dilras Banu Begum, closely resembling the Taj Mahal.",
@@ -2761,7 +2793,7 @@ export const CITIES_DATA = [
           19.943,
           75.213
         ],
-        "image": "https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=800&q=80",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Daulatabad_Fort_a_view.JPG/1280px-Daulatabad_Fort_a_view.JPG",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
         "shortDesc": "12th-century conical hilltop citadel with ingenious defense mechanisms including pitch-dark mazes (Andhari) and moats.",
@@ -2776,6 +2808,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-1",
     "city": "Varanasi",
     "title": "Secret Dawn Boat Ride to Scindia Ghat Leaning Temple",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Matri-rin_Temple_in_Varanasi.jpg/1280px-Matri-rin_Temple_in_Varanasi.jpg",
     "author": "Aarav Sharma",
     "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
     "category": "Secret Photo Angle",
@@ -2788,6 +2821,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-2",
     "city": "Jaipur",
     "title": "Hidden Stairwell inside Panna Meena Ka Kund",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Panna_Meena_ka_Kund_01.jpg/1280px-Panna_Meena_ka_Kund_01.jpg",
     "author": "Priya Rathore",
     "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
     "category": "Hidden Heritage",
@@ -2800,6 +2834,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-3",
     "city": "Delhi",
     "title": "Mehrauli Baoli Stepwell at Sunset",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Rajon_Ki_Baoli_-_Delhi_-_01.jpg/1280px-Rajon_Ki_Baoli_-_Delhi_-_01.jpg",
     "author": "Rohan Mehra",
     "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
     "category": "Architectural Gem",
@@ -2812,6 +2847,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-4",
     "city": "Agra",
     "title": "Secret Mehtab Bagh Silhouette Spot across River",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mehtab_Bagh_facing_Taj_Mahal.JPG/1280px-Mehtab_Bagh_facing_Taj_Mahal.JPG",
     "author": "Kavita Joshi",
     "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80",
     "category": "Secret Photo Angle",
@@ -2824,6 +2860,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-5",
     "city": "Kochi",
     "title": "Pan-Fried Fish from Local Chinese Net Catch",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Fried_Fish_and_French_Fries.jpg",
     "author": "Anjali Menon",
     "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
     "category": "Budget Street Food",
@@ -2836,6 +2873,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-6",
     "city": "Hampi",
     "title": "Sanapur Lake Cliff Jumping & Coracle Boat Rides",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg/1280px-Wide_angle_of_Galigopuram_of_Virupaksha_Temple%2C_Hampi_%2804%29_%28cropped%29.jpg",
     "author": "Vikram Seth",
     "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80",
     "category": "Secret Photo Angle",
@@ -2848,6 +2886,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-7",
     "city": "Amritsar",
     "title": "Dawn Sarovar Parikrama & Langar Cooking at 4 AM",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/1280px-The_Golden_Temple_of_Amrithsar_7.jpg",
     "author": "Harpreet Singh",
     "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
     "category": "Spiritual Secret",
@@ -2860,6 +2899,7 @@ export const COMMUNITY_GEMS = [
     "id": "gem-8",
     "city": "Kolkata",
     "title": "Old Town Heritage Tram Ride from Esplanade to Gariahat",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/211_at_Esplanade.jpg/1280px-211_at_Esplanade.jpg",
     "author": "Debashis Roy",
     "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80",
     "category": "Hidden Heritage",
