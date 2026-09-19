@@ -26,34 +26,14 @@ import {
   Users, 
   Info, 
   RefreshCw,
-  AlertCircle
+  AlertCircle,
+  TrendingDown,
+  Coins,
+  ShieldAlert,
+  Percent
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
 import { handleImageError } from '../utils/imageUtils';
-
-const BUDGET_TIERS = [
-  {
-    id: 'backpacker',
-    label: 'Backpacker',
-    sub: 'Verified social hostels, street eats & local transit',
-    icon: '🎒',
-    color: 'from-amber-500 to-orange-500'
-  },
-  {
-    id: 'moderate',
-    label: 'Moderate',
-    sub: 'Heritage havelis, boutique 3-4★ hotels & local cabs',
-    icon: '🧳',
-    color: 'from-sky-500 to-blue-600'
-  },
-  {
-    id: 'luxury',
-    label: 'Luxury',
-    sub: '5-star royal palaces, fine dining & private chauffeur',
-    icon: '💎',
-    color: 'from-purple-500 to-indigo-600'
-  }
-];
 
 const STYLE_OPTIONS = [
   { id: 'heritage', label: 'Culture & Heritage', icon: '🏛️' },
@@ -62,6 +42,9 @@ const STYLE_OPTIONS = [
   { id: 'scenic', label: 'Relaxed & Scenic', icon: '🌳' },
   { id: 'adventure', label: 'Adventure & Nature', icon: '🏔️' }
 ];
+
+const PRESET_BUDGETS_INR = [12000, 25000, 50000, 100000];
+const PRESET_BUDGETS_USD = [150, 300, 600, 1200];
 
 export default function SmartPlanner() {
   const { 
@@ -80,6 +63,8 @@ export default function SmartPlanner() {
 
   // Local form state
   const [selectedCityId, setSelectedCityId] = useState(currentCityId || 'jaipur');
+  const [currency, setCurrency] = useState('INR'); // 'INR' or 'USD'
+  const [totalBudget, setTotalBudget] = useState(25000);
   const [checkIn, setCheckIn] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() + 7);
@@ -91,7 +76,6 @@ export default function SmartPlanner() {
     return d.toISOString().split('T')[0];
   });
   const [guests, setGuests] = useState(2);
-  const [selectedBudget, setSelectedBudget] = useState('moderate');
   const [selectedStyles, setSelectedStyles] = useState(['heritage', 'food', 'scenic']);
   
   // Completed stops tracker
@@ -134,20 +118,33 @@ export default function SmartPlanner() {
         checkInDate: checkIn,
         checkOutDate: checkOut,
         guests,
-        budgetTier: selectedBudget,
+        totalBudget,
+        currency,
         travelStyles: selectedStyles
       });
     }
   }, [destinations.length]);
 
-  const handleGeneratePlan = () => {
+  const handleCurrencyToggle = (newCurr) => {
+    if (newCurr === currency) return;
+    setCurrency(newCurr);
+    if (newCurr === 'USD') {
+      setTotalBudget(Math.round(totalBudget / 84));
+    } else {
+      setTotalBudget(Math.round(totalBudget * 84));
+    }
+  };
+
+  const handleGeneratePlan = (customOverrides = {}) => {
     calculateLivePlan({
       destinationId: selectedCityId,
       checkInDate: checkIn,
       checkOutDate: checkOut,
       guests,
-      budgetTier: selectedBudget,
-      travelStyles: selectedStyles
+      totalBudget,
+      currency,
+      travelStyles: selectedStyles,
+      ...customOverrides
     });
   };
 
@@ -181,6 +178,10 @@ export default function SmartPlanner() {
 
   const budget = plannerResult?.budgetSummary;
   const hotel = plannerResult?.hotel;
+  const progress = plannerResult?.progressBreakdown;
+  const isDeficit = plannerResult?.isDeficit;
+  const deficitAmount = plannerResult?.deficitAmount;
+  const suggestions = plannerResult?.suggestions || [];
 
   return (
     <div className="w-full space-y-8 max-w-7xl mx-auto pb-12">
@@ -189,25 +190,104 @@ export default function SmartPlanner() {
       <div className="text-center max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-600 text-xs font-bold mb-3">
           <Sparkles className="w-4 h-4 text-sky-500 animate-spin" style={{ animationDuration: '8s' }} />
-          <span>Live Hotel Search API & ASI Verified Ticketing Engine</span>
+          <span>User-Defined Budget Engine • 45% Accommodation Cap • Live ASI Pricing</span>
         </div>
         <h1 className="font-display font-black text-2xl sm:text-4xl text-slate-900 tracking-tight">
-          Real-Time Smart Itinerary & Budget Planner
+          Smart Travel Planner & Budget Allocator
         </h1>
         <p className="text-sm text-slate-600 mt-2">
-          No static formulas. We fetch authentic nightly hotel rates, verified ASI monument entry ticket fees,
-          and regional cost indexes to calculate your trip down to the rupee.
+          Set your exact spending limit in ₹ or $. We constrain hotel costs to 45%, fetch verified ASI monument fees,
+          and dynamically distribute the rest for dining and intra-city mobility.
         </p>
       </div>
 
-      {/* Control Panel: Destination, Dates, Guests, Tier */}
+      {/* Control Panel: Budget, Destination, Dates, Guests */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
         
-        {/* Step 1: Destination Selection */}
+        {/* Step 1: User-Defined Exact Budget Input */}
         <div>
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+                Step 1: Your Total Travel Budget
+              </span>
+              <p className="text-xs text-slate-500">
+                Enter your total spending cap for the entire trip (all guests & days).
+              </p>
+            </div>
+
+            {/* Currency Toggle */}
+            <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => handleCurrencyToggle('INR')}
+                className={`px-3 py-1 rounded-lg transition-all ${
+                  currency === 'INR' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                ₹ INR
+              </button>
+              <button
+                type="button"
+                onClick={() => handleCurrencyToggle('USD')}
+                className={`px-3 py-1 rounded-lg transition-all ${
+                  currency === 'USD' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                $ USD
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div className="relative flex-1">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-slate-400">
+                {currency === 'USD' ? '$' : '₹'}
+              </span>
+              <input
+                type="number"
+                min="1000"
+                step="500"
+                value={totalBudget}
+                onChange={(e) => setTotalBudget(Math.max(100, parseInt(e.target.value, 10) || 0))}
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl text-lg font-extrabold text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all"
+                placeholder="e.g. 25000"
+              />
+            </div>
+
+            {/* Quick Presets */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+              {(currency === 'USD' ? PRESET_BUDGETS_USD : PRESET_BUDGETS_INR).map((preset) => (
+                <button
+                  key={preset}
+                  type="button"
+                  onClick={() => setTotalBudget(preset)}
+                  className={`px-3 py-2.5 rounded-xl text-xs font-bold border transition-all whitespace-nowrap ${
+                    totalBudget === preset
+                      ? 'bg-sky-500 text-white border-sky-500 shadow-sm'
+                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                  }`}
+                >
+                  {currency === 'USD' ? `$${preset}` : `₹${preset.toLocaleString('en-IN')}`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 45% Rule Indicator */}
+          <div className="mt-2.5 flex items-center gap-2 text-xs text-slate-500">
+            <Info className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
+            <span>
+              45% Hotel Cap: Maximum <strong className="text-slate-700">{currency === 'USD' ? `$${Math.round(totalBudget * 0.45)}` : `₹${Math.round(totalBudget * 0.45).toLocaleString('en-IN')}`}</strong> will be allocated for accommodation.
+            </span>
+          </div>
+        </div>
+
+        {/* Step 2: Destination Hub */}
+        <div className="pt-3 border-t border-slate-100">
+          <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-              Step 1: Destination Hub
+              Step 2: Destination Hub
             </span>
             <span className="text-xs font-bold text-sky-600">
               {activeCity.name}, {activeCity.state}
@@ -274,8 +354,8 @@ export default function SmartPlanner() {
           </div>
         </div>
 
-        {/* Step 2: Stay Dates & Guests Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-100">
+        {/* Step 3: Dates & Guests Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3 border-t border-slate-100">
           <div>
             <label className="text-xs font-bold text-slate-700 block mb-1.5 flex items-center gap-1.5">
               <CalendarDays className="w-4 h-4 text-sky-500" />
@@ -335,44 +415,8 @@ export default function SmartPlanner() {
           </div>
         </div>
 
-        {/* Step 3: Budget Tier */}
-        <div className="pt-2 border-t border-slate-100">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
-            Step 3: Choose Budget Comfort Tier
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {BUDGET_TIERS.map((tier) => {
-              const isSelected = selectedBudget === tier.id;
-              return (
-                <button
-                  key={tier.id}
-                  onClick={() => setSelectedBudget(tier.id)}
-                  className={`p-4 rounded-2xl text-left border-2 transition-all flex flex-col justify-between ${
-                    isSelected
-                      ? 'border-sky-500 bg-sky-50/40 ring-4 ring-sky-500/10 shadow-sm'
-                      : 'border-slate-200 bg-white hover:border-slate-300'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl">{tier.icon}</span>
-                    {isSelected && (
-                      <span className="p-1 rounded-full bg-sky-500 text-white">
-                        <Check className="w-3.5 h-3.5 stroke-[3]" />
-                      </span>
-                    )}
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-sm text-slate-900">{tier.label}</h5>
-                    <p className="text-xs text-slate-500 mt-0.5">{tier.sub}</p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Step 4: Travel Styles */}
-        <div className="pt-2 border-t border-slate-100">
+        <div className="pt-3 border-t border-slate-100">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">
             Step 4: Itinerary Focus & Travel Styles
           </span>
@@ -401,22 +445,22 @@ export default function SmartPlanner() {
         <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs text-slate-500 flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-            <span>Real arithmetic guarantee: Nightly Hotel + Exact ASI Tickets + Regional Dining & Transit.</span>
+            <span>Strict Budget Guardrails: Real hotel rates, exact ASI tickets & residual food allocation.</span>
           </div>
           <button
-            onClick={handleGeneratePlan}
+            onClick={() => handleGeneratePlan()}
             disabled={isLoadingPlanner}
             className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold text-xs shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50"
           >
             {isLoadingPlanner ? (
               <>
                 <RefreshCw className="w-4 h-4 animate-spin" />
-                <span>Fetching Live Pricing...</span>
+                <span>Allocating Budget & Itinerary...</span>
               </>
             ) : (
               <>
                 <Sparkles className="w-4 h-4" />
-                <span>Calculate Live Itinerary & Budget</span>
+                <span>Calculate Adaptive Itinerary Plan</span>
               </>
             )}
           </button>
@@ -430,9 +474,9 @@ export default function SmartPlanner() {
             <RefreshCw className="w-7 h-7 animate-spin text-sky-500" />
           </div>
           <div>
-            <h4 className="font-bold text-slate-900 text-base">Real-Time Pricing Synchronization</h4>
+            <h4 className="font-bold text-slate-900 text-base">Allocating Real-Time Travel Budget</h4>
             <p className="text-xs text-sky-600 font-medium mt-1 animate-pulse">
-              {plannerLoadingMessage || 'Querying live hotel and ticket APIs...'}
+              {plannerLoadingMessage || 'Applying 45% accommodation cap and querying verified ASI rates...'}
             </p>
           </div>
           <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -453,42 +497,169 @@ export default function SmartPlanner() {
       {plannerResult && !isLoadingPlanner && (
         <div className="space-y-8 animate-in fade-in duration-300">
           
-          {/* Live Notice Pill */}
-          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span className="font-bold text-emerald-900">
-                Live Pricing Activated:
-              </span>
-              <span className="text-emerald-700">
-                {plannerResult.notice || 'Verified property rates and ASI ticket schedules synchronized.'}
-              </span>
+          {/* Budget Deficit Alert Banner if over budget */}
+          {isDeficit && (
+            <div className="bg-rose-50 border-2 border-rose-300 rounded-3xl p-6 shadow-sm space-y-4">
+              <div className="flex items-start gap-3.5">
+                <div className="p-2.5 bg-rose-100 text-rose-700 rounded-2xl flex-shrink-0 mt-0.5">
+                  <ShieldAlert className="w-6 h-6 text-rose-600" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 bg-rose-600 text-white rounded-md text-[10px] font-extrabold uppercase tracking-wider">
+                      Budget Deficit Alert
+                    </span>
+                    <span className="text-xs font-bold text-rose-900">
+                      Estimated expenses exceed your cap by ₹{deficitAmount.toLocaleString('en-IN')} ({currency === 'USD' ? `$${Math.round(deficitAmount / 84)}` : ''})
+                    </span>
+                  </div>
+                  <p className="text-xs text-rose-700 mt-1.5">
+                    Your specified budget of <strong>{currency === 'USD' ? `$${totalBudget}` : `₹${totalBudget.toLocaleString('en-IN')}`}</strong> is below the minimum realistic baseline (₹{budget?.grandTotal?.toLocaleString('en-IN')}) for {nightsCount} nights and {guests} adults in {activeCity.name}.
+                  </p>
+                </div>
+              </div>
+
+              {/* Actionable Cost-Saving Suggestions */}
+              {suggestions.length > 0 && (
+                <div className="bg-white rounded-2xl p-4 border border-rose-200 space-y-2">
+                  <span className="text-xs font-extrabold text-slate-900 block flex items-center gap-1.5">
+                    <TrendingDown className="w-4 h-4 text-emerald-600" />
+                    <span>Recommended Cost-Saving Adjustments:</span>
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    {suggestions.map((sug) => (
+                      <div key={sug.id} className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs flex flex-col justify-between">
+                        <div>
+                          <p className="font-bold text-slate-900">{sug.title}</p>
+                          <p className="text-[11px] text-slate-500 mt-0.5">{sug.description}</p>
+                        </div>
+                        <span className="mt-2 text-[11px] font-extrabold text-emerald-600">
+                          Potential Savings: ₹{sug.savingsINR?.toLocaleString('en-IN')}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="text-slate-400 text-[11px]">
-              Destination Hub: <strong className="text-slate-700">{activeCity.name}</strong> • {nightsCount} Nights • {guests} Guests
+          )}
+
+          {/* VISUAL BUDGET PROGRESS BAR */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+                  Budget Allocation Progress Bar
+                </span>
+                <h4 className="font-bold text-sm text-slate-900 mt-0.5">
+                  Where Your {currency === 'USD' ? `$${totalBudget}` : `₹${totalBudget.toLocaleString('en-IN')}`} Goes
+                </h4>
+              </div>
+              <div className="flex items-center gap-3 text-xs">
+                <span className="text-slate-500">Total Cap: <strong>₹{budget?.userCustomBudget?.toLocaleString('en-IN')}</strong></span>
+                <span className="text-slate-500">•</span>
+                <span className={isDeficit ? 'text-rose-600 font-bold' : 'text-emerald-600 font-bold'}>
+                  {isDeficit ? `Deficit: ₹${deficitAmount.toLocaleString('en-IN')}` : `Buffer: ₹${budget?.emergencyBuffer?.total?.toLocaleString('en-IN')}`}
+                </span>
+              </div>
+            </div>
+
+            {/* Multi-segment Progress Bar */}
+            <div className="w-full h-4 bg-slate-100 rounded-full overflow-hidden flex shadow-inner">
+              {progress?.accommodationPct > 0 && (
+                <div
+                  style={{ width: `${Math.min(100, progress.accommodationPct)}%` }}
+                  className="bg-sky-500 hover:opacity-90 transition-all cursor-pointer"
+                  title={`Accommodation: ${progress.accommodationPct}%`}
+                />
+              )}
+              {progress?.ticketsPct > 0 && (
+                <div
+                  style={{ width: `${Math.min(100, progress.ticketsPct)}%` }}
+                  className="bg-purple-500 hover:opacity-90 transition-all cursor-pointer"
+                  title={`ASI Tickets: ${progress.ticketsPct}%`}
+                />
+              )}
+              {progress?.foodPct > 0 && (
+                <div
+                  style={{ width: `${Math.min(100, progress.foodPct)}%` }}
+                  className="bg-amber-500 hover:opacity-90 transition-all cursor-pointer"
+                  title={`Local Dining: ${progress.foodPct}%`}
+                />
+              )}
+              {progress?.transitPct > 0 && (
+                <div
+                  style={{ width: `${Math.min(100, progress.transitPct)}%` }}
+                  className="bg-teal-500 hover:opacity-90 transition-all cursor-pointer"
+                  title={`City Transit: ${progress.transitPct}%`}
+                />
+              )}
+              {progress?.bufferPct > 0 && (
+                <div
+                  style={{ width: `${Math.min(100, progress.bufferPct)}%` }}
+                  className="bg-emerald-500 hover:opacity-90 transition-all cursor-pointer"
+                  title={`Emergency Buffer: ${progress.bufferPct}%`}
+                />
+              )}
+              {isDeficit && (
+                <div
+                  style={{ width: `${Math.min(100, progress?.deficitPct || 10)}%` }}
+                  className="bg-rose-500 hover:opacity-90 transition-all cursor-pointer animate-pulse"
+                  title={`Deficit Overrun: ${progress?.deficitPct}%`}
+                />
+              )}
+            </div>
+
+            {/* Progress Bar Legend */}
+            <div className="flex flex-wrap items-center gap-4 text-xs pt-1">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-sky-500" />
+                <span className="text-slate-600">Hotel ({progress?.accommodationPct}%)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-purple-500" />
+                <span className="text-slate-600">ASI Tickets ({progress?.ticketsPct}%)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-amber-500" />
+                <span className="text-slate-600">Dining ({progress?.foodPct}%)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-teal-500" />
+                <span className="text-slate-600">Transit ({progress?.transitPct}%)</span>
+              </div>
+              {progress?.bufferPct > 0 && (
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-emerald-500" />
+                  <span className="text-emerald-700 font-bold">Buffer ({progress.bufferPct}%)</span>
+                </div>
+              )}
+              {isDeficit && (
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-rose-500" />
+                  <span className="text-rose-700 font-bold">Deficit ({progress?.deficitPct}%)</span>
+                </div>
+              )}
             </div>
           </div>
 
           {/* Cards Row: Recommended Hotel + Ticket Costs + Regional Dining Breakdown */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
-            {/* 1. Live Property Card */}
+            {/* 1. Live Property Card (Enforcing 45% cap) */}
             <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2 text-xs font-bold text-sky-600">
                     <BedDouble className="w-4 h-4" />
-                    <span>Real-Time Property Listing</span>
+                    <span>Selected Under 45% Cap</span>
                   </div>
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-sky-100 text-sky-700">
                     {plannerResult.budgetTier}
                   </span>
                 </div>
 
-                <h4 className="font-bold text-base text-slate-900">{hotel?.name || 'Selected Heritage Property'}</h4>
+                <h4 className="font-bold text-base text-slate-900">{hotel?.name || 'Selected Property'}</h4>
                 <p className="text-xs text-slate-500 mt-1 flex items-start gap-1">
                   <MapPin className="w-3.5 h-3.5 text-slate-400 flex-shrink-0 mt-0.5" />
                   <span>{hotel?.address || `Historic Quarter, ${activeCity.name}`}</span>
@@ -611,16 +782,16 @@ export default function SmartPlanner() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2 text-xs font-bold text-amber-600">
                     <Utensils className="w-4 h-4" />
-                    <span>Regional Food & Local Transit</span>
+                    <span>Residual Dining & Transit</span>
                   </div>
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-amber-100 text-amber-700">
-                    Indexed Cost
+                    Allocated
                   </span>
                 </div>
 
                 <h4 className="font-bold text-base text-slate-900">Living Expenses & City Mobility</h4>
                 <p className="text-xs text-slate-500 mt-1">
-                  Indexed for {plannerResult?.regionalCosts?.tierLabel || 'Heritage Region'}:
+                  Dynamically allocated from remaining budget:
                 </p>
 
                 <div className="mt-4 space-y-3">
@@ -633,7 +804,7 @@ export default function SmartPlanner() {
                       <span className="font-extrabold text-amber-950">₹{budget?.food?.perPersonPerDay} / person / day</span>
                     </div>
                     <p className="text-[11px] text-amber-800/80 mt-1">
-                      Includes traditional breakfast, mid-day thali, evening chai breaks, and dinner street food crawls.
+                      Covers breakfast, lunch thali, chai stops, and evening street food crawls.
                     </p>
                   </div>
 
@@ -646,7 +817,7 @@ export default function SmartPlanner() {
                       <span className="font-extrabold text-blue-950">₹{budget?.transit?.perDay} / day</span>
                     </div>
                     <p className="text-[11px] text-blue-800/80 mt-1">
-                      Covers full-day e-rickshaws, city autos, and heritage circuit rides between monuments.
+                      Covers full-day e-rickshaws, autos, and transit between scheduled landmarks.
                     </p>
                   </div>
                 </div>
@@ -680,6 +851,7 @@ export default function SmartPlanner() {
               </div>
               <h3 className="text-2xl sm:text-3xl font-display font-extrabold">
                 Estimated Trip Budget: <span className="text-sky-400">₹{budget?.grandTotal?.toLocaleString('en-IN') || 0}</span>
+                {currency === 'USD' && <span className="text-slate-400 text-xl font-normal ml-2">(${Math.round((budget?.grandTotal || 0) / 84)})</span>}
               </h3>
               <p className="text-xs text-slate-400 max-w-xl">
                 Breakdown: ₹{budget?.accommodation?.total?.toLocaleString('en-IN')} (Hotel) + ₹{budget?.tickets?.total?.toLocaleString('en-IN')} (ASI Tickets) + ₹{budget?.food?.total?.toLocaleString('en-IN')} (Dining) + ₹{budget?.transit?.total?.toLocaleString('en-IN')} (Transit).

@@ -20,6 +20,7 @@ import {
 import {
   getCommunityGems,
   createCommunityGem,
+  addGemReview,
   likeCommunityGem
 } from '../controllers/gemController.js';
 
@@ -32,7 +33,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadDir = path.join(__dirname, '..', 'uploads');
 if (!fs.existsSync(uploadDir)) {
-  fs.makedirsSync(uploadDir, { recursive: true });
+  fs.mkdirSync(uploadDir, { recursive: true });
 }
 
 const storage = multer.diskStorage({
@@ -57,7 +58,7 @@ router.get('/health', (req, res) => {
   res.json({
     status: 'online',
     platform: 'ExplorerIQ REST API Engine',
-    version: 'v1.0.0',
+    version: 'v1.1.0',
     timestamp: new Date().toISOString()
   });
 });
@@ -73,9 +74,10 @@ router.get('/destinations', getDestinations);
 router.get('/destinations/:id', getDestinationById);
 router.get('/places/nearby', getNearbyEateries);
 
-// Community Gems API
+// Community Gems & Reviews API
 router.get('/gems', getCommunityGems);
 router.post('/gems', createCommunityGem);
+router.post('/gems/:id/reviews', addGemReview);
 router.post('/gems/:id/like', likeCommunityGem);
 
 // Live Pricing & Verified Monument Fees API

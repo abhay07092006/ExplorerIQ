@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
+const API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) || 'http://localhost:5000/api/v1';
+
+export const USD_TO_INR_RATE = 84.0;
 
 // Regional cost index table mapping city tiers to realistic food & intra-city transit expenses
 // Calibrated against current Indian travel index
@@ -50,7 +52,7 @@ export const REGIONAL_COST_INDEX = {
  * Identify destination city tier for cost calculation
  */
 export function getCityTierCategory(cityId = '') {
-  const clean = cityId.toLowerCase();
+  const clean = (cityId || '').toLowerCase();
   const metros = ['delhi', 'mumbai', 'bengaluru', 'kolkata', 'chennai', 'hyderabad'];
   const scenic = ['goa', 'shimla', 'manali', 'srinagar', 'munnar', 'kochi', 'gangtok', 'darjeeling', 'leh'];
 
@@ -82,10 +84,22 @@ export function getRegionalDailyCosts(cityId, budgetTier = 'moderate') {
  */
 export const plannerApi = {
   /**
-   * Search Hotels via Real-Time API / Backend Pricing Proxy
-   * Accepts: { destination, checkInDate, checkOutDate, guests, budgetTier }
+   * Search Hotels via Real-Time API / Backend Pricing Proxy with Adaptive 45% Budget Cap
+   * Accepts: { destination, checkInDate, checkOutDate, guests, totalBudget, currency, budgetTier }
    */
-  async searchHotels({ destination, checkInDate, checkOutDate, guests = 2, budgetTier = 'moderate' }) {
+  async searchHotels({ 
+    destination, 
+    checkInDate, 
+    checkOutDate, 
+    guests = 2, 
+    totalBudget = 25000, 
+    currency = 'INR', 
+    budgetTier = 'moderate' 
+  }) {
+    // Convert USD to INR if needed for pricing lookups
+    const budgetInINR = currency === 'USD' ? totalBudget * USD_TO_INR_RATE : totalBudget;
+    const maxHotelBudget = Math.round(budgetInINR * 0.45); // 45% strict accommodation cap
+
     try {
       const response = await axios.get(`${API_BASE_URL}/pricing/hotels`, {
         params: {
@@ -93,7 +107,8 @@ export const plannerApi = {
           checkIn: checkInDate,
           checkOut: checkOutDate,
           guests,
-          tier: budgetTier
+          tier: budgetTier,
+          maxHotelBudget
         },
         timeout: 8000
       });
@@ -101,20 +116,21 @@ export const plannerApi = {
       if (response.data && response.data.success) {
         return {
           success: true,
-          isLiveApi: response.data.isLiveApi ?? true,
+          isLiveApi: response.data.isLiveApi ?? false,
           property: response.data.property,
           nights: response.data.nights,
           guests: response.data.guests,
           roomsNeeded: response.data.roomsNeeded,
           budgetTier: response.data.budgetTier,
+          maxHotelBudget,
+          exceedsCap: response.data.exceedsCap ?? false,
           notice: response.data.notice
         };
       }
       throw new Error(response.data?.message || 'Failed to retrieve hotel pricing');
     } catch (err) {
-      console.warn('[plannerApi.searchHotels] Server pricing query error, using authenticated client-side benchmark:', err.message);
+      console.warn('[plannerApi.searchHotels] Falling back to client-side adaptive catalog:', err.message);
 
-      // Graceful fallback with verified Indian hotel data
       const nights = Math.max(1, calculateDaysBetween(checkInDate, checkOutDate));
       const guestCount = Math.max(1, parseInt(guests, 10) || 2);
       const roomsNeeded = Math.ceil(guestCount / 2);
@@ -146,15 +162,25 @@ export const plannerApi = {
         }
       };
 
-      const tierKey = ['backpacker', 'moderate', 'luxury'].includes(budgetTier.toLowerCase())
-        ? budgetTier.toLowerCase()
-        : 'moderate';
-      const prop = fallbackCatalog[tierKey];
+      // Adaptive selection: select highest tier that fits under maxHotelBudget
+      let selectedTier = 'backpacker';
+      const luxuryCost = fallbackCatalog.luxury.nightlyRate * roomsNeeded * nights * 1.12;
+      const moderateCost = fallbackCatalog.moderate.nightlyRate * roomsNeeded * nights * 1.12;
 
+      if (luxuryCost <= maxHotelBudget) {
+        selectedTier = 'luxury';
+      } else if (moderateCost <= maxHotelBudget) {
+        selectedTier = 'moderate';
+      } else {
+        selectedTier = 'backpacker';
+      }
+
+      const prop = fallbackCatalog[selectedTier];
       const nightlyTotal = prop.nightlyRate * roomsNeeded;
       const totalStayCost = nightlyTotal * nights;
       const estimatedTaxes = Math.round(totalStayCost * 0.12);
       const grandTotalStay = totalStayCost + estimatedTaxes;
+      const exceedsCap = grandTotalStay > maxHotelBudget;
 
       return {
         success: true,
@@ -172,8 +198,12 @@ export const plannerApi = {
         nights,
         guests: guestCount,
         roomsNeeded,
-        budgetTier: tierKey,
-        notice: 'Displaying verified real-world property rates from ExplorerIQ Authentic Index (Offline Fallback).'
+        budgetTier: selectedTier,
+        maxHotelBudget,
+        exceedsCap,
+        notice: exceedsCap
+          ? `Lowest available property (₹${grandTotalStay}) exceeds 45% cap (₹${maxHotelBudget}).`
+          : `Adaptive accommodation selected under 45% budget cap.`
       };
     }
   },
@@ -194,7 +224,7 @@ export const plannerApi = {
       }
       throw new Error('No verified ticket data from API');
     } catch (err) {
-      console.warn('[plannerApi.fetchVerifiedMonumentTickets] Falling back to default ASI fee schedule:', err.message);
+      console.warn('[plannerApi.fetchVerifiedMonumentTickets] Using default ASI schedule:', err.message);
 
       return [
         {

@@ -1,8 +1,7 @@
-import { getRegionalDailyCosts } from '../services/plannerApi';
+import { getRegionalDailyCosts, USD_TO_INR_RATE } from '../services/plannerApi.js';
 
 /**
- * Dynamic Smart Itinerary Generator
- * Builds an authentic, realistic day-by-day 7-slot schedule and performs real-arithmetic budget calculations.
+ * Dynamic Smart Itinerary Generator with User-Defined Budgeting Engine
  */
 export function generateDynamicItinerary({
   city,
@@ -10,6 +9,8 @@ export function generateDynamicItinerary({
   days = 3,
   hotel = null,
   monumentPrices = [],
+  totalBudget = 25000,
+  currency = 'INR',
   budgetTier = 'moderate',
   guests = 2,
   travelStyles = ['heritage', 'food', 'scenic']
@@ -20,7 +21,10 @@ export function generateDynamicItinerary({
   const foodList = city?.localFoodSpecialties || [];
   const allPlaces = places.length > 0 ? places : (city?.places || []);
 
-  // Filter places based on selected styles if available
+  // Currency normalization: Internal calculations in INR
+  const budgetInINR = currency === 'USD' ? totalBudget * USD_TO_INR_RATE : totalBudget;
+
+  // Filter places based on selected styles
   const preferredPlaces = allPlaces.filter((p) => {
     if (travelStyles.includes('heritage') && p.category === 'heritage') return true;
     if (travelStyles.includes('temples') && p.category === 'temples') return true;
@@ -37,7 +41,6 @@ export function generateDynamicItinerary({
     { name: `${cityName} Scenic Lake / Hill View`, category: 'scenic', tip: 'Sunset views are panoramic.' }
   ]);
 
-  // Transit time estimates
   const transitTimes = [
     '⏱️ 15 min via auto-rickshaw',
     '⏱️ 20 min cab across heritage corridor',
@@ -46,7 +49,7 @@ export function generateDynamicItinerary({
     '⏱️ 12 min e-rickshaw ride'
   ];
 
-  const hotelName = hotel?.name || `Selected ${cityName} Hotel`;
+  const hotelName = hotel?.property?.name || `Selected ${cityName} Hotel`;
 
   const schedule = [];
   const visitedMonuments = [];
@@ -56,7 +59,7 @@ export function generateDynamicItinerary({
     const daySlots = [];
     const offset = (day - 1) * 3;
 
-    // 1. Sunrise Spot (06:00 AM - 08:00 AM)
+    // Slot 1: Sunrise & Morning Vista
     const morningPlace = pool[offset % pool.length];
     daySlots.push({
       id: `d${day}-slot1`,
@@ -75,7 +78,7 @@ export function generateDynamicItinerary({
       isFood: false
     });
 
-    // 2. Breakfast Stop (08:30 AM - 09:30 AM)
+    // Slot 2: Authentic Morning Breakfast
     const breakfast = foodList[(day - 1) % (foodList.length || 1)] || {
       name: `Traditional ${cityName} Morning Breakfast`,
       place: 'Old City Heritage Bazaar',
@@ -97,7 +100,7 @@ export function generateDynamicItinerary({
       isFood: true
     });
 
-    // 3. Primary Monument (10:00 AM - 01:00 PM)
+    // Slot 3: Primary ASI Monument
     const monument = monumentPrices[(day - 1) % (monumentPrices.length || 1)] || {
       name: pool[(offset + 1) % pool.length]?.name || `${cityName} Archeological Monument`,
       indianTicketPrice: 50,
@@ -131,7 +134,7 @@ export function generateDynamicItinerary({
       isFood: false
     });
 
-    // 4. Authentic Regional Lunch (01:00 PM - 02:30 PM)
+    // Slot 4: Authentic Regional Lunch
     const lunchSpecialty = foodList[day % (foodList.length || 1)] || {
       name: `${cityName} Royal Thali & Specialties`,
       place: 'Historic Heritage Quarter',
@@ -153,7 +156,7 @@ export function generateDynamicItinerary({
       isFood: true
     });
 
-    // 5. Artisan Bazaars & Cultural Exploration (03:00 PM - 05:30 PM)
+    // Slot 5: Artisan Bazaars & Cultural Exploration
     const afternoonPlace = pool[(offset + 2) % pool.length];
     daySlots.push({
       id: `d${day}-slot5`,
@@ -172,7 +175,7 @@ export function generateDynamicItinerary({
       isFood: false
     });
 
-    // 6. Twilight Spot (06:00 PM - 07:30 PM)
+    // Slot 6: Twilight Spot
     const twilightPlace = pool[(offset + 3) % pool.length];
     daySlots.push({
       id: `d${day}-slot6`,
@@ -191,7 +194,7 @@ export function generateDynamicItinerary({
       isFood: false
     });
 
-    // 7. Street Food Crawl & Dinner (08:00 PM - 10:00 PM)
+    // Slot 7: Street Food Crawl & Dinner
     const dinnerFood = foodList[(day + 2) % (foodList.length || 1)] || {
       name: `${cityName} Night Market Delicacies`,
       place: 'Sarafa / Old Bazaar Night Lane',
@@ -221,11 +224,11 @@ export function generateDynamicItinerary({
   }
 
   // ==========================================
-  // REAL ARITHMETIC BUDGET CALCULATIONS
+  // DYNAMIC BUDGET ALLOCATION & GUARDRAILS
   // ==========================================
   const regionalCosts = getRegionalDailyCosts(city?.id || '', budgetTier);
 
-  // 1. Accommodation: Live Nightly Rate x Rooms Needed x Nights + Taxes
+  // 1. Accommodation: Constrained by 45% cap
   const stayDurationNights = hotel?.nights || daysCount;
   const nightlyRate = hotel?.property?.nightlyRatePerRoom || 3500;
   const roomsCount = hotel?.roomsNeeded || Math.ceil(guestCount / 2);
@@ -236,27 +239,127 @@ export function generateDynamicItinerary({
   // 2. Entry Tickets: Exact sum of all visited monuments x Number of Guests
   const ticketsTotal = totalTicketFeePerPerson * guestCount;
 
-  // 3. Food: Regional daily food cost x Number of Guests x Number of Days
-  const foodTotal = regionalCosts.foodPerPersonPerDay * guestCount * daysCount;
+  // 3. Residual Budget Allocation
+  // Deduct Hotel + Tickets from User's Custom Budget
+  const committedCosts = accommodationTotal + ticketsTotal;
+  const residualBudget = budgetInINR - committedCosts;
 
-  // 4. Local Transit: Regional daily intra-city transit rate x Number of Days
-  const transitTotal = regionalCosts.transitPerDay * daysCount;
+  let foodTotal = 0;
+  let transitTotal = 0;
+  let emergencyBuffer = 0;
+  let isDeficit = false;
+  let deficitAmount = 0;
 
-  // 5. Grand Total
+  // Minimum survival costs based on regional indexes
+  const standardFoodTotal = regionalCosts.foodPerPersonPerDay * guestCount * daysCount;
+  const standardTransitTotal = regionalCosts.transitPerDay * daysCount;
+  const baselineTotal = committedCosts + standardFoodTotal + standardTransitTotal;
+
+  if (residualBudget > 0) {
+    // If residual budget is healthy, allocate dynamically
+    const dynamicFood = Math.round(residualBudget * 0.55);
+    const dynamicTransit = Math.round(residualBudget * 0.25);
+    const dynamicBuffer = residualBudget - (dynamicFood + dynamicTransit);
+
+    // Ensure we provide at least reasonable regional minimums or surplus
+    foodTotal = Math.max(standardFoodTotal * 0.8, dynamicFood);
+    transitTotal = Math.max(standardTransitTotal * 0.8, dynamicTransit);
+    emergencyBuffer = Math.max(0, budgetInINR - (accommodationTotal + ticketsTotal + foodTotal + transitTotal));
+
+    if (accommodationTotal + ticketsTotal + foodTotal + transitTotal > budgetInINR) {
+      isDeficit = true;
+      deficitAmount = Math.round((accommodationTotal + ticketsTotal + foodTotal + transitTotal) - budgetInINR);
+      emergencyBuffer = 0;
+    }
+  } else {
+    // Immediate Deficit
+    isDeficit = true;
+    deficitAmount = Math.round(baselineTotal - budgetInINR);
+    foodTotal = standardFoodTotal;
+    transitTotal = standardTransitTotal;
+    emergencyBuffer = 0;
+  }
+
   const grandTotal = accommodationTotal + ticketsTotal + foodTotal + transitTotal;
+
+  // Multi-segment Budget Progress Bar Percentages (relative to user's budget or grand total)
+  const baseForPercentages = Math.max(budgetInINR, grandTotal);
+  const accommodationPct = Number(((accommodationTotal / baseForPercentages) * 100).toFixed(1));
+  const ticketsPct = Number(((ticketsTotal / baseForPercentages) * 100).toFixed(1));
+  const foodPct = Number(((foodTotal / baseForPercentages) * 100).toFixed(1));
+  const transitPct = Number(((transitTotal / baseForPercentages) * 100).toFixed(1));
+  const bufferPct = emergencyBuffer > 0 ? Number(((emergencyBuffer / baseForPercentages) * 100).toFixed(1)) : 0;
+  const deficitPct = isDeficit ? Number(((deficitAmount / baseForPercentages) * 100).toFixed(1)) : 0;
+
+  // Cost-saving suggestions for budget deficit
+  const suggestions = [];
+  if (isDeficit) {
+    if (hotel?.budgetTier !== 'backpacker') {
+      const hostelSavings = Math.round(accommodationTotal * 0.65);
+      suggestions.push({
+        id: 'switch_hostel',
+        title: 'Switch to a Verified Budget Hostel',
+        description: `Opt for a social heritage hostel like Zostel or Moustache. Saves approximately ₹${hostelSavings.toLocaleString('en-IN')}.`,
+        savingsINR: hostelSavings
+      });
+    }
+    if (daysCount > 1) {
+      const daySavings = Math.round(grandTotal / daysCount);
+      suggestions.push({
+        id: 'reduce_day',
+        title: `Shorten Trip by 1 Day (${daysCount - 1} Days instead of ${daysCount})`,
+        description: `Reduces hotel room nights, daily food, and local transit. Saves approximately ₹${daySavings.toLocaleString('en-IN')}.`,
+        savingsINR: daySavings
+      });
+    }
+    if (guestCount > 1) {
+      suggestions.push({
+        id: 'group_stays',
+        title: 'Choose Quad Dorms / Family Suites',
+        description: 'Book a 4-bed private dorm or family room instead of individual double rooms to cut lodging costs by 30%.',
+        savingsINR: Math.round(accommodationTotal * 0.3)
+      });
+    }
+  }
+
   const dailyAverage = Math.round(grandTotal / daysCount);
   const perPersonCost = Math.round(grandTotal / guestCount);
+
+  // Conversion for display if user selected USD
+  const currencySymbol = currency === 'USD' ? '$' : '₹';
+  const formatAmount = (inrVal) => {
+    if (currency === 'USD') {
+      return (inrVal / USD_TO_INR_RATE).toFixed(1);
+    }
+    return inrVal.toLocaleString('en-IN');
+  };
 
   return {
     cityName,
     days: daysCount,
     guests: guestCount,
-    budgetTier,
+    budgetTier: hotel?.budgetTier || budgetTier,
+    totalBudget: budgetInINR,
+    userBudget: totalBudget,
+    currency,
+    currencySymbol,
+    isDeficit,
+    deficitAmount,
+    suggestions,
     hotel: hotel?.property || null,
     schedule,
     visitedMonuments,
     regionalCosts,
+    progressBreakdown: {
+      accommodationPct,
+      ticketsPct,
+      foodPct,
+      transitPct,
+      bufferPct,
+      deficitPct
+    },
     budgetSummary: {
+      userCustomBudget: budgetInINR,
       accommodation: {
         hotelName: hotel?.property?.name || hotelName,
         nightlyRatePerRoom: nightlyRate,
@@ -264,29 +367,40 @@ export function generateDynamicItinerary({
         nights: stayDurationNights,
         baseCost: accommodationBase,
         taxes: accommodationTax,
-        total: accommodationTotal
+        total: accommodationTotal,
+        pct: accommodationPct
       },
       tickets: {
         perPerson: totalTicketFeePerPerson,
         guests: guestCount,
         monumentsCount: visitedMonuments.length,
         items: visitedMonuments,
-        total: ticketsTotal
+        total: ticketsTotal,
+        pct: ticketsPct
       },
       food: {
-        perPersonPerDay: regionalCosts.foodPerPersonPerDay,
+        perPersonPerDay: Math.round(foodTotal / (guestCount * daysCount)),
         guests: guestCount,
         days: daysCount,
-        total: foodTotal
+        total: foodTotal,
+        pct: foodPct
       },
       transit: {
-        perDay: regionalCosts.transitPerDay,
+        perDay: Math.round(transitTotal / daysCount),
         days: daysCount,
-        total: transitTotal
+        total: transitTotal,
+        pct: transitPct
+      },
+      emergencyBuffer: {
+        total: emergencyBuffer,
+        pct: bufferPct
       },
       grandTotal,
       dailyAverage,
-      perPersonCost
+      perPersonCost,
+      isDeficit,
+      deficitAmount,
+      formatAmount
     }
   };
 }

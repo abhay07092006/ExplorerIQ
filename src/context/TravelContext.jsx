@@ -272,12 +272,14 @@ export function TravelProvider({ children }) {
     }
   };
 
-  // Live Smart Itinerary Planner State
+  // Live Smart Itinerary Planner State with User-Defined Budgeting
   const [plannerParams, setPlannerParams] = useState({
     destinationId: 'jaipur',
     checkInDate: new Date().toISOString().split('T')[0],
     checkOutDate: new Date(Date.now() + 3 * 86400000).toISOString().split('T')[0],
     guests: 2,
+    totalBudget: 25000,
+    currency: 'INR',
     budgetTier: 'moderate',
     travelStyles: ['heritage', 'food', 'scenic']
   });
@@ -298,12 +300,14 @@ export function TravelProvider({ children }) {
     setPlannerLoadingMessage(`Fetching real-time hotel prices for ${targetCity.name}...`);
 
     try {
-      // 1. Fetch live property pricing
+      // 1. Fetch live property pricing with 45% budget cap
       const hotelData = await plannerApi.searchHotels({
         destination: targetCity.name,
         checkInDate: params.checkInDate,
         checkOutDate: params.checkOutDate,
         guests: params.guests,
+        totalBudget: params.totalBudget || 25000,
+        currency: params.currency || 'INR',
         budgetTier: params.budgetTier
       });
 
@@ -316,14 +320,16 @@ export function TravelProvider({ children }) {
       const end = new Date(params.checkOutDate);
       const diffDays = Math.max(1, Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24)));
 
-      // 4. Generate dynamic 7-slot itinerary & real arithmetic budget
-      setPlannerLoadingMessage(`Synthesizing 7-slot daily itinerary for ${targetCity.name}...`);
+      // 4. Generate dynamic 7-slot itinerary & user-defined budget allocation
+      setPlannerLoadingMessage(`Synthesizing 7-slot daily itinerary & allocating custom budget for ${targetCity.name}...`);
       const itinerary = generateDynamicItinerary({
         city: targetCity,
         places: targetCity.places || [],
         days: diffDays,
         hotel: hotelData,
         monumentPrices,
+        totalBudget: params.totalBudget || 25000,
+        currency: params.currency || 'INR',
         budgetTier: params.budgetTier,
         guests: params.guests,
         travelStyles: params.travelStyles

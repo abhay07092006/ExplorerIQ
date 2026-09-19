@@ -301,30 +301,42 @@ const parseNumericFee = (feeString) => {
 // GET /api/v1/pricing/hotels
 export const getHotelPricing = async (req, res) => {
   try {
-    const { destination, checkIn, checkOut, guests = 2, tier = 'moderate' } = req.query;
+    const { destination, checkIn, checkOut, guests = 2, tier = 'moderate', maxHotelBudget } = req.query;
 
     const cityKey = (destination || 'jaipur').toLowerCase().trim();
-    const cleanTier = ['backpacker', 'moderate', 'luxury'].includes(tier.toLowerCase())
+    const nights = calculateNights(checkIn, checkOut);
+    const guestCount = Math.max(1, parseInt(guests, 10) || 2);
+    const roomsCount = Math.ceil(guestCount / 2);
+    const maxBudget = parseFloat(maxHotelBudget) || 0;
+
+    let cleanTier = ['backpacker', 'moderate', 'luxury'].includes((tier || '').toLowerCase())
       ? tier.toLowerCase()
       : 'moderate';
 
-    const nights = calculateNights(checkIn, checkOut);
-    const guestCount = Math.max(1, parseInt(guests, 10) || 2);
-    // Rooms needed: 1 room per 2 adults
-    const roomsCount = Math.ceil(guestCount / 2);
+    // ADAPTIVE BUDGET FILTERING:
+    // If user specified maxHotelBudget (45% of total budget), pick the best tier that fits under that cap
+    const cityHotels = VERIFIED_HOTELS[cityKey] || {
+      backpacker: getRegionalFallbackHotel(cityKey, destination || 'India', 'backpacker'),
+      moderate: getRegionalFallbackHotel(cityKey, destination || 'India', 'moderate'),
+      luxury: getRegionalFallbackHotel(cityKey, destination || 'India', 'luxury')
+    };
 
-    let hotelData = null;
-    let isLiveApi = false;
+    if (maxBudget > 0) {
+      const luxuryCost = cityHotels.luxury.nightlyRate * roomsCount * nights * 1.12;
+      const moderateCost = cityHotels.moderate.nightlyRate * roomsCount * nights * 1.12;
+      const backpackerCost = cityHotels.backpacker.nightlyRate * roomsCount * nights * 1.12;
 
-    // Check if destination is in verified hotel database
-    const cityHotels = VERIFIED_HOTELS[cityKey];
-    if (cityHotels && cityHotels[cleanTier]) {
-      hotelData = { ...cityHotels[cleanTier] };
-    } else {
-      // Find destination name for generic fallback
-      const cityName = destination ? destination.charAt(0).toUpperCase() + destination.slice(1) : 'India';
-      hotelData = getRegionalFallbackHotel(cityKey, cityName, cleanTier);
+      if (luxuryCost <= maxBudget) {
+        cleanTier = 'luxury';
+      } else if (moderateCost <= maxBudget) {
+        cleanTier = 'moderate';
+      } else {
+        cleanTier = 'backpacker';
+      }
     }
+
+    const hotelData = cityHotels[cleanTier] || getRegionalFallbackHotel(cityKey, destination || 'India', cleanTier);
+    const isLiveApi = false;
 
     // Real dynamic pricing calculation
     const nightlyRatePerRoom = hotelData.nightlyRate;
@@ -332,6 +344,8 @@ export const getHotelPricing = async (req, res) => {
     const totalStayCost = nightlyTotal * nights;
     const estimatedTaxes = Math.round(totalStayCost * 0.12); // 12% GST standard
     const grandTotalStay = totalStayCost + estimatedTaxes;
+
+    const exceedsCap = maxBudget > 0 && grandTotalStay > maxBudget;
 
     res.json({
       success: true,
@@ -343,6 +357,8 @@ export const getHotelPricing = async (req, res) => {
       roomsNeeded: roomsCount,
       budgetTier: cleanTier,
       isLiveApi,
+      maxHotelBudget: maxBudget,
+      exceedsCap,
       property: {
         ...hotelData,
         currency: 'INR',
@@ -353,9 +369,9 @@ export const getHotelPricing = async (req, res) => {
         estimatedTaxes,
         grandTotalStay
       },
-      notice: isLiveApi 
-        ? 'Real-time property rates fetched from Live Hotel Inventory API.' 
-        : 'Verified property rates loaded from authentic destination benchmark index.'
+      notice: exceedsCap 
+        ? `Note: Lowest available accommodation (₹${grandTotalStay}) exceeds the 45% cap (₹${maxBudget}).`
+        : `Verified property selected matching your 45% stay allocation.`
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
