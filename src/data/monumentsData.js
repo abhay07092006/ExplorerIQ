@@ -7724,6 +7724,616 @@ export const RECOGNIZED_MONUMENTS = [
       "raghunandan hills",
       "shaiva reliefs"
     ]
+  },
+  {
+    "id": "monument-hemis-monastery",
+    "name": "Hemis Monastery",
+    "hindiName": "हेमीस मठ",
+    "city": "Leh",
+    "state": "Ladakh",
+    "zone": "North",
+    "country": "India",
+    "unescoStatus": "Ancient Himalayan Tibetan Sanctuary",
+    "primaryImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hemis_Monastery_02.jpg/1280px-Hemis_Monastery_02.jpg",
+    "sampleThumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hemis_Monastery_02.jpg/1280px-Hemis_Monastery_02.jpg",
+    "commissionedBy": "King Sengge Namgyal",
+    "architect": "Drukpa Lineage Master Stagsang Raspa",
+    "constructionEra": "1672 CE (11th Century Foundation)",
+    "material": "Sun-dried mud-brick, dressed mountain stone, and Himalayan cedar wood",
+    "architecturalStyle": "Tibetan Gompa Mountain Monastery Architecture",
+    "dimensions": "Three-tiered main prayer hall with colossal courtyard for sacred Cham dances",
+    "openingHours": "8:00 AM - 6:00 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "June to July during the annual Hemis Tsechu Festival",
+    "ticketPricing": {
+      "indian": "₹50",
+      "foreigner": "₹50",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Guru Padmasambhava Golden Shrine: 8-meter gilded statue adorned with precious turquoise stones.",
+      "Sacred Cham Masked Dances: Monks perform ritual dances in vibrant silk brocade robes.",
+      "Ancient Thangka Vault: Giant ceremonial silk tapestry unfurled only once every 12 years.",
+      "Museum of Himalayan Antiquities: 17th-century weapons, copper prayer wheels, and Buddhist scriptures."
+    ],
+    "legendsAndFacts": "Hemis gained global fame due to Nicolas Notovitch's 1894 claim of finding hidden Buddhist scrolls mentioning Saint Issa (Jesus).",
+    "audioGuideTranscript": "Welcome to Hemis Gompa, the spiritual heart of the Drukpa Kagyu lineage in Ladakh. Hidden inside a dramatic gorge off the Indus Valley, this monastery was founded under the royal patronage of King Sengge Namgyal in 1672.",
+    "nearbyFood": [
+      {
+        "name": "Hemis Gompa Cafeteria",
+        "cuisine": "Tibetan & Ladakhi",
+        "distance": "50 m",
+        "specialty": "Butter Tea and Hot Steamed Tingmo"
+      },
+      {
+        "name": "Karu Highway Dhaba",
+        "cuisine": "North Indian",
+        "distance": "7 km",
+        "specialty": "Dal Makhani and Hot Tawa Rotis"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Thiksey Monastery",
+        "distance": "22 km"
+      },
+      {
+        "name": "Shey Palace & Monastery",
+        "distance": "27 km"
+      }
+    ],
+    "visualKeywords": [
+      "hemis",
+      "monastery",
+      "ladakh",
+      "leh",
+      "gompa",
+      "tibetan",
+      "prayer flags",
+      "buddhist",
+      "drukpa"
+    ]
+  },
+  {
+    "id": "monument-pangong-tso",
+    "name": "Pangong Tso Lake",
+    "hindiName": "पैंगोंग त्सो",
+    "city": "Changthang",
+    "state": "Ladakh",
+    "zone": "North",
+    "country": "India",
+    "unescoStatus": "Ramsar Candidate High-Altitude Wetland",
+    "primaryImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "sampleThumb": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    "commissionedBy": "Natural Glacial Tectonic Formation",
+    "architect": "Himalayan Geological Processes",
+    "constructionEra": "Formed in the Tertiary Period (Tethys Sea Uplift)",
+    "material": "Brackish saline glacial waters and granite mountain basins",
+    "architecturalStyle": "Endorheic High-Altitude Alpine Lake",
+    "dimensions": "Length 134 km; Width 5 km; Altitude 4,350 meters (14,270 ft)",
+    "openingHours": "Open 24/7 (Inner Line Permit Required)",
+    "closedOn": "Winter Ice Cover (November to April)",
+    "bestTimeToVisit": "May to September (Shifting crystalline hues under sunny skies)",
+    "ticketPricing": {
+      "indian": "Free (Inner Line Permit Fee ₹400)",
+      "foreigner": "Protected Area Permit Required",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Dynamic Color Shifts: Lake transitions from emerald green to turquoise and deep indigo.",
+      "Endorheic Saline Water: Freezes completely in winter despite high salinity.",
+      "Migratory Avifauna: Breeding sanctuary for bar-headed geese and Brahmini ducks.",
+      "International Boundary: Spans across India into Tibetan Autonomous Region."
+    ],
+    "legendsAndFacts": "Featured in the iconic climax of the Bollywood film '3 Idiots', making it one of the most photographed lakes in Asia.",
+    "audioGuideTranscript": "You are gazing upon Pangong Tso, situated at an altitude of over fourteen thousand feet. Approximately sixty percent of this 134-kilometer-long lake lies within Tibet.",
+    "nearbyFood": [
+      {
+        "name": "Lukung Camp Dining",
+        "cuisine": "Ladakhi & Maggi Point",
+        "distance": "500 m",
+        "specialty": "Hot Vegetable Thukpa and Ginger Lemon Honey Tea"
+      },
+      {
+        "name": "Spangmik Homestay Kitchen",
+        "cuisine": "Traditional Changpa",
+        "distance": "4 km",
+        "specialty": "Tsampa and Steamed Momos"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Chang La Pass (5,360 m)",
+        "distance": "45 km"
+      },
+      {
+        "name": "Tangtse Village Gompa",
+        "distance": "35 km"
+      }
+    ],
+    "visualKeywords": [
+      "pangong",
+      "tso",
+      "lake",
+      "ladakh",
+      "changthang",
+      "himalayan lake",
+      "blue water",
+      "mountains",
+      "spangmik"
+    ]
+  },
+  {
+    "id": "monument-thiksey-monastery",
+    "name": "Thiksey Monastery",
+    "hindiName": "थिकसे मठ",
+    "city": "Thiksey",
+    "state": "Ladakh",
+    "zone": "North",
+    "country": "India",
+    "unescoStatus": "Protected Gelugpa Heritage Monastery",
+    "primaryImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Thikse_Monastery_.jpg/1280px-Thikse_Monastery_.jpg",
+    "sampleThumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Thikse_Monastery_.jpg/1280px-Thikse_Monastery_.jpg",
+    "commissionedBy": "Sherab Zangpo / Palden Zangpo",
+    "architect": "Gelugpa Architectural Masters",
+    "constructionEra": "1430 CE (15th Century)",
+    "material": "Whitewashed stone masonry, timber columns, and golden leafing",
+    "architecturalStyle": "Tibetan Fortress Gompa (Mini Potala Palace)",
+    "dimensions": "12-story hilltop complex with 10 temple halls and 250 resident monks",
+    "openingHours": "7:00 AM - 7:00 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "October to March (Winter rituals) or July for Gustor Festival",
+    "ticketPricing": {
+      "indian": "₹50",
+      "foreigner": "₹50",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Maitreya Buddha Statue: 15-meter clay and gold statue spanning two floors.",
+      "Morning Puja (Prayer Congregation): Monks chanting with cymbals and giant copper dungchen horns.",
+      "Tara Temple: Enshrines 21 manifestations of Goddess Tara with antique murals.",
+      "Panoramic Indus Valley Vistas: Sweeping view of green barley fields against rugged peaks."
+    ],
+    "legendsAndFacts": "The monastery's location was chosen after two crows flew off with ritual torma offerings from a nearby cave and deposited them on the Thiksey hill.",
+    "audioGuideTranscript": "Welcome to Thiksey Gompa, the most visually striking monastery in Ladakh. Tiered in twelve levels up a conical hill, it bears an uncanny resemblance to Lhasa's Potala Palace.",
+    "nearbyFood": [
+      {
+        "name": "Chamba Restaurant",
+        "cuisine": "Tibetan & Continental",
+        "distance": "100 m",
+        "specialty": "Mushroom Tingmo and Fresh Apricot Juice"
+      },
+      {
+        "name": "Shey Cafe & Diner",
+        "cuisine": "Indian & Cafe",
+        "distance": "4 km",
+        "specialty": "Fresh Paranthas and Coffee"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Shey Palace & Monastery",
+        "distance": "5 km"
+      },
+      {
+        "name": "Stok Palace Museum",
+        "distance": "14 km"
+      }
+    ],
+    "visualKeywords": [
+      "thiksey",
+      "thikse",
+      "monastery",
+      "ladakh",
+      "potala",
+      "maitreya buddha",
+      "gompa",
+      "leh"
+    ]
+  },
+  {
+    "id": "monument-shanti-stupa",
+    "name": "Shanti Stupa, Leh",
+    "hindiName": "शांति स्तूप, लेह",
+    "city": "Leh",
+    "state": "Ladakh",
+    "zone": "North",
+    "country": "India",
+    "unescoStatus": "International Peace Memorial",
+    "primaryImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg/1280px-Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg",
+    "sampleThumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg/1280px-Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg",
+    "commissionedBy": "Bhikshu Gyomyo Nakamura & Kushok Bakula Rinpoche",
+    "architect": "Japanese Buddhist Peace Mission",
+    "constructionEra": "1983 - 1991 CE",
+    "material": "White marble, concrete, and painted Buddhist relief friezes",
+    "architecturalStyle": "Modern Japanese-Tibetan Stupa Architecture",
+    "dimensions": "Two-level circular stupa perched at 3,609 meters (11,841 ft)",
+    "openingHours": "5:00 AM - 9:00 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "Late evening for sunset and nocturnal illumination",
+    "ticketPricing": {
+      "indian": "Free",
+      "foreigner": "Free",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Relics of the Buddha: Enshrined at the base by the 14th Dalai Lama.",
+      "Dharmachakra Relief: Relief carvings depicting the birth, enlightenment, and parinirvana of Buddha.",
+      "360-Degree Panoramic Overlook: Panoramic perspective across Leh town and Stok Kangri.",
+      "Twilight Illumination: Golden floodlights activate at dusk against the midnight blue sky."
+    ],
+    "legendsAndFacts": "Built to celebrate 2,500 years of Buddhism and promote world peace, the 500-step climb from Changspa is a popular acclimatization walk.",
+    "audioGuideTranscript": "Standing atop the hill at Changspa, the Shanti Stupa was inaugurated by the 14th Dalai Lama in August 1991.",
+    "nearbyFood": [
+      {
+        "name": "Shanti Cafe & Bakery",
+        "cuisine": "Bakery & Coffee",
+        "distance": "50 m",
+        "specialty": "Apple Crumble and Cinnamon Tea"
+      },
+      {
+        "name": "Bon Appetit",
+        "cuisine": "Continental & Ladakhi",
+        "distance": "1.2 km",
+        "specialty": "Wood-Fired Pizza and Ladakhi Pasta"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Leh Palace",
+        "distance": "3 km"
+      },
+      {
+        "name": "Namgyal Tsemo Gompa",
+        "distance": "3.5 km"
+      }
+    ],
+    "visualKeywords": [
+      "shanti stupa",
+      "leh",
+      "ladakh",
+      "white dome",
+      "buddhist stupa",
+      "changspa",
+      "stok kangri"
+    ]
+  },
+  {
+    "id": "monument-badami-caves",
+    "name": "Badami Cave Temples",
+    "hindiName": "बादामी गुफा मंदिर",
+    "city": "Badami",
+    "state": "Karnataka",
+    "zone": "South",
+    "country": "India",
+    "unescoStatus": "UNESCO World Heritage Tentative List",
+    "primaryImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Vishnu_image_inside_cave_number_3_in_Badami.jpg/1280px-Vishnu_image_inside_cave_number_3_in_Badami.jpg",
+    "sampleThumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Vishnu_image_inside_cave_number_3_in_Badami.jpg/1280px-Vishnu_image_inside_cave_number_3_in_Badami.jpg",
+    "commissionedBy": "Chalukya Dynasty (Pulakeshin I & Mangalesha)",
+    "architect": "Badami Chalukya Master Sculptors",
+    "constructionEra": "6th - 7th Century CE",
+    "material": "Monolithic Badami Red Sandstone Cliff Face",
+    "architecturalStyle": "Early Badami Chalukya Rock-Cut Architecture",
+    "dimensions": "Four numbered caves cut across 150 meters of horizontal cliff face",
+    "openingHours": "9:00 AM - 5:30 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "October to March (Pleasant weather for cliff climbing)",
+    "ticketPricing": {
+      "indian": "₹25",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Cave 1 Nataraja: 18-armed dancing Shiva displaying 81 classical Bharatanatyam mudras.",
+      "Cave 3 Vishnu Trivikrama: Massive relief of Lord Vishnu conquering the three worlds.",
+      "Cave 4 Jain Tirthankaras: Seated Parshvanatha and Mahavira sculptures with stone relief canopies.",
+      "Agastya Lake Vistas: Sweeping panorama of the sacred water reservoir and Bhutanatha temples."
+    ],
+    "legendsAndFacts": "Ancient Vatapi was the capital of the mighty Western Chalukyas, who resisted the Northern conquests of Emperor Harsha.",
+    "audioGuideTranscript": "Welcome to the Badami Cave Temples, the cradle of temple architecture in peninsular India. Carved into golden-red sandstone cliffs in the 6th century under the Chalukyas.",
+    "nearbyFood": [
+      {
+        "name": "Hotel Sanman Deluxe",
+        "cuisine": "North Karnataka Jolada Roti",
+        "distance": "800 m",
+        "specialty": "Jolada Roti Meals with Ennegai Brinjal Curry"
+      },
+      {
+        "name": "Banashankari Food Court",
+        "cuisine": "South Indian Tiffin",
+        "distance": "1.1 km",
+        "specialty": "Crispy Masala Dosa and Filter Coffee"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Bhutanatha Group of Temples",
+        "distance": "600 m"
+      },
+      {
+        "name": "Pattadakal UNESCO Monuments",
+        "distance": "22 km"
+      }
+    ],
+    "visualKeywords": [
+      "badami",
+      "cave temples",
+      "chalukya",
+      "karnataka",
+      "rock cut",
+      "nataraja",
+      "vishnu",
+      "agastya lake"
+    ]
+  },
+  {
+    "id": "monument-lakshmana-temple",
+    "name": "Lakshmana Temple (Khajuraho)",
+    "hindiName": "लक्ष्मण मंदिर, खजुराहो",
+    "city": "Khajuraho",
+    "state": "Madhya Pradesh",
+    "zone": "Central",
+    "country": "India",
+    "unescoStatus": "UNESCO World Heritage Site (Khajuraho Group of Monuments)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Khajuraho-Lakshmana_temple.JPG",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Khajuraho-Lakshmana_temple.JPG",
+    "commissionedBy": "Chandela King Yashovarman",
+    "architect": "Chandela Guild Masters",
+    "constructionEra": "930 - 954 CE",
+    "material": "Fine-grained Buff Sandstone from Panna quarries",
+    "architecturalStyle": "Panchayatana Nagara Temple Architecture",
+    "dimensions": "Height 25.9 meters; set on a high carved plinth with 4 corner subsidiary shrines",
+    "openingHours": "6:00 AM - 6:00 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "October to March or during the Khajuraho Dance Festival in February",
+    "ticketPricing": {
+      "indian": "₹40 (Included in Western Group Ticket)",
+      "foreigner": "₹600",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Panchayatana Layout: Central sanctum surrounded by four fully intact subsidiary shrines.",
+      "Plinth Procession Frieze: Continuous 10th-century relief of infantry, cavalry, and hunting elephants.",
+      "Vaikuntha Vishnu Idol: Triple-headed Vishnu with Lion (Narasimha) and Boar (Varaha) faces.",
+      "Sensory Celestial Apsaras: Delicate carvings of women applying eye kohl and wringing wet hair."
+    ],
+    "legendsAndFacts": "The Vaikuntha Vishnu idol was originally obtained from the King of Kashmir before being consecrated in this grand temple.",
+    "audioGuideTranscript": "Standing before the Lakshmana Temple, you are viewing the most complete and architecturally intact temple in the Western Group of Khajuraho.",
+    "nearbyFood": [
+      {
+        "name": "Raja Cafe",
+        "cuisine": "Multi-cuisine Rooftop",
+        "distance": "200 m",
+        "specialty": "Wood-Fired Pizza with Views of the Western Group"
+      },
+      {
+        "name": "Badri Seth Sweets",
+        "cuisine": "Local Bundelkhandi",
+        "distance": "600 m",
+        "specialty": "Hot Jalebi and Samosa"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Kandariya Mahadeva Temple",
+        "distance": "150 m"
+      },
+      {
+        "name": "Matangeshwar Temple",
+        "distance": "200 m"
+      }
+    ],
+    "visualKeywords": [
+      "lakshmana temple",
+      "khajuraho",
+      "chandela",
+      "madhya pradesh",
+      "panchayatana",
+      "vaikuntha vishnu",
+      "nagara"
+    ]
+  },
+  {
+    "id": "monument-itimad-ud-daulah",
+    "name": "Tomb of I'timād-ud-Daulah (Baby Taj)",
+    "hindiName": "एत्मादुद्दौला का मक़बरा",
+    "city": "Agra",
+    "state": "Uttar Pradesh",
+    "zone": "North",
+    "country": "India",
+    "unescoStatus": "ASI Monument of National Importance",
+    "primaryImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg/1280px-I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg",
+    "sampleThumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg/1280px-I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg",
+    "commissionedBy": "Mughal Empress Nur Jahan",
+    "architect": "Persian Imperial Architects",
+    "constructionEra": "1622 - 1628 CE",
+    "material": "White Rajasthani Marble inlaid with Pietra Dura gemstones and cypress motifs",
+    "architecturalStyle": "Early Mughal Riverfront Garden Tomb",
+    "dimensions": "Square pavilion 23 meters on a side with four 13-meter hexagonal minarets",
+    "openingHours": "6:00 AM - 6:00 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "October to March (Late afternoon golden light)",
+    "ticketPricing": {
+      "indian": "₹30",
+      "foreigner": "₹310",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Pietra Dura Pioneer: First Mughal monument to employ floral gemstone inlay in white marble.",
+      "Cypress Tree Motifs: Persian symbols of eternity inlaid into the arched alcoves.",
+      "Delicate Jali Lattice Screens: Perforated marble screens casting geometric shadows across cenotaphs.",
+      "Yamuna River Terrace: Peaceful riverfront setting with tranquil gardens and fewer crowds."
+    ],
+    "legendsAndFacts": "Nur Jahan built this jewel-box tomb for her father Mirza Ghiyas Beg. It served as the artistic transition between red sandstone and the white marble Taj Mahal.",
+    "audioGuideTranscript": "Welcome to the Tomb of I'timad-ud-Daulah, affectionately known as the Baby Taj. Commissioned by Empress Nur Jahan between 1622 and 1628 for her father.",
+    "nearbyFood": [
+      {
+        "name": "Panchi Petha Rawatpara",
+        "cuisine": "Traditional Sweets",
+        "distance": "2 km",
+        "specialty": "Chocolate and Paan Petha"
+      },
+      {
+        "name": "Dasaprakash",
+        "cuisine": "South Indian Vegetarian",
+        "distance": "4 km",
+        "specialty": "Ghee Dosa and Thali"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Chini Ka Rauza",
+        "distance": "1 km"
+      },
+      {
+        "name": "Mehtab Bagh",
+        "distance": "3 km"
+      }
+    ],
+    "visualKeywords": [
+      "itimad ud daulah",
+      "baby taj",
+      "agra",
+      "nur jahan",
+      "pietra dura",
+      "marble mausoleum",
+      "yamuna"
+    ]
+  },
+  {
+    "id": "monument-chand-baori",
+    "name": "Chand Baori (Abhaneri Stepwell)",
+    "hindiName": "चाँद बावड़ी, आभानेरी",
+    "city": "Abhaneri",
+    "state": "Rajasthan",
+    "zone": "North",
+    "country": "India",
+    "unescoStatus": "ASI Protected Ancient Stepwell",
+    "primaryImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Chand_Baori_perspective_panorama_%28July_2022%29.jpg/1280px-Chand_Baori_perspective_panorama_%28July_2022%29.jpg",
+    "sampleThumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Chand_Baori_perspective_panorama_%28July_2022%29.jpg/1280px-Chand_Baori_perspective_panorama_%28July_2022%29.jpg",
+    "commissionedBy": "King Chanda of the Nikumbha Dynasty",
+    "architect": "Ancient Rajasthani Hydraulic Guilds",
+    "constructionEra": "8th - 9th Century CE",
+    "material": "Carved volcanic Porous Sandstone and Basalt blocks",
+    "architecturalStyle": "Ancient Indian Stepwell (Baori) Architecture",
+    "dimensions": "Depth 20 meters (64 ft); 13 tiers; 3,500 narrow symmetrical steps",
+    "openingHours": "7:00 AM - 6:00 PM Daily",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "October to March (Morning sun casting dramatic triangular shadows)",
+    "ticketPricing": {
+      "indian": "₹25",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Hypnotic Symmetry: 3,500 chevron-patterned steps descending like a labyrinth into the earth.",
+      "Ancient Water Harvesting: Maintained groundwater 5–6 degrees cooler than the scorching surface.",
+      "Harshat Mata Temple: Adjacent 9th-century carved sanctuary dedicated to the Goddess of Joy.",
+      "Royal Pavilion: Multi-story pillared galleries and jharokhas once reserved for royalty."
+    ],
+    "legendsAndFacts": "Legend claims the stepwell was constructed by ghosts in a single night, and that if you drop a coin it is impossible to retrieve by following the same steps.",
+    "audioGuideTranscript": "Descending twenty meters into the arid Rajasthan soil, Chand Baori in Abhaneri is one of the oldest and deepest stepwells on planet Earth.",
+    "nearbyFood": [
+      {
+        "name": "Abhaneri Highway Restaurant",
+        "cuisine": "Rajasthani Thali",
+        "distance": "400 m",
+        "specialty": "Dal Baati Churma and Gatte Ki Sabzi"
+      },
+      {
+        "name": "Dausa Mid-Way Dhaba",
+        "cuisine": "North Indian",
+        "distance": "12 km",
+        "specialty": "Tandoori Stuffed Paranthas and Kulhad Chai"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Harshat Mata Temple",
+        "distance": "100 m"
+      },
+      {
+        "name": "Bhangarh Fort",
+        "distance": "28 km"
+      }
+    ],
+    "visualKeywords": [
+      "chand baori",
+      "abhaneri",
+      "stepwell",
+      "rajasthan",
+      "geometric steps",
+      "nikumbha",
+      "water harvesting"
+    ]
+  },
+  {
+    "id": "monument-chilika-lake",
+    "name": "Chilika Lake & Bird Sanctuary",
+    "hindiName": "चिल्का झील",
+    "city": "Satapada",
+    "state": "Odisha",
+    "zone": "East",
+    "country": "India",
+    "unescoStatus": "Ramsar Site of International Importance (1981)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/9/94/Birds_eyeview_of_Chilika_Lake.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/9/94/Birds_eyeview_of_Chilika_Lake.jpg",
+    "commissionedBy": "Natural Coastal Marine Lagoon",
+    "architect": "Bay of Bengal Coastal Dynamics",
+    "constructionEra": "Formed in the late Pleistocene geological epoch",
+    "material": "Brackish estuarine water, tidal sandspits, and mudflats",
+    "architecturalStyle": "Coastal Estuarine Wetland Ecosystem",
+    "dimensions": "Surface area over 1,100 sq km; largest coastal lagoon in India",
+    "openingHours": "6:00 AM - 5:00 PM Daily (Boat services)",
+    "closedOn": "Open All Days",
+    "bestTimeToVisit": "November to February (Migratory bird congregation)",
+    "ticketPricing": {
+      "indian": "Free (Boat hire ₹1,200 - ₹2,500)",
+      "foreigner": "Free (Boat hire ₹1,200 - ₹2,500)",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Irrawaddy Dolphin Habitat: One of only two global lagoons home to endangered Irrawaddy dolphins.",
+      "Nalabana Bird Sanctuary: Core wintering haven for over a million migratory flamingos and pelicans.",
+      "Kalijai Temple Island: Sacred pilgrimage shrine located on an isolated island in the blue lagoon.",
+      "Sea Mouth Estuary: Where the tranquil lagoon merges directly into the rolling Bay of Bengal."
+    ],
+    "legendsAndFacts": "Ancient maritime ports on Chilika dispatched large merchant ships (Boitas) across the ocean to Java, Bali, and Sri Lanka.",
+    "audioGuideTranscript": "Welcome to Chilika Lake, Asia's largest brackish water lagoon. Spanning over eleven hundred square kilometers across Puri, Khurda, and Ganjam districts.",
+    "nearbyFood": [
+      {
+        "name": "Satapada OTDC Restaurant",
+        "cuisine": "Odia Seafood",
+        "distance": "200 m",
+        "specialty": "Fresh Chilika Crab Curry and Fried Tiger Prawns"
+      },
+      {
+        "name": "Puri Beach Shack",
+        "cuisine": "Coastal Cuisine",
+        "distance": "35 km",
+        "specialty": "Machha Besara (Fish in Mustard Gravy)"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Kalijai Island Temple",
+        "distance": "12 km via boat"
+      },
+      {
+        "name": "Puri Jagannath Temple",
+        "distance": "48 km"
+      }
+    ],
+    "visualKeywords": [
+      "chilika lake",
+      "odisha",
+      "puri",
+      "satapada",
+      "irrawaddy dolphins",
+      "coastal lagoon",
+      "nalabana",
+      "wetland"
+    ]
   }
 ];
 
