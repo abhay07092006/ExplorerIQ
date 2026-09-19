@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -22,10 +22,117 @@ import {
   Bike,
   Sparkles,
   RefreshCw,
-  Layers
+  Layers,
+  Plane,
+  Building2,
+  ArrowUpDown
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
 import { transitApi } from '../services/transitApi';
+
+// Major Indian city transit hubs (Railway Stations, Airports, City Centers)
+const CITY_TRANSIT_HUBS = {
+  agra: {
+    cityName: 'Agra',
+    center: { name: 'City Center (Sadar Bazaar)', lat: 27.1625, lng: 78.0100 },
+    railway: { name: 'Agra Cantt Railway Station (AGC)', lat: 27.1593, lng: 77.9897 },
+    airport: { name: 'Agra Kheria Airport (AGR)', lat: 27.1558, lng: 77.9610 }
+  },
+  delhi: {
+    cityName: 'Delhi',
+    center: { name: 'Connaught Place / City Center', lat: 28.6315, lng: 77.2167 },
+    railway: { name: 'New Delhi Railway Station (NDLS)', lat: 28.6431, lng: 77.2195 },
+    airport: { name: 'IGI International Airport (DEL)', lat: 28.5562, lng: 77.1000 }
+  },
+  jaipur: {
+    cityName: 'Jaipur',
+    center: { name: 'City Center (MI Road)', lat: 26.9174, lng: 75.8055 },
+    railway: { name: 'Jaipur Junction (JP)', lat: 26.9202, lng: 75.7878 },
+    airport: { name: 'Jaipur International Airport (JAI)', lat: 26.8242, lng: 75.8122 }
+  },
+  varanasi: {
+    cityName: 'Varanasi',
+    center: { name: 'Godowlia / Ghats Center', lat: 25.3090, lng: 83.0064 },
+    railway: { name: 'Varanasi Junction (BSB)', lat: 25.3283, lng: 82.9863 },
+    airport: { name: 'Lal Bahadur Shastri Airport (VNS)', lat: 25.4526, lng: 82.8593 }
+  },
+  mumbai: {
+    cityName: 'Mumbai',
+    center: { name: 'South Mumbai (Fort)', lat: 18.9322, lng: 72.8335 },
+    railway: { name: 'CSMT Railway Terminus', lat: 18.9400, lng: 72.8353 },
+    airport: { name: 'Chhatrapati Shivaji Airport (BOM)', lat: 19.0896, lng: 72.8656 }
+  },
+  kolkata: {
+    cityName: 'Kolkata',
+    center: { name: 'Esplanade / Park Street', lat: 22.5645, lng: 88.3518 },
+    railway: { name: 'Howrah Railway Junction (HWH)', lat: 22.5833, lng: 88.3426 },
+    airport: { name: 'Netaji Subhash Chandra Airport (CCU)', lat: 22.6547, lng: 88.4467 }
+  },
+  bengaluru: {
+    cityName: 'Bengaluru',
+    center: { name: 'MG Road / City Center', lat: 12.9756, lng: 77.6066 },
+    railway: { name: 'KSR Bengaluru City Junction (SBC)', lat: 12.9781, lng: 77.5695 },
+    airport: { name: 'Kempegowda International Airport (BLR)', lat: 13.1986, lng: 77.7066 }
+  },
+  hyderabad: {
+    cityName: 'Hyderabad',
+    center: { name: 'Abids / Central Hyderabad', lat: 17.3916, lng: 78.4739 },
+    railway: { name: 'Secunderabad Junction (SC)', lat: 17.4339, lng: 78.5042 },
+    airport: { name: "Rajiv Gandhi Int'l Airport (HYD)", lat: 17.2403, lng: 78.4294 }
+  },
+  chennai: {
+    cityName: 'Chennai',
+    center: { name: 'T. Nagar / Central Chennai', lat: 13.0418, lng: 80.2341 },
+    railway: { name: 'Chennai Central (MAS)', lat: 13.0827, lng: 80.2755 },
+    airport: { name: 'Chennai International Airport (MAA)', lat: 12.9941, lng: 80.1709 }
+  },
+  kochi: {
+    cityName: 'Kochi',
+    center: { name: 'Marine Drive / Ernakulam', lat: 9.9790, lng: 76.2750 },
+    railway: { name: 'Ernakulam Junction (ERS)', lat: 9.9678, lng: 76.2908 },
+    airport: { name: 'Cochin International Airport (COK)', lat: 10.1518, lng: 76.3930 }
+  },
+  udaipur: {
+    cityName: 'Udaipur',
+    center: { name: 'City Center (Surajpole)', lat: 24.5786, lng: 73.6967 },
+    railway: { name: 'Udaipur City Station (UDZ)', lat: 24.5714, lng: 73.6989 },
+    airport: { name: 'Maharana Pratap Airport (UDR)', lat: 24.6178, lng: 73.8961 }
+  },
+  amritsar: {
+    cityName: 'Amritsar',
+    center: { name: 'Hall Bazaar / City Center', lat: 31.6288, lng: 74.8765 },
+    railway: { name: 'Amritsar Junction (ASR)', lat: 31.6340, lng: 74.8653 },
+    airport: { name: 'Sri Guru Ram Dass Jee Airport (ATQ)', lat: 31.7096, lng: 74.7973 }
+  },
+  goa: {
+    cityName: 'Goa',
+    center: { name: 'Panaji Capital Center', lat: 15.4909, lng: 73.8278 },
+    railway: { name: 'Madgaon Junction (MAO)', lat: 15.2741, lng: 73.9772 },
+    airport: { name: 'Dabolim Airport (GOI)', lat: 15.3808, lng: 73.8314 }
+  },
+  hampi: {
+    cityName: 'Hampi',
+    center: { name: 'Hampi Bazaar Center', lat: 15.3350, lng: 76.4600 },
+    railway: { name: 'Hosapete Junction (HPT)', lat: 15.2750, lng: 76.3860 },
+    airport: { name: 'Jindal Vijayanagar Airport (VDY)', lat: 15.1667, lng: 76.6333 }
+  }
+};
+
+function getTransitHubsForCity(cityName = '', destCoords = null) {
+  const norm = (cityName || '').toLowerCase();
+  const key = Object.keys(CITY_TRANSIT_HUBS).find((k) => norm.includes(k) || k.includes(norm));
+  if (key && CITY_TRANSIT_HUBS[key]) {
+    return CITY_TRANSIT_HUBS[key];
+  }
+  const baseLat = destCoords ? destCoords.lat : 26.9124;
+  const baseLng = destCoords ? destCoords.lng : 75.7873;
+  return {
+    cityName: cityName || 'Local Area',
+    center: { name: `${cityName || 'Local'} City Center`, lat: baseLat - 0.02, lng: baseLng - 0.02 },
+    railway: { name: `${cityName || 'City'} Central Railway Station`, lat: baseLat - 0.035, lng: baseLng - 0.015 },
+    airport: { name: `${cityName || 'City'} Airport`, lat: baseLat - 0.08, lng: baseLng - 0.05 }
+  };
+}
 
 export default function RoutePlanner({
   initialDestination = null,
@@ -35,7 +142,9 @@ export default function RoutePlanner({
   const { allPlaces = [], currentCity, destinations = [] } = useTravel();
 
   // Selected Destination
-  const [destination, setDestination] = useState(initialDestination || allPlaces[0] || null);
+  const [destination, setDestination] = useState(
+    initialDestination || (currentCity ? allPlaces.find(p => p.cityId === currentCity.id) : null) || allPlaces[0] || null
+  );
 
   // Origin (Start)
   const [startQuery, setStartQuery] = useState('');
@@ -55,15 +164,18 @@ export default function RoutePlanner({
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const routeLayerGroupRef = useRef(null);
+  const debounceTimerRef = useRef(null);
 
   // Sync initialDestination when it changes
   useEffect(() => {
     if (initialDestination) {
       setDestination(initialDestination);
     } else if (!destination && allPlaces.length > 0) {
-      setDestination(allPlaces[0]);
+      setDestination(
+        (currentCity ? allPlaces.find(p => p.cityId === currentCity.id) : null) || allPlaces[0]
+      );
     }
-  }, [initialDestination, allPlaces]);
+  }, [initialDestination, allPlaces, currentCity]);
 
   // Destination coordinates resolution
   const destCoords = useMemo(() => {
@@ -74,7 +186,6 @@ export default function RoutePlanner({
     if (Array.isArray(destination.coordinates) && destination.coordinates.length === 2) {
       return { lat: destination.coordinates[0], lng: destination.coordinates[1] };
     }
-    // Fallback: Jaipur center
     return { lat: 26.9124, lng: 75.7873 };
   }, [destination]);
 
@@ -82,6 +193,11 @@ export default function RoutePlanner({
   const destCityName = useMemo(() => {
     return destination?.cityName || destination?.city || currentCity?.name || 'Jaipur';
   }, [destination, currentCity]);
+
+  // City Transit Hubs for presets
+  const cityHubs = useMemo(() => {
+    return getTransitHubsForCity(destCityName, destCoords);
+  }, [destCityName, destCoords]);
 
   // Group places for intuitive selector
   const currentCityPlaces = useMemo(() => {
@@ -98,12 +214,16 @@ export default function RoutePlanner({
     });
   }, [allPlaces, destCityName]);
 
-  // Trigger browser GPS on initial open if no startCoords
+  // Set default origin when modal opens or destination changes (if user hasn't manually set origin)
   useEffect(() => {
-    if (isOpen && !startCoords && !isManualStart) {
-      handleUseLiveLocation();
+    if (!isOpen) return;
+    if (!startCoords || !isManualStart) {
+      // Default to the destination's city center
+      setStartCoords({ lat: cityHubs.center.lat, lng: cityHubs.center.lng });
+      setStartQuery(cityHubs.center.name);
+      setLocationStatus(`Defaulted to ${cityHubs.center.name}. Click 'Use My GPS' or select a preset.`);
     }
-  }, [isOpen]);
+  }, [isOpen, destination?.id, cityHubs]);
 
   // Handler: Acquire user GPS coordinates
   const handleUseLiveLocation = async () => {
@@ -112,9 +232,8 @@ export default function RoutePlanner({
     try {
       const pos = await transitApi.getCurrentUserLocation();
       setStartCoords({ lat: pos.lat, lng: pos.lng });
-      setIsManualStart(false);
+      setIsManualStart(true);
 
-      // Attempt reverse geocoding for friendly label
       try {
         const address = await transitApi.reverseGeocode(pos.lat, pos.lng);
         setStartQuery(address);
@@ -125,37 +244,51 @@ export default function RoutePlanner({
       }
     } catch (err) {
       console.warn('[RoutePlanner] GPS fallback:', err.message);
-      // Fallback: near the destination city center offset by ~3km
-      const fallbackLat = destCoords ? destCoords.lat - 0.035 : 26.9124;
-      const fallbackLng = destCoords ? destCoords.lng - 0.025 : 75.7873;
-      setStartCoords({ lat: fallbackLat, lng: fallbackLng });
-      setStartQuery(`City Center, ${destCityName}`);
+      // Fallback to destination city center
+      setStartCoords({ lat: cityHubs.center.lat, lng: cityHubs.center.lng });
+      setStartQuery(cityHubs.center.name);
       setLocationStatus('GPS unavailable. Used local city center.');
     } finally {
       setIsLocating(false);
     }
   };
 
-  // Handler: Search address suggestions when typing
+  // Handler: Select a quick preset (City Center, Railway Station, Airport)
+  const handleSelectPreset = (hub) => {
+    setStartCoords({ lat: hub.lat, lng: hub.lng });
+    setStartQuery(hub.name);
+    setIsManualStart(true);
+    setLocationStatus(`Starting from ${hub.name}`);
+    setSuggestions([]);
+  };
+
+  // Handler: Search address suggestions when typing (Debounced to prevent Nominatim 429 errors)
   const handleStartInputChange = (e) => {
     const val = e.target.value;
     setStartQuery(val);
     setIsManualStart(true);
 
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
     if (val.trim().length >= 3) {
       setIsSearchingSuggestions(true);
-      transitApi
-        .geocodeAddress(val)
-        .then((items) => {
-          setSuggestions(items);
-          setIsSearchingSuggestions(false);
-        })
-        .catch(() => {
-          setSuggestions([]);
-          setIsSearchingSuggestions(false);
-        });
+      debounceTimerRef.current = setTimeout(() => {
+        transitApi
+          .geocodeAddress(val)
+          .then((items) => {
+            setSuggestions(items);
+            setIsSearchingSuggestions(false);
+          })
+          .catch(() => {
+            setSuggestions([]);
+            setIsSearchingSuggestions(false);
+          });
+      }, 350);
     } else {
       setSuggestions([]);
+      setIsSearchingSuggestions(false);
     }
   };
 
@@ -165,6 +298,7 @@ export default function RoutePlanner({
     setStartCoords({ lat: item.lat, lng: item.lng });
     setSuggestions([]);
     setIsManualStart(true);
+    setLocationStatus('Selected from address search.');
   };
 
   // Calculate Route when startCoords or destCoords change
@@ -174,6 +308,7 @@ export default function RoutePlanner({
     let isCancelled = false;
     setIsLoadingRoute(true);
     setRouteError(null);
+    setRouteData(null); // Clear stale route immediately
 
     transitApi
       .calculateRoute({
@@ -195,7 +330,7 @@ export default function RoutePlanner({
       .catch((err) => {
         if (!isCancelled) {
           console.error('[RoutePlanner] Route calculation failed:', err);
-          setRouteError('Could not calculate optimal route.');
+          setRouteError('Could not calculate driving polyline. Displaying direct road estimates.');
           setIsLoadingRoute(false);
         }
       });
@@ -213,7 +348,7 @@ export default function RoutePlanner({
     return transitApi.calculateMultiModalEstimates(dist, destCityName);
   }, [routeData, startCoords, destCoords, destCityName]);
 
-  // Check for potential Red Fort (Delhi) vs Agra Fort (Agra) confusion
+  // Regional Mismatch Notice (e.g. Red Fort Delhi vs Agra Fort)
   const regionalMismatchNotice = useMemo(() => {
     if (!startCoords || !destination) return null;
 
@@ -245,8 +380,12 @@ export default function RoutePlanner({
   useEffect(() => {
     if (!isOpen || !mapContainerRef.current) return;
 
-    // Initialize map if not yet initialized
+    // Safely initialize map instance
     if (!mapInstanceRef.current) {
+      if (mapContainerRef.current._leaflet_id) {
+        delete mapContainerRef.current._leaflet_id;
+      }
+
       const initialCenter = startCoords
         ? [startCoords.lat, startCoords.lng]
         : destCoords
@@ -276,7 +415,7 @@ export default function RoutePlanner({
     // Clear previous markers & polylines
     layerGroup.clearLayers();
 
-    // Custom Start Marker (Pulsing blue radar dot)
+    // Start Marker (Pulsing blue radar dot)
     if (startCoords) {
       const startIcon = L.divIcon({
         className: 'custom-start-marker',
@@ -294,7 +433,7 @@ export default function RoutePlanner({
         .addTo(layerGroup);
     }
 
-    // Custom Destination Marker (Red Monument Pin)
+    // Destination Marker (Red Monument Pin)
     if (destCoords) {
       const destIcon = L.divIcon({
         className: 'custom-dest-marker',
@@ -322,44 +461,62 @@ export default function RoutePlanner({
         lineJoin: 'round'
       }).addTo(layerGroup);
 
-      // Fit bounds with comfortable padding
       try {
         map.fitBounds(polyline.getBounds(), { padding: [40, 40], maxZoom: 15 });
       } catch {
-        // Ignore bounds fitting on initial zero-size
+        // Ignore zero-bounds
       }
     } else if (startCoords && destCoords) {
-      const bounds = L.latLngBounds(
-        [startCoords.lat, startCoords.lng],
-        [destCoords.lat, destCoords.lng]
-      );
       try {
+        const bounds = L.latLngBounds(
+          [startCoords.lat, startCoords.lng],
+          [destCoords.lat, destCoords.lng]
+        );
         map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
       } catch {
         // Ignore
       }
     }
 
-    // Invalidate size after container render
-    setTimeout(() => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.invalidateSize();
-      }
-    }, 200);
+    // Invalidate size with staggered delays to ensure proper rendering inside modal
+    const t1 = setTimeout(() => map.invalidateSize(), 100);
+    const t2 = setTimeout(() => map.invalidateSize(), 300);
+    const t3 = setTimeout(() => map.invalidateSize(), 600);
 
     return () => {
-      // Keep map alive while modal is open, will be cleaned on unmount
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
     };
   }, [isOpen, startCoords, destCoords, routeData]);
 
   // Clean up map when modal closes
   useEffect(() => {
     if (!isOpen && mapInstanceRef.current) {
-      mapInstanceRef.current.remove();
+      try {
+        mapInstanceRef.current.remove();
+      } catch (e) {
+        console.warn('Map cleanup error:', e);
+      }
       mapInstanceRef.current = null;
       routeLayerGroupRef.current = null;
     }
   }, [isOpen]);
+
+  // Clean up map on unmount
+  useEffect(() => {
+    return () => {
+      if (mapInstanceRef.current) {
+        try {
+          mapInstanceRef.current.remove();
+        } catch (e) {
+          console.warn('Map unmount cleanup error:', e);
+        }
+        mapInstanceRef.current = null;
+        routeLayerGroupRef.current = null;
+      }
+    };
+  }, []);
 
   if (!isOpen) return null;
 
@@ -386,7 +543,7 @@ export default function RoutePlanner({
                   Live Multi-Modal Transit & Route Planner
                 </h3>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30">
-                  Live GPS
+                  {multiModal.isInterCity ? 'Inter-City Route' : 'City Transit'}
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-0.5">
@@ -411,7 +568,7 @@ export default function RoutePlanner({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200">
             
             {/* Origin (Start) */}
-            <div className="space-y-1.5 relative">
+            <div className="space-y-2 relative">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-sky-500 ring-2 ring-sky-200" />
@@ -441,6 +598,38 @@ export default function RoutePlanner({
                 )}
               </div>
 
+              {/* Quick Origin Preset Buttons for Destination City */}
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                <span className="text-[10px] text-slate-400 font-semibold">Quick Presets:</span>
+                <button
+                  type="button"
+                  onClick={() => handleSelectPreset(cityHubs.center)}
+                  className="px-2 py-1 rounded-lg bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 text-[10px] font-bold text-slate-700 hover:text-sky-700 flex items-center gap-1 transition-colors shadow-2xs"
+                  title={`Start from ${cityHubs.center.name}`}
+                >
+                  <Building2 className="w-3 h-3 text-sky-500" />
+                  <span>City Center</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSelectPreset(cityHubs.railway)}
+                  className="px-2 py-1 rounded-lg bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 text-[10px] font-bold text-slate-700 hover:text-sky-700 flex items-center gap-1 transition-colors shadow-2xs"
+                  title={`Start from ${cityHubs.railway.name}`}
+                >
+                  <Train className="w-3 h-3 text-amber-500" />
+                  <span>Railway Station</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSelectPreset(cityHubs.airport)}
+                  className="px-2 py-1 rounded-lg bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 text-[10px] font-bold text-slate-700 hover:text-sky-700 flex items-center gap-1 transition-colors shadow-2xs"
+                  title={`Start from ${cityHubs.airport.name}`}
+                >
+                  <Plane className="w-3 h-3 text-indigo-500" />
+                  <span>Airport</span>
+                </button>
+              </div>
+
               {locationStatus && (
                 <p className="text-[10px] text-slate-500 italic truncate">
                   {locationStatus}
@@ -465,7 +654,7 @@ export default function RoutePlanner({
             </div>
 
             {/* Destination */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-rose-500 ring-2 ring-rose-200" />
                 <span>Destination Monument / Place</span>
@@ -500,7 +689,7 @@ export default function RoutePlanner({
               </select>
 
               {destination && (
-                <p className="text-[10px] text-slate-500 flex items-center gap-1 truncate">
+                <p className="text-[10px] text-slate-500 flex items-center gap-1 truncate pt-1">
                   <MapPin className="w-3 h-3 text-slate-400" />
                   <span>
                     {destination.name}, {destCityName}, {destination.state || ''}
@@ -539,7 +728,7 @@ export default function RoutePlanner({
               </div>
               <div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-sky-400 block">
-                  Calculated Optimal Road Route
+                  {multiModal.isInterCity ? 'Calculated Inter-City Highway Route' : 'Calculated Optimal City Route'}
                 </span>
                 <h4 className="font-display font-extrabold text-lg sm:text-xl text-white">
                   {routeData?.distanceKm || multiModal.distanceKm} km{' '}
@@ -595,7 +784,9 @@ export default function RoutePlanner({
                   Multi-Modal Travel Comparison Matrix
                 </h4>
                 <p className="text-xs text-slate-500">
-                  Compare fares, transit durations, and carbon footprints for 5 local travel modes.
+                  {multiModal.isInterCity
+                    ? 'Comparing inter-city trains, outstation cabs, and express highway buses.'
+                    : 'Compare fares, transit durations, and carbon footprints for 5 local travel modes.'}
                 </p>
               </div>
               <span className="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-xl">
@@ -665,12 +856,16 @@ export default function RoutePlanner({
                           <span>Est. Travel Time:</span>
                         </span>
                         <span className="font-bold text-sky-600">
-                          {mode.durationMinutes} mins
+                          {mode.durationMinutes >= 60
+                            ? `${Math.floor(mode.durationMinutes / 60)}h ${mode.durationMinutes % 60}m`
+                            : `${mode.durationMinutes} mins`}
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-200/60">
                         <span>Speed: ~{mode.speedKmh} km/h</span>
-                        <span className="text-emerald-600 font-medium">CO2: ~{mode.co2Grams}g</span>
+                        <span className="text-emerald-600 font-medium">
+                          CO2: ~{mode.co2Grams >= 1000 ? `${(mode.co2Grams / 1000).toFixed(1)}kg` : `${mode.co2Grams}g`}
+                        </span>
                       </div>
                     </div>
                   ) : (
@@ -703,7 +898,7 @@ export default function RoutePlanner({
                     </div>
                   ) : (
                     <div className="w-full py-2 bg-slate-200/60 text-slate-400 rounded-xl text-xs font-medium text-center">
-                      Not Available in {destCityName}
+                      Not Available on this Route
                     </div>
                   )}
                 </div>
