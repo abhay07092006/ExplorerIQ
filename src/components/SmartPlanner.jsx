@@ -35,7 +35,7 @@ import {
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
 import { handleImageError } from '../utils/imageUtils';
-import { getBookingUrl } from '../utils/bookingUrlBuilder';
+import { getBookingUrl, buildBookingUrl } from '../utils/bookingUrlBuilder';
 
 const STYLE_OPTIONS = [
   { id: 'heritage', label: 'Culture & Heritage', icon: '🏛️' },
@@ -759,11 +759,11 @@ export default function SmartPlanner() {
                 </div>
 
                 <a
-                  href={getBookingUrl({
+                  href={buildBookingUrl({
                     destination: activeCity?.name || 'India',
-                    checkInDate: checkIn,
-                    checkOutDate: checkOut,
-                    guests: guests || 1,
+                    checkIn: checkIn,
+                    checkOut: checkOut,
+                    guestsCount: guests || 1,
                     hotelName: hotel?.name || ''
                   })}
                   target="_blank"
