@@ -8,37 +8,38 @@ export default function BookmarkModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[85vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-xl bg-[#121824] rounded-3xl shadow-2xl border border-amber-500/30 overflow-hidden flex flex-col max-h-[85vh]">
+        
         {/* Header */}
-        <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+        <div className="p-5 border-b border-amber-500/20 flex items-center justify-between bg-[#0B0F14]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-amber-500/10 text-amber-600 rounded-xl border border-amber-200">
-              <Bookmark className="w-5 h-5 fill-amber-500" />
+            <div className="p-2 bg-amber-500/15 text-amber-400 rounded-xl border border-amber-500/30">
+              <Bookmark className="w-5 h-5 fill-amber-400" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-lg text-slate-900">Saved Travel Highlights</h3>
-              <p className="text-xs text-slate-500">{bookmarks.length} places saved for offline reference</p>
+              <h3 className="font-serif font-bold text-base text-[#E2D9CC]">Saved Heritage Highlights</h3>
+              <p className="text-xs text-slate-400">{bookmarks.length} destinations saved for quick reference</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/50 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-amber-300 hover:bg-[#1A2232] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-5 overflow-y-auto divide-y divide-slate-100 flex-1">
+        <div className="p-5 overflow-y-auto divide-y divide-amber-500/10 flex-1">
           {bookmarks.length === 0 ? (
             <div className="py-12 text-center">
-              <div className="w-14 h-14 mx-auto mb-3 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400">
+              <div className="w-14 h-14 mx-auto mb-3 bg-[#1A2232] border border-amber-500/20 rounded-2xl flex items-center justify-center text-amber-400">
                 <Compass className="w-7 h-7" />
               </div>
-              <h4 className="font-semibold text-slate-800">No saved destinations yet</h4>
-              <p className="text-sm text-slate-500 max-w-xs mx-auto mt-1">
-                Click the bookmark icon on any monument, temple, or local eatery to save it here for quick access.
+              <h4 className="font-serif font-bold text-[#E2D9CC]">No saved heritage gems yet</h4>
+              <p className="text-xs text-slate-400 max-w-xs mx-auto mt-1 font-sans">
+                Click the bookmark icon on any monument, temple, or cultural landmark to save it here for instant access.
               </p>
             </div>
           ) : (
@@ -49,15 +50,15 @@ export default function BookmarkModal({ isOpen, onClose }) {
                     src={item.image || item.heroImage || item.primaryImage}
                     alt={item.name}
                     onError={handleImageError}
-                    className="w-14 h-14 rounded-xl object-cover border border-slate-200 flex-shrink-0"
+                    className="w-14 h-14 rounded-xl object-cover border border-amber-500/30 flex-shrink-0"
                   />
                   <div className="min-w-0">
-                    <h4 className="font-semibold text-slate-900 text-sm truncate">{item.name}</h4>
-                    <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3 text-sky-500" />
+                    <h4 className="font-serif font-bold text-[#E2D9CC] text-xs sm:text-sm truncate">{item.name}</h4>
+                    <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
+                      <MapPin className="w-3 h-3 text-amber-400" />
                       <span>{item.city || item.state || 'Destination'}</span>
                       {item.category && (
-                        <span className="capitalize px-1.5 py-0.5 bg-slate-100 rounded text-[10px] text-slate-600 font-medium">
+                        <span className="capitalize px-1.5 py-0.5 bg-[#1A2232] border border-amber-500/20 rounded text-[10px] text-amber-300 font-serif">
                           {item.category}
                         </span>
                       )}
@@ -69,19 +70,19 @@ export default function BookmarkModal({ isOpen, onClose }) {
                   <button
                     onClick={() => {
                       onClose();
-                      if (item.category) {
+                      if (item.category && openPlaceDrawer) {
                         openPlaceDrawer(item);
                         setActiveTab('explore');
                       }
                     }}
-                    className="px-3 py-1.5 text-xs font-medium text-sky-600 bg-sky-50 hover:bg-sky-100 rounded-lg transition-colors flex items-center gap-1"
+                    className="px-3 py-1.5 text-xs font-serif font-bold text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded-lg transition-colors flex items-center gap-1 cursor-pointer"
                   >
                     <span>View</span>
                     <ExternalLink className="w-3 h-3" />
                   </button>
                   <button
                     onClick={() => toggleBookmark(item)}
-                    className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                    className="p-1.5 text-slate-500 hover:text-rose-400 hover:bg-[#1A2232] rounded-lg transition-colors cursor-pointer"
                     title="Remove bookmark"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -93,10 +94,10 @@ export default function BookmarkModal({ isOpen, onClose }) {
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-end">
+        <div className="p-4 bg-[#0B0F14] border-t border-amber-500/20 flex items-center justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl transition-colors"
+            className="px-5 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-serif font-bold text-xs rounded-xl transition-all cursor-pointer"
           >
             Done
           </button>
