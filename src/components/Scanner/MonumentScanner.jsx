@@ -16,6 +16,7 @@ import MonumentDetailCard from './MonumentDetailCard';
 export default function MonumentScanner() {
   const { scannerState, scanImage, resetScanner } = useTravel();
   const [isCameraActive, setIsCameraActive] = useState(false);
+  const [isCameraLoading, setIsCameraLoading] = useState(false);
   const [cameraError, setCameraError] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -26,10 +27,20 @@ export default function MonumentScanner() {
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current.getTracks().forEach((track) => {
+        try {
+          track.stop();
+        } catch (e) {
+          console.warn('Error stopping camera track:', e);
+        }
+      });
       streamRef.current = null;
     }
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
     setIsCameraActive(false);
+    setIsCameraLoading(false);
   }, []);
 
   // Stop camera stream on unmount
@@ -39,37 +50,111 @@ export default function MonumentScanner() {
     };
   }, [stopCamera]);
 
+  // Connect active media stream to video element when DOM mounts
+  useEffect(() => {
+    if (isCameraActive && videoRef.current && streamRef.current) {
+      const video = videoRef.current;
+      video.srcObject = streamRef.current;
+      video.onloadedmetadata = () => {
+        video.play().catch((err) => {
+          console.warn('Video playback was prevented or interrupted:', err);
+        });
+      };
+    }
+  }, [isCameraActive]);
+
   const startCamera = async () => {
     setCameraError(null);
+
+    // Guard against non-secure context or missing mediaDevices API
+    if (typeof navigator === 'undefined' || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setCameraError(
+        'Camera API is not supported in this browser environment or requires a secure connection (HTTPS or localhost). Please upload an image file instead.'
+      );
+      return;
+    }
+
+    setIsCameraLoading(true);
+
+    let stream = null;
+
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
+      // 1. Primary attempt: environment-facing camera with ideal HD dimensions
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: 'environment',
+          width: { ideal: 1280 },
+          height: { ideal: 720 }
+        }
       });
-      streamRef.current = stream;
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
+    } catch (envErr) {
+      console.warn('Environment camera constraint unavailable or rejected, attempting safe fallback:', envErr);
+      try {
+        // 2. Safe fallback: any available video device (e.g. desktop/laptop webcam)
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: true
+        });
+      } catch (fallbackErr) {
+        console.error('All camera initialization attempts failed:', fallbackErr);
+        let message = 'Unable to access camera hardware. You can upload an image file instead.';
+        if (fallbackErr.name === 'NotAllowedError' || fallbackErr.name === 'PermissionDeniedError') {
+          message = 'Camera permission was denied. Please allow camera permissions in your browser address bar and try again, or upload an image.';
+        } else if (fallbackErr.name === 'NotFoundError' || fallbackErr.name === 'DevicesNotFoundError') {
+          message = 'No camera hardware was detected on your device. Please connect a webcam or upload a photo.';
+        } else if (fallbackErr.name === 'NotReadableError' || fallbackErr.name === 'TrackStartError') {
+          message = 'Camera is currently locked or in use by another application. Please close other camera apps and retry.';
+        } else if (fallbackErr.name === 'OverconstrainedError') {
+          message = 'Requested camera resolution or facing mode is not supported by your hardware.';
+        } else if (fallbackErr.message) {
+          message = `Camera error: ${fallbackErr.message}. You can upload an image file instead.`;
+        }
+        setCameraError(message);
+        setIsCameraActive(false);
+        setIsCameraLoading(false);
+        return;
       }
+    }
+
+    if (stream) {
+      streamRef.current = stream;
       setIsCameraActive(true);
-    } catch (err) {
-      console.error('Camera access error:', err);
-      setCameraError('Camera access denied or unavailable. You can still upload photos from files or use the sample gallery.');
-      setIsCameraActive(false);
+      setIsCameraLoading(false);
     }
   };
 
   const captureCameraFrame = () => {
-    if (!videoRef.current || !canvasRef.current) return;
     const video = videoRef.current;
-    const canvas = canvasRef.current;
-    canvas.width = video.videoWidth || 640;
-    canvas.height = video.videoHeight || 480;
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+    if (!video) return;
 
-    stopCamera();
-    scanImage(dataUrl, 'live_camera_capture.jpg');
+    try {
+      // Offscreen canvas with dynamic fallback dimensions
+      const canvas = canvasRef.current || document.createElement('canvas');
+      const width = video.videoWidth || video.clientWidth || 1280;
+      const height = video.videoHeight || video.clientHeight || 720;
+
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        throw new Error('Could not obtain 2D canvas context for frame capture.');
+      }
+
+      // Draw current video frame onto canvas
+      ctx.drawImage(video, 0, 0, width, height);
+
+      // Export snapshot as clean JPEG
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.90);
+
+      // Cleanly stop camera stream to release hardware
+      stopCamera();
+
+      // Send captured snapshot into vision scanning pipeline
+      scanImage(dataUrl, 'live_camera_capture.jpg');
+    } catch (err) {
+      console.error('Frame capture error:', err);
+      setCameraError('Failed to capture camera frame. Please try again or upload a photo.');
+    }
   };
 
   const handleFileUpload = (e) => {
@@ -135,29 +220,53 @@ export default function MonumentScanner() {
 
           {/* Camera View Mode */}
           {isCameraActive ? (
-            <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video flex items-center justify-center border-2 border-sky-500">
+            <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video flex items-center justify-center border-2 border-sky-500 shadow-2xl">
               <video
                 ref={videoRef}
                 autoPlay
                 playsInline
                 muted
                 className="w-full h-full object-cover"
+                onLoadedMetadata={(e) => {
+                  e.target.play().catch((err) => console.warn('Autoplay error:', err));
+                }}
               />
+
+              {/* Live Video HUD Overlay */}
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 bg-slate-950/70 border border-sky-500/30 rounded-xl backdrop-blur-md text-xs font-semibold text-sky-400">
+                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+                <span>LIVE CAMERA FEED</span>
+              </div>
+
+              {/* Viewfinder Target Reticle */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+                <div className="relative w-56 h-56 sm:w-72 sm:h-72 border border-sky-400/40 rounded-3xl flex items-center justify-center">
+                  <span className="absolute -top-1 -left-1 w-6 h-6 border-t-3 border-l-3 border-sky-400 rounded-tl-lg"></span>
+                  <span className="absolute -top-1 -right-1 w-6 h-6 border-t-3 border-r-3 border-sky-400 rounded-tr-lg"></span>
+                  <span className="absolute -bottom-1 -left-1 w-6 h-6 border-b-3 border-l-3 border-sky-400 rounded-bl-lg"></span>
+                  <span className="absolute -bottom-1 -right-1 w-6 h-6 border-b-3 border-r-3 border-sky-400 rounded-br-lg"></span>
+                  <span className="text-[11px] font-mono font-bold text-sky-300/80 bg-slate-950/60 px-3 py-1 rounded-full backdrop-blur-xs">
+                    Align monument in frame
+                  </span>
+                </div>
+              </div>
 
               {/* Shutter Button and Stop Button */}
               <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-4 z-20">
                 <button
+                  type="button"
                   onClick={stopCamera}
-                  className="px-4 py-2.5 bg-slate-900/80 hover:bg-slate-900 text-slate-300 rounded-xl text-xs font-bold backdrop-blur-md transition-colors"
+                  className="px-4 py-2.5 bg-slate-900/80 hover:bg-slate-900 text-slate-300 rounded-xl text-xs font-bold backdrop-blur-md transition-colors cursor-pointer shadow-md"
                 >
                   Cancel
                 </button>
                 <button
+                  type="button"
                   onClick={captureCameraFrame}
-                  className="px-6 py-3 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white rounded-2xl font-bold text-sm shadow-xl shadow-sky-500/30 flex items-center gap-2 transform active:scale-95 transition-all"
+                  className="px-6 py-3 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white rounded-2xl font-bold text-sm shadow-xl shadow-sky-500/30 flex items-center gap-2 transform active:scale-95 transition-all cursor-pointer"
                 >
                   <Camera className="w-5 h-5" />
-                  <span>Snap Monument Photo</span>
+                  <span>Capture &amp; Scan</span>
                 </button>
               </div>
             </div>
@@ -205,18 +314,38 @@ export default function MonumentScanner() {
               <div className="mt-4 flex items-center justify-center gap-3">
                 <span className="text-xs text-slate-400 uppercase font-bold tracking-wider">or</span>
                 <button
+                  type="button"
                   onClick={startCamera}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold shadow transition-all hover:scale-102"
+                  disabled={isCameraLoading}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-700 text-white rounded-xl text-xs font-bold shadow transition-all hover:scale-102 cursor-pointer disabled:cursor-not-allowed"
                 >
-                  <Video className="w-4 h-4 text-sky-400" />
-                  <span>Use Live Device Camera</span>
+                  {isCameraLoading ? (
+                    <>
+                      <RefreshCw className="w-4 h-4 text-sky-400 animate-spin" />
+                      <span>Initializing Camera...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Video className="w-4 h-4 text-sky-400" />
+                      <span>Use Live Device Camera</span>
+                    </>
+                  )}
                 </button>
               </div>
 
               {cameraError && (
-                <div className="mt-3 p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-xl flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                  <span>{cameraError}</span>
+                <div className="mt-3.5 p-3.5 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-2xl flex items-start justify-between gap-2 shadow-xs">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-rose-500" />
+                    <span>{cameraError}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setCameraError(null)}
+                    className="text-rose-500 hover:text-rose-800 font-bold text-xs ml-2 cursor-pointer"
+                  >
+                    Dismiss
+                  </button>
                 </div>
               )}
             </div>
