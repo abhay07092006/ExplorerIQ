@@ -21,8 +21,8 @@ import { useTravel } from '../../context/useTravel';
 import { useAuth } from '../../context/AuthContext';
 import SearchHero from '../SearchHero';
 import PlaceDrawer from '../Map/PlaceDrawer';
+import PlaceCard from '../Common/PlaceCard';
 import { fetchPlacesNearby } from '../../services/placesApi';
-import { getPlaceImage, handlePlaceImageError } from '../../utils/getPlaceImage';
 
 export default function SmartSearchExplorer() {
   const { 
@@ -57,7 +57,8 @@ export default function SmartSearchExplorer() {
           lon: selectedLocation.lon,
           category: activeCategory,
           searchKeyword,
-          cityName: selectedLocation.name
+          cityName: selectedLocation.name,
+          boundingBox: selectedLocation.boundingBox
         });
         if (isMounted) {
           setPlaces(results);
@@ -158,111 +159,30 @@ export default function SmartSearchExplorer() {
         </div>
       ) : places.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {places.map((place) => {
-            const saved = isPlaceBookmarked(place.id);
-            return (
-              <div
-                key={place.id}
-                className="group bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-sky-300 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Thumbnail & Badges */}
-                  <div className="relative h-48 overflow-hidden bg-slate-100">
-                    <img
-                      src={getPlaceImage(place, selectedLocation?.name)}
-                      alt={place.name}
-                      onError={(e) => handlePlaceImageError(e, place.category)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                    {/* Category Tag */}
-                    <span className={`absolute top-3 left-3 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full border backdrop-blur-md shadow-sm ${place.badgeColor} bg-slate-900/80`}>
-                      {place.category}
-                    </span>
-
-                    {/* Bookmark Action */}
-                    <button
-                      onClick={() => handleBookmark(place)}
-                      className={`absolute top-3 right-3 p-2 rounded-xl backdrop-blur-md transition-all ${
-                        saved
-                          ? 'bg-amber-500 text-slate-950 shadow-md'
-                          : 'bg-black/40 text-white hover:bg-black/60'
-                      }`}
-                      title={saved ? 'Remove Bookmark' : 'Save to Bookmarks'}
-                    >
-                      <Bookmark className={`w-4 h-4 ${saved ? 'fill-current' : ''}`} />
-                    </button>
-
-                    {/* Rating & Distance */}
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-semibold drop-shadow">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                        <span>{place.distanceKm} km away</span>
-                      </span>
-                      {place.rating && (
-                        <span className="flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-sm">
-                          <Star className="w-3 h-3 text-amber-400 fill-current" />
-                          <span>{place.rating}</span>
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Body Details */}
-                  <div className="p-4 space-y-2">
-                    <h3 className="font-bold text-slate-900 text-sm line-clamp-1 group-hover:text-sky-600 transition-colors">
-                      {place.name}
-                    </h3>
-                    <p className="text-xs text-slate-500 line-clamp-1">
-                      {place.address || `${selectedLocation.name}, ${selectedLocation.state}`}
-                    </p>
-
-                    <div className="pt-1 flex flex-wrap gap-1.5 text-[11px]">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-slate-100 text-slate-600">
-                        <Clock className="w-3 h-3 text-slate-400" />
-                        <span className="truncate max-w-[120px]">{place.openingHours}</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-700 font-medium">
-                        <Ticket className="w-3 h-3 text-emerald-600" />
-                        <span>{place.fee}</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Actions */}
-                <div className="p-4 pt-0 grid grid-cols-2 gap-2">
-                  <a
-                    href={place.navigationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2 px-3 rounded-xl bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all"
-                  >
-                    <Navigation className="w-3.5 h-3.5" />
-                    <span>Navigate</span>
-                  </a>
-
-                  <button
-                    onClick={() => {
-                      if (openPlaceDrawer) {
-                        openPlaceDrawer({
-                          ...place,
-                          cityName: selectedLocation.name,
-                          state: selectedLocation.state,
-                          shortDesc: `${place.name} located in ${selectedLocation.name}.`
-                        });
-                      }
-                    }}
-                    className="py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Details</span>
-                  </button>
-                </div>
-              </div>
-            );
-          })}
+          {(() => {
+            const assignedUrls = new Set();
+            return places.map((place, idx) => (
+              <PlaceCard
+                key={place.id || idx}
+                place={place}
+                city={selectedLocation.name}
+                index={idx}
+                isBookmarked={isPlaceBookmarked(place.id)}
+                onBookmarkToggle={handleBookmark}
+                onOpenDetails={(p) => {
+                  if (openPlaceDrawer) {
+                    openPlaceDrawer({
+                      ...p,
+                      cityName: selectedLocation.name,
+                      state: selectedLocation.state,
+                      shortDesc: `${p.name} located in ${selectedLocation.name}.`
+                    });
+                  }
+                }}
+                assignedUrls={assignedUrls}
+              />
+            ));
+          })()}
         </div>
       ) : (
         <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-3">

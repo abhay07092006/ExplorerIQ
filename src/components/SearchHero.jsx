@@ -24,14 +24,15 @@ const CATEGORIES = [
 ];
 
 const TRENDING_SEARCHES = [
-  { name: 'Leh', lat: 34.1526, lon: 77.5771, state: 'Ladakh' },
-  { name: 'Varanasi', lat: 25.3176, lon: 82.9739, state: 'Uttar Pradesh' },
-  { name: 'Madurai', lat: 9.9252, lon: 78.1198, state: 'Tamil Nadu' },
-  { name: 'Shimla', lat: 31.1048, lon: 77.1734, state: 'Himachal Pradesh' },
-  { name: 'Hampi', lat: 15.3350, lon: 76.4600, state: 'Karnataka' },
-  { name: 'Amritsar', lat: 31.6200, lon: 74.8765, state: 'Punjab' },
-  { name: 'Munnar', lat: 10.0889, lon: 77.0595, state: 'Kerala' },
-  { name: 'Kanyakumari', lat: 8.0883, lon: 77.5385, state: 'Tamil Nadu' }
+  { name: 'Chandigarh', lat: 30.7333, lon: 76.7794, state: 'Chandigarh', boundingBox: [30.65, 30.82, 76.68, 76.88] },
+  { name: 'Madurai', lat: 9.9252, lon: 78.1198, state: 'Tamil Nadu', boundingBox: [9.85, 10.02, 78.05, 78.20] },
+  { name: 'Leh', lat: 34.1526, lon: 77.5771, state: 'Ladakh', boundingBox: [34.05, 34.25, 77.47, 77.67] },
+  { name: 'Varanasi', lat: 25.3176, lon: 82.9739, state: 'Uttar Pradesh', boundingBox: [25.25, 25.40, 82.90, 83.05] },
+  { name: 'Shimla', lat: 31.1048, lon: 77.1734, state: 'Himachal Pradesh', boundingBox: [31.02, 31.18, 77.10, 77.25] },
+  { name: 'Hampi', lat: 15.3350, lon: 76.4600, state: 'Karnataka', boundingBox: [15.28, 15.38, 76.40, 76.52] },
+  { name: 'Amritsar', lat: 31.6200, lon: 74.8765, state: 'Punjab', boundingBox: [31.55, 31.70, 74.80, 74.95] },
+  { name: 'Munnar', lat: 10.0889, lon: 77.0595, state: 'Kerala', boundingBox: [10.02, 10.15, 77.00, 77.12] },
+  { name: 'Kanyakumari', lat: 8.0883, lon: 77.5385, state: 'Tamil Nadu', boundingBox: [8.02, 8.15, 77.48, 77.60] }
 ];
 
 export default function SearchHero({
@@ -92,7 +93,14 @@ export default function SearchHero({
     setQuery(loc.name);
     setIsDropdownOpen(false);
     if (onLocationSelect) {
-      onLocationSelect(loc);
+      onLocationSelect({
+        name: loc.name,
+        lat: loc.lat,
+        lon: loc.lon,
+        state: loc.state,
+        displayName: loc.displayName || `${loc.name}, ${loc.state}`,
+        boundingBox: loc.boundingBox || null
+      });
     }
   };
 
