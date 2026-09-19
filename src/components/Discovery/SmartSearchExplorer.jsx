@@ -20,7 +20,7 @@ import {
   Filter
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { CITIES_DATA, ALL_PLACES, CATEGORY_FILTERS } from '../../data/travelData';
+import { CATEGORY_FILTERS } from '../../constants/categories';
 import PlaceDrawer from '../Map/PlaceDrawer';
 import { handleImageError } from '../../utils/imageUtils';
 

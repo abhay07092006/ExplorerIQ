@@ -21,7 +21,7 @@ import {
   Trash2
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { CITIES_DATA } from '../../data/travelData';
+
 import { handleImageError } from '../../utils/imageUtils';
 
 const DURATION_OPTIONS = [

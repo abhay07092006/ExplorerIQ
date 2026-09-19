@@ -1,10 +1,10 @@
 import { MapPin, Sparkles } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { CITIES_DATA } from '../../data/travelData';
+
 import { handleImageError } from '../../utils/imageUtils';
 
 export default function CitySelector() {
-  const { currentCityId, setCurrentCityId } = useTravel();
+  const { currentCityId, setCurrentCityId, destinations: CITIES_DATA = [] } = useTravel();
 
   return (
     <div className="w-full mb-4">

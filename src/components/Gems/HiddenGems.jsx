@@ -8,7 +8,7 @@ import {
   MapPin
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { CITIES_DATA } from '../../data/travelData';
+
 import AddGemModal from './AddGemModal';
 import { handleImageError, DEFAULT_AVATAR_FALLBACK } from '../../utils/imageUtils';
 
@@ -21,7 +21,7 @@ const CATEGORY_TAGS = [
 ];
 
 export default function HiddenGems() {
-  const { communityGems, likeGem } = useTravel();
+  const { communityGems, likeGem, destinations: CITIES_DATA = [] } = useTravel();
   const [selectedTag, setSelectedTag] = useState('All');
   const [cityFilter, setCityFilter] = useState('All');
   const [search, setSearch] = useState('');

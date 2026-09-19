@@ -13,7 +13,7 @@ import {
   Volume2
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
-import { CITIES_DATA } from '../data/travelData';
+
 import BookmarkModal from './Common/BookmarkModal';
 import { handleImageError } from '../utils/imageUtils';
 

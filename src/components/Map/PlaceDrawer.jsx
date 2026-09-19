@@ -1,3 +1,5 @@
+import { api } from '../../services/api';
+import { useState, useEffect } from 'react';
 import { 
   X, 
   Clock, 
@@ -35,14 +37,34 @@ export default function PlaceDrawer() {
     setActiveTab
   } = useTravel();
 
+  const [liveEateries, setLiveEateries] = useState(null);
+
+  useEffect(() => {
+    let isCancelled = false;
+    if (selectedPlace?.coordinates && selectedPlace.coordinates.length === 2) {
+      api.getNearbyEateries(selectedPlace.coordinates[0], selectedPlace.coordinates[1])
+        .then((data) => {
+          if (!isCancelled) {
+            setLiveEateries(data?.eateries?.length > 0 ? data.eateries : null);
+          }
+        })
+        .catch(() => {
+          if (!isCancelled) setLiveEateries(null);
+        });
+    }
+    return () => {
+      isCancelled = true;
+    };
+  }, [selectedPlace]);
+
   if (!isPlaceDrawerOpen || !selectedPlace) return null;
 
-  const activeCityName = selectedPlace.cityName || currentCity.name;
-  const activeState = selectedPlace.state || currentCity.state;
-  const activeFoodList = selectedPlace.localFoodSpecialties || currentCity.localFoodSpecialties || [];
-  const activeOverview = selectedPlace.cityOverview || currentCity.overview;
-  const activeBestTime = selectedPlace.bestTimeToVisit || currentCity.bestTimeToVisit;
-  const activeBestDuration = selectedPlace.bestDuration || currentCity.bestDuration;
+  const activeCityName = selectedPlace.cityName || currentCity?.name || 'India';
+  const activeState = selectedPlace.state || currentCity?.state || '';
+  const activeFoodList = liveEateries || selectedPlace.localFoodSpecialties || currentCity?.localFoodSpecialties || [];
+  const activeOverview = selectedPlace.cityOverview || currentCity?.overview || '';
+  const activeBestTime = selectedPlace.bestTimeToVisit || currentCity?.bestTimeToVisit || 'October to March';
+  const activeBestDuration = selectedPlace.bestDuration || currentCity?.bestDuration || '';
 
   const bookmarked = isBookmarked(selectedPlace.id);
   const catStyle = CATEGORY_COLORS[selectedPlace.category] || {

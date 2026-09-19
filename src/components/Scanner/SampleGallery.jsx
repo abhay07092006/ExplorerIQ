@@ -1,10 +1,10 @@
 import { Sparkles, ArrowRight } from 'lucide-react';
-import { SAMPLE_MONUMENTS } from '../../data/monumentsData';
+
 import { useTravel } from '../../context/useTravel';
 import { handleImageError } from '../../utils/imageUtils';
 
 export default function SampleGallery({ onSelectSample }) {
-  const { scanImage } = useTravel();
+  const { scanImage, sampleMonuments: SAMPLE_MONUMENTS = [] } = useTravel();
 
   const handlePick = (sample) => {
     if (onSelectSample) {

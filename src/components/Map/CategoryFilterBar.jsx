@@ -8,7 +8,7 @@ import {
   Search
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { CATEGORY_FILTERS } from '../../data/travelData';
+import { CATEGORY_FILTERS } from '../../constants/categories';
 
 const ICON_MAP = {
   Sparkles,

@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { CITIES_DATA, COMMUNITY_GEMS } from '../data/travelData';
-import { RECOGNIZED_MONUMENTS, detectMonument } from '../data/monumentsData';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import { api } from '../services/api';
 import { TravelContext } from './TravelContextCore';
 
 export function TravelProvider({ children }) {
@@ -8,6 +7,68 @@ export function TravelProvider({ children }) {
   const [activeTab, setActiveTab] = useState('explore'); // 'explore' | 'scan' | 'planner' | 'gems'
   const [currentCityId, setCurrentCityId] = useState('agra');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Live REST API State: Destinations & Places
+  const [destinations, setDestinations] = useState([]);
+  const [isLoadingDestinations, setIsLoadingDestinations] = useState(true);
+  const [destinationsError, setDestinationsError] = useState(null);
+
+  // Live REST API State: Sample Gallery Benchmarks
+  const [sampleMonuments, setSampleMonuments] = useState([]);
+  const [isLoadingSamples, setIsLoadingSamples] = useState(true);
+
+  // Live REST API State: Community Gems
+  const [communityGems, setCommunityGems] = useState([]);
+  const [isLoadingGems, setIsLoadingGems] = useState(true);
+
+  // Fetch initial data from REST API
+  const fetchInitialData = useCallback(async () => {
+    setIsLoadingDestinations(true);
+    try {
+      const [destData, samplesData, gemsData] = await Promise.all([
+        api.getDestinations(),
+        api.getSampleMonuments(),
+        api.getCommunityGems()
+      ]);
+      setDestinations(destData || []);
+      setSampleMonuments(samplesData || []);
+      setCommunityGems(gemsData || []);
+    } catch (err) {
+      console.error('[TravelContext] API initial data fetch failed:', err);
+      setDestinationsError(err.message || 'Failed to load destinations');
+    } finally {
+      setIsLoadingDestinations(false);
+      setIsLoadingSamples(false);
+      setIsLoadingGems(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchInitialData();
+  }, [fetchInitialData]);
+
+  // Derived: All Places across destinations
+  const allPlaces = useMemo(() => {
+    return (destinations || []).flatMap((city) =>
+      (city.places || []).map((place) => ({
+        ...place,
+        cityId: city.id,
+        cityName: city.name,
+        state: city.state,
+        zone: city.zone,
+        bestDuration: city.bestDuration,
+        bestTimeToVisit: city.bestTimeToVisit,
+        localFoodSpecialties: city.localFoodSpecialties,
+        cityOverview: city.overview
+      }))
+    );
+  }, [destinations]);
+
+  // Derived: Current Active City
+  const currentCity = useMemo(() => {
+    if (!destinations || destinations.length === 0) return null;
+    return destinations.find((c) => c.id === currentCityId) || destinations[0];
+  }, [destinations, currentCityId]);
 
   // Map Category Filters: all 5 selected by default
   const [activeCategories, setActiveCategories] = useState([
@@ -53,9 +114,6 @@ export function TravelProvider({ children }) {
 
   const isBookmarked = (id) => bookmarks.some((b) => b.id === id);
 
-  // Current City Object
-  const currentCity = CITIES_DATA.find((c) => c.id === currentCityId) || CITIES_DATA[0];
-
   // Category Toggle Handler
   const toggleCategory = (categoryId) => {
     if (categoryId === 'all') {
@@ -83,54 +141,48 @@ export function TravelProvider({ children }) {
     setIsPlaceDrawerOpen(false);
   };
 
-  // AI Monument Scanner State
+  // AI Monument Scanner State (Powered by POST /api/v1/monuments/identify)
   const [scannerState, setScannerState] = useState({
     image: null,
     isScanning: false,
     result: null,
     detectedFeatures: [],
     confidence: null,
-    fileName: ''
+    fileName: '',
+    error: null
   });
 
-  const scanImage = (imageSrc, fileName = '', directMonumentId = null) => {
+  const scanImage = async (imageSrc, fileName = '', directMonumentId = null) => {
     setScannerState((prev) => ({
       ...prev,
-      image: imageSrc,
+      image: typeof imageSrc === 'string' ? imageSrc : URL.createObjectURL(imageSrc),
       fileName,
       isScanning: true,
       result: null,
       confidence: null,
-      detectedFeatures: []
+      detectedFeatures: [],
+      error: null
     }));
 
-    // Realistic scanning duration simulation
-    setTimeout(() => {
-      let detection;
-      if (directMonumentId) {
-        const found = RECOGNIZED_MONUMENTS.find((m) => m.id === directMonumentId) || RECOGNIZED_MONUMENTS[0];
-        detection = {
-          monument: found,
-          confidence: 99.2,
-          visualFeatures: [
-            'Signature Dome & Arch Geometry',
-            'Spectrophotometric Stone Profiling',
-            'Monument Architectural Contour',
-            'Geographic Landmark Alignment'
-          ]
-        };
-      } else {
-        detection = detectMonument(imageSrc, fileName);
-      }
-
+    try {
+      const data = await api.identifyMonument(imageSrc, fileName, directMonumentId);
       setScannerState((prev) => ({
         ...prev,
         isScanning: false,
-        result: detection.monument,
-        confidence: detection.confidence,
-        detectedFeatures: detection.visualFeatures
+        result: data.monument,
+        confidence: data.confidence,
+        detectedFeatures: data.visualFeatures || [],
+        error: null
       }));
-    }, 1800);
+      return data;
+    } catch (err) {
+      console.error('[TravelContext] scanImage error:', err);
+      setScannerState((prev) => ({
+        ...prev,
+        isScanning: false,
+        error: err.message || 'Monument vision analysis failed'
+      }));
+    }
   };
 
   const resetScanner = () => {
@@ -140,7 +192,8 @@ export function TravelProvider({ children }) {
       result: null,
       detectedFeatures: [],
       confidence: null,
-      fileName: ''
+      fileName: '',
+      error: null
     });
   };
 
@@ -191,46 +244,30 @@ export function TravelProvider({ children }) {
     }
   };
 
-  // Community Gems State
-  const [communityGems, setCommunityGems] = useState(() => {
+  // Community Gems State with Live API creation & upvoting
+  const addCommunityGem = async (newGem) => {
     try {
-      const saved = localStorage.getItem('exploreriq_gems');
-      return saved ? JSON.parse(saved) : COMMUNITY_GEMS;
-    } catch {
-      return COMMUNITY_GEMS;
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('exploreriq_gems', JSON.stringify(communityGems));
+      const created = await api.createCommunityGem(newGem);
+      setCommunityGems((prev) => [created, ...prev]);
     } catch (e) {
-      console.error(e);
+      console.error('[TravelContext] addCommunityGem error:', e);
     }
-  }, [communityGems]);
-
-  const addCommunityGem = (newGem) => {
-    const gem = {
-      ...newGem,
-      id: `gem-custom-${Date.now()}`,
-      likes: 1,
-      date: 'Just now',
-      author: newGem.author || 'Fellow Explorer',
-      avatar: newGem.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
-      badgeColor: 'bg-teal-500/10 text-teal-600 border-teal-200'
-    };
-    setCommunityGems((prev) => [gem, ...prev]);
   };
 
-  const likeGem = (gemId) => {
+  const likeGem = async (gemId) => {
     setCommunityGems((prev) =>
       prev.map((g) => {
         if (g.id === gemId) {
-          return { ...g, likes: g.likes + 1, userLiked: true };
+          return { ...g, likes: (g.likes || 0) + 1, userLiked: true };
         }
         return g;
       })
     );
+    try {
+      await api.likeCommunityGem(gemId);
+    } catch (e) {
+      console.warn('[TravelContext] likeGem API sync error:', e);
+    }
   };
 
   return (
@@ -241,6 +278,13 @@ export function TravelProvider({ children }) {
         currentCityId,
         setCurrentCityId,
         currentCity,
+        destinations,
+        allPlaces,
+        isLoadingDestinations,
+        destinationsError,
+        refetchDestinations: fetchInitialData,
+        sampleMonuments,
+        isLoadingSamples,
         searchQuery,
         setSearchQuery,
         activeCategories,
@@ -260,6 +304,7 @@ export function TravelProvider({ children }) {
         playAudio,
         pauseAudio,
         communityGems,
+        isLoadingGems,
         addCommunityGem,
         likeGem
       }}

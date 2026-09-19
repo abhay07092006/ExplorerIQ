@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, Sparkles, Send } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { CITIES_DATA } from '../../data/travelData';
+
 
 const GEM_CATEGORIES = [
   'Secret Photo Angle',
