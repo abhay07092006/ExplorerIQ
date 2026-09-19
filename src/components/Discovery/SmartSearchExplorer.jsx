@@ -22,7 +22,7 @@ import { useAuth } from '../../context/AuthContext';
 import SearchHero from '../SearchHero';
 import PlaceDrawer from '../Map/PlaceDrawer';
 import { fetchPlacesNearby } from '../../services/placesApi';
-import { handleImageError } from '../../utils/imageUtils';
+import { getPlaceImage, handlePlaceImageError } from '../../utils/getPlaceImage';
 
 export default function SmartSearchExplorer() {
   const { 
@@ -56,7 +56,8 @@ export default function SmartSearchExplorer() {
           lat: selectedLocation.lat,
           lon: selectedLocation.lon,
           category: activeCategory,
-          searchKeyword
+          searchKeyword,
+          cityName: selectedLocation.name
         });
         if (isMounted) {
           setPlaces(results);
@@ -168,9 +169,9 @@ export default function SmartSearchExplorer() {
                   {/* Thumbnail & Badges */}
                   <div className="relative h-48 overflow-hidden bg-slate-100">
                     <img
-                      src={place.image}
+                      src={getPlaceImage(place, selectedLocation?.name)}
                       alt={place.name}
-                      onError={handleImageError}
+                      onError={(e) => handlePlaceImageError(e, place.category)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

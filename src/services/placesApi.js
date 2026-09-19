@@ -71,9 +71,10 @@ export async function fetchPlacesNearby({
   lon,
   category = 'all',
   radiusMeters = 20000,
-  searchKeyword = ''
+  searchKeyword = '',
+  cityName = ''
 }) {
-  const cacheKey = `${lat.toFixed(3)}_${lon.toFixed(3)}_${category}_${searchKeyword.toLowerCase()}`;
+  const cacheKey = `${lat.toFixed(3)}_${lon.toFixed(3)}_${category}_${searchKeyword.toLowerCase()}_${(cityName || '').toLowerCase()}`;
   if (placesCache.has(cacheKey)) {
     return placesCache.get(cacheKey);
   }
@@ -134,13 +135,21 @@ export async function fetchPlacesNearby({
           badgeColor = 'bg-teal-500/10 text-teal-400 border-teal-500/20';
         }
 
-        const image =
-          el.tags.image ||
-          (el.tags.wikimedia_commons
-            ? `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(
-                el.tags.wikimedia_commons.replace('File:', '')
-              )}?width=600`
-            : getCategoryFallbackImage(cat, idx));
+        const wikimediaCommons = el.tags.wikimedia_commons || null;
+        const wikidata = el.tags.wikidata || null;
+
+        // Image extraction: official OSM image -> Wikimedia Commons -> specific location query
+        let image;
+        if (el.tags.image && typeof el.tags.image === 'string' && el.tags.image.startsWith('http')) {
+          image = el.tags.image;
+        } else if (wikimediaCommons) {
+          const fileName = wikimediaCommons.replace(/^File:/i, '').trim();
+          image = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=800`;
+        } else {
+          // Dynamic specific location query: never show generic repeated photos
+          const cityQuery = cityName || el.tags['addr:city'] || '';
+          image = `https://source.unsplash.com/featured/800x600/?${encodeURIComponent(`${name} ${cityQuery} ${cat}`.trim())}`;
+        }
 
         return {
           id: `osm-${el.id || idx}`,
@@ -156,6 +165,9 @@ export async function fetchPlacesNearby({
           fee: el.tags.fee || (cat === 'monuments' ? '₹50 (ASI Entry)' : 'Free Entry'),
           address: el.tags['addr:street'] || el.tags['addr:city'] || `${distKm.toFixed(1)} km from center`,
           image,
+          wikidata,
+          wikimediaCommons,
+          city: cityName || el.tags['addr:city'] || '',
           navigationUrl: `https://www.google.com/maps/dir/?api=1&destination=${pLat},${pLon}`
         };
       });
@@ -168,8 +180,8 @@ export async function fetchPlacesNearby({
     console.warn(`[placesApi] Overpass query failed (${err.message}), using rich dynamic fallback.`);
   }
 
-  // Fallback generator for coordinates
-  const fallback = generateFallbackPlacesForCoords(lat, lon, category);
+  // Fallback generator for coordinates with dynamic location queries
+  const fallback = generateFallbackPlacesForCoords(lat, lon, category, cityName);
   placesCache.set(cacheKey, fallback);
   return filterByKeyword(fallback, searchKeyword);
 }
@@ -289,7 +301,7 @@ function getCategoryFallbackImage(category, index) {
   return list[index % list.length];
 }
 
-function generateFallbackPlacesForCoords(lat, lon, category) {
+function generateFallbackPlacesForCoords(lat, lon, category, cityName = '') {
   const templates = [
     { name: 'Ancient Mahadeva & Devi Temple', cat: 'temples', badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20', hours: '05:30 AM - 09:00 PM', fee: 'Free Entry (Darshan)' },
     { name: 'Historic Royal Citadel & Fort', cat: 'monuments', badge: 'bg-rose-500/10 text-rose-400 border-rose-500/20', hours: '08:30 AM - 05:30 PM', fee: '₹50 (ASI Entry)' },
@@ -309,6 +321,7 @@ function generateFallbackPlacesForCoords(lat, lon, category) {
       const pLat = lat + (idx % 2 === 0 ? 0.012 : -0.012) * (idx + 1);
       const pLon = lon + (idx % 3 === 0 ? 0.015 : -0.015) * (idx + 1);
       const dist = calculateDistanceKm(lat, lon, pLat, pLon);
+      const dynamicImage = `https://source.unsplash.com/featured/800x600/?${encodeURIComponent(`${tmpl.name} ${cityName || ''} ${tmpl.cat}`.trim())}`;
       return {
         id: `curated-${idx}`,
         name: tmpl.name,
@@ -321,8 +334,9 @@ function generateFallbackPlacesForCoords(lat, lon, category) {
         openingHours: tmpl.hours,
         rating: (4.3 + (idx % 6) * 0.1).toFixed(1),
         fee: tmpl.fee,
-        address: `${dist.toFixed(1)} km from town center`,
-        image: getCategoryFallbackImage(tmpl.cat, idx),
+        address: `${dist.toFixed(1)} km from ${cityName || 'town'} center`,
+        image: dynamicImage,
+        city: cityName || '',
         navigationUrl: `https://www.google.com/maps/dir/?api=1&destination=${pLat},${pLon}`
       };
     });

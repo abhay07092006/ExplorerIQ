@@ -25,7 +25,7 @@ import {
   fetchPanIndiaPlaces
 } from '../services/panIndiaPlacesApi';
 import { useAuth } from '../context/AuthContext';
-import { handleImageError } from '../utils/imageUtils';
+import { getPlaceImage, handlePlaceImageError } from '../utils/getPlaceImage';
 
 export default function PanIndiaExplorer() {
   const { user, toggleBookmark, isAuthenticated } = useAuth();
@@ -310,9 +310,9 @@ export default function PanIndiaExplorer() {
                   {/* Thumbnail & Badges */}
                   <div className="relative h-48 overflow-hidden bg-slate-100">
                     <img
-                      src={place.image}
+                      src={getPlaceImage(place, selectedDistrict?.name)}
                       alt={place.name}
-                      onError={handleImageError}
+                      onError={(e) => handlePlaceImageError(e, place.category)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -417,9 +417,9 @@ export default function PanIndiaExplorer() {
           <div className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-150">
             <div className="relative h-56 bg-slate-900">
               <img
-                src={activeModalPlace.image}
+                src={getPlaceImage(activeModalPlace, selectedDistrict?.name)}
                 alt={activeModalPlace.name}
-                onError={handleImageError}
+                onError={(e) => handlePlaceImageError(e, activeModalPlace.category)}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

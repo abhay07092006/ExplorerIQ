@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) || 'http://localhost:5000/api/v1';
 
 // Local storage keys for resilient offline/static fallback
@@ -32,15 +30,38 @@ export const getStoredUser = () => {
 };
 
 /**
+ * Standard fetch helper with error handling
+ */
+async function request(endpoint, options = {}) {
+  const url = `${API_BASE_URL}${endpoint}`;
+  const headers = {
+    'Content-Type': 'application/json',
+    ...(options.token ? { Authorization: `Bearer ${options.token}` } : {}),
+    ...options.headers
+  };
+  const config = {
+    method: options.method || 'GET',
+    headers,
+    ...(options.body ? { body: JSON.stringify(options.body) } : {})
+  };
+  const res = await fetch(url, config);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const error = new Error(data.message || `Request failed with status ${res.status}`);
+    error.response = { data, status: res.status };
+    throw error;
+  }
+  return { data };
+}
+
+/**
  * Register a new user
  */
 export async function registerUser({ name, email, password, homeCity = 'New Delhi' }) {
   try {
-    const res = await axios.post(`${API_BASE_URL}/auth/register`, {
-      name,
-      email,
-      password,
-      homeCity
+    const res = await request('/auth/register', {
+      method: 'POST',
+      body: { name, email, password, homeCity }
     });
     const { user, token } = res.data;
     setStoredSession(user, token);
@@ -76,9 +97,9 @@ export async function registerUser({ name, email, password, homeCity = 'New Delh
  */
 export async function loginUser({ email, password }) {
   try {
-    const res = await axios.post(`${API_BASE_URL}/auth/login`, {
-      email,
-      password
+    const res = await request('/auth/login', {
+      method: 'POST',
+      body: { email, password }
     });
     const { user, token } = res.data;
     setStoredSession(user, token);
@@ -177,7 +198,7 @@ export async function loginUser({ email, password }) {
  */
 export async function getCurrentUser(token) {
   try {
-    const res = await axios.get(`${API_BASE_URL}/auth/me`, {
+    const res = await request('/auth/me', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setStoredSession(res.data.user, token);
@@ -192,8 +213,10 @@ export async function getCurrentUser(token) {
  */
 export async function updateUserProfile(profileData, token) {
   try {
-    const res = await axios.put(`${API_BASE_URL}/auth/profile`, profileData, {
-      headers: { Authorization: `Bearer ${token}` }
+    const res = await request('/auth/profile', {
+      method: 'PUT',
+      token,
+      body: profileData
     });
     setStoredSession(res.data.user, token);
     return res.data.user;
@@ -210,8 +233,10 @@ export async function updateUserProfile(profileData, token) {
  */
 export async function saveUserTrip(tripData, token) {
   try {
-    const res = await axios.post(`${API_BASE_URL}/auth/saved-trips`, tripData, {
-      headers: { Authorization: `Bearer ${token}` }
+    const res = await request('/auth/saved-trips', {
+      method: 'POST',
+      token,
+      body: tripData
     });
     const current = getStoredUser() || {};
     current.savedTrips = res.data.savedTrips;
@@ -237,8 +262,9 @@ export async function saveUserTrip(tripData, token) {
  */
 export async function deleteUserTrip(tripId, token) {
   try {
-    const res = await axios.delete(`${API_BASE_URL}/auth/saved-trips/${tripId}`, {
-      headers: { Authorization: `Bearer ${token}` }
+    const res = await request(`/auth/saved-trips/${tripId}`, {
+      method: 'DELETE',
+      token
     });
     const current = getStoredUser() || {};
     current.savedTrips = res.data.savedTrips;
@@ -257,8 +283,10 @@ export async function deleteUserTrip(tripId, token) {
  */
 export async function toggleUserBookmark(placeData, token) {
   try {
-    const res = await axios.post(`${API_BASE_URL}/auth/bookmarks`, placeData, {
-      headers: { Authorization: `Bearer ${token}` }
+    const res = await request('/auth/bookmarks', {
+      method: 'POST',
+      token,
+      body: placeData
     });
     const current = getStoredUser() || {};
     current.bookmarkedPlaces = res.data.bookmarkedPlaces;
@@ -285,8 +313,10 @@ export async function toggleUserBookmark(placeData, token) {
  */
 export async function recordUserScannedMonument(scanData, token) {
   try {
-    const res = await axios.post(`${API_BASE_URL}/auth/scanned-monuments`, scanData, {
-      headers: { Authorization: `Bearer ${token}` }
+    const res = await request('/auth/scanned-monuments', {
+      method: 'POST',
+      token,
+      body: scanData
     });
     const current = getStoredUser() || {};
     current.scannedMonuments = res.data.scannedMonuments;

@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTravel } from '../../context/useTravel';
-import { handleImageError } from '../../utils/imageUtils';
+import { getPlaceImage, handlePlaceImageError } from '../../utils/getPlaceImage';
 
 export default function UserProfile() {
   const { user, currentUser, logout, updateProfile, deleteTrip, toggleBookmark } = useAuth();
@@ -354,9 +354,9 @@ export default function UserProfile() {
                   <div>
                     <div className="relative h-44 bg-slate-100">
                       <img
-                        src={place.image}
+                        src={getPlaceImage(place, place.city)}
                         alt={place.name || place.placeName}
-                        onError={handleImageError}
+                        onError={(e) => handlePlaceImageError(e, place.category)}
                         className="w-full h-full object-cover"
                       />
                       <span className="absolute top-3 left-3 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-slate-900/80 text-white border border-slate-700">
