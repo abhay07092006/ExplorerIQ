@@ -68,31 +68,75 @@ export default function SmartPlanner() {
   const [selectedCityId, setSelectedCityId] = useState(currentCityId || 'jaipur');
   const [currency, setCurrency] = useState('INR'); // 'INR' or 'USD'
   const [totalBudget, setTotalBudget] = useState(25000);
+
+  // Date formatting helpers
+  const toDateString = (date) => {
+    const d = new Date(date);
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  };
+
+  const addDays = (dateInput, days) => {
+    const d = new Date(dateInput);
+    d.setDate(d.getDate() + days);
+    return toDateString(d);
+  };
+
+  const todayString = useMemo(() => toDateString(new Date()), []);
+
   const [checkIn, setCheckIn] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() + 7);
-    return d.toISOString().split('T')[0];
+    return toDateString(d);
   });
+
   const [checkOut, setCheckOut] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() + 10);
-    return d.toISOString().split('T')[0];
+    return toDateString(d);
   });
+
   const [guests, setGuests] = useState(2);
   const [selectedStyles, setSelectedStyles] = useState(['heritage', 'food', 'scenic']);
+
+  // Minimum checkout date is strictly 1 day after check-in
+  const minCheckOutDate = useMemo(() => {
+    return checkIn ? addDays(checkIn, 1) : addDays(todayString, 1);
+  }, [checkIn, todayString]);
+
+  const handleCheckInChange = (newCheckIn) => {
+    if (!newCheckIn) return;
+    setCheckIn(newCheckIn);
+    // If checkOut is on or before new checkIn, automatically push checkOut forward
+    if (!checkOut || checkOut <= newCheckIn) {
+      setCheckOut(addDays(newCheckIn, 1));
+    }
+  };
+
+  const handleCheckOutChange = (newCheckOut) => {
+    if (!newCheckOut) return;
+    // Strictly prevent checkOut from being on or before checkIn
+    if (checkIn && newCheckOut <= checkIn) {
+      setCheckOut(addDays(checkIn, 1));
+    } else {
+      setCheckOut(newCheckOut);
+    }
+  };
   
   // Completed stops tracker
   const [completedStops, setCompletedStops] = useState({});
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
   const [citySearch, setCitySearch] = useState('');
 
-  // Calculate nights
+  // Calculate nights strictly (end - start)
   const nightsCount = useMemo(() => {
-    if (!checkIn || !checkOut) return 3;
+    if (!checkIn || !checkOut) return 1;
     const start = new Date(checkIn);
     const end = new Date(checkOut);
-    const diff = Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24));
-    return Math.max(1, isNaN(diff) ? 3 : diff);
+    const diff = Math.round((end - start) / (1000 * 60 * 60 * 24));
+    return Math.max(1, isNaN(diff) ? 1 : diff);
   }, [checkIn, checkOut]);
 
   // Current selected destination object
@@ -366,8 +410,9 @@ export default function SmartPlanner() {
             </label>
             <input
               type="date"
+              min={todayString}
               value={checkIn}
-              onChange={(e) => setCheckIn(e.target.value)}
+              onChange={(e) => handleCheckInChange(e.target.value)}
               className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
             />
           </div>
@@ -377,13 +422,14 @@ export default function SmartPlanner() {
               <CalendarDays className="w-4 h-4 text-sky-500" />
               <span>Check-out Date</span>
               <span className="ml-auto text-[11px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md">
-                {nightsCount} Nights ({nightsCount} Days)
+                {nightsCount} Night{nightsCount > 1 ? 's' : ''} ({nightsCount} Day{nightsCount > 1 ? 's' : ''})
               </span>
             </label>
             <input
               type="date"
+              min={minCheckOutDate}
               value={checkOut}
-              onChange={(e) => setCheckOut(e.target.value)}
+              onChange={(e) => handleCheckOutChange(e.target.value)}
               className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
             />
           </div>

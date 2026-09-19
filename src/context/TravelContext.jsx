@@ -328,10 +328,11 @@ export function TravelProvider({ children }) {
       setPlannerLoadingMessage(`Calculating live ASI ticket rates for ${targetCity.name}...`);
       const monumentPrices = await plannerApi.fetchVerifiedMonumentTickets(targetCity.id, targetCity.name);
 
-      // 3. Compute duration in days/nights
+      // 3. Compute duration in days/nights (strictly end - start >= 1)
       const start = new Date(params.checkInDate);
       const end = new Date(params.checkOutDate);
-      const diffDays = Math.max(1, Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24)));
+      const rawDiff = Math.round((end - start) / (1000 * 60 * 60 * 24));
+      const diffDays = Math.max(1, isNaN(rawDiff) || rawDiff < 1 ? 1 : rawDiff);
 
       // 4. Generate dynamic 7-slot itinerary & user-defined budget allocation
       setPlannerLoadingMessage(`Synthesizing 7-slot daily itinerary & allocating custom budget for ${targetCity.name}...`);
