@@ -29,6 +29,8 @@ import {
   getMonumentPricing
 } from '../controllers/pricingController.js';
 
+import authRoutes from './authRoutes.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadDir = path.join(__dirname, '..', 'uploads');
@@ -83,5 +85,8 @@ router.post('/gems/:id/like', likeCommunityGem);
 // Live Pricing & Verified Monument Fees API
 router.get('/pricing/hotels', getHotelPricing);
 router.get('/pricing/monuments', getMonumentPricing);
+
+// Authentication & User Profile API
+router.use('/auth', authRoutes);
 
 export default router;

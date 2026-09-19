@@ -33,6 +33,7 @@ import {
   Percent
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
+import { useAuth } from '../context/AuthContext';
 import { handleImageError } from '../utils/imageUtils';
 
 const STYLE_OPTIONS = [
@@ -60,6 +61,10 @@ export default function SmartPlanner() {
     plannerError,
     calculateLivePlan
   } = useTravel();
+
+  const { user, saveTrip, isAuthenticated, openAuthModal } = useAuth();
+  const [isSavingTrip, setIsSavingTrip] = useState(false);
+  const [tripSaved, setTripSaved] = useState(false);
 
   // Local form state
   const [selectedCityId, setSelectedCityId] = useState(currentCityId || 'jaipur');
@@ -155,6 +160,44 @@ export default function SmartPlanner() {
       }
       return [...prev, id];
     });
+  };
+
+  const handleSaveTripToProfile = async () => {
+    if (!isAuthenticated) {
+      openAuthModal('signin');
+      return;
+    }
+    setIsSavingTrip(true);
+    try {
+      await saveTrip({
+        tripId: `trip-${activeCity.id}-${Date.now()}`,
+        destination: activeCity.name,
+        cityName: activeCity.name,
+        durationDays: nightsCount,
+        guests,
+        totalBudget,
+        currency,
+        currencySymbol: currency === 'USD' ? '$' : '₹',
+        grandTotal: budget?.grandTotal || totalBudget,
+        isDeficit,
+        deficitAmount,
+        hotel: {
+          name: hotel?.name || 'Selected Stay',
+          nightlyRate: hotel?.nightlyRatePerRoom || 0,
+          totalStayCost: budget?.accommodation?.total || 0,
+          tier: plannerResult?.budgetTier || 'moderate'
+        },
+        schedule: plannerResult?.schedule || [],
+        breakdown: budget
+      });
+      setTripSaved(true);
+      confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+      setTimeout(() => setTripSaved(false), 3000);
+    } catch (err) {
+      alert('Failed to save trip: ' + err.message);
+    } finally {
+      setIsSavingTrip(false);
+    }
   };
 
   const toggleStop = (stopId) => {
@@ -873,6 +916,18 @@ export default function SmartPlanner() {
               >
                 <Printer className="w-4 h-4" />
                 <span className="hidden sm:inline">Print / Save PDF</span>
+              </button>
+              <button
+                onClick={handleSaveTripToProfile}
+                disabled={isSavingTrip}
+                className={`px-4 py-3 font-bold text-xs rounded-2xl transition-all flex items-center gap-2 flex-shrink-0 ${
+                  tripSaved
+                    ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/30'
+                    : 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
+                }`}
+              >
+                {tripSaved ? <Check className="w-4 h-4 text-white" /> : <Bookmark className="w-4 h-4 text-amber-400" />}
+                <span>{tripSaved ? 'Saved to Profile!' : 'Save to Profile'}</span>
               </button>
             </div>
           </div>
