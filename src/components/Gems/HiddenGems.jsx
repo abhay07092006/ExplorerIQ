@@ -11,32 +11,33 @@ import {
   ChevronDown,
   ChevronUp,
   ShieldCheck,
-  User,
-  Calendar
+  X,
+  Upload,
+  Send
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { gemsApi } from '../../services/gemsApi';
-import AddGemModal from './AddGemModal';
+import { DEFAULT_HIDDEN_GEMS } from '../../data/hiddenGemsData';
 import GemReviewModal from './GemReviewModal';
 import { handleImageError, DEFAULT_AVATAR_FALLBACK } from '../../utils/imageUtils';
 
-const CATEGORY_TAGS = [
-  'All',
-  'Secret Photo Angle',
-  'Budget Street Food',
-  'Cultural Custom',
-  'Hidden Lane',
-  'Offbeat Viewpoint'
+const CATEGORY_OPTIONS = [
+  'SECRET PHOTO ANGLE',
+  'BUDGET STREET FOOD',
+  'CULTURAL CUSTOM',
+  'HIDDEN LANE',
+  'OFFBEAT VIEWPOINT'
 ];
+
+const CATEGORY_TAGS = ['All', ...CATEGORY_OPTIONS];
 
 export default function HiddenGems() {
   const { destinations = [] } = useTravel();
-  const [gemsList, setGemsList] = useState([]);
+  const [secrets, setSecrets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedTag, setSelectedTag] = useState('All');
   const [cityFilter, setCityFilter] = useState('All');
   const [search, setSearch] = useState('');
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Review modal state
   const [selectedGemForReview, setSelectedGemForReview] = useState(null);
@@ -45,37 +46,145 @@ export default function HiddenGems() {
   // Expanded reviews accordion state
   const [expandedReviews, setExpandedReviews] = useState({});
 
-  // Fetch gems on mount or city filter change
+  // Form state for "Share a Secret" modal
+  const [formData, setFormData] = useState({
+    title: '',
+    city: 'Agra',
+    category: 'SECRET PHOTO ANGLE',
+    authorName: '',
+    rating: 5,
+    description: '',
+    imageUrl: ''
+  });
+
+  const resetForm = () => {
+    setFormData({
+      title: '',
+      city: 'Agra',
+      category: 'SECRET PHOTO ANGLE',
+      authorName: '',
+      rating: 5,
+      description: '',
+      imageUrl: ''
+    });
+  };
+
+  // 1. Photo Upload Handler with FileReader Base64 conversion
+  const handleImageUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData(prev => ({ ...prev, imageUrl: reader.result }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // 2. Load pre-existing items merged with localStorage on component mount
   useEffect(() => {
-    let isCancelled = false;
-    setIsLoading(true);
-    gemsApi.getHiddenGems(cityFilter)
-      .then((data) => {
-        if (!isCancelled) {
-          setGemsList(data || []);
-          setIsLoading(false);
+    try {
+      const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
+      const merged = [...savedGems];
+      for (const def of DEFAULT_HIDDEN_GEMS) {
+        if (!merged.some(s => s.id === def.id || (s.title && s.title.toLowerCase() === def.title.toLowerCase()))) {
+          merged.push(def);
         }
-      })
-      .catch((err) => {
-        console.warn('Failed to load gems:', err);
-        if (!isCancelled) setIsLoading(false);
-      });
+      }
+      setSecrets(merged);
+    } catch (_err) {
+      setSecrets(DEFAULT_HIDDEN_GEMS);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
-    return () => {
-      isCancelled = true;
+  // 3. Submit New Secret & Persist in LocalStorage
+  const handleSubmitSecret = (e) => {
+    e.preventDefault();
+    if (!formData.title?.trim() || !formData.description?.trim()) return;
+
+    const newSecret = {
+      id: Date.now().toString(),
+      authorName: formData.authorName || "Anonymous Traveler",
+      authorAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+      city: formData.city || "Agra",
+      category: formData.category || "SECRET PHOTO ANGLE",
+      rating: parseFloat(formData.rating) || 5.0,
+      reviewsCount: 1,
+      title: formData.title,
+      description: formData.description,
+      imageUrl: formData.imageUrl || "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+      timeAgo: "Just now",
+      likes: 1,
+      userLiked: true,
+      badgeColor: "bg-teal-500/10 text-teal-600 border-teal-200",
+      // Backwards-compatible aliases
+      author: formData.authorName || "Anonymous Traveler",
+      avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+      image: formData.imageUrl || "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+      date: "Just now",
+      averageRating: parseFloat(formData.rating) || 5.0,
+      totalReviews: 1,
+      reviews: [
+        {
+          id: `rev-${Date.now()}`,
+          author: formData.authorName || "Anonymous Traveler",
+          rating: parseFloat(formData.rating) || 5,
+          comment: formData.description,
+          visitDate: new Date().toISOString().split('T')[0],
+          travelerType: "Solo",
+          verifiedTraveler: true
+        }
+      ]
     };
-  }, [cityFilter]);
 
-  const handleLike = async (gemId) => {
-    setGemsList((prev) =>
-      prev.map((g) => {
+    // Update active React state
+    setSecrets(prev => [newSecret, ...prev]);
+
+    // Save to LocalStorage so reviews persist on page reload
+    const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
+    localStorage.setItem('explorer_hidden_gems', JSON.stringify([newSecret, ...savedGems]));
+
+    // Close modal & reset form
+    setIsModalOpen(false);
+    resetForm();
+  };
+
+  // Upvote / Like Handler with LocalStorage Persistence
+  const handleLike = (gemId) => {
+    setSecrets((prev) => {
+      const updated = prev.map((g) => {
         if (g.id === gemId) {
-          return { ...g, likes: (g.likes || 0) + 1, userLiked: true };
+          const isLiked = g.userLiked;
+          return {
+            ...g,
+            likes: isLiked ? Math.max(0, (g.likes || 0) - 1) : (g.likes || 0) + 1,
+            userLiked: !isLiked
+          };
         }
         return g;
-      })
-    );
-    await gemsApi.likeGem(gemId);
+      });
+
+      // Update in LocalStorage
+      try {
+        const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
+        const updatedSaved = savedGems.map((s) => {
+          if (s.id === gemId) {
+            const isLiked = s.userLiked;
+            return {
+              ...s,
+              likes: isLiked ? Math.max(0, (s.likes || 0) - 1) : (s.likes || 0) + 1,
+              userLiked: !isLiked
+            };
+          }
+          return s;
+        });
+        localStorage.setItem('explorer_hidden_gems', JSON.stringify(updatedSaved));
+      } catch (_e) {}
+
+      return updated;
+    });
   };
 
   const handleOpenReviewModal = (gem) => {
@@ -83,15 +192,68 @@ export default function HiddenGems() {
     setIsReviewModalOpen(true);
   };
 
-  const handleSubmitReview = async (gemId, reviewPayload) => {
-    const res = await gemsApi.addGemReview(gemId, reviewPayload);
-    if (res?.gem) {
-      setGemsList((prev) =>
-        prev.map((g) => (g.id === gemId ? res.gem : g))
-      );
-      // Auto-expand reviews for this gem so user sees their new review
-      setExpandedReviews((prev) => ({ ...prev, [gemId]: true }));
-    }
+  const handleSubmitReview = (gemId, reviewPayload) => {
+    setSecrets((prev) => {
+      const updated = prev.map((g) => {
+        if (g.id === gemId) {
+          const existingReviews = g.reviews || [];
+          const newReviews = [
+            {
+              id: `rev-${Date.now()}`,
+              ...reviewPayload
+            },
+            ...existingReviews
+          ];
+          const newTotal = newReviews.length;
+          const sumRating = newReviews.reduce((sum, r) => sum + (r.rating || 5), 0);
+          const newAvg = parseFloat((sumRating / newTotal).toFixed(1));
+
+          return {
+            ...g,
+            reviews: newReviews,
+            totalReviews: newTotal,
+            reviewsCount: newTotal,
+            averageRating: newAvg,
+            rating: newAvg
+          };
+        }
+        return g;
+      });
+
+      // Persist in LocalStorage
+      try {
+        const savedGems = JSON.parse(localStorage.getItem('explorer_hidden_gems') || '[]');
+        const updatedSaved = savedGems.map((s) => {
+          if (s.id === gemId) {
+            const existingReviews = s.reviews || [];
+            const newReviews = [
+              {
+                id: `rev-${Date.now()}`,
+                ...reviewPayload
+              },
+              ...existingReviews
+            ];
+            const newTotal = newReviews.length;
+            const sumRating = newReviews.reduce((sum, r) => sum + (r.rating || 5), 0);
+            const newAvg = parseFloat((sumRating / newTotal).toFixed(1));
+            return {
+              ...s,
+              reviews: newReviews,
+              totalReviews: newTotal,
+              reviewsCount: newTotal,
+              averageRating: newAvg,
+              rating: newAvg
+            };
+          }
+          return s;
+        });
+        localStorage.setItem('explorer_hidden_gems', JSON.stringify(updatedSaved));
+      } catch (_e) {}
+
+      return updated;
+    });
+
+    setExpandedReviews((prev) => ({ ...prev, [gemId]: true }));
   };
 
   const toggleExpandReviews = (gemId) => {
@@ -99,17 +261,20 @@ export default function HiddenGems() {
   };
 
   const filteredGems = useMemo(() => {
-    return gemsList.filter((gem) => {
-      const matchesTag = selectedTag === 'All' || gem.category === selectedTag;
-      const matchesCity = cityFilter === 'All' || gem.city.toLowerCase() === cityFilter.toLowerCase();
-      const matchesSearch = search.trim() === '' ||
-        gem.title.toLowerCase().includes(search.toLowerCase()) ||
-        gem.description.toLowerCase().includes(search.toLowerCase()) ||
-        gem.city.toLowerCase().includes(search.toLowerCase());
+    return secrets.filter((gem) => {
+      const gemCategory = (gem.category || '').toUpperCase();
+      const matchesTag = selectedTag === 'All' || gemCategory === selectedTag.toUpperCase();
+      const matchesCity = cityFilter === 'All' || (gem.city || '').toLowerCase() === cityFilter.toLowerCase();
+      const q = search.trim().toLowerCase();
+      const matchesSearch = q === '' ||
+        (gem.title || '').toLowerCase().includes(q) ||
+        (gem.description || '').toLowerCase().includes(q) ||
+        (gem.city || '').toLowerCase().includes(q) ||
+        (gem.category || '').toLowerCase().includes(q);
 
       return matchesTag && matchesCity && matchesSearch;
     });
-  }, [gemsList, selectedTag, cityFilter, search]);
+  }, [secrets, selectedTag, cityFilter, search]);
 
   return (
     <div className="w-full space-y-6 max-w-7xl mx-auto">
@@ -152,9 +317,22 @@ export default function HiddenGems() {
               className="bg-transparent text-xs text-slate-700 font-semibold focus:outline-none"
             >
               <option value="All">All Cities</option>
-              {destinations.map((c) => (
-                <option key={c.id} value={c.name}>{c.name}</option>
-              ))}
+              {destinations.length > 0 ? (
+                destinations.map((c) => (
+                  <option key={c.id} value={c.name}>{c.name}</option>
+                ))
+              ) : (
+                <>
+                  <option value="Agra">Agra</option>
+                  <option value="Jaipur">Jaipur</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Varanasi">Varanasi</option>
+                  <option value="Kochi">Kochi</option>
+                  <option value="Hampi">Hampi</option>
+                  <option value="Amritsar">Amritsar</option>
+                  <option value="Udaipur">Udaipur</option>
+                </>
+              )}
             </select>
           </div>
         </div>
@@ -178,7 +356,7 @@ export default function HiddenGems() {
 
         {/* Add Gem Trigger Button */}
         <button
-          onClick={() => setIsAddModalOpen(true)}
+          onClick={() => setIsModalOpen(true)}
           className="flex items-center justify-center gap-1.5 px-4 py-2 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white rounded-xl text-xs font-bold shadow-md shadow-sky-500/20 transition-all flex-shrink-0"
         >
           <Plus className="w-4 h-4" />
@@ -190,8 +368,12 @@ export default function HiddenGems() {
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredGems.map((gem) => {
           const isReviewsExpanded = !!expandedReviews[gem.id];
-          const reviewCount = gem.totalReviews || gem.reviews?.length || 1;
-          const avgRating = gem.averageRating || 4.8;
+          const reviewCount = gem.reviewsCount || gem.totalReviews || (gem.reviews?.length || 1);
+          const avgRating = gem.rating || gem.averageRating || 5.0;
+          const displayAuthor = gem.authorName || gem.author || 'Anonymous Traveler';
+          const displayAvatar = gem.authorAvatar || gem.avatar || DEFAULT_AVATAR_FALLBACK;
+          const displayImage = gem.imageUrl || gem.image;
+          const displayDate = gem.timeAgo || gem.date || 'Recently';
 
           return (
             <div
@@ -203,16 +385,16 @@ export default function HiddenGems() {
                 <div className="flex items-center justify-between gap-3 mb-3.5">
                   <div className="flex items-center gap-2.5">
                     <img
-                      src={gem.avatar}
-                      alt={gem.author}
+                      src={displayAvatar}
+                      alt={displayAuthor}
                       onError={(e) => handleImageError(e, DEFAULT_AVATAR_FALLBACK)}
                       className="w-9 h-9 rounded-full object-cover border border-slate-200"
                     />
                     <div>
                       <h4 className="font-bold text-xs text-slate-900 leading-tight">
-                        {gem.author}
+                        {displayAuthor}
                       </h4>
-                      <p className="text-[10px] text-slate-400">{gem.date}</p>
+                      <p className="text-[10px] text-slate-400">{displayDate}</p>
                     </div>
                   </div>
 
@@ -236,10 +418,10 @@ export default function HiddenGems() {
                 </div>
 
                 {/* Gem Authentic Photo */}
-                {gem.image && (
-                  <div className="relative h-40 w-full rounded-2xl overflow-hidden mb-3 border border-slate-100 bg-slate-100">
+                {displayImage && (
+                  <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3 border border-slate-100 bg-slate-100">
                     <img
-                      src={gem.image}
+                      src={displayImage}
                       alt={gem.title}
                       onError={handleImageError}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -311,7 +493,7 @@ export default function HiddenGems() {
                   }`}
                 >
                   <Heart className={`w-3.5 h-3.5 ${gem.userLiked ? 'fill-rose-500 text-rose-500' : 'text-slate-400'}`} />
-                  <span>{gem.likes}</span>
+                  <span>{gem.likes || 0}</span>
                 </button>
 
                 <button
@@ -337,14 +519,227 @@ export default function HiddenGems() {
         </div>
       )}
 
-      {/* Add Secret Tip Modal */}
-      <AddGemModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        onGemAdded={(newGem) => setGemsList((prev) => [newGem, ...prev])}
-      />
+      {/* Share a Secret Modal with Photo Upload & Instant Preview */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
+            
+            {/* Header */}
+            <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-sky-500/10 text-sky-600 rounded-xl">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Share a Secret Local Gem
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Help fellow travelers discover offbeat angles, photo spots, and budget eats
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  setIsModalOpen(false);
+                  resetForm();
+                }}
+                className="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/50 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-      {/* Review Modal */}
+            {/* Form Body */}
+            <form onSubmit={handleSubmitSecret} className="p-6 overflow-y-auto space-y-4 flex-1">
+              
+              {/* Title */}
+              <div>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Gem Title / Secret Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.title}
+                  onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+                  placeholder="e.g. Mehtab Bagh Secret Sunset Point"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                />
+              </div>
+
+              {/* City & Category */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Destination City *
+                  </label>
+                  <select
+                    value={formData.city}
+                    onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                  >
+                    {destinations.length > 0 ? (
+                      destinations.map((c) => (
+                        <option key={c.id} value={c.name}>{c.name}</option>
+                      ))
+                    ) : (
+                      <>
+                        <option value="Agra">Agra</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Varanasi">Varanasi</option>
+                        <option value="Kochi">Kochi</option>
+                        <option value="Hampi">Hampi</option>
+                        <option value="Amritsar">Amritsar</option>
+                        <option value="Udaipur">Udaipur</option>
+                      </>
+                    )}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Category *
+                  </label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                  >
+                    {CATEGORY_OPTIONS.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Author & Rating */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Your Name / Handle
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.authorName}
+                    onChange={(e) => setFormData(prev => ({ ...prev, authorName: e.target.value }))}
+                    placeholder="e.g. Maya S. or WanderingNomad"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-slate-700 block mb-1">
+                    Initial Rating *
+                  </label>
+                  <select
+                    value={formData.rating}
+                    onChange={(e) => setFormData(prev => ({ ...prev, rating: parseFloat(e.target.value) }))}
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                  >
+                    <option value={5}>⭐⭐⭐⭐⭐ (5.0 - Exceptional)</option>
+                    <option value={4.5}>⭐⭐⭐⭐½ (4.5 - Excellent)</option>
+                    <option value={4}>⭐⭐⭐⭐ (4.0 - Very Good)</option>
+                    <option value={3.5}>⭐⭐⭐½ (3.5 - Good)</option>
+                    <option value={3}>⭐⭐⭐ (3.0 - Average)</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Photo Upload & Image URL */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-slate-700 block">
+                  Gem Photo (Upload File or Paste URL)
+                </label>
+
+                {/* File Upload Input */}
+                <div className="flex items-center gap-2">
+                  <label className="flex-1 cursor-pointer flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-dashed border-slate-300 hover:border-sky-500 rounded-xl bg-slate-50 hover:bg-sky-50/40 text-xs font-bold text-slate-700 transition-colors">
+                    <Upload className="w-4 h-4 text-sky-500" />
+                    <span>Upload Image File</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+
+                {/* Optional Image URL */}
+                <input
+                  type="url"
+                  value={formData.imageUrl}
+                  onChange={(e) => setFormData(prev => ({ ...prev, imageUrl: e.target.value }))}
+                  placeholder="Or paste Image URL (https://...)"
+                  className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                />
+
+                {/* Instant Image Preview with Remove Button */}
+                {formData.imageUrl && (
+                  <div className="relative w-full h-36 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mt-2">
+                    <img
+                      src={formData.imageUrl}
+                      alt="Preview"
+                      onError={handleImageError}
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, imageUrl: '' }))}
+                      className="absolute top-2 right-2 px-2.5 py-1 bg-slate-900/80 hover:bg-slate-900 text-white text-[11px] font-bold rounded-xl flex items-center gap-1 backdrop-blur-xs transition-colors shadow-sm"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                      <span>Remove Photo</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Insider Tip Details & Exact Instructions *
+                </label>
+                <textarea
+                  rows={3}
+                  required
+                  value={formData.description}
+                  onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                  placeholder="Where is it located? How much does it cost? Best time of day to visit?"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                />
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-100">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsModalOpen(false);
+                    resetForm();
+                  }}
+                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white text-xs font-bold rounded-xl shadow-md shadow-sky-500/20 flex items-center gap-1.5 transition-all"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Publish Secret</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Review & Rating Modal */}
       <GemReviewModal
         isOpen={isReviewModalOpen}
         onClose={() => setIsReviewModalOpen(false)}
