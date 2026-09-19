@@ -283,6 +283,36 @@ const calculateNights = (checkIn, checkOut) => {
   return Math.max(1, isNaN(diffDays) ? 3 : diffDays);
 };
 
+// Dynamic Booking.com URL Builder for Backend
+const buildBookingUrl = ({ destination = 'India', checkIn, checkOut, guests = 1, hotelName = '' }) => {
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const fmt = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+  let ci = checkIn && /^\d{4}-\d{2}-\d{2}$/.test(checkIn) ? checkIn : fmt(now);
+  let co = checkOut && /^\d{4}-\d{2}-\d{2}$/.test(checkOut) ? checkOut : fmt(new Date(now.getTime() + 86400000));
+
+  if (co <= ci) {
+    const nextD = new Date(ci);
+    nextD.setDate(nextD.getDate() + 1);
+    co = fmt(nextD);
+  }
+
+  const [ciYear, ciMonth, ciDay] = ci.split('-').map(Number);
+  const [coYear, coMonth, coDay] = co.split('-').map(Number);
+  const guestCount = Math.max(1, parseInt(guests, 10) || 1);
+  const rooms = Math.max(1, Math.ceil(guestCount / 2));
+
+  let queryTarget = destination;
+  if (hotelName && destination) {
+    queryTarget = `${hotelName}, ${destination}`;
+  } else if (hotelName) {
+    queryTarget = hotelName;
+  }
+
+  return `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(queryTarget)}&checkin=${ci}&checkout=${co}&group_adults=${guestCount}&no_rooms=${rooms}&checkin_year=${ciYear}&checkin_month=${ciMonth}&checkin_monthday=${ciDay}&checkout_year=${coYear}&checkout_month=${coMonth}&checkout_monthday=${coDay}`;
+};
+
 // Helper: Parse numerical entry fee in INR from string like "₹50 (Online) / ₹250 (Cash)" or "₹1100"
 const parseNumericFee = (feeString) => {
   if (!feeString) return 0;
@@ -361,6 +391,13 @@ export const getHotelPricing = async (req, res) => {
       exceedsCap,
       property: {
         ...hotelData,
+        bookingUrl: buildBookingUrl({
+          destination: destination || cityKey,
+          checkIn,
+          checkOut,
+          guests: guestCount,
+          hotelName: hotelData.name
+        }),
         currency: 'INR',
         currencySymbol: '₹',
         nightlyRatePerRoom,

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getBookingUrl } from '../utils/bookingUrlBuilder';
 
 const API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) || 'http://localhost:5000/api/v1';
 
@@ -114,10 +115,20 @@ export const plannerApi = {
       });
 
       if (response.data && response.data.success) {
+        const prop = response.data.property;
+        if (prop && (!prop.bookingUrl || !prop.bookingUrl.includes('checkin='))) {
+          prop.bookingUrl = getBookingUrl({
+            destination,
+            checkInDate,
+            checkOutDate,
+            guests,
+            hotelName: prop.name
+          });
+        }
         return {
           success: true,
           isLiveApi: response.data.isLiveApi ?? false,
-          property: response.data.property,
+          property: prop,
           nights: response.data.nights,
           guests: response.data.guests,
           roomsNeeded: response.data.roomsNeeded,
@@ -142,7 +153,13 @@ export const plannerApi = {
           rating: 4.5,
           address: `Old City Heritage Quarter, ${destination}`,
           amenities: ['Free High-Speed WiFi', 'Rooftop Cafe', 'Social Lounge', 'AC Dorms'],
-          bookingUrl: `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(destination + ' hostel')}`
+          bookingUrl: getBookingUrl({
+            destination,
+            checkInDate,
+            checkOutDate,
+            guests: guestCount,
+            hotelName: `Zostel ${destination}`
+          })
         },
         moderate: {
           name: `Lemon Tree / Heritage Haveli ${destination}`,
@@ -150,7 +167,13 @@ export const plannerApi = {
           rating: 4.4,
           address: `Central Hub, ${destination}`,
           amenities: ['Complimentary Breakfast', 'Swimming Pool', 'Spa', 'Restaurant'],
-          bookingUrl: `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(destination + ' hotels')}`
+          bookingUrl: getBookingUrl({
+            destination,
+            checkInDate,
+            checkOutDate,
+            guests: guestCount,
+            hotelName: `Lemon Tree ${destination}`
+          })
         },
         luxury: {
           name: `Taj Gateway / Palace Hotel ${destination}`,
@@ -158,7 +181,13 @@ export const plannerApi = {
           rating: 4.9,
           address: `Royal Palace Grounds, ${destination}`,
           amenities: ['Royal Suites', 'Butler Service', 'Signature Fine Dining', 'Historic Gardens'],
-          bookingUrl: `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(destination + ' luxury hotel')}`
+          bookingUrl: getBookingUrl({
+            destination,
+            checkInDate,
+            checkOutDate,
+            guests: guestCount,
+            hotelName: `Taj Gateway ${destination}`
+          })
         }
       };
 

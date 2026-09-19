@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
 import { handleImageError } from '../utils/imageUtils';
+import { getBookingUrl } from '../utils/bookingUrlBuilder';
 
 const STYLE_OPTIONS = [
   { id: 'heritage', label: 'Culture & Heritage', icon: '🏛️' },
@@ -709,17 +710,21 @@ export default function SmartPlanner() {
                   </div>
                 </div>
 
-                {hotel?.bookingUrl && (
-                  <a
-                    href={hotel.bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 w-full py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-colors"
-                  >
-                    <span>Check Property on Booking.com</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
+                <a
+                  href={getBookingUrl({
+                    destination: activeCity?.name || 'India',
+                    checkInDate: checkIn,
+                    checkOutDate: checkOut,
+                    guests: guests || 1,
+                    hotelName: hotel?.name || ''
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 w-full py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <span>Check Property on Booking.com</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
 
