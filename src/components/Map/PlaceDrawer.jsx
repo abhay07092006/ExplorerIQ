@@ -15,7 +15,7 @@ import {
   Lightbulb
 } from 'lucide-react';
 import { useTravel } from '../../context/useTravel';
-import { getPlaceImage, handlePlaceImageError } from '../../utils/getPlaceImage';
+import { handleImageError } from '../../utils/imageUtils';
 
 const CATEGORY_COLORS = {
   heritage: { bg: 'bg-purple-100 text-purple-700 border-purple-200', label: 'Heritage & History' },
@@ -91,9 +91,9 @@ export default function PlaceDrawer() {
           {/* Hero Image Container */}
           <div className="relative h-64 sm:h-72 w-full flex-shrink-0">
             <img
-              src={getPlaceImage(selectedPlace, selectedPlace.cityName)}
+              src={selectedPlace.image}
               alt={selectedPlace.name}
-              onError={(e) => handlePlaceImageError(e, selectedPlace.category)}
+              onError={handleImageError}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />

@@ -6,16 +6,14 @@ import {
   CalendarDays, 
   Sparkles, 
   Bookmark, 
+  MapPin, 
   ChevronDown, 
   Menu, 
   X, 
-  Volume2,
-  User,
-  LogOut,
-  ShieldCheck
+  Volume2
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
-import { useAuth } from '../context/AuthContext';
+
 import BookmarkModal from './Common/BookmarkModal';
 import { handleImageError } from '../utils/imageUtils';
 
@@ -23,19 +21,22 @@ export default function Navbar() {
   const { 
     activeTab, 
     setActiveTab, 
+    currentCityId, 
+    setCurrentCityId, 
+    destinations = [],
+    currentCity,
     bookmarks,
     audioState
   } = useTravel();
 
-  const { user, isAuthenticated, openAuthModal, logout } = useAuth();
-
-  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
   const [isBookmarkModalOpen, setIsBookmarkModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const activeCity = currentCity || destinations.find((c) => c.id === currentCityId) || destinations[0] || { name: 'Explore', state: '' };
+
   const navItems = [
     { id: 'explore', label: 'Search & Discover', icon: Search, badge: 'Smart Filter' },
-    { id: 'panindia', label: 'Pan-India', icon: Compass, badge: '36 States & UTs' },
     { id: 'scan', label: 'AI Monument Scanner', icon: Scan, badge: 'AI Vision' },
     { id: 'planner', label: 'Smart Planner', icon: CalendarDays },
     { id: 'gems', label: 'Hidden Gems', icon: Sparkles }
@@ -70,7 +71,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation Tabs */}
-            <nav className="hidden lg:flex items-center gap-1 bg-slate-800/80 p-1 rounded-2xl border border-slate-700/60">
+            <nav className="hidden md:flex items-center gap-1 bg-slate-800/80 p-1 rounded-2xl border border-slate-700/60">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -78,7 +79,7 @@ export default function Navbar() {
                   <button
                     key={item.id}
                     onClick={() => setActiveTab(item.id)}
-                    className={`relative px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all duration-200 ${
+                    className={`relative px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all duration-200 ${
                       isActive
                         ? 'bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-md shadow-sky-500/30'
                         : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
@@ -102,7 +103,7 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right Action Controls: City Switcher, Bookmarks, Audio Pulse & User Profile */}
+            {/* Right Action Controls: City Switcher, Saved Bookmarks & Audio Pulse */}
             <div className="hidden sm:flex items-center gap-3">
               {/* Audio Pulse Indicator */}
               {audioState.isPlaying && (
@@ -112,6 +113,52 @@ export default function Navbar() {
                 </div>
               )}
 
+              {/* City Switcher Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
+                  className="flex items-center gap-2 px-3 py-2 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="font-semibold">{activeCity?.name || 'Explore'}</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </button>
+
+                {isCityDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                    <p className="text-[10px] uppercase font-bold text-slate-400 px-3 py-1.5">
+                      Select Destination
+                    </p>
+                    <div className="max-h-60 overflow-y-auto space-y-1">
+                      {destinations.map((city) => (
+                        <button
+                          key={city.id}
+                          onClick={() => {
+                            setCurrentCityId(city.id);
+                            setIsCityDropdownOpen(false);
+                          }}
+                          className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs transition-colors ${
+                            city.id === currentCityId
+                              ? 'bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30'
+                              : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                          }`}
+                        >
+                          <img
+                            src={city.heroImage}
+                            alt={city.name}
+                            onError={handleImageError}
+                            className="w-7 h-7 rounded-lg object-cover border border-slate-700"
+                          />
+                          <div>
+                            <p className="font-semibold text-white">{city.name}</p>
+                            <p className="text-[10px] text-slate-400">{city.state}</p>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* Bookmarks Counter Button */}
               <button
@@ -126,97 +173,10 @@ export default function Navbar() {
                   </span>
                 )}
               </button>
-
-              {/* User Profile / Auth Button */}
-              {isAuthenticated ? (
-                <div className="relative">
-                  <button
-                    onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
-                    className="flex items-center gap-2 p-1.5 pr-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl text-xs font-semibold transition-colors"
-                  >
-                    <img
-                      src={user?.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'}
-                      alt={user?.name}
-                      onError={handleImageError}
-                      className="w-7 h-7 rounded-xl object-cover ring-1 ring-sky-400"
-                    />
-                    <span className="text-white max-w-[90px] truncate">{user?.name?.split(' ')[0]}</span>
-                    <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-                  </button>
-
-                  {isUserDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-56 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
-                      <div className="px-3 py-2 border-b border-slate-800">
-                        <p className="font-bold text-white text-xs truncate">{user?.name}</p>
-                        <p className="text-[10px] text-slate-400 truncate">{user?.email}</p>
-                      </div>
-                      <div className="space-y-1 pt-1">
-                        <button
-                          onClick={() => {
-                            setActiveTab('profile');
-                            setIsUserDropdownOpen(false);
-                          }}
-                          className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-left text-xs text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                        >
-                          <User className="w-3.5 h-3.5 text-sky-400" />
-                          <span>My Travel Profile</span>
-                        </button>
-                        <button
-                          onClick={() => {
-                            setActiveTab('profile');
-                            setIsUserDropdownOpen(false);
-                          }}
-                          className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-left text-xs text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                        >
-                          <CalendarDays className="w-3.5 h-3.5 text-amber-400" />
-                          <span>Saved Itineraries</span>
-                        </button>
-                        <button
-                          onClick={() => {
-                            logout();
-                            setIsUserDropdownOpen(false);
-                          }}
-                          className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-left text-xs text-rose-400 hover:bg-rose-500/10 hover:text-rose-300 transition-colors border-t border-slate-800 mt-1"
-                        >
-                          <LogOut className="w-3.5 h-3.5" />
-                          <span>Sign Out</span>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <button
-                  onClick={() => openAuthModal('signin')}
-                  className="px-4 py-2 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white rounded-xl text-xs font-bold shadow-md shadow-sky-500/25 flex items-center gap-1.5 transition-all"
-                >
-                  <User className="w-3.5 h-3.5" />
-                  <span>Sign In</span>
-                </button>
-              )}
             </div>
 
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
-              {isAuthenticated ? (
-                <button
-                  onClick={() => setActiveTab('profile')}
-                  className="p-1 rounded-xl bg-slate-800 border border-slate-700"
-                >
-                  <img
-                    src={user?.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'}
-                    alt={user?.name}
-                    className="w-7 h-7 rounded-lg object-cover"
-                  />
-                </button>
-              ) : (
-                <button
-                  onClick={() => openAuthModal('signin')}
-                  className="p-2 bg-sky-500 text-white rounded-xl text-xs font-bold"
-                >
-                  Sign In
-                </button>
-              )}
               <button
                 onClick={() => setIsBookmarkModalOpen(true)}
                 className="p-2 bg-slate-800 rounded-xl text-slate-300"
@@ -258,22 +218,27 @@ export default function Navbar() {
                   </button>
                 );
               })}
-              {isAuthenticated && (
-                <button
-                  onClick={() => {
-                    setActiveTab('profile');
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`p-3 rounded-xl text-xs font-semibold flex items-center gap-2 ${
-                    activeTab === 'profile'
-                      ? 'bg-sky-500 text-white'
-                      : 'bg-slate-800 text-slate-300'
-                  }`}
-                >
-                  <User className="w-4 h-4" />
-                  <span>My Profile</span>
-                </button>
-              )}
+            </div>
+
+            {/* Mobile Destination Selector */}
+            <div className="pt-2">
+              <label className="text-xs font-semibold text-slate-400 block mb-1">
+                Active Destination:
+              </label>
+              <select
+                value={currentCityId}
+                onChange={(e) => {
+                  setCurrentCityId(e.target.value);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
+              >
+                {destinations.map((city) => (
+                  <option key={city.id} value={city.id}>
+                    {city.name} ({city.state})
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         )}
