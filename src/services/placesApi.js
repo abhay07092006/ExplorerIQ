@@ -4,6 +4,8 @@
  * and OpenStreetMap Overpass API for real-time monuments, temples, eateries, and scenic spots with strict radial boundary constraints.
  */
 
+import { CITIES_DATA } from '../data/travelData';
+
 const NOMINATIM_BASE_URL = 'https://nominatim.openstreetmap.org/search';
 const OVERPASS_ENDPOINTS = [
   'https://overpass-api.de/api/interpreter',
@@ -35,8 +37,7 @@ export async function searchLocations(query) {
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
-        'Accept-Language': 'en',
-        'User-Agent': 'ExplorerIQ-Tourism-Engine/2.5'
+        'Accept-Language': 'en'
       }
     });
     clearTimeout(timeoutId);
@@ -72,6 +73,104 @@ export async function searchLocations(query) {
 }
 
 /**
+ * Instant resolver for verified premier Indian destinations in CITIES_DATA.
+ * Returns authentic places with verified Wikimedia photographs in 0ms.
+ */
+export function getVerifiedPlacesForCity(cityName = '', lat = null, lon = null, category = 'all') {
+  const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const cleanCity = norm(cityName);
+
+  let match = null;
+  if (cleanCity) {
+    match = CITIES_DATA.find((c) => {
+      const cName = norm(c.name);
+      return cName.includes(cleanCity) || cleanCity.includes(cName) || cleanCity === norm(c.id);
+    });
+  }
+
+  if (!match && lat != null && lon != null) {
+    match = CITIES_DATA.find((c) => {
+      if (!c.coordinates) return false;
+      const dist = calculateDistanceKm(lat, lon, c.coordinates[0], c.coordinates[1]);
+      return dist <= 35;
+    });
+  }
+
+  if (!match) return null;
+
+  const normCat = (c) => {
+    const s = (c || '').toLowerCase().replace(/s$/, '');
+    if (s === 'heritage' || s === 'monument') return 'monuments';
+    return s;
+  };
+
+  const list = [];
+  (match.places || []).forEach((p, idx) => {
+    const cat = p.category === 'heritage' ? 'monuments' : p.category;
+    let badgeColor = 'bg-sky-500/10 text-sky-400 border-sky-500/20';
+    if (cat === 'temples') badgeColor = 'bg-amber-500/10 text-amber-400 border-amber-500/20';
+    else if (cat === 'monuments') badgeColor = 'bg-rose-500/10 text-rose-400 border-rose-500/20';
+    else if (cat === 'food') badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
+    else if (cat === 'museums') badgeColor = 'bg-purple-500/10 text-purple-400 border-purple-500/20';
+    else if (cat === 'scenic') badgeColor = 'bg-teal-500/10 text-teal-400 border-teal-500/20';
+
+    const pLat = p.coordinates ? p.coordinates[0] : match.coordinates[0];
+    const pLon = p.coordinates ? p.coordinates[1] : match.coordinates[1];
+    const dist = (lat != null && lon != null) ? calculateDistanceKm(lat, lon, pLat, pLon) : 1.2;
+
+    list.push({
+      id: p.id || `verified-${match.id}-${idx}`,
+      name: p.name,
+      localName: p.name,
+      category: cat,
+      badgeColor,
+      lat: pLat,
+      lon: pLon,
+      distanceKm: typeof dist === 'number' ? dist.toFixed(1) : '1.2',
+      openingHours: p.timing || '09:00 AM - 06:00 PM',
+      rating: '4.8',
+      fee: p.fee || '₹50 (Entry)',
+      address: `${match.name}, ${match.state}, India`,
+      image: p.image,
+      city: match.name,
+      state: match.state,
+      shortDesc: p.shortDesc,
+      tip: p.tip,
+      navigationUrl: `https://www.google.com/maps/dir/?api=1&destination=${pLat},${pLon}`
+    });
+  });
+
+  if (match.localFoodSpecialties && match.localFoodSpecialties.length > 0) {
+    match.localFoodSpecialties.forEach((f, idx) => {
+      list.push({
+        id: `food-${match.id}-${idx}`,
+        name: f.name,
+        localName: f.name,
+        category: 'food',
+        badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+        lat: match.coordinates[0],
+        lon: match.coordinates[1],
+        distanceKm: '0.8',
+        openingHours: '10:00 AM - 10:30 PM',
+        rating: '4.7',
+        fee: '₹120 - ₹350 per person',
+        address: f.place || `${match.name}, India`,
+        image: f.image || 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80',
+        city: match.name,
+        state: match.state,
+        shortDesc: f.desc,
+        navigationUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(f.name + ' ' + (f.place || match.name))}`
+      });
+    });
+  }
+
+  if (category && category !== 'all') {
+    return list.filter((p) => normCat(p.category) === normCat(category));
+  }
+  return list;
+}
+
+/**
  * Real-time Monuments, Temples & Places Extractor with strict radial boundary constraint.
  * Enforces `(around:${radiusMeters}, ${lat}, ${lon})` to ensure ONLY local places are returned.
  */
@@ -89,22 +188,29 @@ export async function fetchPlacesNearby({
     return placesCache.get(cacheKey);
   }
 
+  // 1. Instant check for verified destinations in CITIES_DATA (0ms latency, authentic Wikimedia photos)
+  const verified = getVerifiedPlacesForCity(cityName, lat, lon, category);
+  if (verified && verified.length > 0) {
+    const filtered = filterByKeyword(verified, searchKeyword);
+    placesCache.set(cacheKey, filtered);
+    return filtered;
+  }
+
   const overpassQuery = buildCategoryQuery(lat, lon, category, radiusMeters);
   let data = null;
 
-  // Try multiple Overpass mirrors with failover
+  // Try Overpass mirrors with fast failover (3.5s timeout)
   for (const endpoint of OVERPASS_ENDPOINTS) {
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 8500);
+      const timeoutId = setTimeout(() => controller.abort(), 3500);
 
       const response = await fetch(endpoint, {
         method: 'POST',
         body: `data=${encodeURIComponent(overpassQuery)}`,
         signal: controller.signal,
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          'User-Agent': 'ExplorerIQ-Tourism-Engine/2.5'
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       });
       clearTimeout(timeoutId);

@@ -30,15 +30,21 @@ export default function PlaceCard({
   useEffect(() => {
     let isMounted = true;
 
-    // If place already has an official direct image, keep it
+    // If place already has an official direct image, update immediately
     if (
       place.image &&
       typeof place.image === 'string' &&
       place.image.startsWith('http') &&
       !place.image.includes('source.unsplash.com')
     ) {
+      setImageSrc(place.image);
+      setIsOfficialWiki(false);
       return;
     }
+
+    // Default to authentic category photo first
+    setImageSrc(getPlacePhoto(place, city, index));
+    setIsOfficialWiki(false);
 
     async function loadOfficialPhoto() {
       try {
@@ -57,7 +63,7 @@ export default function PlaceCard({
     return () => {
       isMounted = false;
     };
-  }, [place.name, place.image, city]);
+  }, [place.name, place.image, city, index]);
 
   return (
     <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-sky-300 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">

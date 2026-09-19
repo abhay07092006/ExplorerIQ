@@ -22,7 +22,7 @@ import { useAuth } from '../../context/AuthContext';
 import SearchHero from '../SearchHero';
 import PlaceDrawer from '../Map/PlaceDrawer';
 import PlaceCard from '../Common/PlaceCard';
-import { fetchPlacesNearby } from '../../services/placesApi';
+import { fetchPlacesNearby, getVerifiedPlacesForCity } from '../../services/placesApi';
 
 export default function SmartSearchExplorer() {
   const { 
@@ -42,7 +42,7 @@ export default function SmartSearchExplorer() {
   });
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [places, setPlaces] = useState([]);
+  const [places, setPlaces] = useState(() => getVerifiedPlacesForCity('Jaipur', 26.9124, 75.7873, 'all') || []);
   const [isLoading, setIsLoading] = useState(false);
   const [drawerPlace, setDrawerPlace] = useState(null);
 
@@ -146,7 +146,7 @@ export default function SmartSearchExplorer() {
       </div>
 
       {/* 3. Places Grid */}
-      {isLoading ? (
+      {isLoading && places.length === 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
             <div key={n} className="bg-white rounded-3xl p-4 border border-slate-200 shadow-sm animate-pulse space-y-3">
@@ -158,7 +158,7 @@ export default function SmartSearchExplorer() {
           ))}
         </div>
       ) : places.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-opacity duration-200 ${isLoading ? 'opacity-60' : 'opacity-100'}`}>
           {(() => {
             const assignedUrls = new Set();
             return places.map((place, idx) => (
