@@ -90,7 +90,6 @@ export function TravelProvider({ children }) {
     result: null,
     detectedFeatures: [],
     confidence: null,
-    isCameraActive: false,
     fileName: ''
   });
 
@@ -141,7 +140,6 @@ export function TravelProvider({ children }) {
       result: null,
       detectedFeatures: [],
       confidence: null,
-      isCameraActive: false,
       fileName: ''
     });
   };

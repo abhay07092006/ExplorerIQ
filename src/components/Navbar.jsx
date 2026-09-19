@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { 
   Compass, 
-  Camera, 
+  Scan, 
   Search, 
   CalendarDays, 
   Sparkles, 
@@ -9,7 +9,7 @@ import {
   MapPin, 
   ChevronDown, 
   Menu, 
-  X,
+  X, 
   Volume2
 } from 'lucide-react';
 import { useTravel } from '../context/useTravel';
@@ -35,7 +35,7 @@ export default function Navbar() {
 
   const navItems = [
     { id: 'explore', label: 'Search & Discover', icon: Search, badge: 'Smart Filter' },
-    { id: 'scan', label: 'AI Monument Scanner', icon: Camera, badge: 'AI Vision' },
+    { id: 'scan', label: 'AI Monument Scanner', icon: Scan, badge: 'AI Vision' },
     { id: 'planner', label: 'Smart Planner', icon: CalendarDays },
     { id: 'gems', label: 'Hidden Gems', icon: Sparkles }
   ];
