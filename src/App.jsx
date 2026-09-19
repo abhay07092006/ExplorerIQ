@@ -3,7 +3,7 @@ import { useTravel } from './context/useTravel';
 import Navbar from './components/Navbar';
 import SmartSearchExplorer from './components/Discovery/SmartSearchExplorer';
 import MonumentScanner from './components/Scanner/MonumentScanner';
-import ItineraryPlanner from './components/Planner/ItineraryPlanner';
+import SmartPlanner from './components/SmartPlanner';
 import HiddenGems from './components/Gems/HiddenGems';
 import AudioGuidePlayer from './components/Common/AudioGuidePlayer';
 import { Compass } from 'lucide-react';
@@ -20,7 +20,7 @@ function AppContent() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {activeTab === 'explore' && <SmartSearchExplorer />}
         {activeTab === 'scan' && <MonumentScanner />}
-        {activeTab === 'planner' && <ItineraryPlanner />}
+        {activeTab === 'planner' && <SmartPlanner />}
         {activeTab === 'gems' && <HiddenGems />}
       </main>
 

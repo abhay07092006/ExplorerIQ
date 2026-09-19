@@ -23,6 +23,11 @@ import {
   likeCommunityGem
 } from '../controllers/gemController.js';
 
+import {
+  getHotelPricing,
+  getMonumentPricing
+} from '../controllers/pricingController.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadDir = path.join(__dirname, '..', 'uploads');
@@ -72,5 +77,9 @@ router.get('/places/nearby', getNearbyEateries);
 router.get('/gems', getCommunityGems);
 router.post('/gems', createCommunityGem);
 router.post('/gems/:id/like', likeCommunityGem);
+
+// Live Pricing & Verified Monument Fees API
+router.get('/pricing/hotels', getHotelPricing);
+router.get('/pricing/monuments', getMonumentPricing);
 
 export default router;

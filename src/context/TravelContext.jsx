@@ -1,5 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { api } from '../services/api';
+import { plannerApi } from '../services/plannerApi';
+import { generateDynamicItinerary } from '../utils/itineraryEngine';
 import { TravelContext } from './TravelContextCore';
 
 export function TravelProvider({ children }) {
@@ -270,6 +272,81 @@ export function TravelProvider({ children }) {
     }
   };
 
+  // Live Smart Itinerary Planner State
+  const [plannerParams, setPlannerParams] = useState({
+    destinationId: 'jaipur',
+    checkInDate: new Date().toISOString().split('T')[0],
+    checkOutDate: new Date(Date.now() + 3 * 86400000).toISOString().split('T')[0],
+    guests: 2,
+    budgetTier: 'moderate',
+    travelStyles: ['heritage', 'food', 'scenic']
+  });
+  const [plannerResult, setPlannerResult] = useState(null);
+  const [isLoadingPlanner, setIsLoadingPlanner] = useState(false);
+  const [plannerLoadingMessage, setPlannerLoadingMessage] = useState('');
+  const [plannerError, setPlannerError] = useState(null);
+
+  const calculateLivePlan = useCallback(async (overrides = {}) => {
+    setIsLoadingPlanner(true);
+    setPlannerError(null);
+    const params = { ...plannerParams, ...overrides };
+    
+    // Find target destination
+    const targetCity = (destinations || []).find((c) => c.id === (params.destinationId || currentCityId)) ||
+      currentCity || { id: 'jaipur', name: 'Jaipur', places: [] };
+
+    setPlannerLoadingMessage(`Fetching real-time hotel prices for ${targetCity.name}...`);
+
+    try {
+      // 1. Fetch live property pricing
+      const hotelData = await plannerApi.searchHotels({
+        destination: targetCity.name,
+        checkInDate: params.checkInDate,
+        checkOutDate: params.checkOutDate,
+        guests: params.guests,
+        budgetTier: params.budgetTier
+      });
+
+      // 2. Fetch verified ASI monument ticket pricing
+      setPlannerLoadingMessage(`Calculating live ASI ticket rates for ${targetCity.name}...`);
+      const monumentPrices = await plannerApi.fetchVerifiedMonumentTickets(targetCity.id, targetCity.name);
+
+      // 3. Compute duration in days/nights
+      const start = new Date(params.checkInDate);
+      const end = new Date(params.checkOutDate);
+      const diffDays = Math.max(1, Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24)));
+
+      // 4. Generate dynamic 7-slot itinerary & real arithmetic budget
+      setPlannerLoadingMessage(`Synthesizing 7-slot daily itinerary for ${targetCity.name}...`);
+      const itinerary = generateDynamicItinerary({
+        city: targetCity,
+        places: targetCity.places || [],
+        days: diffDays,
+        hotel: hotelData,
+        monumentPrices,
+        budgetTier: params.budgetTier,
+        guests: params.guests,
+        travelStyles: params.travelStyles
+      });
+
+      setPlannerParams(params);
+      setPlannerResult({
+        ...itinerary,
+        hotelPricing: hotelData,
+        monumentPrices,
+        params,
+        isLiveApi: hotelData.isLiveApi,
+        notice: hotelData.notice
+      });
+    } catch (err) {
+      console.error('[TravelContext] calculateLivePlan error:', err);
+      setPlannerError(err.message || 'Failed to calculate live itinerary plan');
+    } finally {
+      setIsLoadingPlanner(false);
+      setPlannerLoadingMessage('');
+    }
+  }, [plannerParams, destinations, currentCity, currentCityId]);
+
   return (
     <TravelContext.Provider
       value={{
@@ -306,7 +383,14 @@ export function TravelProvider({ children }) {
         communityGems,
         isLoadingGems,
         addCommunityGem,
-        likeGem
+        likeGem,
+        plannerParams,
+        setPlannerParams,
+        plannerResult,
+        isLoadingPlanner,
+        plannerLoadingMessage,
+        plannerError,
+        calculateLivePlan
       }}
     >
       {children}
