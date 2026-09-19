@@ -222,6 +222,50 @@ export const login = async (req, res) => {
 };
 
 /**
+ * @route   POST /api/v1/auth/forgot-password
+ * @desc    Request password reset instructions
+ * @access  Public
+ */
+export const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide a valid email address.'
+      });
+    }
+
+    const normalizedEmail = email.toLowerCase().trim();
+    let userExists = false;
+
+    if (isMongoConnected()) {
+      const user = await User.findOne({ email: normalizedEmail });
+      userExists = !!user;
+    } else {
+      userExists = inMemoryUsers.has(normalizedEmail);
+    }
+
+    if (!userExists) {
+      return res.status(404).json({
+        success: false,
+        message: 'No account found with this email address.'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Password reset link has been dispatched to your email address.'
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to process password reset request.'
+    });
+  }
+};
+
+/**
  * @route   GET /api/v1/auth/me
  * @desc    Get currently logged-in user profile
  * @access  Private

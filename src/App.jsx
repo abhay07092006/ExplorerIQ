@@ -7,7 +7,7 @@ import PanIndiaExplorer from './components/PanIndiaExplorer';
 import MonumentScanner from './components/Scanner/MonumentScanner';
 import SmartPlanner from './components/SmartPlanner';
 import HiddenGems from './components/Gems/HiddenGems';
-import UserProfile from './components/UserProfile';
+import UserProfile from './components/Profile/UserProfile';
 import AuthModal from './components/Auth/AuthModal';
 import AudioGuidePlayer from './components/Common/AudioGuidePlayer';
 import { Compass } from 'lucide-react';

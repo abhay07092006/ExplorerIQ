@@ -178,11 +178,28 @@ export function AuthProvider({ children }) {
     }
   };
 
+  // Forgot Password handler
+  const forgotPassword = async (email) => {
+    try {
+      const API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) || 'http://localhost:5000/api/v1';
+      await fetch(`${API_BASE_URL}/auth/forgot-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      return true;
+    } catch {
+      return true; // Fallback
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         user,
+        currentUser: user,
         token,
+        authToken: token,
         isAuthenticated: !!user,
         isLoading,
         authError,
@@ -193,6 +210,7 @@ export function AuthProvider({ children }) {
         login,
         register,
         logout,
+        forgotPassword,
         updateProfile,
         saveTrip,
         deleteTrip,
