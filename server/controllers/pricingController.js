@@ -284,7 +284,7 @@ const calculateNights = (checkIn, checkOut) => {
 };
 
 // Dynamic Booking.com URL Builder for Backend
-const buildBookingUrl = ({ destination = 'India', checkIn, checkOut, guests = 1, hotelName = '' }) => {
+const buildBookingUrl = ({ destination = 'India', checkIn, checkOut, guests = 2, hotelName = '' }) => {
   const now = new Date();
   const pad = (n) => String(n).padStart(2, '0');
   const fmt = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -298,19 +298,27 @@ const buildBookingUrl = ({ destination = 'India', checkIn, checkOut, guests = 1,
     co = fmt(nextD);
   }
 
-  const [ciYear, ciMonth, ciDay] = ci.split('-').map(Number);
-  const [coYear, coMonth, coDay] = co.split('-').map(Number);
-  const guestCount = Math.max(1, parseInt(guests, 10) || 1);
-  const rooms = Math.max(1, Math.ceil(guestCount / 2));
+  const guestCount = Math.max(1, parseInt(guests, 10) || 2);
+  const cleanHotel = hotelName ? hotelName.split('/')[0].trim() : '';
 
-  let queryTarget = destination;
-  if (hotelName && destination) {
-    queryTarget = `${hotelName}, ${destination}`;
-  } else if (hotelName) {
-    queryTarget = hotelName;
+  let queryTarget = destination || 'India';
+  if (cleanHotel && destination) {
+    queryTarget = cleanHotel.toLowerCase().includes(destination.toLowerCase())
+      ? cleanHotel
+      : `${cleanHotel}, ${destination}`;
+  } else if (cleanHotel) {
+    queryTarget = cleanHotel;
   }
 
-  return `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(queryTarget)}&checkin=${ci}&checkout=${co}&group_adults=${guestCount}&no_rooms=${rooms}&checkin_year=${ciYear}&checkin_month=${ciMonth}&checkin_monthday=${ciDay}&checkout_year=${coYear}&checkout_month=${coMonth}&checkout_monthday=${coDay}`;
+  const params = new URLSearchParams({
+    ss: queryTarget.trim(),
+    checkin: ci,
+    checkout: co,
+    group_adults: guestCount.toString(),
+    no_rooms: '1'
+  });
+
+  return `https://www.booking.com/searchresults.html?${params.toString()}`;
 };
 
 // Helper: Parse numerical entry fee in INR from string like "₹50 (Online) / ₹250 (Cash)" or "₹1100"

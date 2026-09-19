@@ -763,7 +763,7 @@ export default function SmartPlanner() {
                     destination: activeCity?.name || 'India',
                     checkIn: checkIn,
                     checkOut: checkOut,
-                    guestsCount: guests || 1,
+                    guestsCount: guests || 2,
                     hotelName: hotel?.name || ''
                   })}
                   target="_blank"

@@ -57,11 +57,16 @@ function buildBookingUrl(city, checkIn, checkOut, guests = 2) {
   const nextDay = new Date();
   nextDay.setDate(nextDay.getDate() + 2);
   const cOut = formatDate(checkOut) || formatDate(nextDay);
-  const [ciY, ciM, ciD] = cIn.split('-');
-  const [coY, coM, coD] = cOut.split('-');
-  const rooms = Math.max(1, Math.ceil(guests / 2));
 
-  return `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(city)}&checkin=${cIn}&checkout=${cOut}&group_adults=${guests}&no_rooms=${rooms}&checkin_year=${ciY}&checkin_month=${ciM}&checkin_monthday=${ciD}&checkout_year=${coY}&checkout_month=${coM}&checkout_monthday=${coD}`;
+  const params = new URLSearchParams({
+    ss: city || 'India',
+    checkin: cIn,
+    checkout: cOut,
+    group_adults: guests.toString(),
+    no_rooms: '1'
+  });
+
+  return `https://www.booking.com/searchresults.html?${params.toString()}`;
 }
 
 /**
