@@ -29,7 +29,7 @@ export default function PlaceCard({
   onToggleBookmark,
   onOpenDrawer,
   onPlanTrip,
-  catStyle = { bg: 'bg-sky-50 text-sky-700 border-sky-200', label: 'Highlight' }
+  catStyle = { bg: 'bg-[#57151E] text-[#E2C46B] border-[#C89B3C]/40', label: 'Highlight' }
 }) {
   const { openRoutePlanner } = useTravel();
   const [imageSrc, setImageSrc] = useState(place.image);
@@ -45,7 +45,6 @@ export default function PlaceCard({
   // Dynamic Wikipedia resolution on error
   const handleImageError = async () => {
     if (hasAttemptedWiki.current) {
-      // Final fallback to category-specific photo (never a mismatched monument)
       const normCat = (place.category || 'heritage').toLowerCase();
       setImageSrc(CATEGORY_FALLBACK_IMAGES[normCat] || CATEGORY_FALLBACK_IMAGES.heritage);
       return;
@@ -87,39 +86,38 @@ export default function PlaceCard({
       // Ignore network errors
     }
 
-    // Secondary fallback to category photo
     const normCat = (place.category || 'heritage').toLowerCase();
     setImageSrc(CATEGORY_FALLBACK_IMAGES[normCat] || CATEGORY_FALLBACK_IMAGES.heritage);
     setIsResolvingWiki(false);
   };
 
   return (
-    <div className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
+    <div className="group bg-[#FFF9EF] rounded-3xl border border-[#E2C46B]/40 hover:border-[#C89B3C] shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
       {/* Image Container with Badges */}
-      <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+      <div className="relative h-56 w-full overflow-hidden bg-[#F7EEDC]">
         <img
           src={imageSrc}
           alt={place.name}
           onError={handleImageError}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#25211D]/90 via-[#25211D]/30 to-transparent" />
 
         {/* Top Bar Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border backdrop-blur-md shadow-xs ${catStyle.bg}`}>
-              {catStyle.label}
+            <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#57151E]/90 text-[#E2C46B] border border-[#C89B3C]/50 backdrop-blur-md shadow-xs">
+              {place.category?.replace(/_/g, ' ') || catStyle.label || 'Heritage'}
             </span>
             {place.bestDuration && (
-              <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-slate-950/80 text-sky-300 border border-sky-500/30 backdrop-blur-md hidden sm:inline-block">
+              <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-[#25211D]/80 text-[#E2C46B] border border-[#E2C46B]/30 backdrop-blur-md hidden sm:inline-block">
                 {place.bestDuration}
               </span>
             )}
             {place.historicalEra && (
-              <span className="px-2 py-1 rounded-full text-[9px] font-semibold bg-black/60 text-amber-300 border border-amber-500/30 backdrop-blur-md hidden lg:inline-flex items-center gap-1">
-                <Landmark className="w-2.5 h-2.5" />
+              <span className="px-2 py-1 rounded-full text-[9px] font-semibold bg-[#25211D]/80 text-[#FFF9EF] border border-[#E2C46B]/30 backdrop-blur-md hidden lg:inline-flex items-center gap-1">
+                <Landmark className="w-2.5 h-2.5 text-[#C89B3C]" />
                 <span className="truncate max-w-[120px]">{place.historicalEra}</span>
               </span>
             )}
@@ -132,8 +130,8 @@ export default function PlaceCard({
             }}
             className={`p-2 rounded-full backdrop-blur-md transition-all shadow-md ${
               bookmarked
-                ? 'bg-amber-500 text-white'
-                : 'bg-slate-900/60 text-white hover:bg-slate-900/90'
+                ? 'bg-[#C89B3C] text-[#57151E]'
+                : 'bg-[#57151E]/80 text-[#FFF9EF] hover:bg-[#7A1F2B]'
             }`}
             title={bookmarked ? 'Saved to Bookmarks' : 'Bookmark this spot'}
           >
@@ -147,11 +145,16 @@ export default function PlaceCard({
 
         {/* Location & Title on Image */}
         <div className="absolute bottom-3 left-4 right-4 text-white">
-          <div className="flex items-center gap-1.5 text-xs text-sky-300 font-medium mb-1">
-            <MapPin className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-            <span className="truncate">{place.cityName || place.city}, {place.state}</span>
+          <div className="flex items-center gap-1.5 text-xs text-[#E2C46B] font-semibold mb-1 drop-shadow">
+            <MapPin className="w-3.5 h-3.5 text-[#C89B3C] flex-shrink-0" />
+            <span className="truncate">{place.cityName || place.districtName || place.city}, {place.state || place.stateName}</span>
+            {place.distanceKm && (
+              <span className="text-[10px] text-[#FFF9EF]/80 font-normal">
+                • {place.distanceKm} km
+              </span>
+            )}
           </div>
-          <h3 className="font-display font-extrabold text-lg text-white leading-snug drop-shadow-sm line-clamp-1">
+          <h3 className="font-display font-extrabold text-lg text-[#FFF9EF] leading-snug drop-shadow-md line-clamp-1 group-hover:text-[#F3E5AB] transition-colors">
             {place.name}
           </h3>
         </div>
@@ -161,67 +164,67 @@ export default function PlaceCard({
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
         {/* Practical Timings & Fees */}
         <div className="grid grid-cols-2 gap-2 text-xs">
-          <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1 mb-0.5">
-              <Clock className="w-3 h-3 text-sky-500" />
+          <div className="p-2.5 bg-[#F7EEDC]/60 rounded-xl border border-[#E2C46B]/30">
+            <span className="text-[10px] font-bold text-[#6B4423] uppercase tracking-wider flex items-center gap-1 mb-0.5">
+              <Clock className="w-3 h-3 text-[#C89B3C]" />
               <span>Hours</span>
             </span>
-            <p className="font-bold text-slate-800 text-[11px] truncate">
-              {place.timing?.split('(')[0] || 'Open Daily'}
+            <p className="font-bold text-[#25211D] text-[11px] truncate">
+              {place.timing?.split('(')[0] || place.openingHours || '09:00 AM - 06:00 PM'}
             </p>
           </div>
 
-          <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1 mb-0.5">
-              <Ticket className="w-3 h-3 text-amber-500" />
+          <div className="p-2.5 bg-[#F7EEDC]/60 rounded-xl border border-[#E2C46B]/30">
+            <span className="text-[10px] font-bold text-[#6B4423] uppercase tracking-wider flex items-center gap-1 mb-0.5">
+              <Ticket className="w-3 h-3 text-[#D97706]" />
               <span>Entry Fee</span>
             </span>
-            <p className="font-bold text-slate-800 text-[11px] truncate">
+            <p className="font-bold text-[#25211D] text-[11px] truncate">
               {place.fee || (place.asiFee != null ? (place.asiFee === 0 ? 'Free Entry' : `₹${place.asiFee} (ASI Entry)`) : 'Free Entry')}
             </p>
           </div>
         </div>
 
         {/* Short Historical Description */}
-        <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-          {place.description || place.shortDesc}
+        <p className="text-xs text-[#4A3E3D] leading-relaxed line-clamp-3">
+          {place.description || place.shortDesc || (place.localName && place.localName !== place.name ? `${place.localName} — A celebrated cultural attraction in ${place.cityName || place.districtName || 'India'}.` : 'A celebrated heritage and cultural attraction in India.')}
         </p>
 
         {/* Insider Tip Badge */}
         {place.tip && (
-          <div className="p-3 bg-amber-50/80 border border-amber-200/80 rounded-xl flex items-start gap-2 text-xs text-amber-900">
-            <Lightbulb className="w-3.5 h-3.5 text-amber-600 flex-shrink-0 mt-0.5" />
+          <div className="p-3 bg-[#FFF3E3] border border-[#E2C46B]/50 rounded-xl flex items-start gap-2 text-xs text-[#6B4423]">
+            <Lightbulb className="w-3.5 h-3.5 text-[#D97706] flex-shrink-0 mt-0.5" />
             <p className="text-[11px] leading-relaxed line-clamp-2">
-              <span className="font-bold">Insider Tip:</span> {place.tip}
+              <span className="font-bold text-[#57151E]">Insider Tip:</span> {place.tip}
             </p>
           </div>
         )}
 
         {/* Card Action Buttons */}
-        <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-1.5">
+        <div className="pt-3 border-t border-[#E2C46B]/30 flex items-center justify-between gap-1.5">
           <button
             onClick={() => onOpenDrawer && onOpenDrawer(place)}
-            className="flex-1 py-2 px-2.5 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white rounded-xl text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-1"
+            className="flex-1 py-2 px-2.5 bg-gradient-to-r from-[#7A1F2B] to-[#57151E] hover:from-[#8F2633] hover:to-[#7A1F2B] text-[#FFF9EF] rounded-xl text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-1"
           >
             <span>Explore</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ExternalLink className="w-3.5 h-3.5 text-[#E2C46B]" />
           </button>
 
           <button
             onClick={() => openRoutePlanner && openRoutePlanner(place)}
-            className="py-2 px-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-colors flex items-center gap-1 shadow-xs"
+            className="py-2 px-2.5 bg-[#C89B3C]/15 hover:bg-[#C89B3C]/25 text-[#7A1F2B] border border-[#C89B3C]/40 rounded-xl text-xs font-bold transition-colors flex items-center gap-1 shadow-2xs"
             title="Directions & Transit Planner"
           >
-            <Navigation className="w-3.5 h-3.5 text-sky-400" />
+            <Navigation className="w-3.5 h-3.5 text-[#C89B3C]" />
             <span>Route</span>
           </button>
 
           <button
             onClick={() => onPlanTrip && onPlanTrip(place)}
-            className="py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition-colors flex items-center gap-1"
+            className="py-2 px-2.5 bg-[#F7EEDC] hover:bg-[#EEDFCA] text-[#6B4423] border border-[#E2C46B]/40 rounded-xl text-xs font-semibold transition-colors flex items-center gap-1"
             title="Add to Itinerary"
           >
-            <CalendarPlus className="w-3.5 h-3.5 text-amber-500" />
+            <CalendarPlus className="w-3.5 h-3.5 text-[#D97706]" />
             <span>Plan</span>
           </button>
         </div>

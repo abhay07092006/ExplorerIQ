@@ -46,34 +46,34 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
+      <header className="sticky top-0 z-40 w-full bg-[#420E15]/95 backdrop-blur-md border-b border-[#E2C46B]/30 text-[#FFF9EF] shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18">
             
             {/* Logo */}
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('explore')}>
-              <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-500 via-teal-500 to-amber-400 p-[2px] shadow-lg shadow-sky-500/20">
-                <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
-                  <Compass className="w-6 h-6 text-sky-400 animate-[spin_12s_linear_infinite]" />
+              <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#C89B3C] via-[#E2C46B] to-[#D97706] p-[2px] shadow-lg shadow-[#57151E]/40">
+                <div className="w-full h-full bg-[#57151E] rounded-[14px] flex items-center justify-center">
+                  <Compass className="w-6 h-6 text-[#E2C46B] animate-[spin_12s_linear_infinite]" />
                 </div>
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className="font-display font-extrabold text-xl tracking-tight text-white">
-                    Explorer<span className="text-sky-400">IQ</span>
+                    Explorer<span className="text-[#E2C46B]">IQ</span>
                   </span>
-                  <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-full">
-                    v2.5
+                  <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-[#C89B3C]/20 text-[#E2C46B] border border-[#E2C46B]/30 rounded-full">
+                    Heritage
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-400 font-medium hidden sm:block">
-                  Smart Tourism & Monument Visual Recognition
+                <p className="text-[11px] text-[#F7EEDC]/70 font-medium hidden sm:block">
+                  Indian Cultural Tourism & Destination Explorer
                 </p>
               </div>
             </div>
 
             {/* Desktop Navigation Tabs */}
-            <nav className="hidden md:flex items-center gap-1 bg-slate-800/80 p-1 rounded-2xl border border-slate-700/60">
+            <nav className="hidden md:flex items-center gap-1 bg-[#57151E]/80 p-1 rounded-2xl border border-[#E2C46B]/30">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -83,18 +83,18 @@ export default function Navbar() {
                     onClick={() => setActiveTab(item.id)}
                     className={`relative px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all duration-200 ${
                       isActive
-                        ? 'bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-md shadow-sky-500/30'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+                        ? 'bg-gradient-to-r from-[#7A1F2B] to-[#57151E] text-[#FFF9EF] border border-[#E2C46B]/50 shadow-md'
+                        : 'text-[#F7EEDC]/80 hover:text-white hover:bg-[#7A1F2B]/40'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-sky-400'}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-[#E2C46B]' : 'text-[#E2C46B]/80'}`} />
                     <span>{item.label}</span>
                     {item.badge && (
                       <span
                         className={`text-[9px] px-1.5 py-0.2 rounded-full font-bold uppercase ${
                           isActive
-                            ? 'bg-white/20 text-white'
-                            : 'bg-sky-400/15 text-sky-300 border border-sky-400/20'
+                            ? 'bg-[#C89B3C] text-[#57151E]'
+                            : 'bg-[#C89B3C]/20 text-[#E2C46B] border border-[#E2C46B]/30'
                         }`}
                       >
                         {item.badge}
