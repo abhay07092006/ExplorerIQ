@@ -8349,6 +8349,1469 @@ export const RECOGNIZED_MONUMENTS = [
       "nalabana",
       "wetland"
     ]
+  },
+  {
+    "id": "monument-capital-complex",
+    "name": "Capital Complex & Open Hand Monument",
+    "hindiName": "कैपिटल कॉम्प्लेक्स और खुला हाथ स्मारक",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "zone": "North",
+    "country": "India",
+    "coordinates": [
+      30.7592,
+      76.8048
+    ],
+    "coordObj": {
+      "lat": 30.7592,
+      "lng": 76.8048
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2016)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chandigarh_Capital_Complex.jpg/1280px-Chandigarh_Capital_Complex.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chandigarh_Capital_Complex.jpg/1280px-Chandigarh_Capital_Complex.jpg",
+    "commissionedBy": "First Prime Minister Jawaharlal Nehru",
+    "architect": "Le Corbusier (Charles-Édouard Jeanneret)",
+    "constructionEra": "1951 - 1965 CE",
+    "material": "Unadorned reinforced concrete (Béton Brut) with primary color accents",
+    "architecturalStyle": "Brutalist Modernism",
+    "dimensions": "Open Hand height 26 meters (85 ft), weighs 50 tons, rotates with wind",
+    "openingHours": "9:00 AM - 5:00 PM (Prior permission required for Secretariat)",
+    "closedOn": "Open daily; government offices closed on Sundays",
+    "bestTimeToVisit": "October to March (Pleasant sunshine)",
+    "ticketPricing": {
+      "indian": "Free (Registration required)",
+      "foreigner": "Free (Registration required)",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Open Hand Monument: 26-meter rotating metal sculpture symbolizing 'open to give, open to receive'.",
+      "Palace of Justice: High Court with rhythmic double-roof parasol and vibrant primary color piers.",
+      "Palace of Assembly: Hyperboloid cooling-tower-inspired legislative chamber with pyramid skylights.",
+      "Secretariat: 254-meter long eight-story concrete administrative slab with brise-soleil sunshades."
+    ],
+    "legendsAndFacts": "Le Corbusier conceived Chandigarh as a living organism: the Capital Complex is the head, City Centre the heart, and green corridors the lungs.",
+    "audioGuideTranscript": "Welcome to Chandigarh's Capital Complex, inscribed as a UNESCO World Heritage site in 2016. Designed by French-Swiss architectural pioneer Le Corbusier, this 100-acre monumental plaza stands against the backdrop of the Shivalik hills. The rotating Open Hand Monument stands 26 meters tall, engineered to turn freely with the prevailing breeze as a universal message of international peace.",
+    "nearbyFood": [
+      {
+        "name": "Bansal Amritsari Kulcha",
+        "cuisine": "Punjabi Tandoori",
+        "distance": "2.5 km",
+        "specialty": "Stuffed Aloo Pyaaz Kulcha"
+      },
+      {
+        "name": "Chawla's 2",
+        "cuisine": "North Indian",
+        "distance": "3.1 km",
+        "specialty": "Cream Chicken"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Nek Chand's Rock Garden",
+        "distance": "1.2 km",
+        "type": "Recycled Art Park"
+      },
+      {
+        "name": "Sukhna Lake",
+        "distance": "2.0 km",
+        "type": "Scenic Promenade"
+      }
+    ],
+    "visualKeywords": [
+      "capital",
+      "complex",
+      "chandigarh",
+      "open hand",
+      "corbusier",
+      "brutalist",
+      "concrete",
+      "punjab"
+    ]
+  },
+  {
+    "id": "monument-kalka-shimla-railway",
+    "name": "Kalka–Shimla Mountain Railway",
+    "hindiName": "कालका-शिमला रेलवे",
+    "city": "Shimla",
+    "state": "Himachal Pradesh",
+    "zone": "North",
+    "country": "India",
+    "coordinates": [
+      30.8414,
+      76.9634
+    ],
+    "coordObj": {
+      "lat": 30.8414,
+      "lng": 76.9634
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Mountain Railways of India, 2008)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kalka_Shimla_train_at_Barog_station.jpg/1280px-Kalka_Shimla_train_at_Barog_station.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kalka_Shimla_train_at_Barog_station.jpg/1280px-Kalka_Shimla_train_at_Barog_station.jpg",
+    "commissionedBy": "British Indian Government (Viceroy Lord Curzon)",
+    "architect": "H.S. Harington (Chief Engineer) & Bhalku (Local Mystic Surveyor)",
+    "constructionEra": "1898 - 1903 CE (Opened Nov 9, 1903)",
+    "material": "Narrow gauge (2 ft 6 in) steel rails with stone multi-arch viaducts",
+    "architecturalStyle": "Colonial Mountain Railway Engineering",
+    "dimensions": "96.6 km length, 102 operational tunnels, 864 bridges, ascends from 656m to 2,075m",
+    "openingHours": "Daily train departures (Approx. 5:30 AM - 6:00 PM)",
+    "closedOn": "Open daily year-round",
+    "bestTimeToVisit": "October to June (Snow in December-January, lush pine forests in spring)",
+    "ticketPricing": {
+      "indian": "₹50 - ₹500 (Depending on carriage class)",
+      "foreigner": "₹50 - ₹500 (IRCTC booking)",
+      "childrenUnder15": "₹25 - ₹250"
+    },
+    "keyHighlights": [
+      "Barog Tunnel No. 33: 1,143 meters long, the straightest and longest tunnel on the line.",
+      "Arch Gallery Bridges: Multi-tiered Roman-style stone masonry viaducts spanning deep Himalayan ravines.",
+      "Scenic Ascent: Crosses 919 sharp curves winding through fragrant pine and deodar forests.",
+      "Heritage Rolling Stock: Operates vintage steam and diesel locomotives including the Shivalik Deluxe Express."
+    ],
+    "legendsAndFacts": "Local legend holds that a humble village shepherd named Bhalku possessed an innate sense of mountain topography and guided engineers to align the tunnel paths through impassable ridges.",
+    "audioGuideTranscript": "Welcome aboard the Kalka-Shimla Railway, inscribed as a UNESCO World Heritage Site in 2008. Built in 1903 to connect the summer capital of British India, this narrow-gauge marvel traverses 96 kilometers through the Shivalik foothills, passing through 102 mountain tunnels and across 864 multi-tiered Roman-arch viaducts.",
+    "nearbyFood": [
+      {
+        "name": "Barog Station Canteen",
+        "cuisine": "Hill Station Snacks",
+        "distance": "On Platform",
+        "specialty": "Fresh Cutlets & Masala Chai"
+      },
+      {
+        "name": "Wake & Bake Cafe Shimla",
+        "cuisine": "Continental Cafe",
+        "distance": "Shimla Station 1.5 km",
+        "specialty": "Crepes and Apple Pie"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "The Ridge & Christ Church",
+        "distance": "2.0 km from Shimla Station",
+        "type": "Colonial Promenade"
+      },
+      {
+        "name": "Viceregal Lodge",
+        "distance": "3.5 km",
+        "type": "Historic Palace"
+      }
+    ],
+    "visualKeywords": [
+      "kalka",
+      "shimla",
+      "railway",
+      "toy train",
+      "mountain",
+      "tunnel",
+      "himachal",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-nilgiri-railway",
+    "name": "Nilgiri Mountain Railway",
+    "hindiName": "नीलगिरि पर्वतीय रेल",
+    "city": "Ooty / Mettupalayam",
+    "state": "Tamil Nadu",
+    "zone": "South",
+    "country": "India",
+    "coordinates": [
+      11.3436,
+      76.7972
+    ],
+    "coordObj": {
+      "lat": 11.3436,
+      "lng": 76.7972
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Mountain Railways of India, 2005)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nilgiri_Mountain_Railway_steam_locomotive.jpg/1280px-Nilgiri_Mountain_Railway_steam_locomotive.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nilgiri_Mountain_Railway_steam_locomotive.jpg/1280px-Nilgiri_Mountain_Railway_steam_locomotive.jpg",
+    "commissionedBy": "British Nilgiri Railway Company",
+    "architect": "Riggenbach (Abt rack-and-pinion system)",
+    "constructionEra": "1891 - 1908 CE",
+    "material": "Meter gauge (1,000 mm) track with central toothed rack rail and X-class steam locomotives",
+    "architecturalStyle": "Abt Rack Railway Mountain Engineering",
+    "dimensions": "45.88 km route, 1:12.5 gradient (steepest in Asia), 16 tunnels, 250 bridges",
+    "openingHours": "Daily departures (7:10 AM from Mettupalayam, 2:00 PM from Ooty)",
+    "closedOn": "Open daily year-round",
+    "bestTimeToVisit": "October to May (Misty Nilgiri tea hills and pleasant weather)",
+    "ticketPricing": {
+      "indian": "₹30 - ₹205 (First / Second Class)",
+      "foreigner": "₹30 - ₹205 (IRCTC booking)",
+      "childrenUnder15": "₹15 - ₹105"
+    },
+    "keyHighlights": [
+      "Abt Rack System: India's only rack-and-pinion railway using teeth to climb 1:12.5 steep mountain grades.",
+      "Steam Heritage: Vintage X-Class Swiss-built steam locomotives push the coaches uphill from the rear.",
+      "Verdant Ravines: Climbs through 208 curves across eucalyptus and tea plantations to Coonoor and Ooty.",
+      "Coonoor Heritage Shed: Historic locomotive shed maintaining century-old steam engines."
+    ],
+    "legendsAndFacts": "The railway was famously featured in David Lean's film 'A Passage to India' and the iconic Bollywood song 'Chaiyya Chaiyya' filmed on its rooftop.",
+    "audioGuideTranscript": "Welcome to the Nilgiri Mountain Railway, inscribed as a UNESCO World Heritage site in 2005. Scaling the steep blue mountains of Tamil Nadu, this meter-gauge line relies on the Swiss Abt rack-and-pinion system to climb the steepest railway incline in Asia, pushed from behind by iconic steam locomotives.",
+    "nearbyFood": [
+      {
+        "name": "Coonoor Tea Lounge",
+        "cuisine": "Nilgiri Bakery",
+        "distance": "Coonoor Station",
+        "specialty": "Nilgiri Orange Pekoe Tea & Scones"
+      },
+      {
+        "name": "Earl's Secret Ooty",
+        "cuisine": "Colonial Anglo-Indian",
+        "distance": "3.2 km from Ooty Station",
+        "specialty": "Shepherd's Pie & Roast Chicken"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Ooty Botanical Gardens",
+        "distance": "2.5 km",
+        "type": "Terraced Botanical Garden"
+      },
+      {
+        "name": "Doddabetta Peak",
+        "distance": "8.0 km",
+        "type": "Highest Nilgiri Summit"
+      }
+    ],
+    "visualKeywords": [
+      "nilgiri",
+      "railway",
+      "toy train",
+      "ooty",
+      "steam",
+      "rack and pinion",
+      "tamil nadu"
+    ]
+  },
+  {
+    "id": "monument-valley-of-flowers",
+    "name": "Valley of Flowers & Nanda Devi National Parks",
+    "hindiName": "फूलों की घाटी और नंदा देवी राष्ट्रीय उद्यान",
+    "city": "Joshimath",
+    "state": "Uttarakhand",
+    "zone": "North",
+    "country": "India",
+    "coordinates": [
+      30.728,
+      79.6053
+    ],
+    "coordObj": {
+      "lat": 30.728,
+      "lng": 79.6053
+    },
+    "unescoStatus": "UNESCO World Heritage Site (1988, 2005)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Valley_of_Flowers_National_Park_Uttarakhand.jpg/1280px-Valley_of_Flowers_National_Park_Uttarakhand.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Valley_of_Flowers_National_Park_Uttarakhand.jpg/1280px-Valley_of_Flowers_National_Park_Uttarakhand.jpg",
+    "commissionedBy": "Frank S. Smythe (Discovered 1931) / Protected by Government of India",
+    "architect": "Nature (Glacial Himalayan Alpine Ecosystem)",
+    "constructionEra": "Protected 1982 / UNESCO Inscribed 1988 & 2005",
+    "material": "Alpine meadows, glacial moraines, and granite peaks",
+    "architecturalStyle": "Pristine Alpine Himalayan Biosphere",
+    "dimensions": "87.5 sq km valley area, altitude 3,352m to 3,658m above sea level",
+    "openingHours": "7:00 AM - 5:00 PM (Last entry 2:00 PM; overnight stay prohibited)",
+    "closedOn": "Closed November to May due to heavy snow; open June 1 to October 31",
+    "bestTimeToVisit": "Mid-July to mid-August (Peak flowering season with 500+ wild bloom species)",
+    "ticketPricing": {
+      "indian": "₹150 (3-day permit)",
+      "foreigner": "₹600 (3-day permit)",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Brahma Kamal: The rare sacred lotus of the Himalayas that blooms on high rock ledges.",
+      "Himalayan Blue Poppy: The delicate sky-blue Queen of Himalayan wildflowers.",
+      "Pushpawati River: Crystal glacial stream bisecting the flower-carpeted valley.",
+      "Nanda Devi Sanctuary: Pristine glacial wilderness encircling India's second-highest summit (7,816m)."
+    ],
+    "legendsAndFacts": "In Hindu mythology, this heavenly valley is believed to be Gandhamardan, where Hanuman gathered the life-saving Sanjeevani herb for Lakshmana.",
+    "audioGuideTranscript": "Welcome to the Valley of Flowers National Park, nestled in the Garhwal Himalayas of Uttarakhand. Inscribed as a UNESCO World Heritage Site, this high-altitude glacial meadow awakens during the monsoon with over five hundred varieties of wildflowers, including the legendary Himalayan blue poppy and the sacred Brahma Kamal.",
+    "nearbyFood": [
+      {
+        "name": "Ghangaria Trekker Dhabas",
+        "cuisine": "Garhwali Mountain Food",
+        "distance": "3.5 km base camp",
+        "specialty": "Aloo Paratha, Maggi & Kadhi Chawal"
+      },
+      {
+        "name": "Joshimath Badrinath Mess",
+        "cuisine": "Pure Vegetarian",
+        "distance": "Joshimath 18 km",
+        "specialty": "Garhwali Kafuli & Jhangora Kheer"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Hemkund Sahib",
+        "distance": "6.0 km steep trek from Ghangaria",
+        "type": "High Altitude Sikh Pilgrimage Shrine"
+      },
+      {
+        "name": "Badrinath Temple",
+        "distance": "25 km drive from Govindghat",
+        "type": "Char Dham Temple"
+      }
+    ],
+    "visualKeywords": [
+      "valley of flowers",
+      "nanda devi",
+      "uttarakhand",
+      "alpine",
+      "brahma kamal",
+      "himalayas",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-great-himalayan",
+    "name": "Great Himalayan National Park Conservation Area",
+    "hindiName": "ग्रेट हिमालयन नेशनल पार्क",
+    "city": "Kullu",
+    "state": "Himachal Pradesh",
+    "zone": "North",
+    "country": "India",
+    "coordinates": [
+      31.7333,
+      77.4
+    ],
+    "coordObj": {
+      "lat": 31.7333,
+      "lng": 77.4
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2014)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Great_Himalayan_National_Park_Valley.jpg/1280px-Great_Himalayan_National_Park_Valley.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Great_Himalayan_National_Park_Valley.jpg/1280px-Great_Himalayan_National_Park_Valley.jpg",
+    "commissionedBy": "Himachal Pradesh Forest Department / Ministry of Environment",
+    "architect": "Nature (Western Himalayan Biodiversity Hotspot)",
+    "constructionEra": "Established 1984 / UNESCO Inscribed 2014",
+    "material": "Alpine meadows, subalpine forests, glacial valleys, and perennial rivers",
+    "architecturalStyle": "Glacial High-Himalayan Ecosystem",
+    "dimensions": "1,171 sq km total conservation area, elevation 1,500m to 5,800m",
+    "openingHours": "Sunrise to Sunset (Entry permits required from Sai Ropa / Larji)",
+    "closedOn": "Open year-round; inner high-altitude treks inaccessible in winter",
+    "bestTimeToVisit": "April to June (Spring blooms) & September to November (Clear autumn skies)",
+    "ticketPricing": {
+      "indian": "₹100 per day",
+      "foreigner": "₹400 per day",
+      "childrenUnder15": "₹50"
+    },
+    "keyHighlights": [
+      "Western Tragopan: Home to the world's largest population of this endangered, brilliantly plumed pheasant.",
+      "Snow Leopard & Musk Deer: Pristine sanctuaries for high-altitude Himalayan carnivores.",
+      "Tirthan Valley Gateway: Crystal river teaming with wild brown trout and traditional wooden village architecture.",
+      "Glacial Origins: Source of the perennial Tirthan, Sainj, Jiwa Nal, and Parvati rivers."
+    ],
+    "legendsAndFacts": "The park prohibits roads, motorized vehicles, and permanent settlements, preserving one of the few completely undisturbed wilderness areas remaining in the Western Himalayas.",
+    "audioGuideTranscript": "Welcome to the Great Himalayan National Park Conservation Area, inscribed as a UNESCO World Heritage Site in 2014. Spanning over eleven hundred square kilometers in Himachal Pradesh, this pristine sanctuary shelters endangered snow leopards, Himalayan brown bears, and the rare western tragopan across untouched glacial valleys.",
+    "nearbyFood": [
+      {
+        "name": "Tirthan River Cafe Gushaini",
+        "cuisine": "Himachali & Trout",
+        "distance": "Gushaini 2.0 km",
+        "specialty": "Pan-Fried Himalayan Brown Trout"
+      },
+      {
+        "name": "Sai Ropa Forest Rest House Canteen",
+        "cuisine": "Local Homestyle",
+        "distance": "Park Gate",
+        "specialty": "Siddu with Desi Ghee"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Choie Waterfall",
+        "distance": "3.5 km trek",
+        "type": "Natural Cascade"
+      },
+      {
+        "name": "Chehni Kothi",
+        "distance": "12 km",
+        "type": "17th Century Timber Tower Fort"
+      }
+    ],
+    "visualKeywords": [
+      "great himalayan",
+      "national park",
+      "kullu",
+      "tirthan",
+      "snow leopard",
+      "himachal",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-dholavira",
+    "name": "Dholavira: A Harappan City",
+    "hindiName": "धोलावीरा: एक हड़प्पा कालीन शहर",
+    "city": "Khadir Bet, Kutch",
+    "state": "Gujarat",
+    "zone": "West",
+    "country": "India",
+    "coordinates": [
+      23.8864,
+      70.2131
+    ],
+    "coordObj": {
+      "lat": 23.8864,
+      "lng": 70.2131
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2021)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Dholavira_reservoirs.jpg/1280px-Dholavira_reservoirs.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Dholavira_reservoirs.jpg/1280px-Dholavira_reservoirs.jpg",
+    "commissionedBy": "Indus Valley Civilization Harappan Engineers",
+    "architect": "Ancient Harappan Urban Planners & Hydraulic Engineers",
+    "constructionEra": "2600 - 1600 BCE (flourished over 1,000 years)",
+    "material": "Sun-dried mud-brick and meticulously cut sandstone masonry",
+    "architecturalStyle": "Indus Valley Urban Citadel & Hydraulic Architecture",
+    "dimensions": "City area 100 hectares, 16 massive stone-cut water reservoirs, citadel walls up to 18m wide",
+    "openingHours": "6:00 AM - 6:00 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to March (Winter in the Rann of Kutch)",
+    "ticketPricing": {
+      "indian": "Free Entry",
+      "foreigner": "Free Entry",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Monumental Water Reservoirs: 16 interconnected stone-cut reservoirs capable of storing 250,000 cubic meters.",
+      "Dholavira Signboard: 10 large gypsum hieroglyphic Indus script symbols discovered near the northern gate.",
+      "Tripartite City Planning: Divided into fortified Citadel, Middle Town, and Lower Town with ceremonial stadium.",
+      "Polished Stone Pillars: Unique circular sandstone architectural pillars rare in Harappan sites."
+    ],
+    "legendsAndFacts": "Dholavira was occupied continuously for over a millennium through seven distinct cultural stages, proving the resilience and advanced hydraulic engineering of the Bronze Age Indus civilization.",
+    "audioGuideTranscript": "Welcome to Dholavira, inscribed as a UNESCO World Heritage Site in 2021. Situated on the island of Khadir Bet in the Great Rann of Kutch, this five-thousand-year-old Bronze Age metropolis showcases the ancient world's most sophisticated rainwater harvesting reservoirs, stone citadels, and urban planning.",
+    "nearbyFood": [
+      {
+        "name": "Khadir Bet Heritage Bhojanalaya",
+        "cuisine": "Kutchi Gujarati",
+        "distance": "1.5 km",
+        "specialty": "Bajra No Rotlo & Ringna No Olo"
+      },
+      {
+        "name": "Toran Resort Dholavira",
+        "cuisine": "North Indian & Gujarati",
+        "distance": "3.0 km",
+        "specialty": "Kutchi Khichdi & Buttermilk"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Fossil Park Khadir Bet",
+        "distance": "6.0 km",
+        "type": "Jurassic Dinosaur Tree Fossils"
+      },
+      {
+        "name": "White Rann Salt Desert",
+        "distance": "View from island highway",
+        "type": "Salt Flat Vista"
+      }
+    ],
+    "visualKeywords": [
+      "dholavira",
+      "harappa",
+      "indus valley",
+      "kutch",
+      "gujarat",
+      "reservoir",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-bhimbetka-caves",
+    "name": "Rock Shelters of Bhimbetka",
+    "hindiName": "भीमबेटका के शैलचित्र",
+    "city": "Raisen / Bhopal",
+    "state": "Madhya Pradesh",
+    "zone": "Central",
+    "country": "India",
+    "coordinates": [
+      22.9372,
+      77.6128
+    ],
+    "coordObj": {
+      "lat": 22.9372,
+      "lng": 77.6128
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2003)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bhimbetka_Rock_Shelter_Cave_3.jpg/1280px-Bhimbetka_Rock_Shelter_Cave_3.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bhimbetka_Rock_Shelter_Cave_3.jpg/1280px-Bhimbetka_Rock_Shelter_Cave_3.jpg",
+    "commissionedBy": "Prehistoric Hunter-Gatherer Human Communities",
+    "architect": "Dr. V.S. Wakankar (Discovered 1957)",
+    "constructionEra": "30,000 BCE to Historic Period (30 millennia of continuous human occupancy)",
+    "material": "Natural Vindhyan sandstone caves painted with manganese, hematite, and plant sap pigments",
+    "architecturalStyle": "Prehistoric Rock Art & Natural Rock Formations",
+    "dimensions": "Over 750 rock shelters across 10 km, 15 caves open to the public",
+    "openingHours": "7:00 AM - 6:00 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to March (Pleasant central Indian weather)",
+    "ticketPricing": {
+      "indian": "₹25",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Auditorium Cave: Massive cathedral-like shelter featuring cupules dated to 100,000 BCE, among Earth's oldest art.",
+      "Boar Rock: Famous shelter painting depicting a giant mythological boar chasing human hunters.",
+      "Zoo Rock: Over 452 figures of 16 animal species painted in ochre, white, and red mineral pigments.",
+      "Living Continuity: Demonstrates cultural traditions and rituals still preserved by surrounding tribal communities."
+    ],
+    "legendsAndFacts": "The name Bhimbetka derives from 'Bhimbaithka' meaning 'the sitting place of Bhima', referring to the colossal hero from the Mahabharata.",
+    "audioGuideTranscript": "Welcome to the Rock Shelters of Bhimbetka, inscribed as a UNESCO World Heritage Site in 2003. Located in the teak forests of the Vindhyan range, these 750 sandstone shelters preserve thirty thousand years of human imagination, with vivid ochre and white mineral paintings depicting prehistoric hunts, dance, and spiritual ceremonies.",
+    "nearbyFood": [
+      {
+        "name": "MPT Highway Treat Bhimbetka",
+        "cuisine": "North Indian",
+        "distance": "2.5 km",
+        "specialty": "Paneer Butter Masala & Dal Tadka"
+      },
+      {
+        "name": "Bhojpur Heritage Dhabas",
+        "cuisine": "Madhya Pradesh Local",
+        "distance": "Bhojpur 22 km",
+        "specialty": "Sev Tamatar & Fresh Tawa Roti"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Bhojeshwar Shiva Temple",
+        "distance": "25 km",
+        "type": "Monumental 11th Century Monolithic Shivalinga"
+      },
+      {
+        "name": "Sanchi Stupa",
+        "distance": "80 km",
+        "type": "Buddhist Heritage Site"
+      }
+    ],
+    "visualKeywords": [
+      "bhimbetka",
+      "rock shelters",
+      "cave paintings",
+      "prehistoric",
+      "madhya pradesh",
+      "bhopal",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-gangaikonda-cholapuram",
+    "name": "Temple of Gangaikonda Cholapuram",
+    "hindiName": "गंगईकोंडा चोलपुरम मंदिर",
+    "city": "Jayankondam / Ariyalur",
+    "state": "Tamil Nadu",
+    "zone": "South",
+    "country": "India",
+    "coordinates": [
+      11.2061,
+      79.4539
+    ],
+    "coordObj": {
+      "lat": 11.2061,
+      "lng": 79.4539
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Great Living Chola Temples, 2004)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Gangaikonda_Cholapuram_Temple_Vimana.jpg/1280px-Gangaikonda_Cholapuram_Temple_Vimana.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Gangaikonda_Cholapuram_Temple_Vimana.jpg/1280px-Gangaikonda_Cholapuram_Temple_Vimana.jpg",
+    "commissionedBy": "Chola Emperor Rajendra I",
+    "architect": "Chola Master Sthapatis",
+    "constructionEra": "1035 CE",
+    "material": "Polished granite blocks with intricate stone carvings and Chola bronze sculptures",
+    "architecturalStyle": "Classical Dravidian Temple Architecture",
+    "dimensions": "Vimana height 55 meters (180 ft), temple courtyard 106m x 30m",
+    "openingHours": "6:00 AM - 12:00 PM / 4:00 PM - 8:00 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to March (Comfortable tropical winter)",
+    "ticketPricing": {
+      "indian": "Free Entry (Active Living Temple)",
+      "foreigner": "Free Entry",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Curved Concave Vimana: Unlike Thanjavur's straight pyramid, this 55m vimana curves gracefully inward.",
+      "Simhakinar (Lion Well): Royal stepped well entered through the open mouth of a colossal stone lion.",
+      "Nataraja & Chandeshwara Sculptures: Exquisite Chola stone panels depicting Shiva blessing King Rajendra I.",
+      "Monolithic Nandi: 200-meter axial alignment with the massive stone Nandi facing the inner sanctum."
+    ],
+    "legendsAndFacts": "Emperor Rajendra I marched his armies all the way to the holy river Ganges, requiring defeated kings to carry pots of sacred Ganges water on their heads to consecrate the temple's ceremonial reservoir.",
+    "audioGuideTranscript": "Welcome to Gangaikonda Cholapuram, inscribed as a UNESCO World Heritage site under the Great Living Chola Temples. Built in 1035 CE by Emperor Rajendra I to commemorate his military march to the River Ganges, this majestic granite temple is renowned for its gracefully curving 55-meter vimana tower and exquisite stone carvings.",
+    "nearbyFood": [
+      {
+        "name": "Chola Royal Mess",
+        "cuisine": "Tamil Nadu Veg & Non-Veg",
+        "distance": "800 m",
+        "specialty": "Chettinad Chicken & Parotta"
+      },
+      {
+        "name": "Kumbakonam Degree Coffee",
+        "cuisine": "South Indian Coffee",
+        "distance": "Kumbakonam road 12 km",
+        "specialty": "Filter Coffee & Banana Bajjis"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Brihadisvara Temple Thanjavur",
+        "distance": "70 km",
+        "type": "Chola World Heritage Sister Temple"
+      },
+      {
+        "name": "Airavatesvara Temple Darasuram",
+        "distance": "35 km",
+        "type": "Chola World Heritage Chariot Temple"
+      }
+    ],
+    "visualKeywords": [
+      "gangaikonda",
+      "cholapuram",
+      "chola",
+      "dravidian",
+      "granite",
+      "tamil nadu",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-sundarbans",
+    "name": "Sundarbans National Park",
+    "hindiName": "सुंदरवन राष्ट्रीय उद्यान",
+    "city": "South 24 Parganas",
+    "state": "West Bengal",
+    "zone": "East",
+    "country": "India",
+    "coordinates": [
+      21.9497,
+      89.1833
+    ],
+    "coordObj": {
+      "lat": 21.9497,
+      "lng": 89.1833
+    },
+    "unescoStatus": "UNESCO World Heritage Site (1987)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sundarbans_Mangrove_Forest_Delta.jpg/1280px-Sundarbans_Mangrove_Forest_Delta.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sundarbans_Mangrove_Forest_Delta.jpg/1280px-Sundarbans_Mangrove_Forest_Delta.jpg",
+    "commissionedBy": "Ministry of Environment and Forests & West Bengal Forest Directorate",
+    "architect": "Nature (Ganges-Brahmaputra Estuarine Delta)",
+    "constructionEra": "Protected Reserve 1973 / UNESCO Inscribed 1987",
+    "material": "Tidal mangrove forests, mudflats, estuarine creeks, and delta islands",
+    "architecturalStyle": "World's Largest Halophytic Mangrove Ecosystem",
+    "dimensions": "1,330 sq km core park area across 54 delta islands",
+    "openingHours": "7:00 AM - 5:00 PM (Boat Safaris)",
+    "closedOn": "Open daily; boat operations pause during severe cyclonic warnings",
+    "bestTimeToVisit": "October to March (Mild weather, best tiger and crocodile sightings)",
+    "ticketPricing": {
+      "indian": "₹60 per day + Boat Permit",
+      "foreigner": "₹200 per day + Boat Permit",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Swimming Royal Bengal Tigers: The only tiger population on Earth adapted to swimming across tidal saltwater channels.",
+      "Pneumatophores (Breathing Roots): Dense forests of Sundari, Goran, and Gewa trees with spike-like aerial roots.",
+      "Estuarine Crocodiles: Massive saltwater crocodiles sunning themselves on the muddy riverbanks.",
+      "Dobanki Canopy Walkway: Elevated half-kilometer caged aerial walk 20 feet above the mangrove canopy."
+    ],
+    "legendsAndFacts": "Local honey-gatherers (Mawalis) and fishermen worship Bonbibi, the guardian goddess of the forest, donning backward-facing masks to deter tiger attacks from behind.",
+    "audioGuideTranscript": "Welcome to the Sundarbans National Park, inscribed as a UNESCO World Heritage Site in 1987. Spanning the delta of the sacred Ganges and Brahmaputra rivers, this is the largest mangrove forest in the world, home to the swimming Royal Bengal tiger, estuarine crocodiles, and rare Gangetic river dolphins.",
+    "nearbyFood": [
+      {
+        "name": "Sundarbans Eco Boat Dining",
+        "cuisine": "Bengali Coastal",
+        "distance": "On Safari Cruise",
+        "specialty": "Chingri Malai Curry & Bhetki Paturi"
+      },
+      {
+        "name": "Gosaba Bazaar Canteen",
+        "cuisine": "Bengali Homestyle",
+        "distance": "Gosaba Jetty",
+        "specialty": "Fish Thali with Rice and Dal"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Sajnekhali Bird Sanctuary",
+        "distance": "Creek Route",
+        "type": "Watchtower & Mangrove Interpretation Centre"
+      },
+      {
+        "name": "Netidhopani Ruins",
+        "distance": "400-year-old temple ruins",
+        "type": "Mythological Historical Site"
+      }
+    ],
+    "visualKeywords": [
+      "sundarbans",
+      "mangrove",
+      "bengal tiger",
+      "west bengal",
+      "delta",
+      "crocodile",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-santiniketan",
+    "name": "Santiniketan & Visva-Bharati",
+    "hindiName": "शांतिनिकेतन और विश्व-भारती",
+    "city": "Bolpur / Birbhum",
+    "state": "West Bengal",
+    "zone": "East",
+    "country": "India",
+    "coordinates": [
+      23.6789,
+      87.6833
+    ],
+    "coordObj": {
+      "lat": 23.6789,
+      "lng": 87.6833
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2023)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Santiniketan_Upasana_Griha.jpg/1280px-Santiniketan_Upasana_Griha.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Santiniketan_Upasana_Griha.jpg/1280px-Santiniketan_Upasana_Griha.jpg",
+    "commissionedBy": "Maharshi Debendranath Tagore & Rabindranath Tagore",
+    "architect": "Surendranath Kar, Nandalal Bose, and Ramkinkar Baij",
+    "constructionEra": "1863 CE Ashram / 1901 CE Brahmacharya Vidyalaya / 1921 CE Visva-Bharati",
+    "material": "Red laterite clay, terracotta murals, teakwood, and stained Belgian glass",
+    "architecturalStyle": "Pan-Asian Modernism & Open-Air Vernacular",
+    "dimensions": "Campus covers 1,100 acres across Bolpur and Sriniketan",
+    "openingHours": "10:30 AM - 4:30 PM (Museum & Uttarayan Complex)",
+    "closedOn": "Wednesdays (Tagore's day of contemplation) & national holidays",
+    "bestTimeToVisit": "October to March (Poush Mela in late December & Basanta Utsav in March)",
+    "ticketPricing": {
+      "indian": "₹50",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Upasana Griha (Glass Temple): Built in 1891 with cast iron arches and multi-colored Belgian stained glass.",
+      "Open-Air Classes: Centuries of students learning seated outdoors beneath shady banyan and mango groves.",
+      "Kala Bhavana Murals: World-renowned art institute with relief sculptures by Ramkinkar Baij and murals by Nandalal Bose.",
+      "Uttarayan Complex: Five houses built for Rabindranath Tagore reflecting different architectural idioms."
+    ],
+    "legendsAndFacts": "Tagore used the entirety of his 1913 Nobel Prize in Literature monetary award to fund the development of Visva-Bharati university as a center for international humanist dialogue.",
+    "audioGuideTranscript": "Welcome to Santiniketan, inscribed as a UNESCO World Heritage Site in 2023. Founded by Nobel laureate Rabindranath Tagore in rural Bengal, this unique residential educational center broke from colonial Victorian models to celebrate open-air learning, pan-Asian arts, and harmony between humanity and nature.",
+    "nearbyFood": [
+      {
+        "name": "Kopai River Shalik Canteen",
+        "cuisine": "Traditional Bengali",
+        "distance": "1.2 km",
+        "specialty": "Posto Bora & Shukto Thali"
+      },
+      {
+        "name": "Ghare Baire Cafe",
+        "cuisine": "Heritage Bengali Fusion",
+        "distance": "Bolpur 2.0 km",
+        "specialty": "Daab Chingri & Kacha Golla"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Kankalitala Shaktipeeth",
+        "distance": "8.5 km",
+        "type": "Sacred Temple on Kopai River"
+      },
+      {
+        "name": "Bishnupur Terracotta Temples",
+        "distance": "85 km",
+        "type": "Malla Dynasty Terracotta Architecture"
+      }
+    ],
+    "visualKeywords": [
+      "santiniketan",
+      "tagore",
+      "visva bharati",
+      "bolpur",
+      "west bengal",
+      "upasana griha",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-kaziranga",
+    "name": "Kaziranga National Park",
+    "hindiName": "काजीरंगा राष्ट्रीय उद्यान",
+    "city": "Golaghat / Nagaon",
+    "state": "Assam",
+    "zone": "East",
+    "country": "India",
+    "coordinates": [
+      26.5775,
+      93.1711
+    ],
+    "coordObj": {
+      "lat": 26.5775,
+      "lng": 93.1711
+    },
+    "unescoStatus": "UNESCO World Heritage Site (1985)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaziranga_Rhino_Grasslands.jpg/1280px-Kaziranga_Rhino_Grasslands.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaziranga_Rhino_Grasslands.jpg/1280px-Kaziranga_Rhino_Grasslands.jpg",
+    "commissionedBy": "Mary Curzon (Baroness Curzon) & Lord Curzon",
+    "architect": "Nature (Brahmaputra Floodplain Grasslands)",
+    "constructionEra": "Established 1905 / UNESCO Inscribed 1985",
+    "material": "Tall elephant grass, marshlands, and dense tropical broadleaf forests",
+    "architecturalStyle": "Brahmaputra Alluvial Floodplain Savanna",
+    "dimensions": "430 sq km core national park area with four safari ranges",
+    "openingHours": "Morning Safari: 7:00 AM - 10:00 AM / Afternoon: 1:30 PM - 4:00 PM",
+    "closedOn": "Closed May to October due to annual monsoon flooding; open Nov 1 to April 30",
+    "bestTimeToVisit": "November to April (Crisp weather and highest wildlife concentrations)",
+    "ticketPricing": {
+      "indian": "₹100 + Safari Jeep / Elephant charges",
+      "foreigner": "₹650 + Safari Jeep charges",
+      "childrenUnder15": "₹50"
+    },
+    "keyHighlights": [
+      "Great Indian One-Horned Rhinoceros: Shelters over 2,600 rhinos, two-thirds of the planet's total wild population.",
+      "The 'Big Five' of Asia: One-horned rhino, royal Bengal tiger, Asian elephant, wild water buffalo, and swamp deer.",
+      "High Tiger Density: Boasts one of the highest densities of tigers among protected reserves globally.",
+      "Elephant Grass Savanna: Towering 5-meter tall grasslands bisected by scenic water channels (beels)."
+    ],
+    "legendsAndFacts": "In 1904, Mary Curzon visited Kaziranga and was dismayed not to spot a single rhino. She persuaded her husband, Viceroy Lord Curzon, to declare it a reserved forest, sparking one of history's greatest wildlife conservation turnarounds.",
+    "audioGuideTranscript": "Welcome to Kaziranga National Park, inscribed as a UNESCO World Heritage Site in 1985. Situated on the floodplains of the mighty Brahmaputra River in Assam, this protected grassland is the world's greatest sanctuary for the prehistoric-looking great Indian one-horned rhinoceros.",
+    "nearbyFood": [
+      {
+        "name": "Heritage Khorikaa Kaziranga",
+        "cuisine": "Traditional Assamese",
+        "distance": "Kohora Range",
+        "specialty": "Masor Tenga & Duck Roast with Bamboo Shoot"
+      },
+      {
+        "name": "Orchid Organic Canteen",
+        "cuisine": "Assamese Thali",
+        "distance": "1.5 km",
+        "specialty": "Joha Rice with 12 Indigenous Herbs"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Kaziranga National Orchid Park",
+        "distance": "2.0 km",
+        "type": "600+ Wild Orchid Species & Cultural Center"
+      },
+      {
+        "name": "Hoollongapar Gibbon Sanctuary",
+        "distance": "70 km",
+        "type": "India's Only Ape Sanctuary"
+      }
+    ],
+    "visualKeywords": [
+      "kaziranga",
+      "rhino",
+      "assam",
+      "brahmaputra",
+      "safari",
+      "wildlife",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-charaideo-moidams",
+    "name": "Moidams of the Ahom Dynasty (Charaideo)",
+    "hindiName": "चराइदेव के मोइदाम (अहोम राजवंश)",
+    "city": "Charaideo",
+    "state": "Assam",
+    "zone": "East",
+    "country": "India",
+    "coordinates": [
+      26.9389,
+      94.8697
+    ],
+    "coordObj": {
+      "lat": 26.9389,
+      "lng": 94.8697
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2024)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Charaideo_Moidam_Ahom_Assam.jpg/1280px-Charaideo_Moidam_Ahom_Assam.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Charaideo_Moidam_Ahom_Assam.jpg/1280px-Charaideo_Moidam_Ahom_Assam.jpg",
+    "commissionedBy": "Chaolung Sukaphaa & Successive Ahom Swargadeos (Kings)",
+    "architect": "Tai-Ahom Royal Architects & High Priests (Chang-rung Phukan)",
+    "constructionEra": "1253 - 1826 CE (Over 600 years of royal dynastic burials)",
+    "material": "Burnt bricks, stone slabs, molasses-and-duck-egg mortar, and hemispherical earth mounds",
+    "architecturalStyle": "Tai-Ahom Mound-Burial (Moidam) Architecture",
+    "dimensions": "90 royal moidams across Charaideo hill slopes, central mounds up to 20m high",
+    "openingHours": "9:00 AM - 5:00 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to April (Pleasant dry winter in Upper Assam)",
+    "ticketPricing": {
+      "indian": "₹25",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Assam's Royal Pyramids: Hemispherical earthen mounds covering underground brick-vaulted burial chambers.",
+      "Me-Dam-Me-Phi Ancestor Worship: Sacred ritual site where Ahoms offer reverence to royal ancestral spirits.",
+      "Sacred Charaideo Foothills: The first capital founded in 1253 CE by Chaolung Sukaphaa at the foot of Patkai hills.",
+      "Royal Grave Goods: Excavated chambers revealed gold ornaments, silver swords (hengdang), and ivory artifacts."
+    ],
+    "legendsAndFacts": "Inscribed as India's 43rd UNESCO World Heritage Site in 2024, the Moidams represent the only surviving mound-burial system of Tai-Ahom culture in all of South Asia.",
+    "audioGuideTranscript": "Welcome to the Moidams of the Ahom Dynasty at Charaideo, inscribed as a UNESCO World Heritage Site in 2024. Often referred to as the Pyramids of Assam, these earthen mounds conceal vaulted brick tombs of Ahom royalty who ruled the Brahmaputra valley for over six centuries without succumbing to Mughal conquest.",
+    "nearbyFood": [
+      {
+        "name": "Charaideo Ahom Food Hut",
+        "cuisine": "Upper Assamese Ethnic",
+        "distance": "1.0 km",
+        "specialty": "Smoked Pork with Bamboo Shoot & Sticky Rice"
+      },
+      {
+        "name": "Sibsagar Royal Dhaba",
+        "cuisine": "Assamese & North Indian",
+        "distance": "Sibsagar 28 km",
+        "specialty": "Masor Tenga & Paratha"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Rang Ghar Sibsagar",
+        "distance": "28 km",
+        "type": "Two-Story Royal Amphitheater"
+      },
+      {
+        "name": "Talatal Ghar",
+        "distance": "30 km",
+        "type": "Subterranean Military Palace"
+      }
+    ],
+    "visualKeywords": [
+      "moidams",
+      "charaideo",
+      "ahom",
+      "assam",
+      "burial mound",
+      "sukaphaa",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-khangchendzonga",
+    "name": "Khangchendzonga National Park",
+    "hindiName": "कंचनजंगा राष्ट्रीय उद्यान",
+    "city": "Yuksom / Gangtok",
+    "state": "Sikkim",
+    "zone": "East",
+    "country": "India",
+    "coordinates": [
+      27.7,
+      88.3333
+    ],
+    "coordObj": {
+      "lat": 27.7,
+      "lng": 88.3333
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Mixed Natural & Cultural, 2016)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kangchenjunga_Dawn_Sikkim.jpg/1280px-Kangchenjunga_Dawn_Sikkim.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kangchenjunga_Dawn_Sikkim.jpg/1280px-Kangchenjunga_Dawn_Sikkim.jpg",
+    "commissionedBy": "Protected by Government of Sikkim & Ministry of Environment",
+    "architect": "Nature & Sacred Tibetan Buddhist Cultural Landscape",
+    "constructionEra": "Established 1977 / UNESCO Inscribed 2016",
+    "material": "Glaciers, snowfields, granite ridges, and sacred alpine lakes",
+    "architecturalStyle": "High-Altitude Glacial & Sacred Beyul Landscape",
+    "dimensions": "1,784 sq km park area, includes Mount Khangchendzonga (8,586m, Earth's 3rd highest summit)",
+    "openingHours": "Sunrise to Sunset (Inner Line Trekking Permits Required)",
+    "closedOn": "Open year-round; high passes inaccessible in winter due to snow",
+    "bestTimeToVisit": "March to May (Rhododendron blooms) & October to November (Clear mountain views)",
+    "ticketPricing": {
+      "indian": "₹200 per day",
+      "foreigner": "₹400 per day",
+      "childrenUnder15": "₹100"
+    },
+    "keyHighlights": [
+      "Mount Khangchendzonga: Soaring to 8,586 meters, revered by Sikkim as a sacred protective deity.",
+      "Zemu Glacier: One of the largest glaciers in the eastern Himalayas stretching 26 kilometers.",
+      "Sacred Beyul (Hidden Land): Mythological hidden valleys where Guru Padmasambhava consecrated sacred treasures.",
+      "Rare Alpine Fauna: Snow leopard, red panda, Himalayan musk deer, and Tibetan wild ass."
+    ],
+    "legendsAndFacts": "Sikkimese people revere the mountain as an all-protecting deity; mountaineering expeditions historically stop a few feet short of the actual summit to respect its sacred inviolability.",
+    "audioGuideTranscript": "Welcome to Khangchendzonga National Park, India's first and only UNESCO Mixed World Heritage Site, inscribed in 2016. Dominated by Mount Khangchendzonga, the third highest peak on Earth, this sacred park seamlessly weaves high-altitude glacial ecology with Tibetan Buddhist cosmology and Lepcha ancestral mythology.",
+    "nearbyFood": [
+      {
+        "name": "Yuksom Himalayan Kitchen",
+        "cuisine": "Sikkimese & Tibetan",
+        "distance": "Yuksom Trailhead",
+        "specialty": "Steamed Pork Momos & Thukpa"
+      },
+      {
+        "name": "Dzongri Yak Butter Tea Shack",
+        "cuisine": "High Altitude Mountain",
+        "distance": "Dzongri 4,030m",
+        "specialty": "Po Cha (Yak Butter Salt Tea) & Tsampa"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Dubdi Monastery",
+        "distance": "Yuksom 3.0 km",
+        "type": "Sikkim's Oldest Monastery (1701 CE)"
+      },
+      {
+        "name": "Goecha La Pass",
+        "distance": "Trek route 4,940m",
+        "type": "Panoramic Viewpoint Facing Mt. Kangchenjunga"
+      }
+    ],
+    "visualKeywords": [
+      "khangchendzonga",
+      "kanchenjunga",
+      "sikkim",
+      "mixed heritage",
+      "glacier",
+      "himalayas",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-manas-sanctuary",
+    "name": "Manas Wildlife Sanctuary",
+    "hindiName": "मानस वन्यजीव अभयारण्य",
+    "city": "Barpeta / Baksa",
+    "state": "Assam",
+    "zone": "East",
+    "country": "India",
+    "coordinates": [
+      26.7167,
+      91.0333
+    ],
+    "coordObj": {
+      "lat": 26.7167,
+      "lng": 91.0333
+    },
+    "unescoStatus": "UNESCO World Heritage Site (1985)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Manas_National_Park_Landscape.jpg/1280px-Manas_National_Park_Landscape.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Manas_National_Park_Landscape.jpg/1280px-Manas_National_Park_Landscape.jpg",
+    "commissionedBy": "Ministry of Environment and Forests & Assam Forest Department",
+    "architect": "Nature (Eastern Himalayan Foothills)",
+    "constructionEra": "Established 1928 / UNESCO Inscribed 1985",
+    "material": "Sub-Himalayan alluvial semi-evergreen forests and grasslands",
+    "architecturalStyle": "Eastern Himalayan Biodiversity Biosphere",
+    "dimensions": "950 sq km sanctuary contiguous with Royal Manas National Park in Bhutan",
+    "openingHours": "6:00 AM - 5:00 PM (Safaris & Rafting)",
+    "closedOn": "Open November 1 to April 30; closed during peak monsoon",
+    "bestTimeToVisit": "November to April (Pleasant weather, golden langur sightings)",
+    "ticketPricing": {
+      "indian": "₹100 + Safari charges",
+      "foreigner": "₹500 + Safari charges",
+      "childrenUnder15": "₹50"
+    },
+    "keyHighlights": [
+      "Golden Langur: Endemic primate with lustrous golden-apricot coat found only in this region.",
+      "Pygmy Hog: The world's smallest and rarest wild pig, saved from extinction here.",
+      "Manas River Rafting: Gentle white-water rafting drifting past Bhutanese mountain ridges.",
+      "Tiger & Elephant Reserve: Crucial trans-boundary corridor for wild Asian elephants and Bengal tigers."
+    ],
+    "legendsAndFacts": "Named after the serpent goddess Manasa, the sanctuary is renowned for successfully recovering from endangered status through exemplary community conservation.",
+    "audioGuideTranscript": "Welcome to Manas Wildlife Sanctuary, inscribed as a UNESCO World Heritage Site in 1985. Nestled in the eastern Himalayan foothills of Assam along the border with Bhutan, this biosphere reserve protects some of the planet's rarest species, including the golden langur and the pygmy hog.",
+    "nearbyFood": [
+      {
+        "name": "Bodo Tribal Kitchen",
+        "cuisine": "Indigenous Bodo Cuisine",
+        "distance": "Manas Gate",
+        "specialty": "Oma Bedor (Pork with Jwngshi) & Rice"
+      },
+      {
+        "name": "Mothanguri Forest Canteen",
+        "cuisine": "Assamese Homestyle",
+        "distance": "Inside Core",
+        "specialty": "Dal Bhat & Local Fish Curry"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Royal Manas Bhutan",
+        "distance": "Across River",
+        "type": "Trans-boundary Bhutanese Park"
+      },
+      {
+        "name": "Barpeta Satra",
+        "distance": "45 km",
+        "type": "16th Century Vaishnavite Cultural Monastery"
+      }
+    ],
+    "visualKeywords": [
+      "manas",
+      "wildlife",
+      "assam",
+      "golden langur",
+      "pygmy hog",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-hoysala-somanathapura",
+    "name": "Keshava Temple, Somanathapura",
+    "hindiName": "केशव मंदिर, सोमनाथपुरा",
+    "city": "Somanathapura",
+    "state": "Karnataka",
+    "zone": "South",
+    "country": "India",
+    "coordinates": [
+      12.2764,
+      76.9056
+    ],
+    "coordObj": {
+      "lat": 12.2764,
+      "lng": 76.9056
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Sacred Ensembles of the Hoysalas, 2023)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keshava_Temple_Somanathapura_Rear.jpg/1280px-Keshava_Temple_Somanathapura_Rear.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keshava_Temple_Somanathapura_Rear.jpg/1280px-Keshava_Temple_Somanathapura_Rear.jpg",
+    "commissionedBy": "Hoysala Army Commander Somanatha Dandanayaka",
+    "architect": "Master Sculptor Mallitamma & Sthapatis",
+    "constructionEra": "1268 CE (King Narasimha III)",
+    "material": "Chloritic Schist (Green Soapstone)",
+    "architecturalStyle": "Hoysala Trikuta (Three-Shrined) Temple Architecture",
+    "dimensions": "Standing on a 1.5-meter star-shaped jagati (platform), 16 ornate ceilings",
+    "openingHours": "8:30 AM - 5:30 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to March (Mild southern winter)",
+    "ticketPricing": {
+      "indian": "₹25",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Trikuta Plan: Three symmetrical sanctums housing Venugopala, Keshava, and Janardhana.",
+      "16 Carved Ceilings: Every bay of the hall features a completely unique celestial ceiling medallion.",
+      "Sculptor Signatures: Master sculptor Mallitamma inscribed his name on more than 40 relief panels.",
+      "Kaveri Riverside Setting: Situated peacefully near the banks of the sacred Kaveri River."
+    ],
+    "legendsAndFacts": "The temple was so breathtakingly intricate that legend says the gods tried to transport it to heaven; Somanatha had to slightly disfigure a corner stone to keep it bound to the mortal world.",
+    "audioGuideTranscript": "Welcome to the Keshava Temple at Somanathapura, inscribed as a UNESCO World Heritage Site in 2023 under the Sacred Ensembles of the Hoysalas. Erected in 1268 CE, this trikuta masterpiece represents the grand finale of Hoysala architecture, renowned for its star-shaped base and sixteen uniquely carved stone ceilings.",
+    "nearbyFood": [
+      {
+        "name": "Kaveri River Mess",
+        "cuisine": "Karnataka Meals",
+        "distance": "800 m",
+        "specialty": "Ragi Mudde with Sambar & Buttermilk"
+      },
+      {
+        "name": "Mylari Dosa Mysuru",
+        "cuisine": "South Indian Tiffin",
+        "distance": "Mysore 35 km",
+        "specialty": "Original Butter Masala Dosa"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Talakadu Sand Dunes & Temples",
+        "distance": "16 km",
+        "type": "Submerged Temples on Kaveri"
+      },
+      {
+        "name": "Mysore Palace",
+        "distance": "35 km",
+        "type": "Wodeyar Royal Palace"
+      }
+    ],
+    "visualKeywords": [
+      "somanathapura",
+      "keshava",
+      "hoysala",
+      "trikuta",
+      "soapstone",
+      "karnataka",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-western-ghats-hub",
+    "name": "Western Ghats Heritage Hub (Munnar & Anamudi)",
+    "hindiName": "पश्चिमी घाट विरासत केंद्र (मुन्नार)",
+    "city": "Munnar / Idukki",
+    "state": "Kerala",
+    "zone": "South",
+    "country": "India",
+    "coordinates": [
+      10.0889,
+      77.0595
+    ],
+    "coordObj": {
+      "lat": 10.0889,
+      "lng": 77.0595
+    },
+    "unescoStatus": "UNESCO World Heritage Site (2012)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Western_Ghats_Tea_Gardens_Munnar.jpg/1280px-Western_Ghats_Tea_Gardens_Munnar.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Western_Ghats_Tea_Gardens_Munnar.jpg/1280px-Western_Ghats_Tea_Gardens_Munnar.jpg",
+    "commissionedBy": "Protected by Forest Departments of Kerala, Tamil Nadu, Karnataka & Maharashtra",
+    "architect": "Nature (Ancient Gondwanaland Montane Ecosystem)",
+    "constructionEra": "UNESCO Inscribed 2012 (39 serial sites)",
+    "material": "Shola-grassland mosaic, tropical montane rainforests, and granite cliffs",
+    "architecturalStyle": "Global Biodiversity Hotspot & Cloud Forest",
+    "dimensions": "160,000 sq km mountain chain, older than the Himalayas, peak at Anamudi (2,695m)",
+    "openingHours": "7:00 AM - 6:00 PM (National Parks & Reserves)",
+    "closedOn": "Open daily; Eravikulam closed Feb-March for Nilgiri tahr calving",
+    "bestTimeToVisit": "September to May (Misty emerald slopes and cool mountain breezes)",
+    "ticketPricing": {
+      "indian": "₹120 (Eravikulam entry)",
+      "foreigner": "₹450 (Eravikulam entry)",
+      "childrenUnder15": "₹90"
+    },
+    "keyHighlights": [
+      "Anamudi Peak: At 2,695 meters, the highest mountain summit in India south of the Himalayas.",
+      "Nilgiri Tahr: Shelters the largest surviving wild population of this endangered mountain goat.",
+      "Neelakurinji Blossoms: Famous purple-blue floral blooming phenomenon occurring once every 12 years.",
+      "Montane Cloud Forests: Intact Shola-grassland ecosystems producing perennial rivers of South India."
+    ],
+    "legendsAndFacts": "Older than the Himalayas, the Western Ghats influence the Indian monsoon weather pattern and are recognized as one of the world's eight 'hottest hotspots' of biological diversity.",
+    "audioGuideTranscript": "Welcome to the Western Ghats Heritage Hub at Munnar, inscribed as a UNESCO World Heritage Site in 2012. Older than the Himalayas, this ancient mountain range mediates the Indian monsoons and harbors thousands of endemic species found nowhere else on Earth, centered around the majestic peak of Anamudi.",
+    "nearbyFood": [
+      {
+        "name": "Rapsy Restaurant Munnar",
+        "cuisine": "Kerala Spiced",
+        "distance": "Munnar Town",
+        "specialty": "Kerala Parotta with Beef Fry or Vegetable Stew"
+      },
+      {
+        "name": "Eastend Chai Stall",
+        "cuisine": "Cardamom Spiced Tea",
+        "distance": "Tea Museum",
+        "specialty": "Fresh Munnar Cardamom Tea"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Eravikulam National Park",
+        "distance": "8.0 km",
+        "type": "Nilgiri Tahr Habitat"
+      },
+      {
+        "name": "Mattupetty Dam & Lake",
+        "distance": "12 km",
+        "type": "Mountain Reservoir & Speedboating"
+      }
+    ],
+    "visualKeywords": [
+      "western ghats",
+      "munnar",
+      "anamudi",
+      "kerala",
+      "nilgiri tahr",
+      "biodiversity",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-ranthambore-fort",
+    "name": "Ranthambore Fort",
+    "hindiName": "रणथंभौर किला",
+    "city": "Sawai Madhopur",
+    "state": "Rajasthan",
+    "zone": "North",
+    "country": "India",
+    "coordinates": [
+      26.0173,
+      76.4533
+    ],
+    "coordObj": {
+      "lat": 26.0173,
+      "lng": 76.4533
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Hill Forts of Rajasthan, 2013)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Ranthambore_Fort_Panorama.jpg/1280px-Ranthambore_Fort_Panorama.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Ranthambore_Fort_Panorama.jpg/1280px-Ranthambore_Fort_Panorama.jpg",
+    "commissionedBy": "Sapaldaksha King Jayanta / Chauhan Rajputs",
+    "architect": "Chauhan Military Architects",
+    "constructionEra": "10th Century CE (944 CE)",
+    "material": "Vindhyan red sandstone and granite cliff ramparts",
+    "architecturalStyle": "Rajput Hill-Fort Fortress Architecture",
+    "dimensions": "Stands on a 215-meter (700 ft) high sheer cliff with 7 massive stone gates",
+    "openingHours": "6:00 AM - 6:00 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to April (Tiger sightings and pleasant weather)",
+    "ticketPricing": {
+      "indian": "Free Entry",
+      "foreigner": "Free Entry",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Cliff-Top Wilderness Fort: Overlooks the lakes and dense forests of Ranthambore Tiger Reserve.",
+      "Trinetra Ganesha Temple: Ancient 10th-century shrine receiving thousands of wedding invitation letters daily.",
+      "32-Pillared Cenotaph: 32 carved stone pillars commemorating King Jaitra Singh.",
+      "Toran Dwar & Suraj Pol: Imposing fortified gateways designed to repel war elephant charges."
+    ],
+    "legendsAndFacts": "When Sultan Alauddin Khalji besieged the fort in 1301 CE, Rajput women led by Queen Ranga Devi performed the historic first recorded Jauhar in Rajasthan history.",
+    "audioGuideTranscript": "Welcome to Ranthambore Fort, inscribed as a UNESCO World Heritage Site in 2013 under the Hill Forts of Rajasthan. Crowned atop a 700-foot sheer cliff within a wild tiger sanctuary, this 10th-century fortress withstood legendary medieval sieges while preserving monumental cenotaphs, ancient stepwells, and the revered Trinetra Ganesha temple.",
+    "nearbyFood": [
+      {
+        "name": "Tiger Haveli Restaurant",
+        "cuisine": "Rajasthani & North Indian",
+        "distance": "Sawai Madhopur 8 km",
+        "specialty": "Dal Baati Churma & Gatta Curry"
+      },
+      {
+        "name": "The Oberoi Vanyavilas Dining",
+        "cuisine": "Royal Rajasthani Fine Dining",
+        "distance": "11 km",
+        "specialty": "Laal Maas & Ker Sangri"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Ranthambore National Park Safari",
+        "distance": "Contiguous Sanctuary",
+        "type": "Bengal Tiger Wildlife Sanctuary"
+      },
+      {
+        "name": "Padam Talao & Jogi Mahal",
+        "distance": "2.5 km below fort",
+        "type": "Historic Lake & Banyan Tree"
+      }
+    ],
+    "visualKeywords": [
+      "ranthambore",
+      "fort",
+      "tiger",
+      "rajasthan",
+      "chauhan",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-gagron-fort",
+    "name": "Gagron Fort, Jhalawar",
+    "hindiName": "गागरोन किला, झालावाड़",
+    "city": "Jhalawar",
+    "state": "Rajasthan",
+    "zone": "West",
+    "country": "India",
+    "coordinates": [
+      24.6293,
+      76.1856
+    ],
+    "coordObj": {
+      "lat": 24.6293,
+      "lng": 76.1856
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Hill Forts of Rajasthan, 2013)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Gagron_Fort_River_View.jpg/1280px-Gagron_Fort_River_View.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Gagron_Fort_River_View.jpg/1280px-Gagron_Fort_River_View.jpg",
+    "commissionedBy": "Doda King Bijaldev / Khichi Chauhan Dynasties",
+    "architect": "Rajput Jal Durg (Water Fort) Engineers",
+    "constructionEra": "7th - 14th Century CE",
+    "material": "Natural monolithic riverbed rock foundation and ashlar stone masonry",
+    "architecturalStyle": "Jal Durg (Water Fortress) Architecture",
+    "dimensions": "Surrounded on 3 sides by deep river gorges, 14 bastions, 2 monumental gates",
+    "openingHours": "9:00 AM - 5:30 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to March (Pleasant breeze and full river waters)",
+    "ticketPricing": {
+      "indian": "₹25",
+      "foreigner": "₹300",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Pinnacle of Water Forts: Encircled by the Ahu and Kali Sindh rivers without needing an artificial moat.",
+      "Foundationless Wonder: Built directly on a natural solid stone promontory rising out of the river.",
+      "Dargah of Mitheshah: Sacred sufi shrine situated outside the fort gates celebrated during Muharram.",
+      "Buland Darwaza: Majestic arched gateway commissioned by Mughal Emperor Aurangzeb."
+    ],
+    "legendsAndFacts": "King Achaldas Khichi heroically defended the fort against Sultan Hoshang Shah of Malwa in 1423 CE, preferring martyrdom over surrender while thousands of Rajput women embraced sacred Jauhar.",
+    "audioGuideTranscript": "Welcome to Gagron Fort in Jhalawar, inscribed as a UNESCO World Heritage Site in 2013. Widely celebrated as the finest example of an ancient Indian Jal Durg or water fortress, Gagron rises seamlessly from the confluence of the Ahu and Kali Sindh rivers without artificial foundations.",
+    "nearbyFood": [
+      {
+        "name": "Jhalawar Heritage Bhojanalaya",
+        "cuisine": "Hadoti Rajasthani",
+        "distance": "Jhalawar 12 km",
+        "specialty": "Sev Tamatar & Makki Ki Roti"
+      },
+      {
+        "name": "Brijraj Palace Dining",
+        "cuisine": "Royal Rajputana",
+        "distance": "Kotah 85 km",
+        "specialty": "Junglee Maas & Bajra Rotla"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Jhalawar Government Museum",
+        "distance": "12 km",
+        "type": "Hadoti Sculptures & Manuscripts"
+      },
+      {
+        "name": "Chandrabhaga Temple",
+        "distance": "18 km",
+        "type": "8th Century Classical Riverbank Temples"
+      }
+    ],
+    "visualKeywords": [
+      "gagron",
+      "fort",
+      "jhalawar",
+      "water fort",
+      "jal durg",
+      "rajasthan",
+      "unesco"
+    ]
+  },
+  {
+    "id": "monument-sidi-saiyyed",
+    "name": "Sidi Saiyyed Mosque & Historic City of Ahmedabad",
+    "hindiName": "सीदी सैय्यद मस्जिद और ऐतिहासिक अहमदाबाद शहर",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zone": "West",
+    "country": "India",
+    "coordinates": [
+      23.0225,
+      72.5714
+    ],
+    "coordObj": {
+      "lat": 23.0225,
+      "lng": 72.5714
+    },
+    "unescoStatus": "UNESCO World Heritage Site (Historic City of Ahmadabad, 2017)",
+    "primaryImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sidi_Saiyyed_Mosque_Window.jpg/1280px-Sidi_Saiyyed_Mosque_Window.jpg",
+    "sampleThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sidi_Saiyyed_Mosque_Window.jpg/1280px-Sidi_Saiyyed_Mosque_Window.jpg",
+    "commissionedBy": "Sidi Saiyyed (Nobleman of Sultan Shams-ud-din Muzaffar Shah III)",
+    "architect": "Gujarat Sultanate Master Stone Carvers",
+    "constructionEra": "1572 - 1573 CE",
+    "material": "Yellow sandstone with filigree pierced stone tracery (Jali)",
+    "architecturalStyle": "Indo-Islamic Gujarat Sultanate Architecture",
+    "dimensions": "Mosque courtyard with ten semi-circular arch windows, central jali spans 3m x 2m",
+    "openingHours": "7:00 AM - 6:00 PM",
+    "closedOn": "Open daily",
+    "bestTimeToVisit": "October to March (Mild sunny days)",
+    "ticketPricing": {
+      "indian": "Free Entry",
+      "foreigner": "Free Entry",
+      "childrenUnder15": "Free"
+    },
+    "keyHighlights": [
+      "Tree of Life Jali: World-famous stone screen carved with intertwining branches of palm trees and Kalpavriksha.",
+      "Mathematical Lace in Stone: Flawless geometric and floral latticework cut from solid yellow sandstone.",
+      "Walled City Pols: Traditional self-contained gated residential neighborhoods with timber-framed facades.",
+      "Symbol of Excellence: The Tree of Life medallion was chosen as the official insignia of IIM Ahmedabad."
+    ],
+    "legendsAndFacts": "The mosque was built in the final year of the Gujarat Sultanate just before Emperor Akbar annexed the region into the Mughal Empire; one of the window arches remained plain stone because work abruptly stopped.",
+    "audioGuideTranscript": "Welcome to the Sidi Saiyyed Mosque, the crowning jewel of the Historic City of Ahmedabad, inscribed as India's first UNESCO World Heritage City in 2017. Built in 1573, this yellow sandstone mosque is internationally renowned for its breathtaking 'Tree of Life' jali, carved with lace-like delicate palm fronds and intertwining foliage.",
+    "nearbyFood": [
+      {
+        "name": "Agashiye (The House of MG)",
+        "cuisine": "Gourmet Gujarati Thali",
+        "distance": "Across Street (50 m)",
+        "specialty": "Grand Gujarati Thali with Rasawala Dhokla"
+      },
+      {
+        "name": "Manek Chowk Street Food",
+        "cuisine": "Night Street Food",
+        "distance": "1.5 km",
+        "specialty": "Gwalior Dosa & Chocolate Sandwich"
+      }
+    ],
+    "nearbyAttractions": [
+      {
+        "name": "Sabarmati Ashram",
+        "distance": "4.5 km",
+        "type": "Mahatma Gandhi's Historic Residence"
+      },
+      {
+        "name": "Adalaj Stepwell",
+        "distance": "18 km",
+        "type": "5-Story Intricately Carved Stepwell"
+      }
+    ],
+    "visualKeywords": [
+      "sidi saiyyed",
+      "jali",
+      "tree of life",
+      "ahmedabad",
+      "historic city",
+      "gujarat",
+      "unesco"
+    ]
   }
 ];
 

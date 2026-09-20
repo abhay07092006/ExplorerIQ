@@ -66,11 +66,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Qutb_Minar_2022.jpg/1280px-Qutb_Minar_2022.jpg",
         "timing": "7:00 AM - 7:00 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "1192 CE Delhi Sultanate",
         "description": "72.5-meter red sandstone victory tower built in 1192 CE, surrounded by 4th-century rustless iron pillar.",
         "shortDesc": "72.5-meter red sandstone victory tower built in 1192 CE, surrounded by 4th-century rustless iron pillar.",
-        "tip": "Walk through the Mehrauli Archaeological Park right behind Qutub Minar for ancient stepwells."
+        "tip": "Walk through the Mehrauli Archaeological Park right behind Qutub Minar for ancient stepwells.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Qutb_Minar_2022.jpg/1280px-Qutb_Minar_2022.jpg"
       },
       {
         "id": "delhi-india-gate",
@@ -90,11 +94,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_in_the_Evening.jpg",
         "timing": "Open 24/7 (Illuminated 7:00 PM - 11:00 PM)",
         "fee": "Free",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "1921 CE Edwin Lutyens",
         "description": "42-meter triumphal arch war memorial honoring 84,000 soldiers, fronted by illuminated boulevards and the National War Memorial.",
         "shortDesc": "42-meter triumphal arch war memorial honoring 84,000 soldiers, fronted by illuminated boulevards.",
-        "tip": "Best visited at twilight; grab roasted spicy corn (bhutta) and stroll through the National War Memorial."
+        "tip": "Best visited at twilight; grab roasted spicy corn (bhutta) and stroll through the National War Memorial.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_in_the_Evening.jpg"
       },
       {
         "id": "delhi-red-fort",
@@ -114,11 +122,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Red_Fort_Delhi_India.jpg/1280px-Red_Fort_Delhi_India.jpg",
         "timing": "9:30 AM - 4:30 PM (Mondays Closed)",
         "fee": "₹50 (Indians) / ₹600 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1638 CE Mughal Emperor Shah Jahan",
         "description": "Historic red sandstone fortress of Mughal power featuring the Diwan-i-Aam, Diwan-i-Khas, and the Chhatta Chowk vaulted bazaar.",
         "shortDesc": "Historic red sandstone fortress of Mughal power featuring the Diwan-i-Aam and royal pavilions.",
-        "tip": "Enter through Lahori Gate and walk through the covered Chhatta Chowk bazaar for antique souvenirs."
+        "tip": "Enter through Lahori Gate and walk through the covered Chhatta Chowk bazaar for antique souvenirs.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Red_Fort_Delhi_India.jpg/1280px-Red_Fort_Delhi_India.jpg"
       },
       {
         "id": "delhi-humayun-tomb",
@@ -138,11 +150,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Humayun%27s_Tomb_Delhi.jpg/1280px-Humayun%27s_Tomb_Delhi.jpg",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "₹50 (Indians) / ₹600 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1570 CE Empress Bega Begum",
         "description": "First garden-tomb on the Indian subcontinent, an architectural precursor to the Taj Mahal with symmetrical charbagh water channels.",
         "shortDesc": "UNESCO garden-tomb built in 1570 that served as the architectural inspiration for the Taj Mahal.",
-        "tip": "Visit in the late afternoon when sunlight illuminates the red sandstone and Persian white marble dome."
+        "tip": "Visit in the late afternoon when sunlight illuminates the red sandstone and Persian white marble dome.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Humayun%27s_Tomb_Delhi.jpg/1280px-Humayun%27s_Tomb_Delhi.jpg"
       },
       {
         "id": "delhi-akshardham",
@@ -162,11 +178,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/New_Delhi_Temple.jpg",
         "timing": "10:00 AM - 8:00 PM (Mondays Closed)",
         "fee": "Free Temple entry (Exhibitions ₹250)",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "2005 CE BAPS Swaminarayan Sanstha",
         "description": "Colossal modern sandstone and Italian Carrara marble temple with 234 carved pillars and water fountain show.",
         "shortDesc": "Colossal modern sandstone and Italian Carrara marble temple with 234 carved pillars and water fountain show.",
-        "tip": "No electronic devices or smartwatches allowed inside; utilize the free secure baggage deposit."
+        "tip": "No electronic devices or smartwatches allowed inside; utilize the free secure baggage deposit.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/New_Delhi_Temple.jpg"
       },
       {
         "id": "delhi-lotus-temple",
@@ -186,11 +206,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Lotus_Temple_in_New_Delhi_03-2016.jpg/1280px-Lotus_Temple_in_New_Delhi_03-2016.jpg",
         "timing": "8:30 AM - 5:00 PM (Mondays Closed)",
         "fee": "Free Entry",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "1986 CE Architect Fariborz Sahba",
         "description": "Lotus-shaped Bahá'í temple made of Greek white marble petals surrounded by nine ponds, welcoming all faiths for meditation.",
         "shortDesc": "Lotus-flower architectural marvel composed of 27 marble petals surrounded by tranquil ponds.",
-        "tip": "Silence is strictly observed inside the central prayer hall; ideal for peaceful meditation."
+        "tip": "Silence is strictly observed inside the central prayer hall; ideal for peaceful meditation.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Lotus_Temple_in_New_Delhi_03-2016.jpg/1280px-Lotus_Temple_in_New_Delhi_03-2016.jpg"
       },
       {
         "id": "delhi-national-museum",
@@ -210,11 +234,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/India_national_museum_01.jpg/1280px-India_national_museum_01.jpg",
         "timing": "10:00 AM - 6:00 PM (Mondays Closed)",
         "fee": "₹20 (Indians) / ₹650 (Foreigners)",
-        "asiFee": 20,
+        "asiFee": {
+          "indian": 20,
+          "foreigner": 200
+        },
         "historicalEra": "1949 CE National Heritage Institution",
         "description": "Premier museum housing 200,000 artifacts from the Indus Valley Civilization (Dancing Girl) and sacred Buddhist relics.",
         "shortDesc": "Premier museum housing 200,000 artifacts from the Indus Valley Civilization and sacred Buddhist relics.",
-        "tip": "Don’t miss the Harappan Gallery and the gilded miniature paintings collection."
+        "tip": "Don’t miss the Harappan Gallery and the gilded miniature paintings collection.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/India_national_museum_01.jpg/1280px-India_national_museum_01.jpg"
       }
     ]
   },
@@ -270,11 +298,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg",
         "timing": "Sunrise to Sunset (Closed on Fridays)",
         "fee": "₹50 (Indians) / ₹1,100 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1632 CE Mughal Emperor Shah Jahan",
         "description": "UNESCO World Heritage ivory-white marble mausoleum commissioned in 1632 by Shah Jahan for Mumtaz Mahal.",
         "shortDesc": "UNESCO World Heritage ivory-white marble mausoleum commissioned in 1632 by Shah Jahan for Mumtaz Mahal.",
-        "tip": "Visit at dawn via the East Gate for golden light reflection and minimal crowds."
+        "tip": "Visit at dawn via the East Gate for golden light reflection and minimal crowds.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg"
       },
       {
         "id": "agra-fort",
@@ -294,11 +326,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/1280px-Agra_03-2016_16_Agra_Fort.jpg",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "₹50 (Indians) / ₹650 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1565 CE Mughal Emperor Akbar",
         "description": "Vast 16th-century red sandstone fortress residence where Shah Jahan spent his final years gazing at the Taj.",
         "shortDesc": "Vast 16th-century red sandstone fortress residence where Shah Jahan spent his final years gazing at the Taj.",
-        "tip": "Look through the marble jali screen at the Musamman Burj tower for a framed Taj view."
+        "tip": "Look through the marble jali screen at the Musamman Burj tower for a framed Taj view.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/1280px-Agra_03-2016_16_Agra_Fort.jpg"
       },
       {
         "id": "agra-fatehpur",
@@ -318,11 +354,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg/1280px-Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg",
         "timing": "6:00 AM - 6:30 PM",
         "fee": "₹50 (Indians) / ₹610 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1571 CE Mughal Emperor Akbar",
         "description": "Preserved red sandstone Mughal capital built by Akbar, featuring the towering 54-meter Buland Darwaza and Salim Chishti tomb.",
         "shortDesc": "Preserved red sandstone Mughal capital built by Akbar, featuring the towering 54-meter Buland Darwaza.",
-        "tip": "Hire an official ASI licensed guide at the gate to decode Akbar’s interfaith hall of discussions."
+        "tip": "Hire an official ASI licensed guide at the gate to decode Akbar’s interfaith hall of discussions.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg/1280px-Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg"
       },
       {
         "id": "agra-itimad-ud-daulah",
@@ -342,11 +382,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg/1280px-I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹30 (Indians) / ₹310 (Foreigners)",
-        "asiFee": 30,
+        "asiFee": {
+          "indian": 30,
+          "foreigner": 300
+        },
         "historicalEra": "1628 CE Empress Nur Jahan",
         "description": "Often called the 'Jewel Box' or 'Baby Taj', this exquisite white marble mausoleum with pietra dura inlay was the architectural draft for the Taj Mahal.",
         "shortDesc": "Intricate white marble riverfront mausoleum featuring delicate pietra dura inlay work that inspired the Taj Mahal.",
-        "tip": "Notice how the light filters through the carved lattice screens inside the inner burial chamber."
+        "tip": "Notice how the light filters through the carved lattice screens inside the inner burial chamber.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg/1280px-I%27tim%C4%81d-ud-Daulah%2C_Agra.jpg"
       },
       {
         "id": "agra-mehtab-bagh",
@@ -366,11 +410,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mehtab_Bagh_facing_Taj_Mahal.JPG/1280px-Mehtab_Bagh_facing_Taj_Mahal.JPG",
         "timing": "6:00 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "historicalEra": "16th Century Mughal Garden",
         "description": "Charbagh garden complex situated on the opposite bank of the Yamuna River perfectly aligned with the Taj Mahal.",
         "shortDesc": "Charbagh garden on the opposite bank of the Yamuna River providing the quintessential sunset viewpoint of the Taj.",
-        "tip": "Arrive 45 minutes before sunset for the golden-hour glow reflecting on the white marble dome."
+        "tip": "Arrive 45 minutes before sunset for the golden-hour glow reflecting on the white marble dome.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mehtab_Bagh_facing_Taj_Mahal.JPG/1280px-Mehtab_Bagh_facing_Taj_Mahal.JPG"
       },
       {
         "id": "agra-taj-museum",
@@ -390,11 +438,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/IAshishTripathi_Mankameshwar_Temple_Agra.jpg/1280px-IAshishTripathi_Mankameshwar_Temple_Agra.jpg",
         "timing": "10:00 AM - 5:00 PM (Fridays Closed)",
         "fee": "Included with Taj ticket",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "17th Century Mughal Royal Quarters",
         "description": "Exhibits original 17th-century Mughal coins, architectural blue-prints, and celadon dishes that cracked if touched by poison.",
         "shortDesc": "Exhibits 17th-century Mughal coins, architectural blue-prints, and celadon dishes that cracked if touched by poison.",
-        "tip": "Great air-conditioned historical refuge during sunny afternoons."
+        "tip": "Great air-conditioned historical refuge during sunny afternoons.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/IAshishTripathi_Mankameshwar_Temple_Agra.jpg/1280px-IAshishTripathi_Mankameshwar_Temple_Agra.jpg"
       }
     ]
   },
@@ -452,11 +504,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/1280px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg",
         "timing": "9:00 AM - 5:00 PM Daily",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1799 CE Maharaja Sawai Pratap Singh",
         "description": "Iconic five-story pink sandstone honeycomb palace with 953 jharokhas (casements) designed for royal ladies to observe street life.",
         "shortDesc": "Iconic 1799 five-story honeycomb pink sandstone palace with 953 jharokhas (casements).",
-        "tip": "Visit the Wind View Cafe right across the street on the rooftop for the quintessential front-facade photo."
+        "tip": "Visit the Wind View Cafe right across the street on the rooftop for the quintessential front-facade photo.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/1280px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg"
       },
       {
         "id": "jaipur-amer-fort",
@@ -476,11 +532,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/1280px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg",
         "timing": "8:00 AM - 5:30 PM, 6:30 PM - 9:15 PM (Night Tour)",
         "fee": "₹100 (Indians) / ₹500 (Foreigners)",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "historicalEra": "1592 CE Raja Man Singh I",
         "description": "Majestic hilltop fortress overlooking Maota Lake, famous for the glittering Sheesh Mahal (Hall of Mirrors) and grand courtyards.",
         "shortDesc": "Majestic hilltop fortress overlooking Maota Lake, famous for the glittering Sheesh Mahal mirror mosaics.",
-        "tip": "A single candle in the Sheesh Mahal illuminates the entire hall through thousands of convex Belgian mirrors."
+        "tip": "A single candle in the Sheesh Mahal illuminates the entire hall through thousands of convex Belgian mirrors.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/1280px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg"
       },
       {
         "id": "jaipur-jantar-mantar",
@@ -500,11 +560,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jantar_Mantar_at_Jaipur.jpg/1280px-Jantar_Mantar_at_Jaipur.jpg",
         "timing": "9:00 AM - 5:00 PM Daily",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1734 CE Maharaja Sawai Jai Singh II",
         "description": "UNESCO World Heritage astronomical observatory featuring 19 architectural instruments, including the world's largest stone sundial (Samrat Yantra).",
         "shortDesc": "UNESCO astronomical monument featuring the world's largest stone sundial measuring time to two-second accuracy.",
-        "tip": "Visit at midday when the sun is directly overhead to observe the shadow needles in action."
+        "tip": "Visit at midday when the sun is directly overhead to observe the shadow needles in action.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jantar_Mantar_at_Jaipur.jpg/1280px-Jantar_Mantar_at_Jaipur.jpg"
       },
       {
         "id": "jaipur-chand-baori",
@@ -524,11 +588,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Chand_Baori_perspective_panorama_%28July_2022%29.jpg/1280px-Chand_Baori_perspective_panorama_%28July_2022%29.jpg",
         "timing": "7:00 AM - 6:00 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "historicalEra": "8th–9th Century Nikumbha Dynasty",
         "description": "One of the deepest and largest stepwells in the world, descending 13 stories with 3,500 precisely arranged geometric steps.",
         "shortDesc": "Architectural marvel descending 13 stories with 3,500 symmetrical geometric steps creating hypnotic patterns.",
-        "tip": "Visit on a day-trip between Jaipur and Agra; morning light casts sharp geometric shadows across the steps."
+        "tip": "Visit on a day-trip between Jaipur and Agra; morning light casts sharp geometric shadows across the steps.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Chand_Baori_perspective_panorama_%28July_2022%29.jpg/1280px-Chand_Baori_perspective_panorama_%28July_2022%29.jpg"
       },
       {
         "id": "jaipur-city-palace",
@@ -548,11 +616,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/City_Palace_Jaipur_Pritam_Niwas_Chowk.jpg/1280px-City_Palace_Jaipur_Pritam_Niwas_Chowk.jpg",
         "timing": "9:30 AM - 5:00 PM",
         "fee": "₹75 (Indians) / ₹300 (Foreigners)",
-        "asiFee": 75,
+        "asiFee": {
+          "indian": 75,
+          "foreigner": 750
+        },
         "historicalEra": "1727 CE Maharaja Sawai Jai Singh II",
         "description": "Palatial complex featuring Pritam Niwas Chowk with four peacock doors representing the four seasons, armor collections, and royal textiles.",
         "shortDesc": "Royal residence of the Jaipur royal family featuring the celebrated Peacock Courtyard and royal armor galleries.",
-        "tip": "Check out the two colossal silver urns in the Diwan-i-Khas, registered in Guinness World Records as the world's largest silver objects."
+        "tip": "Check out the two colossal silver urns in the Diwan-i-Khas, registered in Guinness World Records as the world's largest silver objects.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/City_Palace_Jaipur_Pritam_Niwas_Chowk.jpg/1280px-City_Palace_Jaipur_Pritam_Niwas_Chowk.jpg"
       },
       {
         "id": "jaipur-govind-devji",
@@ -572,11 +644,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Govind_dev_ji.jpg",
         "timing": "4:30 AM - 12:00 PM, 5:30 PM - 9:00 PM",
         "fee": "Free",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "1735 CE Maharaja Sawai Jai Singh II",
         "description": "Historic Krishna temple with an enormous pillarless flat-roofed satsang hall holding up to 5,000 devotees for aarti.",
         "shortDesc": "Vibrant Krishna temple with an enormous pillarless hall holding 5,000 devotees during daily aarti.",
-        "tip": "The evening aarti (around 7:00 PM) has vibrant collective singing and bell ringing."
+        "tip": "The evening aarti (around 7:00 PM) has vibrant collective singing and bell ringing.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Govind_dev_ji.jpg"
       },
       {
         "id": "jaipur-nahargarh",
@@ -596,11 +672,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Nahargarh_13.jpg",
         "timing": "10:00 AM - 10:00 PM",
         "fee": "₹50 (Indians) / ₹200 (Foreigners)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "1734 CE Maharaja Sawai Jai Singh II",
         "description": "Perched on the edge of the Aravalli Hills, providing panoramic views of the entire Pink City and Madhavendra Bhawan palace suites.",
         "shortDesc": "Perched on the edge of the Aravalli Hills, providing panoramic views of the entire Pink City.",
-        "tip": "The open-air rooftop restaurant (Padao) has the premier view of Jaipur twinkling after dark."
+        "tip": "The open-air rooftop restaurant (Padao) has the premier view of Jaipur twinkling after dark.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Nahargarh_13.jpg"
       }
     ]
   },
@@ -656,12 +736,16 @@ export const CITIES_DATA = [
         "state": "Rajasthan",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 300,
+        "asiFee": {
+          "indian": 300,
+          "foreigner": 3000
+        },
         "coordObj": {
           "lat": 24.5764,
           "lng": 73.6835
         },
-        "description": "Rajasthan’s largest palace complex, blending Rajasthani and Mughal architectural splendors on Lake Pichola’s eastern bank."
+        "description": "Rajasthan’s largest palace complex, blending Rajasthani and Mughal architectural splendors on Lake Pichola’s eastern bank.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Udaipur_City_Palace.jpg/1280px-Udaipur_City_Palace.jpg"
       },
       {
         "id": "udaipur-lake-pichola",
@@ -680,12 +764,16 @@ export const CITIES_DATA = [
         "state": "Rajasthan",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 400,
+        "asiFee": {
+          "indian": 400,
+          "foreigner": 4000
+        },
         "coordObj": {
           "lat": 24.575,
           "lng": 73.678
         },
-        "description": "Centuries-old artificial freshwater lake flanked by bathing ghats, whitewashed havelis, and palace pavilions."
+        "description": "Centuries-old artificial freshwater lake flanked by bathing ghats, whitewashed havelis, and palace pavilions.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Udaipur_Lake_India.JPG/1280px-Udaipur_Lake_India.JPG"
       },
       {
         "id": "udaipur-jagdish-temple",
@@ -704,12 +792,16 @@ export const CITIES_DATA = [
         "state": "Rajasthan",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 24.579,
           "lng": 73.684
         },
-        "description": "Three-story Indo-Aryan temple built in 1651 by Maharana Jagat Singh, dedicated to Lord Vishnu with carved stone elephant friezes."
+        "description": "Three-story Indo-Aryan temple built in 1651 by Maharana Jagat Singh, dedicated to Lord Vishnu with carved stone elephant friezes.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Jagdish_Temple_Udaipur.jpg/1280px-Jagdish_Temple_Udaipur.jpg"
       },
       {
         "id": "udaipur-bagore-ki-haveli",
@@ -728,12 +820,16 @@ export const CITIES_DATA = [
         "state": "Rajasthan",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "coordObj": {
           "lat": 24.5798,
           "lng": 73.6806
         },
-        "description": "Historic 18th-century waterfront haveli at Gangaur Ghat exhibiting traditional costumes, royal puppets, and live Rajasthani folk dances."
+        "description": "Historic 18th-century waterfront haveli at Gangaur Ghat exhibiting traditional costumes, royal puppets, and live Rajasthani folk dances.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Bagore_ki_Haveli%2C_Rajasthan.jpg"
       },
       {
         "id": "udaipur-saheliyon",
@@ -752,12 +848,16 @@ export const CITIES_DATA = [
         "state": "Rajasthan",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 20,
+        "asiFee": {
+          "indian": 20,
+          "foreigner": 200
+        },
         "coordObj": {
           "lat": 24.6042,
           "lng": 73.6883
         },
-        "description": "Royal gardens landscaped with marble pavilions, lotus pools, and gravity-fed fountains designed for royal maidens."
+        "description": "Royal gardens landscaped with marble pavilions, lotus pools, and gravity-fed fountains designed for royal maidens.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Saheliyon-ki-Bari_Fountain.JPG/1280px-Saheliyon-ki-Bari_Fountain.JPG"
       }
     ]
   },
@@ -813,12 +913,16 @@ export const CITIES_DATA = [
         "state": "Uttar Pradesh",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 300,
+        "asiFee": {
+          "indian": 300,
+          "foreigner": 3000
+        },
         "coordObj": {
           "lat": 25.3109,
           "lng": 83.0107
         },
-        "description": "One of the twelve sacred Jyotirlingas, crowned by a gold-plated spire donated by Maharaja Ranjit Singh."
+        "description": "One of the twelve sacred Jyotirlingas, crowned by a gold-plated spire donated by Maharaja Ranjit Singh.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Kashi_Vishwanath.jpg"
       },
       {
         "id": "varanasi-dashashwamedh",
@@ -837,12 +941,16 @@ export const CITIES_DATA = [
         "state": "Uttar Pradesh",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 25.3073,
           "lng": 83.0103
         },
-        "description": "The primary and oldest ghat where young Vedic priests perform synchronized brass lamp ceremonies to venerate River Ganga."
+        "description": "The primary and oldest ghat where young Vedic priests perform synchronized brass lamp ceremonies to venerate River Ganga.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dasaswamedh_ghat-varanasi_india-andres_larin.jpg/1280px-Dasaswamedh_ghat-varanasi_india-andres_larin.jpg"
       },
       {
         "id": "varanasi-sarnath",
@@ -861,12 +969,16 @@ export const CITIES_DATA = [
         "state": "Uttar Pradesh",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 25.3811,
           "lng": 83.0214
         },
-        "description": "Sacred Buddhist sanctuary where Lord Buddha gave his first sermon after attaining enlightenment."
+        "description": "Sacred Buddhist sanctuary where Lord Buddha gave his first sermon after attaining enlightenment.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Dhamek_Stupa%2C_Sarnath.jpg/1280px-Dhamek_Stupa%2C_Sarnath.jpg"
       },
       {
         "id": "varanasi-chaat",
@@ -885,12 +997,16 @@ export const CITIES_DATA = [
         "state": "Uttar Pradesh",
         "categoryType": "Food",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "coordObj": {
           "lat": 25.309,
           "lng": 83.0065
         },
-        "description": "Iconic streetside chaat destination celebrated for piping-hot Tamatar Chaat in terracotta bowls."
+        "description": "Iconic streetside chaat destination celebrated for piping-hot Tamatar Chaat in terracotta bowls.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Dahi_puri%2C_Doi_phuchka.jpg/1280px-Dahi_puri%2C_Doi_phuchka.jpg"
       },
       {
         "id": "varanasi-assi-ghat",
@@ -909,12 +1025,16 @@ export const CITIES_DATA = [
         "state": "Uttar Pradesh",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 25.289,
           "lng": 83.006
         },
-        "description": "Southernmost ghat where the river Assi meets Ganga; famous for dawn yoga, classical music recitals, and morning aarti."
+        "description": "Southernmost ghat where the river Assi meets Ganga; famous for dawn yoga, classical music recitals, and morning aarti.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Assi_Ghat_Varanasi_morning_Aarti.jpg"
       }
     ]
   },
@@ -970,12 +1090,16 @@ export const CITIES_DATA = [
         "state": "Punjab",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 31.62,
           "lng": 74.8765
         },
-        "description": "Central spiritual sanctuary of Sikhism, plated with 500 kg of pure gold leaf and surrounded by the sacred Amrit Sarovar lake."
+        "description": "Central spiritual sanctuary of Sikhism, plated with 500 kg of pure gold leaf and surrounded by the sacred Amrit Sarovar lake.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/1280px-The_Golden_Temple_of_Amrithsar_7.jpg"
       },
       {
         "id": "amritsar-wagah-border",
@@ -994,12 +1118,16 @@ export const CITIES_DATA = [
         "state": "Punjab",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 31.6047,
           "lng": 74.5731
         },
-        "description": "Electrifying daily military parade with coordinated high kicks and flag lowering by Indian BSF and Pakistani Rangers."
+        "description": "Electrifying daily military parade with coordinated high kicks and flag lowering by Indian BSF and Pakistani Rangers.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/The_SAARC_Car_Rally_2007_being_welcomed_by_traditional_Drummers_at_the_Wagah_Border_on_March_28%2C_2007.jpg/1280px-The_SAARC_Car_Rally_2007_being_welcomed_by_traditional_Drummers_at_the_Wagah_Border_on_March_28%2C_2007.jpg"
       },
       {
         "id": "amritsar-jallianwala-bagh",
@@ -1018,12 +1146,16 @@ export const CITIES_DATA = [
         "state": "Punjab",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 31.6205,
           "lng": 74.8801
         },
-        "description": "Sacred national memorial garden preserving the bullet marks and historic well from the tragic 1919 British massacre."
+        "description": "Sacred national memorial garden preserving the bullet marks and historic well from the tragic 1919 British massacre.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jallianwala_Bagh%2C_Amritsar_01.jpg/1280px-Jallianwala_Bagh%2C_Amritsar_01.jpg"
       },
       {
         "id": "amritsar-partition-museum",
@@ -1042,12 +1174,16 @@ export const CITIES_DATA = [
         "state": "Punjab",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 10,
+        "asiFee": {
+          "indian": 10,
+          "foreigner": 100
+        },
         "coordObj": {
           "lat": 31.6247,
           "lng": 74.877
         },
-        "description": "World’s first museum dedicated to the 1947 Partition of India, featuring oral histories, refugee letters, and historic relics."
+        "description": "World’s first museum dedicated to the 1947 Partition of India, featuring oral histories, refugee letters, and historic relics.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Amritsar_9125.jpg/1280px-Amritsar_9125.jpg"
       },
       {
         "id": "amritsar-kesar-dhaba",
@@ -1066,12 +1202,16 @@ export const CITIES_DATA = [
         "state": "Punjab",
         "categoryType": "Food",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 200,
+        "asiFee": {
+          "indian": 200,
+          "foreigner": 2000
+        },
         "coordObj": {
           "lat": 31.6212,
           "lng": 74.8741
         },
-        "description": "Legendary 100-year-old vegetarian culinary destination that migrated from Sheikhupura in 1947, famous for slow-simmered Maa Ki Dal."
+        "description": "Legendary 100-year-old vegetarian culinary destination that migrated from Sheikhupura in 1947, famous for slow-simmered Maa Ki Dal.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pranjal_Dhaba_-_National_Highway_76_-_Shivrajpur_-_Shankargarh_-_Allahabad_2014-07-04_5674.JPG/1280px-Pranjal_Dhaba_-_National_Highway_76_-_Shivrajpur_-_Shankargarh_-_Allahabad_2014-07-04_5674.JPG"
       }
     ]
   },
@@ -1125,12 +1265,16 @@ export const CITIES_DATA = [
         "state": "Himachal Pradesh",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 31.1042,
           "lng": 77.175
         },
-        "description": "Spacious open esplanade offering unobstructed views of snow-clad Himalayan peaks, centered around northern India’s second-oldest church."
+        "description": "Spacious open esplanade offering unobstructed views of snow-clad Himalayan peaks, centered around northern India’s second-oldest church.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/The_Ridge_Shimla_5.jpg/1280px-The_Ridge_Shimla_5.jpg"
       },
       {
         "id": "shimla-jakhoo",
@@ -1149,12 +1293,16 @@ export const CITIES_DATA = [
         "state": "Himachal Pradesh",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 500,
+        "asiFee": {
+          "indian": 500,
+          "foreigner": 5000
+        },
         "coordObj": {
           "lat": 31.1011,
           "lng": 77.185
         },
-        "description": "Ancient hilltop shrine on Shimla’s highest peak (2,455 m), crowned by a colossal 108-foot orange Hanuman statue."
+        "description": "Ancient hilltop shrine on Shimla’s highest peak (2,455 m), crowned by a colossal 108-foot orange Hanuman statue.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Jakhoo_temple.jpg/1280px-Jakhoo_temple.jpg"
       },
       {
         "id": "shimla-viceregal-lodge",
@@ -1173,12 +1321,16 @@ export const CITIES_DATA = [
         "state": "Himachal Pradesh",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "coordObj": {
           "lat": 31.1031,
           "lng": 77.1408
         },
-        "description": "Majestic Jacobethan-style stone estate designed by Henry Irwin that served as the summer headquarters of British viceroys."
+        "description": "Majestic Jacobethan-style stone estate designed by Henry Irwin that served as the summer headquarters of British viceroys.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Viceregal_Lodge%2C_Simla%2C_India.jpg/1280px-Viceregal_Lodge%2C_Simla%2C_India.jpg"
       },
       {
         "id": "shimla-kalka-toy-train",
@@ -1197,12 +1349,16 @@ export const CITIES_DATA = [
         "state": "Himachal Pradesh",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 70,
+        "asiFee": {
+          "indian": 70,
+          "foreigner": 700
+        },
         "coordObj": {
           "lat": 31.103,
           "lng": 77.168
         },
-        "description": "Historic narrow-gauge railway opened in 1903 traversing 102 tunnels, 864 bridges, and deep pine valleys."
+        "description": "Historic narrow-gauge railway opened in 1903 traversing 102 tunnels, 864 bridges, and deep pine valleys.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/KSR_Steam_special_at_Taradevi_05-02-13_56.jpeg"
       }
     ]
   },
@@ -1256,12 +1412,16 @@ export const CITIES_DATA = [
         "state": "Uttarakhand",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 30.1245,
           "lng": 78.3292
         },
-        "description": "Iconic 450-foot iron suspension bridge spanning the emerald Ganges, connecting ashrams and temple spires."
+        "description": "Iconic 450-foot iron suspension bridge spanning the emerald Ganges, connecting ashrams and temple spires.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Rishikesh-Lakshman_Jhula_by_Kaustubh_Nayyar.jpg/1280px-Rishikesh-Lakshman_Jhula_by_Kaustubh_Nayyar.jpg"
       },
       {
         "id": "rishikesh-triveni-ghat",
@@ -1280,12 +1440,16 @@ export const CITIES_DATA = [
         "state": "Uttarakhand",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 30.103,
           "lng": 78.2975
         },
-        "description": "Confluence point of Ganga, Yamuna, and Saraswati rivers, renowned for synchronized conch shells and floating leaf lamps."
+        "description": "Confluence point of Ganga, Yamuna, and Saraswati rivers, renowned for synchronized conch shells and floating leaf lamps.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Triveni_Ghat_Krishna_Arjun_Rath.jpg"
       },
       {
         "id": "rishikesh-beatles-ashram",
@@ -1304,12 +1468,16 @@ export const CITIES_DATA = [
         "state": "Uttarakhand",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 150,
+        "asiFee": {
+          "indian": 150,
+          "foreigner": 1500
+        },
         "coordObj": {
           "lat": 30.113,
           "lng": 78.314
         },
-        "description": "Former Maharishi Mahesh Yogi ashram where the Beatles composed the White Album in 1968, filled with vibrant graffiti art."
+        "description": "Former Maharishi Mahesh Yogi ashram where the Beatles composed the White Album in 1968, filled with vibrant graffiti art.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Beatles_Ashram_01.jpg/1280px-Beatles_Ashram_01.jpg"
       },
       {
         "id": "rishikesh-neer-garh",
@@ -1328,12 +1496,16 @@ export const CITIES_DATA = [
         "state": "Uttarakhand",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 30,
+        "asiFee": {
+          "indian": 30,
+          "foreigner": 300
+        },
         "coordObj": {
           "lat": 30.145,
           "lng": 78.342
         },
-        "description": "Multi-tiered natural limestone waterfall tumbling into turquoise natural plunge pools hidden within tropical forest."
+        "description": "Multi-tiered natural limestone waterfall tumbling into turquoise natural plunge pools hidden within tropical forest.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Trayambakeshwar_Temple_VK.jpg/1280px-Trayambakeshwar_Temple_VK.jpg"
       }
     ]
   },
@@ -1388,12 +1560,16 @@ export const CITIES_DATA = [
         "state": "Jammu & Kashmir",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 700,
+        "asiFee": {
+          "indian": 700,
+          "foreigner": 7000
+        },
         "coordObj": {
           "lat": 34.09,
           "lng": 74.845
         },
-        "description": "18-sq-km crystalline mirror lake surrounded by snow-capped Pir Panjal peaks, lotus gardens, and cedar wood houseboats."
+        "description": "18-sq-km crystalline mirror lake surrounded by snow-capped Pir Panjal peaks, lotus gardens, and cedar wood houseboats.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Dal_Lake_Hazratbal_Srinagar.jpg/1280px-Dal_Lake_Hazratbal_Srinagar.jpg"
       },
       {
         "id": "srinagar-shalimar-bagh",
@@ -1412,12 +1588,16 @@ export const CITIES_DATA = [
         "state": "Jammu & Kashmir",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 24,
+        "asiFee": {
+          "indian": 24,
+          "foreigner": 240
+        },
         "coordObj": {
           "lat": 34.148,
           "lng": 74.872
         },
-        "description": "Finest terraced royal garden built in 1619 by Emperor Jahangir for his queen Nur Jahan, featuring black marble pavilions and water canals."
+        "description": "Finest terraced royal garden built in 1619 by Emperor Jahangir for his queen Nur Jahan, featuring black marble pavilions and water canals.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shalimar_Bagh_1.jpg/1280px-Shalimar_Bagh_1.jpg"
       },
       {
         "id": "srinagar-shankaracharya",
@@ -1436,12 +1616,16 @@ export const CITIES_DATA = [
         "state": "Jammu & Kashmir",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 34.072,
           "lng": 74.848
         },
-        "description": "Ancient 9th-century stone temple perched 1,000 feet above the valley floor on Gopadri Hill, visited by Adi Shankara."
+        "description": "Ancient 9th-century stone temple perched 1,000 feet above the valley floor on Gopadri Hill, visited by Adi Shankara.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/The_Ancient_Shankaracharya_Temple_%28Srinagar%2C_Jammu_and_Kashmir%29_%28cropped%29.jpg/1280px-The_Ancient_Shankaracharya_Temple_%28Srinagar%2C_Jammu_and_Kashmir%29_%28cropped%29.jpg"
       },
       {
         "id": "srinagar-sps-museum",
@@ -1460,12 +1644,16 @@ export const CITIES_DATA = [
         "state": "Jammu & Kashmir",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 20,
+        "asiFee": {
+          "indian": 20,
+          "foreigner": 200
+        },
         "coordObj": {
           "lat": 34.0665,
           "lng": 74.821
         },
-        "description": "Museum exhibiting 2nd-century Harwan terracotta tiles, antique papier-mâché, and rare Mughal copperware."
+        "description": "Museum exhibiting 2nd-century Harwan terracotta tiles, antique papier-mâché, and rare Mughal copperware.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sri_Pratap_Singh_Museum_Bowels_4th_Century_AD.jpg/1280px-Sri_Pratap_Singh_Museum_Bowels_4th_Century_AD.jpg"
       }
     ]
   },
@@ -1521,12 +1709,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 9.9692,
           "lng": 76.2411
         },
-        "description": "Iconic 14th-century cantilevered sea nets introduced by Chinese trader Zheng He, operated with teak counterweights."
+        "description": "Iconic 14th-century cantilevered sea nets introduced by Chinese trader Zheng He, operated with teak counterweights.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Chinese_Fishing_Net_Raising_Birds_Sunrise_Ashtamudi_Kollam_Mar22_A7C_01784.jpg/1280px-Chinese_Fishing_Net_Raising_Birds_Sunrise_Ashtamudi_Kollam_Mar22_A7C_01784.jpg"
       },
       {
         "id": "kochi-mattancherry",
@@ -1545,12 +1737,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 5,
+        "asiFee": {
+          "indian": 5,
+          "foreigner": 50
+        },
         "coordObj": {
           "lat": 9.9583,
           "lng": 76.2592
         },
-        "description": "Portuguese-built palace gifted to the Raja of Kochi in 1555, featuring intricate tempera murals illustrating the Ramayana."
+        "description": "Portuguese-built palace gifted to the Raja of Kochi in 1555, featuring intricate tempera murals illustrating the Ramayana.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mattancherry_Palace_DSC_0899.JPG/1280px-Mattancherry_Palace_DSC_0899.JPG"
       },
       {
         "id": "kochi-st-francis",
@@ -1569,12 +1765,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 9.9658,
           "lng": 76.2413
         },
-        "description": "Oldest European church in India built in 1503 by Portuguese Franciscan friars, original burial site of explorer Vasco da Gama."
+        "description": "Oldest European church in India built in 1503 by Portuguese Franciscan friars, original burial site of explorer Vasco da Gama.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/St_Francis_Church_Fort_Kochi_DSC_1048.JPG/1280px-St_Francis_Church_Fort_Kochi_DSC_1048.JPG"
       },
       {
         "id": "kochi-synagogue",
@@ -1593,12 +1793,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 10,
+        "asiFee": {
+          "indian": 10,
+          "foreigner": 100
+        },
         "coordObj": {
           "lat": 9.9575,
           "lng": 76.2597
         },
-        "description": "Constructed in 1568, containing hand-painted blue Cantonese willow porcelain floor tiles and Belgian glass chandeliers."
+        "description": "Constructed in 1568, containing hand-painted blue Cantonese willow porcelain floor tiles and Belgian glass chandeliers.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Jewish_synagouge_kochi_india.jpg"
       },
       {
         "id": "kochi-kathakali",
@@ -1617,12 +1821,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 400,
+        "asiFee": {
+          "indian": 400,
+          "foreigner": 4000
+        },
         "coordObj": {
           "lat": 9.966,
           "lng": 76.244
         },
-        "description": "Intimate theater dedicated to the classical dance-drama of Kerala, featuring intricate face makeup and martial art demonstrations."
+        "description": "Intimate theater dedicated to the classical dance-drama of Kerala, featuring intricate face makeup and martial art demonstrations.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Kathakali_-Play_with_Kaurava.jpg/1280px-Kathakali_-Play_with_Kaurava.jpg"
       }
     ]
   },
@@ -1678,11 +1886,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg/1280px-An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg",
         "timing": "5:00 AM - 12:30 PM, 4:00 PM - 10:00 PM",
         "fee": "Free Entry (Hall of Thousand Pillars ₹50)",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "6th Century BCE / 16th Century Nayaka Dynasty",
         "description": "Historic Dravidian masterpiece with 14 colorful gopurams reaching up to 52 meters, covered in thousands of painted mythological figures.",
         "shortDesc": "Legendary temple city heart with 14 towering gopurams and the celebrated Hall of Thousand Pillars.",
-        "tip": "Witness the nightly 9:00 PM procession when Lord Sundareswarar's icon is carried to Meenakshi's silver bedchamber."
+        "tip": "Witness the nightly 9:00 PM procession when Lord Sundareswarar's icon is carried to Meenakshi's silver bedchamber.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg/1280px-An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg"
       },
       {
         "id": "madurai-brihadeeswarar",
@@ -1702,11 +1914,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_%28edit%29.jpg/1280px-Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_%28edit%29.jpg",
         "timing": "6:00 AM - 12:30 PM, 4:00 PM - 8:30 PM",
         "fee": "Free Entry (ASI Protected)",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "1010 CE Emperor Raja Raja Chola I",
         "description": "UNESCO Great Living Chola Temple built entirely of granite, crowned by an 80-tonne monolithic cupola carved from a single block of stone.",
         "shortDesc": "UNESCO 1,000-year-old Chola architectural wonder built entirely of granite with an 80-tonne monolithic dome.",
-        "tip": "Walk around the outer moat at twilight when the massive granite vimana is illuminated with warm golden lights."
+        "tip": "Walk around the outer moat at twilight when the massive granite vimana is illuminated with warm golden lights.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_%28edit%29.jpg/1280px-Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_%28edit%29.jpg"
       },
       {
         "id": "madurai-nayakkar-palace",
@@ -1726,11 +1942,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Thirumalai_Nayakkar_Mahal_Madurai.jpg/1280px-Thirumalai_Nayakkar_Mahal_Madurai.jpg",
         "timing": "9:00 AM - 5:00 PM (Light Show 6:45 PM)",
         "fee": "₹10 (Entry) / ₹50 (Light Show)",
-        "asiFee": 10,
+        "asiFee": {
+          "indian": 10,
+          "foreigner": 100
+        },
         "historicalEra": "1636 CE Nayaka Dynasty",
         "description": "Grand palace blending Dravidian and Rajput-Italianate styles, supported by colossal 20-meter high circular masonry pillars.",
         "shortDesc": "17th-century royal palace boasting towering 20-meter stucco pillars and an open-air central courtyard.",
-        "tip": "Stand in the central Natakasala (drama hall) to test the impressive acoustic resonance."
+        "tip": "Stand in the central Natakasala (drama hall) to test the impressive acoustic resonance.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Thirumalai_Nayakkar_Mahal_Madurai.jpg/1280px-Thirumalai_Nayakkar_Mahal_Madurai.jpg"
       },
       {
         "id": "madurai-alagar-kovil",
@@ -1750,11 +1970,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Alagar_Koil_Gopuram.jpg/1280px-Alagar_Koil_Gopuram.jpg",
         "timing": "6:00 AM - 8:00 PM",
         "fee": "Free Entry",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "Early Pandyan / Nayaka Dynasty",
         "description": "Forested hillside Vishnu temple nestled at the foot of Alagar Hills, famous for its life-size wood carvings and sacred spring.",
         "shortDesc": "Serene hillside temple nestled among dense woodlands, known for exquisite wooden carvings and monkeys.",
-        "tip": "Try the famous ghee-dripping Alagar Kovil Dosa sold as prasadam at the temple counter."
+        "tip": "Try the famous ghee-dripping Alagar Kovil Dosa sold as prasadam at the temple counter.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Alagar_Koil_Gopuram.jpg/1280px-Alagar_Koil_Gopuram.jpg"
       }
     ]
   },
@@ -1810,12 +2034,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "coordObj": {
           "lat": 12.3052,
           "lng": 76.6552
         },
-        "description": "Indo-Saracenic palace designed by Henry Irwin, illuminated by 97,000 golden incandescent bulbs every Sunday evening."
+        "description": "Indo-Saracenic palace designed by Henry Irwin, illuminated by 97,000 golden incandescent bulbs every Sunday evening.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/1280px-Mysore_Palace_Morning.jpg"
       },
       {
         "id": "mysore-chamundeshwari",
@@ -1834,12 +2062,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "coordObj": {
           "lat": 12.2725,
           "lng": 76.671
         },
-        "description": "Ancient hill temple dedicated to Goddess Durga perched atop Chamundi Hills (1,062 m), featuring a 16-foot monolithic Nandi bull."
+        "description": "Ancient hill temple dedicated to Goddess Durga perched atop Chamundi Hills (1,062 m), featuring a 16-foot monolithic Nandi bull.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Chamundeshwari_Temple_Mysore.jpg/1280px-Chamundeshwari_Temple_Mysore.jpg"
       },
       {
         "id": "mysore-brindavan",
@@ -1858,12 +2090,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 12.423,
           "lng": 76.572
         },
-        "description": "Terraced formal gardens below Krishna Raja Sagara dam modeled after the Shalimar Gardens of Kashmir, famous for musical water fountain."
+        "description": "Terraced formal gardens below Krishna Raja Sagara dam modeled after the Shalimar Gardens of Kashmir, famous for musical water fountain.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Brindavan_Gardens.JPG/1280px-Brindavan_Gardens.JPG"
       },
       {
         "id": "mysore-jaganmohan",
@@ -1882,12 +2118,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 12.3075,
           "lng": 76.6495
         },
-        "description": "Original royal residence housing one of the largest art collections in South India, including master oil paintings by Raja Ravi Varma."
+        "description": "Original royal residence housing one of the largest art collections in South India, including master oil paintings by Raja Ravi Varma.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/A_view_of_Jaganmohan_Palace.jpg/1280px-A_view_of_Jaganmohan_Palace.jpg"
       }
     ]
   },
@@ -1943,12 +2183,16 @@ export const CITIES_DATA = [
         "state": "Telangana",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 17.3616,
           "lng": 78.4747
         },
-        "description": "1591 CE monumental arch with four 56-meter minarets, built to commemorate the eradication of plague in the city."
+        "description": "1591 CE monumental arch with four 56-meter minarets, built to commemorate the eradication of plague in the city.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Charminar_Hyderabad_1.jpg/1280px-Charminar_Hyderabad_1.jpg"
       },
       {
         "id": "hyderabad-golconda",
@@ -1967,12 +2211,16 @@ export const CITIES_DATA = [
         "state": "Telangana",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 17.3833,
           "lng": 78.4011
         },
-        "description": "Impregnable granite fortress once controlling the world’s only diamond trade (producing Koh-i-Noor and Hope diamonds)."
+        "description": "Impregnable granite fortress once controlling the world’s only diamond trade (producing Koh-i-Noor and Hope diamonds).",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Golconda_Fort_005.jpg/1280px-Golconda_Fort_005.jpg"
       },
       {
         "id": "hyderabad-salar-jung",
@@ -1991,12 +2239,16 @@ export const CITIES_DATA = [
         "state": "Telangana",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 17.3713,
           "lng": 78.4804
         },
-        "description": "One of the world’s largest one-man art collections, featuring the famous double-sided wooden sculpture of Mephistopheles and Margaretta."
+        "description": "One of the world’s largest one-man art collections, featuring the famous double-sided wooden sculpture of Mephistopheles and Margaretta.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Salar_Jung_Museum%2C_Hyderabad%2C_India.jpg/1280px-Salar_Jung_Museum%2C_Hyderabad%2C_India.jpg"
       },
       {
         "id": "hyderabad-birla-mandir",
@@ -2015,12 +2267,16 @@ export const CITIES_DATA = [
         "state": "Telangana",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 17.4062,
           "lng": 78.4691
         },
-        "description": "Built entirely from 2,000 tons of pure white Rajasthani marble atop the 280-foot Naubat Pahad hill overlooking Hussain Sagar."
+        "description": "Built entirely from 2,000 tons of pure white Rajasthani marble atop the 280-foot Naubat Pahad hill overlooking Hussain Sagar.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Birla_Mandir%2C_Hyderabad.png/1280px-Birla_Mandir%2C_Hyderabad.png"
       },
       {
         "id": "hyderabad-hussain-sagar",
@@ -2039,12 +2295,16 @@ export const CITIES_DATA = [
         "state": "Telangana",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "coordObj": {
           "lat": 17.4239,
           "lng": 78.4738
         },
-        "description": "Heart-shaped 16th-century lake centered around the world’s tallest single-rock monolithic Buddha statue (18 meters tall)."
+        "description": "Heart-shaped 16th-century lake centered around the world’s tallest single-rock monolithic Buddha statue (18 meters tall).",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg/1280px-Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg"
       }
     ]
   },
@@ -2094,11 +2354,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Complex_of_Virupaksha_Temple%2C_Hampi_%2804%29.jpg/1280px-Complex_of_Virupaksha_Temple%2C_Hampi_%2804%29.jpg",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "₹50 (Entry)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "7th Century Chalukya / 14th Century Vijayanagara",
         "description": "Active pilgrimage shrine dedicated to Lord Shiva with an imposing 50-meter eastern gopuram and ancient inverted pinhole shadow mechanism.",
         "shortDesc": "Active 7th-century sacred shrine dedicated to Lord Shiva with an imposing 50-meter gopuram.",
-        "tip": "Check out the pinhole camera effect in the rear chamber that projects an inverted shadow of the main tower."
+        "tip": "Check out the pinhole camera effect in the rear chamber that projects an inverted shadow of the main tower.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Complex_of_Virupaksha_Temple%2C_Hampi_%2804%29.jpg/1280px-Complex_of_Virupaksha_Temple%2C_Hampi_%2804%29.jpg"
       },
       {
         "id": "hampi-stone-chariot",
@@ -2118,11 +2382,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Stone_chariot%2C_Vittala_temple%2C_Hampi.jpg/1280px-Stone_chariot%2C_Vittala_temple%2C_Hampi.jpg",
         "timing": "8:30 AM - 5:30 PM",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "16th Century Vijayanagara Empire",
         "description": "Iconic monolithic granite shrine dedicated to Garuda, designed in the form of a ceremonial chariot with carved wheels.",
         "shortDesc": "Iconic monolithic granite chariot dedicated to Garuda, featured on the Indian ₹50 currency note.",
-        "tip": "Electric buggy transit is available from the main parking lot for ₹20 each way."
+        "tip": "Electric buggy transit is available from the main parking lot for ₹20 each way.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Stone_chariot%2C_Vittala_temple%2C_Hampi.jpg/1280px-Stone_chariot%2C_Vittala_temple%2C_Hampi.jpg"
       },
       {
         "id": "hampi-vittala-temple",
@@ -2142,11 +2410,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Vittala_Temple_Complex_Hampi.jpg/1280px-Vittala_Temple_Complex_Hampi.jpg",
         "timing": "8:30 AM - 5:30 PM",
         "fee": "Included with Stone Chariot ticket",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "15th Century King Devaraya II",
         "description": "Sprawling temple complex renowned for its Ranga Mandapa with 56 sa-re-ga-ma musical pillars that resonate musical notes when struck.",
         "shortDesc": "Sprawling temple complex renowned for its 56 musical pillars that produce melodic resonance.",
-        "tip": "Visit in late afternoon to enjoy the golden glow on the carved Dravidian colonnades."
+        "tip": "Visit in late afternoon to enjoy the golden glow on the carved Dravidian colonnades.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Vittala_Temple_Complex_Hampi.jpg/1280px-Vittala_Temple_Complex_Hampi.jpg"
       },
       {
         "id": "hampi-badami-caves",
@@ -2166,11 +2438,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Vishnu_image_inside_cave_number_3_in_Badami.jpg/1280px-Vishnu_image_inside_cave_number_3_in_Badami.jpg",
         "timing": "9:00 AM - 5:30 PM",
         "fee": "₹25 (Indians) / ₹300 (Foreigners)",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "historicalEra": "6th Century Chalukya Dynasty",
         "description": "Four magnificent rock-cut cave temples carved into red sandstone cliffs overlooking Agastya Lake, displaying Shiva Nataraja, Vishnu Trivikrama, and Jain tirthankaras.",
         "shortDesc": "Four magnificent rock-cut cave temples carved into dramatic red sandstone cliffs overlooking Agastya Lake.",
-        "tip": "Cave 3 dedicated to Lord Vishnu has the most elaborate bracket figures and ceiling relief carvings."
+        "tip": "Cave 3 dedicated to Lord Vishnu has the most elaborate bracket figures and ceiling relief carvings.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Vishnu_image_inside_cave_number_3_in_Badami.jpg/1280px-Vishnu_image_inside_cave_number_3_in_Badami.jpg"
       },
       {
         "id": "hampi-lotus-mahal",
@@ -2190,11 +2466,43 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Lotus_Mahal_Hampi.jpg/1280px-Lotus_Mahal_Hampi.jpg",
         "timing": "8:30 AM - 5:30 PM",
         "fee": "Included with Vittala ticket",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "16th Century Vijayanagara Empire",
         "description": "Indo-Islamic secular palace with lotus-bud cusped arches and an adjacent eleven-domed grand stable that once housed royal ceremonial elephants.",
         "shortDesc": "Elegant two-story pleasure pavilion with Islamic cusped arches and adjacent eleven-domed elephant stables.",
-        "tip": "The open lawns here are great for a quiet rest between temple explorations."
+        "tip": "The open lawns here are great for a quiet rest between temple explorations.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Lotus_Mahal_Hampi.jpg/1280px-Lotus_Mahal_Hampi.jpg"
+      },
+      {
+        "id": "hampi-pattadakal",
+        "name": "Group of Monuments at Pattadakal",
+        "city": "Pattadakal / Bagalkot",
+        "state": "Karnataka",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          15.949,
+          75.816
+        ],
+        "coordObj": {
+          "lat": 15.949,
+          "lng": 75.816
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Pattadakal_Virupaksha_Temple_Complex.jpg/1280px-Pattadakal_Virupaksha_Temple_Complex.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Pattadakal_Virupaksha_Temple_Complex.jpg/1280px-Pattadakal_Virupaksha_Temple_Complex.jpg",
+        "timing": "6:00 AM - 6:00 PM",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "7th - 8th Century CE Chalukya Dynasty",
+        "description": "UNESCO World Heritage Site representing the high point of an eclectic art which in the 7th and 8th centuries under the Chalukya dynasty achieved a harmonious blend of architectural forms from northern and southern India.",
+        "shortDesc": "UNESCO World Heritage 8th-century Chalukyan temple complex illustrating the harmonious fusion of Nagara and Dravidian architecture.",
+        "tip": "Compare the North Indian curvilinear tower of the Kadasiddheshwara temple with the South Indian stepped pyramid of Virupaksha standing side-by-side."
       }
     ]
   },
@@ -2243,12 +2551,16 @@ export const CITIES_DATA = [
         "state": "Tamil Nadu",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "coordObj": {
           "lat": 12.6163,
           "lng": 80.1983
         },
-        "description": "Structural granite temple built in 700-728 CE directly overlooking the breaking waves of the Bay of Bengal."
+        "description": "Structural granite temple built in 700-728 CE directly overlooking the breaking waves of the Bay of Bengal.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Shore_Temple_-Mamallapuram_-Tamil_Nadu_-N-TN-C55.jpg/1280px-Shore_Temple_-Mamallapuram_-Tamil_Nadu_-N-TN-C55.jpg"
       },
       {
         "id": "mahabalipuram-pancha-rathas",
@@ -2267,12 +2579,16 @@ export const CITIES_DATA = [
         "state": "Tamil Nadu",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 12.6094,
           "lng": 80.1945
         },
-        "description": "Five monolithic rock shrines carved from a single outcropping of granite, each styled as a chariot named after the Pandavas."
+        "description": "Five monolithic rock shrines carved from a single outcropping of granite, each styled as a chariot named after the Pandavas.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Five_Rathas_at_Mahaballipuram%2CTamil_Nadu.jpg/1280px-Five_Rathas_at_Mahaballipuram%2CTamil_Nadu.jpg"
       },
       {
         "id": "mahabalipuram-arjuna-penance",
@@ -2291,12 +2607,16 @@ export const CITIES_DATA = [
         "state": "Tamil Nadu",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 12.6178,
           "lng": 80.1925
         },
-        "description": "World’s largest open-air rock relief measuring 96 by 43 feet, depicting celestial beings, elephants, and monkeys."
+        "description": "World’s largest open-air rock relief measuring 96 by 43 feet, depicting celestial beings, elephants, and monkeys.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Descent_of_the_Ganges_01.jpg/1280px-Descent_of_the_Ganges_01.jpg"
       },
       {
         "id": "mahabalipuram-butterball",
@@ -2315,12 +2635,16 @@ export const CITIES_DATA = [
         "state": "Tamil Nadu",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 12.6186,
           "lng": 80.192
         },
-        "description": "Gigantic 250-ton granite boulder balancing precariously on a 45-degree smooth rock slope for over 1,200 years."
+        "description": "Gigantic 250-ton granite boulder balancing precariously on a 45-degree smooth rock slope for over 1,200 years.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Krishna_Butterball_Below_Mahabalipuram_Sep22_A7C_02490.jpg/1280px-Krishna_Butterball_Below_Mahabalipuram_Sep22_A7C_02490.jpg"
       }
     ]
   },
@@ -2375,12 +2699,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 250,
+        "asiFee": {
+          "indian": 250,
+          "foreigner": 2500
+        },
         "coordObj": {
           "lat": 12.9988,
           "lng": 77.5921
         },
-        "description": "19th-century Tudor-style royal palace featuring fortified towers, battlements, and Spanish stained-glass windows."
+        "description": "19th-century Tudor-style royal palace featuring fortified towers, battlements, and Spanish stained-glass windows.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bangalore_Mysore_Maharaja_Palace.jpg/1280px-Bangalore_Mysore_Maharaja_Palace.jpg"
       },
       {
         "id": "bengaluru-lalbagh",
@@ -2399,12 +2727,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 30,
+        "asiFee": {
+          "indian": 30,
+          "foreigner": 300
+        },
         "coordObj": {
           "lat": 12.9507,
           "lng": 77.5848
         },
-        "description": "240-acre botanical haven commissioned by Hyder Ali in 1760, home to centuries-old trees and a London Crystal Palace replica."
+        "description": "240-acre botanical haven commissioned by Hyder Ali in 1760, home to centuries-old trees and a London Crystal Palace replica.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Glasshouse_and_fountain_at_lalbagh.jpg/1280px-Glasshouse_and_fountain_at_lalbagh.jpg"
       },
       {
         "id": "bengaluru-bull-temple",
@@ -2423,12 +2755,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 12.9424,
           "lng": 77.5681
         },
-        "description": "16th-century Vijayanagara shrine housing a colossal 4.5-meter monolithic Nandi bull carved from single granite."
+        "description": "16th-century Vijayanagara shrine housing a colossal 4.5-meter monolithic Nandi bull carved from single granite.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Dodda_Ganeshana_Gudi_Hindu_temple%2C_Basavanagudi%2C_Karnataka%2C_India.jpg"
       },
       {
         "id": "bengaluru-cubbon-park",
@@ -2447,12 +2783,16 @@ export const CITIES_DATA = [
         "state": "Karnataka",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 12.9763,
           "lng": 77.5929
         },
-        "description": "300-acre green lung in central Bengaluru adjacent to the majestic neo-Dravidian state legislature Vidhana Soudha."
+        "description": "300-acre green lung in central Bengaluru adjacent to the majestic neo-Dravidian state legislature Vidhana Soudha.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cubbon_Park_W.jpg/1280px-Cubbon_Park_W.jpg"
       }
     ]
   },
@@ -2502,12 +2842,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 200,
+        "asiFee": {
+          "indian": 200,
+          "foreigner": 2000
+        },
         "coordObj": {
           "lat": 10.15,
           "lng": 77.06
         },
-        "description": "Sanctuary for the rare endangered Nilgiri Tahr mountain goat, featuring rolling shola grasslands and views of Anamudi peak."
+        "description": "Sanctuary for the rare endangered Nilgiri Tahr mountain goat, featuring rolling shola grasslands and views of Anamudi peak.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Eravikulam_National_Park_%2849444006652%29.jpg/1280px-Eravikulam_National_Park_%2849444006652%29.jpg"
       },
       {
         "id": "munnar-tea-museum",
@@ -2526,12 +2870,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 125,
+        "asiFee": {
+          "indian": 125,
+          "foreigner": 1250
+        },
         "coordObj": {
           "lat": 10.093,
           "lng": 77.052
         },
-        "description": "Historic tea factory tracing the evolution of tea plantations in Munnar since 1876 with live tea processing demos."
+        "description": "Historic tea factory tracing the evolution of tea plantations in Munnar since 1876 with live tea processing demos.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Le_mus%C3%A9e_du_th%C3%A9_%28Munnar%2C_Inde%29_%2813694719014%29.jpg/1280px-Le_mus%C3%A9e_du_th%C3%A9_%28Munnar%2C_Inde%29_%2813694719014%29.jpg"
       },
       {
         "id": "munnar-mattupetty",
@@ -2550,12 +2898,16 @@ export const CITIES_DATA = [
         "state": "Kerala",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 10,
+        "asiFee": {
+          "indian": 10,
+          "foreigner": 100
+        },
         "coordObj": {
           "lat": 10.106,
           "lng": 77.124
         },
-        "description": "Masonry gravity dam nestled within verdant tea hills, famous for still water boating and natural acoustic echo point."
+        "description": "Masonry gravity dam nestled within verdant tea hills, famous for still water boating and natural acoustic echo point.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Mattupetty_Dam.jpg/1280px-Mattupetty_Dam.jpg"
       }
     ]
   },
@@ -2611,12 +2963,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 22.5448,
           "lng": 88.3426
         },
-        "description": "Grand white Makrana marble monument built between 1906 and 1921, surrounded by 64 acres of landscaped gardens."
+        "description": "Grand white Makrana marble monument built between 1906 and 1921, surrounded by 64 acres of landscaped gardens.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Victoria_Memorial_situated_in_Kolkata.jpg/1280px-Victoria_Memorial_situated_in_Kolkata.jpg"
       },
       {
         "id": "kolkata-howrah-bridge",
@@ -2635,12 +2991,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 22.5851,
           "lng": 88.3468
         },
-        "description": "Engineering marvel balanced cantilever bridge spanning the Hooghly River without a single pillar in the riverbed."
+        "description": "Engineering marvel balanced cantilever bridge spanning the Hooghly River without a single pillar in the riverbed.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Howrah_bridge_at_night.jpg/1280px-Howrah_bridge_at_night.jpg"
       },
       {
         "id": "kolkata-dakshineswar",
@@ -2659,12 +3019,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 22.653,
           "lng": 88.357
         },
-        "description": "Navaratna-style 19th-century temple complex built by Rani Rashmoni where mystic Ramakrishna Paramahamsa served as priest."
+        "description": "Navaratna-style 19th-century temple complex built by Rani Rashmoni where mystic Ramakrishna Paramahamsa served as priest.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Dakhineshwar_Temple_beside_the_Hoogly%2C_West_Bengal.JPG/1280px-Dakhineshwar_Temple_beside_the_Hoogly%2C_West_Bengal.JPG"
       },
       {
         "id": "kolkata-indian-museum",
@@ -2683,12 +3047,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 22.5579,
           "lng": 88.3511
         },
-        "description": "Oldest and largest multipurpose museum in the Asia-Pacific region (founded 1814), housing rare fossils and Egyptian mummies."
+        "description": "Oldest and largest multipurpose museum in the Asia-Pacific region (founded 1814), housing rare fossils and Egyptian mummies.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Indian_Museum%2C_Courtyard%2C_Kolkata%2C_India.jpg/1280px-Indian_Museum%2C_Courtyard%2C_Kolkata%2C_India.jpg"
       },
       {
         "id": "kolkata-prinsep-ghat",
@@ -2707,12 +3075,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 300,
+        "asiFee": {
+          "indian": 300,
+          "foreigner": 3000
+        },
         "coordObj": {
           "lat": 22.556,
           "lng": 88.332
         },
-        "description": "Palladian Greek-style columned pavilion on the riverbanks, overlooking the towering Vidyasagar Setu cable-stayed bridge."
+        "description": "Palladian Greek-style columned pavilion on the riverbanks, overlooking the towering Vidyasagar Setu cable-stayed bridge.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/PrincepGhat.jpg/1280px-PrincepGhat.jpg"
       }
     ]
   },
@@ -2762,11 +3134,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/1280px-Konarka_Temple.jpg",
         "timing": "6:00 AM - 8:00 PM Daily",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "13th Century Eastern Ganga Dynasty",
         "description": "UNESCO World Heritage monumental 24-wheeled chariot of Surya the Sun God, pulled by seven stone horses, famous for its sundial wheels.",
         "shortDesc": "13th-century monumental sun god chariot with 24 carved stone wheels that function as precise sundials.",
-        "tip": "Hire an authorized ASI guide to demonstrate how the spokes on the chariot wheels tell the exact time."
+        "tip": "Hire an authorized ASI guide to demonstrate how the spokes on the chariot wheels tell the exact time.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/1280px-Konarka_Temple.jpg"
       },
       {
         "id": "puri-jagannath-temple",
@@ -2786,11 +3162,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Shri_Jagannath_temple.jpg/1280px-Shri_Jagannath_temple.jpg",
         "timing": "5:00 AM - 11:00 PM Daily",
         "fee": "Free Entry",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "12th Century King Anantavarman Chodaganga",
         "description": "One of the sacred Char Dham pilgrimage sites, dedicated to Lord Jagannath, Balabhadra, and Subhadra, home to the world's largest traditional wood-fired kitchen.",
         "shortDesc": "Sacred Char Dham shrine famous for its annual Ratha Yatra and the world's largest earthen-pot community kitchen.",
-        "tip": "Experience the Mahaprasad (Ananda Bazaar) served fresh in clay pots between 1:00 PM and 3:00 PM."
+        "tip": "Experience the Mahaprasad (Ananda Bazaar) served fresh in clay pots between 1:00 PM and 3:00 PM.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Shri_Jagannath_temple.jpg/1280px-Shri_Jagannath_temple.jpg"
       },
       {
         "id": "puri-chilika-lake",
@@ -2810,11 +3190,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Birds_eyeview_of_Chilika_Lake.jpg",
         "timing": "6:00 AM - 5:00 PM",
         "fee": "Boat hire ₹1,200 - ₹2,500 per boat",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "Ancient Brackish Coastal Lagoon",
         "description": "Asia's largest brackish water lagoon, winter habitat for over 160 species of migratory birds and endangered Irrawaddy dolphins.",
         "shortDesc": "Asia's largest brackish lagoon, home to rare Irrawaddy dolphins and migratory flamingo flocks.",
-        "tip": "Take the morning boat ride from Satapada to the Sea Mouth for the best chances of dolphin sightings."
+        "tip": "Take the morning boat ride from Satapada to the Sea Mouth for the best chances of dolphin sightings.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Birds_eyeview_of_Chilika_Lake.jpg"
       },
       {
         "id": "puri-chandrabhaga-beach",
@@ -2834,11 +3218,15 @@ export const CITIES_DATA = [
         "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
         "timing": "Open 24/7",
         "fee": "Free",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "Historic Vedic Coastal Strand",
         "description": "Golden sandy beach located 3 km east of the Sun Temple, famous as the site where Lord Krishna's son Samba prayed to Surya.",
         "shortDesc": "Pristine Blue Flag certified beach renowned for dramatic sunrise views over the Bay of Bengal.",
-        "tip": "Visit at dawn right before heading into the Konark Sun Temple for uncrowded coastal photographs."
+        "tip": "Visit at dawn right before heading into the Konark Sun Temple for uncrowded coastal photographs.",
+        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
       }
     ]
   },
@@ -2888,12 +3276,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 27.001,
           "lng": 88.283
         },
-        "description": "Famous 2,590-meter viewpoint where dawn sunbeams illuminate the towering peak of Mt. Kanchenjunga in hues of gold."
+        "description": "Famous 2,590-meter viewpoint where dawn sunbeams illuminate the towering peak of Mt. Kanchenjunga in hues of gold.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tiger_Hill_Darjeeling_West_Bengal_India_%283%29.JPG/1280px-Tiger_Hill_Darjeeling_West_Bengal_India_%283%29.JPG"
       },
       {
         "id": "darjeeling-batasia-loop",
@@ -2912,12 +3304,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 20,
+        "asiFee": {
+          "indian": 20,
+          "foreigner": 200
+        },
         "coordObj": {
           "lat": 27.0165,
           "lng": 88.2485
         },
-        "description": "A spiral railway loop where the Toy Train negotiates a steep 1,000-foot descent around manicured flower gardens."
+        "description": "A spiral railway loop where the Toy Train negotiates a steep 1,000-foot descent around manicured flower gardens.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Batasia_Loop_War_Memorial_with_Kanchanjunga.jpg/1280px-Batasia_Loop_War_Memorial_with_Kanchanjunga.jpg"
       },
       {
         "id": "darjeeling-peace-pagoda",
@@ -2936,12 +3332,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 27.028,
           "lng": 88.261
         },
-        "description": "White domed Buddhist sanctuary built under Nichidatsu Fujii, enshrining four gold-polished avatars of Lord Buddha."
+        "description": "White domed Buddhist sanctuary built under Nichidatsu Fujii, enshrining four gold-polished avatars of Lord Buddha.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Peace_Pagoda%2C_Darjeeling_-_Dec_2006-2.jpg"
       },
       {
         "id": "darjeeling-tea-estate",
@@ -2960,12 +3360,16 @@ export const CITIES_DATA = [
         "state": "West Bengal",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "coordObj": {
           "lat": 27.052,
           "lng": 88.261
         },
-        "description": "Established in 1854, one of the oldest tea gardens in Darjeeling producing organic black, green, and white teas."
+        "description": "Established in 1854, one of the oldest tea gardens in Darjeeling producing organic black, green, and white teas.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Happy_Valley_Tea_Estate%2C_Darjeeling.jpg"
       }
     ]
   },
@@ -3015,12 +3419,16 @@ export const CITIES_DATA = [
         "state": "Sikkim",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 10,
+        "asiFee": {
+          "indian": 10,
+          "foreigner": 100
+        },
         "coordObj": {
           "lat": 27.3,
           "lng": 88.56
         },
-        "description": "Seat of the Karmapa Lama and Kagyu lineage, housing priceless Tibetan religious artwork and sacred golden stupas."
+        "description": "Seat of the Karmapa Lama and Kagyu lineage, housing priceless Tibetan religious artwork and sacred golden stupas.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rumtek_Monastery_alias_Dharma_Chakra_Centre_near_Gangtok%2C_East_Sikkim_09.jpg/1280px-Rumtek_Monastery_alias_Dharma_Chakra_Centre_near_Gangtok%2C_East_Sikkim_09.jpg"
       },
       {
         "id": "gangtok-tsomgo-lake",
@@ -3039,12 +3447,16 @@ export const CITIES_DATA = [
         "state": "Sikkim",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 200,
+        "asiFee": {
+          "indian": 200,
+          "foreigner": 2000
+        },
         "coordObj": {
           "lat": 27.3742,
           "lng": 88.7619
         },
-        "description": "Sacred high-altitude glacial lake at 3,753 meters altitude that freezes solid in winter and reflects prayer flags in summer."
+        "description": "Sacred high-altitude glacial lake at 3,753 meters altitude that freezes solid in winter and reflects prayer flags in summer.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Tsongmo_Lake_or_Changu_Lake_-_East_Sikkim.jpg/1280px-Tsongmo_Lake_or_Changu_Lake_-_East_Sikkim.jpg"
       },
       {
         "id": "gangtok-tibetology",
@@ -3063,12 +3475,16 @@ export const CITIES_DATA = [
         "state": "Sikkim",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 10,
+        "asiFee": {
+          "indian": 10,
+          "foreigner": 100
+        },
         "coordObj": {
           "lat": 27.316,
           "lng": 88.604
         },
-        "description": "Autonomous research institute housed in traditional Tibetan architecture, featuring rare Sanskrit and Tibetan palm-leaf manuscripts."
+        "description": "Autonomous research institute housed in traditional Tibetan architecture, featuring rare Sanskrit and Tibetan palm-leaf manuscripts.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Namgyal_Institute_of_Tibetology_Front_Panorama.jpg/1280px-Namgyal_Institute_of_Tibetology_Front_Panorama.jpg"
       },
       {
         "id": "gangtok-mg-marg",
@@ -3087,12 +3503,44 @@ export const CITIES_DATA = [
         "state": "Sikkim",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 27.329,
           "lng": 88.613
         },
-        "description": "Pristine, vehicle-free stone-paved promenade lined with Victorian lampposts, cafes, and mountain souvenir boutiques."
+        "description": "Pristine, vehicle-free stone-paved promenade lined with Victorian lampposts, cafes, and mountain souvenir boutiques.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kangch-Goechala.jpg/1280px-Kangch-Goechala.jpg"
+      },
+      {
+        "id": "gangtok-khangchendzonga",
+        "name": "Khangchendzonga National Park",
+        "city": "Yuksom / Gangtok",
+        "state": "Sikkim",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          27.7,
+          88.3333
+        ],
+        "coordObj": {
+          "lat": 27.7,
+          "lng": 88.3333
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kangchenjunga_Dawn_Sikkim.jpg/1280px-Kangchenjunga_Dawn_Sikkim.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kangchenjunga_Dawn_Sikkim.jpg/1280px-Kangchenjunga_Dawn_Sikkim.jpg",
+        "timing": "Sunrise to Sunset (Permits required)",
+        "fee": "₹200 (Indians) / ₹400 (Foreigners)",
+        "asiFee": {
+          "indian": 200,
+          "foreigner": 400
+        },
+        "historicalEra": "2016 UNESCO Mixed Heritage",
+        "description": "India's first and only UNESCO Mixed World Heritage Site, honoring both exceptional natural biodiversity and the sacred Tibetan Buddhist cultural mythology surrounding Mount Khangchendzonga (8,586m).",
+        "shortDesc": "India's only UNESCO Mixed World Heritage Site, encompassing sacred Himalayan peaks, glacial lakes, and the world's 3rd highest summit.",
+        "tip": "Trek to Goecha La viewpoint from Yuksom for an unforgettable sunrise illumination on the sheer eastern face of Kangchenjunga."
       }
     ]
   },
@@ -3141,12 +3589,16 @@ export const CITIES_DATA = [
         "state": "Meghalaya",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 200,
+        "asiFee": {
+          "indian": 200,
+          "foreigner": 2000
+        },
         "coordObj": {
           "lat": 25.66,
           "lng": 91.89
         },
-        "description": "Vast reservoir surrounded by pine-clad Khasi hills, offering kayaking, water-skiing, and panoramic sunset viewpoints."
+        "description": "Vast reservoir surrounded by pine-clad Khasi hills, offering kayaking, water-skiing, and panoramic sunset viewpoints.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Umiam_Lake_-_by_Vikramjit_Kakati.png"
       },
       {
         "id": "shillong-elephant-falls",
@@ -3165,12 +3617,16 @@ export const CITIES_DATA = [
         "state": "Meghalaya",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 20,
+        "asiFee": {
+          "indian": 20,
+          "foreigner": 200
+        },
         "coordObj": {
           "lat": 25.536,
           "lng": 91.823
         },
-        "description": "Three-tiered mountain waterfall tumbling over fern-carpeted black rocks, named after an elephant-shaped rock."
+        "description": "Three-tiered mountain waterfall tumbling over fern-carpeted black rocks, named after an elephant-shaped rock.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Elephant_Falls_Meghalaya.jpg"
       },
       {
         "id": "shillong-don-bosco",
@@ -3189,12 +3645,16 @@ export const CITIES_DATA = [
         "state": "Meghalaya",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 100,
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 1000
+        },
         "coordObj": {
           "lat": 25.599,
           "lng": 91.905
         },
-        "description": "Seven-story hexagonal museum housing seventeen galleries showcasing the tribal dress, weapons, and customs of all eight North-East states."
+        "description": "Seven-story hexagonal museum housing seventeen galleries showcasing the tribal dress, weapons, and customs of all eight North-East states.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Don_Bosco_Museum%2C_Shillong.jpg/1280px-Don_Bosco_Museum%2C_Shillong.jpg"
       }
     ]
   },
@@ -3243,12 +3703,16 @@ export const CITIES_DATA = [
         "state": "Assam",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 500,
+        "asiFee": {
+          "indian": 500,
+          "foreigner": 5000
+        },
         "coordObj": {
           "lat": 26.166,
           "lng": 91.705
         },
-        "description": "One of the oldest and most revered 51 Shaktipeeths atop Nilachal Hill, dedicated to the mother goddess of tantric worship."
+        "description": "One of the oldest and most revered 51 Shaktipeeths atop Nilachal Hill, dedicated to the mother goddess of tantric worship.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kamakhya_Temple_-_DEV_8829.jpg/1280px-Kamakhya_Temple_-_DEV_8829.jpg"
       },
       {
         "id": "guwahati-brahmaputra-cruise",
@@ -3267,12 +3731,16 @@ export const CITIES_DATA = [
         "state": "Assam",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 400,
+        "asiFee": {
+          "indian": 400,
+          "foreigner": 4000
+        },
         "coordObj": {
           "lat": 26.185,
           "lng": 91.745
         },
-        "description": "Cruising along one of the widest rivers in the world, with opportunities to spot endangered Gangetic river dolphins."
+        "description": "Cruising along one of the widest rivers in the world, with opportunities to spot endangered Gangetic river dolphins.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ganges-Brahmaputra-Meghna_basins.jpg/1280px-Ganges-Brahmaputra-Meghna_basins.jpg"
       },
       {
         "id": "guwahati-assam-museum",
@@ -3291,12 +3759,16 @@ export const CITIES_DATA = [
         "state": "Assam",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 20,
+        "asiFee": {
+          "indian": 20,
+          "foreigner": 200
+        },
         "coordObj": {
           "lat": 26.184,
           "lng": 91.751
         },
-        "description": "Extensive museum near Dighalipukhuri displaying medieval Ahom dynasty swords, royal armor, and village bamboo crafts."
+        "description": "Extensive museum near Dighalipukhuri displaying medieval Ahom dynasty swords, royal armor, and village bamboo crafts.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Assam_State_Museum.jpg"
       }
     ]
   },
@@ -3351,12 +3823,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 18.922,
           "lng": 72.8347
         },
-        "description": "26-meter basalt arch monument built in 1924 facing Mumbai Harbour, symbol of British entry and departure."
+        "description": "26-meter basalt arch monument built in 1924 facing Mumbai Harbour, symbol of British entry and departure.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg/1280px-Mumbai_03-2016_30_Gateway_of_India.jpg"
       },
       {
         "id": "mumbai-cst",
@@ -3375,12 +3851,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 18.94,
           "lng": 72.8353
         },
-        "description": "UNESCO World Heritage Italian Gothic railway palace designed by F. W. Stevens, featuring stone gargoyles and stained glass."
+        "description": "UNESCO World Heritage Italian Gothic railway palace designed by F. W. Stevens, featuring stone gargoyles and stained glass.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chhatrapati_shivaji_terminus%2C_esterno_01.jpg/1280px-Chhatrapati_shivaji_terminus%2C_esterno_01.jpg"
       },
       {
         "id": "mumbai-marine-drive",
@@ -3399,12 +3879,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 18.9432,
           "lng": 72.823
         },
-        "description": "3.6-kilometer C-shaped coastal promenade along Netaji Subhash Chandra Bose Road lined with Art Deco residences."
+        "description": "3.6-kilometer C-shaped coastal promenade along Netaji Subhash Chandra Bose Road lined with Art Deco residences.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg/1280px-Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg"
       },
       {
         "id": "mumbai-siddhivinayak",
@@ -3423,12 +3907,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 19.0169,
           "lng": 72.8304
         },
-        "description": "Revered temple dedicated to Lord Ganesha, featuring a gold-plated inner sanctum dome and black stone deity."
+        "description": "Revered temple dedicated to Lord Ganesha, featuring a gold-plated inner sanctum dome and black stone deity.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Shree_Siddhivinayak_Temple_Mumbai.jpg/1280px-Shree_Siddhivinayak_Temple_Mumbai.jpg"
       },
       {
         "id": "mumbai-csmvs",
@@ -3447,12 +3935,72 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 150,
+        "asiFee": {
+          "indian": 150,
+          "foreigner": 1500
+        },
         "coordObj": {
           "lat": 18.9269,
           "lng": 72.8327
         },
-        "description": "Indo-Saracenic museum surrounded by palm gardens, housing priceless collections of ancient sculptures, miniature art, and weaponry."
+        "description": "Indo-Saracenic museum surrounded by palm gardens, housing priceless collections of ancient sculptures, miniature art, and weaponry.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Chhatrapati_Shivaji_Maharaj_Vastu_Sangrahalaya.jpg/1280px-Chhatrapati_Shivaji_Maharaj_Vastu_Sangrahalaya.jpg"
+      },
+      {
+        "id": "mumbai-victorian-art-deco",
+        "name": "Victorian Gothic & Art Deco Ensembles of Mumbai",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          18.9322,
+          72.8306
+        ],
+        "coordObj": {
+          "lat": 18.9322,
+          "lng": 72.8306
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bombay_High_Court_Building_Mumbai.jpg/1280px-Bombay_High_Court_Building_Mumbai.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bombay_High_Court_Building_Mumbai.jpg/1280px-Bombay_High_Court_Building_Mumbai.jpg",
+        "timing": "Open 24/7 (High Court / Oval Maidan)",
+        "fee": "Free",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "19th - 20th Century Victorian & Art Deco",
+        "description": "UNESCO World Heritage Site comprising 19th-century Victorian Neo-Gothic public buildings facing the Oval Maidan, contrasted with 20th-century Art Deco residential and cinema buildings along Marine Drive.",
+        "shortDesc": "UNESCO World Heritage ensemble of Victorian Neo-Gothic civic monuments and the world's second-largest Art Deco cluster.",
+        "tip": "Stroll across the Oval Maidan at twilight to see Rajabai Clock Tower on one side and the illuminated Art Deco seafront on the other."
+      },
+      {
+        "id": "mumbai-elephanta-caves",
+        "name": "Elephanta Caves (Gharapuri)",
+        "city": "Mumbai Harbour",
+        "state": "Maharashtra",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          18.9633,
+          72.9315
+        ],
+        "coordObj": {
+          "lat": 18.9633,
+          "lng": 72.9315
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Elephanta_Caves_Trimurti.jpg/1280px-Elephanta_Caves_Trimurti.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Elephanta_Caves_Trimurti.jpg/1280px-Elephanta_Caves_Trimurti.jpg",
+        "timing": "9:00 AM - 5:30 PM (Closed on Mondays)",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners) + Ferry",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "5th - 7th Century CE Kalachuri / Rashtrakuta",
+        "description": "UNESCO World Heritage Site located on Elephanta Island in Mumbai Harbour. Cave 1 houses the colossal 6-meter monolithic Sadashiva Trimurti depicting the Creator, Preserver, and Destroyer aspects of Shiva.",
+        "shortDesc": "UNESCO World Heritage rock-cut cave temples featuring the colossal 20-foot three-headed Sadashiva Trimurti sculpture.",
+        "tip": "Catch the 9:00 AM first ferry from the Gateway of India to explore the Great Cave in tranquil solitude before crowds arrive."
       }
     ]
   },
@@ -3508,12 +4056,16 @@ export const CITIES_DATA = [
         "state": "Goa",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 15.5009,
           "lng": 73.9116
         },
-        "description": "UNESCO World Heritage baroque church built in 1605, holding the sacred relic mortal remains of St. Francis Xavier."
+        "description": "UNESCO World Heritage baroque church built in 1605, holding the sacred relic mortal remains of St. Francis Xavier.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Front_Elevation_of_Basilica_of_Bom_Jesus.jpg/1280px-Front_Elevation_of_Basilica_of_Bom_Jesus.jpg"
       },
       {
         "id": "goa-aguada-fort",
@@ -3532,12 +4084,16 @@ export const CITIES_DATA = [
         "state": "Goa",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 15.4925,
           "lng": 73.7736
         },
-        "description": "17th-century Portuguese coastal fortress on Sinquerim beach with a freshwater cistern that supplied passing ships."
+        "description": "17th-century Portuguese coastal fortress on Sinquerim beach with a freshwater cistern that supplied passing ships.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Fort_aguada.jpg"
       },
       {
         "id": "goa-palolem-beach",
@@ -3556,12 +4112,16 @@ export const CITIES_DATA = [
         "state": "Goa",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 15.01,
           "lng": 74.023
         },
-        "description": "Picturesque crescent-shaped bay with calm turquoise waters, coconut palms, and colorful beachfront wooden shacks."
+        "description": "Picturesque crescent-shaped bay with calm turquoise waters, coconut palms, and colorful beachfront wooden shacks.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Palolem_Beach%2C_South_Goa.jpg/1280px-Palolem_Beach%2C_South_Goa.jpg"
       },
       {
         "id": "goa-mangeshi",
@@ -3580,12 +4140,16 @@ export const CITIES_DATA = [
         "state": "Goa",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 15.443,
           "lng": 73.968
         },
-        "description": "Famous 450-year-old Hindu temple dedicated to Lord Shiva, featuring a striking seven-story white Deepastambha lamp tower."
+        "description": "Famous 450-year-old Hindu temple dedicated to Lord Shiva, featuring a striking seven-story white Deepastambha lamp tower.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Shri-Mangesh-Temple%2CGoa.JPG"
       },
       {
         "id": "goa-dudhsagar",
@@ -3604,12 +4168,16 @@ export const CITIES_DATA = [
         "state": "Goa",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 500,
+        "asiFee": {
+          "indian": 500,
+          "foreigner": 5000
+        },
         "coordObj": {
           "lat": 15.314,
           "lng": 74.314
         },
-        "description": "One of India’s tallest four-tiered waterfalls (310 meters), resembling a cascading \"Sea of Milk\" amidst Western Ghats jungle."
+        "description": "One of India’s tallest four-tiered waterfalls (310 meters), resembling a cascading \"Sea of Milk\" amidst Western Ghats jungle.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Doodhsagar_Fall.jpg/1280px-Doodhsagar_Fall.jpg"
       }
     ]
   },
@@ -3664,12 +4232,16 @@ export const CITIES_DATA = [
         "state": "Gujarat",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 23.0605,
           "lng": 72.58
         },
-        "description": "Headquarters of Mahatma Gandhi from 1917 to 1930 from where the historic Salt March to Dandi was launched."
+        "description": "Headquarters of Mahatma Gandhi from 1917 to 1930 from where the historic Salt March to Dandi was launched.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/GANDHI_ASHRAM_03.jpg/1280px-GANDHI_ASHRAM_03.jpg"
       },
       {
         "id": "ahmedabad-adalaj-stepwell",
@@ -3688,12 +4260,16 @@ export const CITIES_DATA = [
         "state": "Gujarat",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 23.1667,
           "lng": 72.5833
         },
-        "description": "Five-story deep underground architectural marvel built in 1498 with Solanki carvings and subterranean temperature cooling."
+        "description": "Five-story deep underground architectural marvel built in 1498 with Solanki carvings and subterranean temperature cooling.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Adalaj_ki_Vav_Gujarat_240A1370_72.jpg/1280px-Adalaj_ki_Vav_Gujarat_240A1370_72.jpg"
       },
       {
         "id": "ahmedabad-sidi-saiyyed",
@@ -3712,12 +4288,16 @@ export const CITIES_DATA = [
         "state": "Gujarat",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 23.028,
           "lng": 72.582
         },
-        "description": "1573 CE mosque celebrated globally for its ten semi-circular marble screens carved into delicate intertwined tree branches."
+        "description": "1573 CE mosque celebrated globally for its ten semi-circular marble screens carved into delicate intertwined tree branches.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sidi_Saiyyed_Mosque%2C_Ahmedabad.jpg/1280px-Sidi_Saiyyed_Mosque%2C_Ahmedabad.jpg"
       },
       {
         "id": "ahmedabad-calico-museum",
@@ -3736,12 +4316,16 @@ export const CITIES_DATA = [
         "state": "Gujarat",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 23.056,
           "lng": 72.593
         },
-        "description": "Premier textile museum in India showcasing 500 years of handwoven textiles, royal court costumes, and Kashmiri pashminas."
+        "description": "Premier textile museum in India showcasing 500 years of handwoven textiles, royal court costumes, and Kashmiri pashminas.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Calico_Museum_of_Textiles_Ahmedabad.jpg/1280px-Calico_Museum_of_Textiles_Ahmedabad.jpg"
       },
       {
         "id": "ahmedabad-kankaria",
@@ -3760,12 +4344,16 @@ export const CITIES_DATA = [
         "state": "Gujarat",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 23.006,
           "lng": 72.603
         },
-        "description": "Circular lake commissioned in 1451 with a central Nagina Wadi garden island, light shows, and tree-lined jogging paths."
+        "description": "Circular lake commissioned in 1451 with a central Nagina Wadi garden island, light shows, and tree-lined jogging paths.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kankaria_Carnival_2_Ahmedabad.JPG/1280px-Kankaria_Carnival_2_Ahmedabad.JPG"
       }
     ]
   },
@@ -3815,11 +4403,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Khajuraho.KandariyaMahadeva.jpg/1280px-Khajuraho.KandariyaMahadeva.jpg",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "₹40 (Indians) / ₹600 (Foreigners)",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "10th Century Chandela Dynasty",
         "description": "The largest and most ornate temple in Khajuraho with an 84-spire shikhara replicating Mount Kailash, decorated with 800+ sandstone sculptures.",
         "shortDesc": "Largest and most ornate Chandela temple with an 84-spire tower representing sacred Mount Kailash.",
-        "tip": "Examine the south wall friezes with binoculars to appreciate the microscopic jewelry details carved in sandstone."
+        "tip": "Examine the south wall friezes with binoculars to appreciate the microscopic jewelry details carved in sandstone.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Khajuraho.KandariyaMahadeva.jpg/1280px-Khajuraho.KandariyaMahadeva.jpg"
       },
       {
         "id": "khajuraho-lakshmana",
@@ -3839,11 +4431,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Khajuraho-Lakshmana_temple.JPG",
         "timing": "6:00 AM - 6:00 PM Daily",
         "fee": "Included with Western Group ticket",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "954 CE King Yashovarman Chandela",
         "description": "Immaculately preserved Panchayatana temple dedicated to Vaikuntha Vishnu, featuring exquisite battle processions, musicians, and celestial apsaras.",
         "shortDesc": "Exquisitely preserved 10th-century temple featuring elaborate friezes of royal hunts, cavalry, and celestial maidens.",
-        "tip": "Look at the base platform frieze depicting a grand royal procession with elephants and horses."
+        "tip": "Look at the base platform frieze depicting a grand royal procession with elephants and horses.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Khajuraho-Lakshmana_temple.JPG"
       },
       {
         "id": "khajuraho-western-group",
@@ -3863,11 +4459,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Khajuraho_Western_Group.jpg/1280px-Khajuraho_Western_Group.jpg",
         "timing": "Sound & Light Show: 6:30 PM (English) / 7:30 PM (Hindi)",
         "fee": "₹250 (Light Show)",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "historicalEra": "10th–12th Century Chandela Dynasty",
         "description": "Lush manicured park containing the highest concentration of UNESCO-inscribed Chandela temples, narrated nightly via an Amitabh Bachchan audio light show.",
         "shortDesc": "UNESCO landscaped enclosure housing the premier Chandela temples, featuring an evening sound and light show.",
-        "tip": "Carry insect repellent for the open-air evening sound and light performance."
+        "tip": "Carry insect repellent for the open-air evening sound and light performance.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Khajuraho_Western_Group.jpg/1280px-Khajuraho_Western_Group.jpg"
       },
       {
         "id": "khajuraho-museum",
@@ -3887,11 +4487,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Archaeological_Museum%2C_Khajuraho.jpg/1280px-Archaeological_Museum%2C_Khajuraho.jpg",
         "timing": "9:00 AM - 5:00 PM (Fridays Closed)",
         "fee": "₹5 (Indians) / ₹100 (Foreigners)",
-        "asiFee": 5,
+        "asiFee": {
+          "indian": 5,
+          "foreigner": 50
+        },
         "historicalEra": "1910 CE ASI Heritage Collection",
         "description": "Houses recovered 10th-century Chandela stone sculptures, Jain tirthankara idols, and the famous dancing Ganesha found during excavations.",
         "shortDesc": "Curated repository of salvaged 10th-century stone masterpieces, Jain sculptures, and colossal Ganesha statues.",
-        "tip": "Great air-conditioned refuge right across from the Western group ticket gate."
+        "tip": "Great air-conditioned refuge right across from the Western group ticket gate.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Archaeological_Museum%2C_Khajuraho.jpg/1280px-Archaeological_Museum%2C_Khajuraho.jpg"
       },
       {
         "id": "khajuraho-raneh-falls",
@@ -3911,11 +4515,15 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Raneh_Falls_Canyon.jpg/1280px-Raneh_Falls_Canyon.jpg",
         "timing": "8:00 AM - 5:00 PM",
         "fee": "₹100 per vehicle + ₹50 guide fee",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "Natural Volcanic Crystalline Gorge",
         "description": "Spectacular 30-meter deep canyon carved into multi-colored pure crystalline granite rocks including pink, red, and grey shades.",
         "shortDesc": "Vibrant 30-meter deep gorge of multi-colored crystalline granite with cascading seasonal waterfalls.",
-        "tip": "Hire a local taxi for the 20 km drive; best visited immediately post-monsoon when the waterfalls are roaring."
+        "tip": "Hire a local taxi for the 20 km drive; best visited immediately post-monsoon when the waterfalls are roaring.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Raneh_Falls_Canyon.jpg/1280px-Raneh_Falls_Canyon.jpg"
       }
     ]
   },
@@ -3970,12 +4578,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 18.5196,
           "lng": 73.8553
         },
-        "description": "Historic 18th-century seven-story palace fort built in 1732 by Peshwa Baji Rao I, with massive teak spike-studded Dilli Darwaza."
+        "description": "Historic 18th-century seven-story palace fort built in 1732 by Peshwa Baji Rao I, with massive teak spike-studded Dilli Darwaza.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Front_view_of_Shaniwar_Wada_illuminated.jpg/1280px-Front_view_of_Shaniwar_Wada_illuminated.jpg"
       },
       {
         "id": "pune-aga-khan",
@@ -3994,12 +4606,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 18.5524,
           "lng": 73.9015
         },
-        "description": "Italianate palace built in 1892 where Mahatma Gandhi and Kasturba Gandhi were interned following the 1942 Quit India Resolution."
+        "description": "Italianate palace built in 1892 where Mahatma Gandhi and Kasturba Gandhi were interned following the 1942 Quit India Resolution.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Pune_Palace.jpg/1280px-Pune_Palace.jpg"
       },
       {
         "id": "pune-dagdusheth",
@@ -4018,12 +4634,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Temple",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "coordObj": {
           "lat": 18.5165,
           "lng": 73.8561
         },
-        "description": "One of the most revered and lavish Ganesha temples in Maharashtra, adorned with 40 kg of pure gold ornaments."
+        "description": "One of the most revered and lavish Ganesha temples in Maharashtra, adorned with 40 kg of pure gold ornaments.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Dagdusheth_Ganpati_Temple_Decorated_during_Ganesh_Chaturti_September_2012_%281%29.JPG/1280px-Dagdusheth_Ganpati_Temple_Decorated_during_Ganesh_Chaturti_September_2012_%281%29.JPG"
       },
       {
         "id": "pune-sinhagad",
@@ -4042,12 +4662,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Scenic",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 18.3663,
           "lng": 73.7558
         },
-        "description": "Hilltop fortress perched 1,312 meters atop the Sahyadris, site of Tanaji Malusare’s heroic 1670 battle."
+        "description": "Hilltop fortress perched 1,312 meters atop the Sahyadris, site of Tanaji Malusare’s heroic 1670 battle.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sinhagad.jpg/1280px-Sinhagad.jpg"
       },
       {
         "id": "pune-raja-kelkar",
@@ -4066,12 +4690,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "coordObj": {
           "lat": 18.511,
           "lng": 73.854
         },
-        "description": "Fascinating collection of 20,000 medieval Indian everyday artifacts, carved wooden doors, and musical instruments."
+        "description": "Fascinating collection of 20,000 medieval Indian everyday artifacts, carved wooden doors, and musical instruments.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Building_of_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg/1280px-Building_of_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg"
       }
     ]
   },
@@ -4120,12 +4748,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "coordObj": {
           "lat": 20.0268,
           "lng": 75.178
         },
-        "description": "World’s largest monolithic rock excavation, carved top-to-bottom from a single basalt cliff by Rashtrakuta King Krishna I."
+        "description": "World’s largest monolithic rock excavation, carved top-to-bottom from a single basalt cliff by Rashtrakuta King Krishna I.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fc/Kailash_temple_%28Ellora_cave_no_15%29_at_Verul.png"
       },
       {
         "id": "aurangabad-ajanta-caves",
@@ -4144,12 +4776,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 40,
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 400
+        },
         "coordObj": {
           "lat": 20.5519,
           "lng": 75.7033
         },
-        "description": "30 rock-cut Buddhist cave monuments dating from 2nd century BCE, containing master frescoes of the Jataka tales."
+        "description": "30 rock-cut Buddhist cave monuments dating from 2nd century BCE, containing master frescoes of the Jataka tales.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ajanta_%2863%29.jpg"
       },
       {
         "id": "aurangabad-bibi-ka-maqbara",
@@ -4168,12 +4804,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 19.9014,
           "lng": 75.3203
         },
-        "description": "1660 CE marble mausoleum commissioned by Prince Azam Shah for his mother Dilras Banu Begum, closely resembling the Taj Mahal."
+        "description": "1660 CE marble mausoleum commissioned by Prince Azam Shah for his mother Dilras Banu Begum, closely resembling the Taj Mahal.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/The_Tomb_of_Dilras_Banu_Begum.jpg/1280px-The_Tomb_of_Dilras_Banu_Begum.jpg"
       },
       {
         "id": "aurangabad-daulatabad",
@@ -4192,12 +4832,16 @@ export const CITIES_DATA = [
         "state": "Maharashtra",
         "categoryType": "Monument",
         "historicalEra": "Historic Cultural Period",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "coordObj": {
           "lat": 19.943,
           "lng": 75.213
         },
-        "description": "12th-century conical hilltop citadel with ingenious defense mechanisms including pitch-dark mazes (Andhari) and moats."
+        "description": "12th-century conical hilltop citadel with ingenious defense mechanisms including pitch-dark mazes (Andhari) and moats.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Daulatabad_Fort_a_view.JPG/1280px-Daulatabad_Fort_a_view.JPG"
       }
     ]
   },
@@ -4255,11 +4899,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hemis_Monastery_02.jpg/1280px-Hemis_Monastery_02.jpg",
         "timing": "8:00 AM - 6:00 PM Daily",
         "fee": "₹50 (Entry)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "11th Century / 1672 CE Drukpa Lineage",
         "description": "The largest and wealthiest monastery in Ladakh, home to the sacred golden statue of Guru Padmasambhava and priceless Tibetan thangkas.",
         "shortDesc": "Largest and wealthiest monastery in Ladakh, home to the sacred golden statue of Guru Padmasambhava.",
-        "tip": "Visit during the annual Hemis Tsechu festival in June/July to witness the sacred Cham masked dances."
+        "tip": "Visit during the annual Hemis Tsechu festival in June/July to witness the sacred Cham masked dances.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hemis_Monastery_02.jpg/1280px-Hemis_Monastery_02.jpg"
       },
       {
         "id": "ladakh-pangong-tso",
@@ -4279,11 +4927,15 @@ export const CITIES_DATA = [
         "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
         "timing": "Open 24/7 (Inner Line Permit required)",
         "fee": "Free (ILP Environment Fee ₹400)",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "Ancient Endorheic Himalayan Lake",
         "description": "High-altitude endorheic lake situated at 4,350 meters that dynamically changes color from turquoise to deep indigo throughout the day.",
         "shortDesc": "Breathtaking high-altitude saltwater lake at 4,350m spanning from India to Tibet, known for shifting shades of blue.",
-        "tip": "Wake up early for tranquil dawn reflections before morning breezes ripple the glass-like water surface."
+        "tip": "Wake up early for tranquil dawn reflections before morning breezes ripple the glass-like water surface.",
+        "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
       },
       {
         "id": "ladakh-thiksey-monastery",
@@ -4303,11 +4955,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Thikse_Monastery_.jpg/1280px-Thikse_Monastery_.jpg",
         "timing": "7:00 AM - 7:00 PM Daily",
         "fee": "₹50 (Entry)",
-        "asiFee": 50,
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 500
+        },
         "historicalEra": "15th Century Gelugpa Order",
         "description": "Twelve-story whitewashed complex resembling Tibet's Potala Palace, housing a 15-meter statue of Maitreya (Future Buddha).",
         "shortDesc": "Twelve-story cliffside complex resembling Lhasa's Potala Palace, housing the majestic 15-meter Maitreya Buddha.",
-        "tip": "Arrive at 7:00 AM for the morning prayer congregation featuring monk chants and conch shells."
+        "tip": "Arrive at 7:00 AM for the morning prayer congregation featuring monk chants and conch shells.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Thikse_Monastery_.jpg/1280px-Thikse_Monastery_.jpg"
       },
       {
         "id": "ladakh-shanti-stupa",
@@ -4327,11 +4983,15 @@ export const CITIES_DATA = [
         "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg/1280px-Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg",
         "timing": "5:00 AM - 9:00 PM Daily",
         "fee": "Free",
-        "asiFee": 0,
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
         "historicalEra": "1991 CE Japanese-Ladakhi Buddhist Stupa",
         "description": "White-domed peace stupa perched on Changspa hill offering panoramic 360-degree vistas of Leh town and the snowcapped Stok Kangri range.",
         "shortDesc": "White-domed Buddhist monument perched on a steep hill overlooking Leh, illuminated at twilight.",
-        "tip": "Climb up 30 minutes before sunset for golden-hour illumination of the Indus valley."
+        "tip": "Climb up 30 minutes before sunset for golden-hour illumination of the Indus valley.",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg/1280px-Leh%2C_Shanti_Stupa%2C_Ladakh%2C_India.jpg"
       },
       {
         "id": "ladakh-kargil-memorial",
@@ -4351,11 +5011,1235 @@ export const CITIES_DATA = [
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kargil_War_Memorial%2C_Dras.jpg/1280px-Kargil_War_Memorial%2C_Dras.jpg",
         "timing": "9:00 AM - 6:00 PM",
         "fee": "₹25 (Entry)",
-        "asiFee": 25,
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 250
+        },
         "historicalEra": "Modern Indian Military Memorial",
         "description": "Pink sandstone memorial at the foothills of Tololing Hill honoring the soldiers of Operation Vijay, featuring the Amar Jawan Jyoti.",
         "shortDesc": "Historic military memorial situated in Dras commemorating the brave soldiers of the 1999 Kargil conflict.",
-        "tip": "Visit the Manoj Pandey War Gallery inside for captured memorabilia and battle documentary screenings."
+        "tip": "Visit the Manoj Pandey War Gallery inside for captured memorabilia and battle documentary screenings.",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kargil_War_Memorial%2C_Dras.jpg/1280px-Kargil_War_Memorial%2C_Dras.jpg"
+      }
+    ]
+  },
+  {
+    "id": "chandigarh",
+    "name": "Chandigarh & Capital Complex",
+    "state": "Chandigarh / Punjab",
+    "zone": "North",
+    "coordinates": [
+      30.7592,
+      76.8048
+    ],
+    "tagline": "Le Corbusier's modernist masterpiece, brutalist urban architecture, and tranquil rock gardens.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chandigarh_Capital_Complex.jpg/1280px-Chandigarh_Capital_Complex.jpg",
+    "bestTimeToVisit": "October to March (12°C - 24°C)",
+    "bestDuration": "2-3 Days",
+    "climate": "Crisp sunny winters ideal for walking through Corbusier's open-air monumental plaza and lakes.",
+    "overview": "Designed by master architect Le Corbusier, Chandigarh's Capital Complex is an official UNESCO World Heritage site representing the crowning jewel of 20th-century modernist architecture.",
+    "localFoodSpecialties": [
+      {
+        "name": "Amritsari Kulcha & Chole",
+        "desc": "Flaky tandoor-baked spiced potato bread served with tangy chickpea curry and desi butter.",
+        "place": "Bansal Amritsari Kulcha, Sector 19",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Amritsari_Kulcha_with_chole.jpg/1280px-Amritsari_Kulcha_with_chole.jpg"
+      },
+      {
+        "name": "Cream Chicken",
+        "desc": "Legendary mild white gravy pepper chicken simmered in rich cream and butter.",
+        "place": "Chawla's, Sector 22",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Murgh_Malai_Tikka.jpg/1280px-Murgh_Malai_Tikka.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "chandigarh-capital-complex",
+        "name": "Capital Complex & Open Hand Monument",
+        "city": "Chandigarh",
+        "state": "Chandigarh",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          30.7592,
+          76.8048
+        ],
+        "coordObj": {
+          "lat": 30.7592,
+          "lng": 76.8048
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chandigarh_Capital_Complex.jpg/1280px-Chandigarh_Capital_Complex.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chandigarh_Capital_Complex.jpg/1280px-Chandigarh_Capital_Complex.jpg",
+        "timing": "9:00 AM - 5:00 PM (Prior permission required for Secretariat)",
+        "fee": "Free (Registration required)",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1953 CE Le Corbusier Modernist",
+        "description": "UNESCO World Heritage Site designed by Le Corbusier. Encompasses the High Court, Secretariat, Legislative Assembly, and the 26-meter rotating Open Hand Monument symbolizing peace and unity.",
+        "shortDesc": "UNESCO World Heritage site designed by Le Corbusier featuring the rotating Open Hand Monument and brutalist legislative palaces.",
+        "tip": "Book the guided architectural tour online at least 24 hours prior to access the High Court interior and Secretariat rooftop."
+      },
+      {
+        "id": "chandigarh-rock-garden",
+        "name": "Nek Chand's Rock Garden",
+        "city": "Chandigarh",
+        "state": "Chandigarh",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          30.7525,
+          76.8066
+        ],
+        "coordObj": {
+          "lat": 30.7525,
+          "lng": 76.8066
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Rock_Garden_Chandigarh_Sculptures.jpg/1280px-Rock_Garden_Chandigarh_Sculptures.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Rock_Garden_Chandigarh_Sculptures.jpg/1280px-Rock_Garden_Chandigarh_Sculptures.jpg",
+        "timing": "9:00 AM - 7:00 PM",
+        "fee": "₹30 (Adults) / ₹10 (Children)",
+        "asiFee": {
+          "indian": 30,
+          "foreigner": 30
+        },
+        "historicalEra": "1957 CE Nek Chand",
+        "description": "A 40-acre visionary sculpture park hand-built from urban and industrial waste, broken bangles, ceramic tiles, and river rocks across interconnected amphitheaters and cascading waterfalls.",
+        "shortDesc": "40-acre visionary sculpture garden built secretly by Nek Chand using industrial ceramics, rocks, and recycled urban materials.",
+        "tip": "Explore the Phase 3 courtyards where life-sized ceramic dancing figures and huge swings create magical photo frames."
+      }
+    ]
+  },
+  {
+    "id": "bihar",
+    "name": "Bodh Gaya & Nalanda Mahavihara",
+    "state": "Bihar",
+    "zone": "East",
+    "coordinates": [
+      24.696,
+      84.9913
+    ],
+    "tagline": "The cradle of Buddhism, the sacred Bodhi Tree, and the world's premier ancient monastic university.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mahabodhitemple.jpg/1280px-Mahabodhitemple.jpg",
+    "bestTimeToVisit": "October to March (12°C - 26°C)",
+    "bestDuration": "3-4 Days",
+    "climate": "Pleasant, meditative winter mornings with Buddhist monks chanting under the ancient Bodhi Tree.",
+    "overview": "Bihar hosts two celebrated UNESCO World Heritage sites: the Mahabodhi Temple Complex where Gautama Buddha attained supreme enlightenment, and the ruins of Nalanda Mahavihara, the world's most illustrious 5th-century university.",
+    "localFoodSpecialties": [
+      {
+        "name": "Litti Chokha",
+        "desc": "Roasted whole wheat dough balls stuffed with spiced sattu (gram flour) served with charred eggplant and tomato chokha.",
+        "place": "Bodhgaya Heritage Food Corner",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Litti_Chokha_Bihar.jpg/1280px-Litti_Chokha_Bihar.jpg"
+      },
+      {
+        "name": "Khaja of Silao",
+        "desc": "GI-tagged multi-layered sweet crispy pastry soaked in light sugar syrup, traditional to the Nalanda region.",
+        "place": "Silao Khaja Bhandar, Nalanda",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Silao_Khaja_Sweet.jpg/1280px-Silao_Khaja_Sweet.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "bihar-mahabodhi-temple",
+        "name": "Mahabodhi Temple Complex",
+        "city": "Bodh Gaya",
+        "state": "Bihar",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          24.696,
+          84.9913
+        ],
+        "coordObj": {
+          "lat": 24.696,
+          "lng": 84.9913
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mahabodhitemple.jpg/1280px-Mahabodhitemple.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mahabodhitemple.jpg/1280px-Mahabodhitemple.jpg",
+        "timing": "5:00 AM - 9:00 PM",
+        "fee": "Free Entry (Mobile cameras ₹100)",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "3rd Century BCE Ashoka / 5th Century CE Gupta",
+        "description": "UNESCO World Heritage Site marking the supreme enlightenment spot of Gautama Buddha under the sacred Bodhi Tree. Features a 55-meter grand pyramidal temple, the Vajrasana diamond throne, and ancient lotus pond.",
+        "shortDesc": "UNESCO World Heritage temple marking where the Buddha attained enlightenment beside the sacred Bodhi Tree and diamond throne.",
+        "tip": "Visit at 5:30 AM to participate in the serene morning chanting and meditation beside the sacred Bodhi Tree."
+      },
+      {
+        "id": "bihar-nalanda-mahavihara",
+        "name": "Archaeological Site of Nalanda Mahavihara",
+        "city": "Nalanda",
+        "state": "Bihar",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          25.1357,
+          85.4439
+        ],
+        "coordObj": {
+          "lat": 25.1357,
+          "lng": 85.4439
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda.jpg/1280px-Temple_No.-_3%2C_Nalanda.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda.jpg/1280px-Temple_No.-_3%2C_Nalanda.jpg",
+        "timing": "9:00 AM - 5:00 PM",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "5th Century CE Gupta Empire",
+        "description": "UNESCO World Heritage Site preserving the archaeological ruins of the ancient world's foremost residential monastic university. Excavated red brick stupas, classrooms, and meditation cells once housed 10,000 scholars.",
+        "shortDesc": "UNESCO World Heritage site showcasing the red brick ruins, stupas, and monasteries of the ancient world's premier Buddhist university.",
+        "tip": "Visit Temple No. 3, a monumental multi-layered stupa surrounded by votive stupas featuring exquisite stucco sculptures of the Buddha."
+      }
+    ]
+  },
+  {
+    "id": "bhopal",
+    "name": "Bhopal, Sanchi & Bhimbetka",
+    "state": "Madhya Pradesh",
+    "zone": "Central",
+    "coordinates": [
+      23.4793,
+      77.7397
+    ],
+    "tagline": "Two millennia of Buddhist devotion at Sanchi and 30,000-year-old prehistoric rock art at Bhimbetka.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_of_Sanchi_Stupa.jpg/1280px-East_Gateway_of_Sanchi_Stupa.jpg",
+    "bestTimeToVisit": "October to March (14°C - 28°C)",
+    "bestDuration": "3-4 Days",
+    "climate": "Pleasant central Indian breezes with clear skies perfect for exploring hilltop stupas and forested caves.",
+    "overview": "The heart of Madhya Pradesh bridges ancient history from the Paleolithic rock shelters of Bhimbetka to the Great Buddhist Stupa at Sanchi commissioned by Emperor Ashoka.",
+    "localFoodSpecialties": [
+      {
+        "name": "Bhopali Gosht Korma",
+        "desc": "Tender mutton slow-cooked in a velvety spiced almond, yogurt, and cardamom gravy.",
+        "place": "Chatori Gali, Old Bhopal",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mutton_Korma_Indian.jpg/1280px-Mutton_Korma_Indian.jpg"
+      },
+      {
+        "name": "Poha Jalebi",
+        "desc": "Light flattened rice tossed with mustard seeds, curry leaves, and sev paired with hot crisp jalebi.",
+        "place": "Manohar Dairy, Bhopal",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Poha_with_Jalebi.jpg/1280px-Poha_with_Jalebi.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "bhopal-sanchi-stupa",
+        "name": "Buddhist Monuments at Sanchi (Great Stupa)",
+        "city": "Sanchi",
+        "state": "Madhya Pradesh",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          23.4793,
+          77.7397
+        ],
+        "coordObj": {
+          "lat": 23.4793,
+          "lng": 77.7397
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_of_Sanchi_Stupa.jpg/1280px-East_Gateway_of_Sanchi_Stupa.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_of_Sanchi_Stupa.jpg/1280px-East_Gateway_of_Sanchi_Stupa.jpg",
+        "timing": "6:30 AM - 6:30 PM",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "3rd Century BCE Mauryan / 1st Century BCE Satavahana",
+        "description": "UNESCO World Heritage Site and the oldest stone structure in India. Commissioned by Emperor Ashoka, its iconic hemispherical dome is encircled by four elaborately carved stone toranas (gateways) depicting Jataka tales.",
+        "shortDesc": "UNESCO World Heritage site and India's oldest stone monument featuring the Great Stupa and 4 intricately carved Ashokan torana gateways.",
+        "tip": "Examine the carvings on the North Gateway closely to spot ancient depictions of the Miracle of Sravasti and foreign travelers in Indian courts."
+      },
+      {
+        "id": "bhopal-bhimbetka-caves",
+        "name": "Rock Shelters of Bhimbetka",
+        "city": "Raisen / Bhopal",
+        "state": "Madhya Pradesh",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          22.9372,
+          77.6128
+        ],
+        "coordObj": {
+          "lat": 22.9372,
+          "lng": 77.6128
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bhimbetka_Rock_Shelter_Cave_3.jpg/1280px-Bhimbetka_Rock_Shelter_Cave_3.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bhimbetka_Rock_Shelter_Cave_3.jpg/1280px-Bhimbetka_Rock_Shelter_Cave_3.jpg",
+        "timing": "7:00 AM - 6:00 PM",
+        "fee": "₹25 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 300
+        },
+        "historicalEra": "30,000 BCE Paleolithic to Mesolithic",
+        "description": "UNESCO World Heritage Site nestled in teak forests. Over 750 rock shelters contain prehistoric cave paintings created with mineral pigments, depicting hunting scenes, dancing, horses, and spiritual rituals across 30 millennia.",
+        "shortDesc": "UNESCO World Heritage site with 750 sandstone rock shelters displaying 30,000-year-old prehistoric cave paintings of wildlife and tribal ceremonies.",
+        "tip": "Don't miss the 'Auditorium Cave' and the vivid Boar Rock depicting an enormous mythological creature chasing tiny human figures."
+      }
+    ]
+  },
+  {
+    "id": "karnataka-heritage",
+    "name": "Hassan & Hoysala Sacred Ensembles",
+    "state": "Karnataka",
+    "zone": "South",
+    "coordinates": [
+      13.1625,
+      75.8606
+    ],
+    "tagline": "The apex of medieval Indian stone carving across Belur, Halebidu, and Somanathapura.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Chennakeshava_Temple_Belur_Karnataka.jpg/1280px-Chennakeshava_Temple_Belur_Karnataka.jpg",
+    "bestTimeToVisit": "October to March (16°C - 28°C)",
+    "bestDuration": "2-3 Days",
+    "climate": "Breezy Malnad hills and lush coconut groves with mild, temperate weather.",
+    "overview": "Inscribed as a UNESCO World Heritage Site in 2023, the Sacred Ensembles of the Hoysalas encompass three 12th-to-13th century soapstone temples famed for their star-shaped plinths, intricate bracket figures, and micro-carved friezes.",
+    "localFoodSpecialties": [
+      {
+        "name": "Bisi Bele Bath",
+        "desc": "Spicy lentil rice cooked with tamarind, nutmeg, garden vegetables, and dollops of fresh ghee.",
+        "place": "Hassan Heritage Mess",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bisi_Bele_Bath_South_India.jpg/1280px-Bisi_Bele_Bath_South_India.jpg"
+      },
+      {
+        "name": "Mysore Pak",
+        "desc": "Melt-in-mouth royal confectionery prepared with besan, sugar, and generous desi ghee.",
+        "place": "Sri Guru Sweets, Hassan",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Mysore_Pak_Sweet.jpg/1280px-Mysore_Pak_Sweet.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "hoysala-belur",
+        "name": "Chennakeshava Temple, Belur",
+        "city": "Belur",
+        "state": "Karnataka",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          13.1625,
+          75.8606
+        ],
+        "coordObj": {
+          "lat": 13.1625,
+          "lng": 75.8606
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Chennakeshava_Temple_Belur_Karnataka.jpg/1280px-Chennakeshava_Temple_Belur_Karnataka.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Chennakeshava_Temple_Belur_Karnataka.jpg/1280px-Chennakeshava_Temple_Belur_Karnataka.jpg",
+        "timing": "6:30 AM - 7:30 PM",
+        "fee": "Free Entry (Active Worship Temple)",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1117 CE Hoysala King Vishnuvardhana",
+        "description": "UNESCO World Heritage Site commissioned in 1117 CE to commemorate Vishnuvardhana's military triumph. Built from chloritic schist, it features 42 exquisite bracket figures (madanikas) carved with lace-like micro-details.",
+        "shortDesc": "UNESCO World Heritage temple built by King Vishnuvardhana featuring 42 stunning celestial dancer (madanika) soapstone bracket figures.",
+        "tip": "Look up at the central ceiling inside the navaranga to see the gravity-defying carved medallion showing Narasimha emerging from a pillar."
+      },
+      {
+        "id": "hoysala-halebidu",
+        "name": "Hoysaleswara Temple, Halebidu",
+        "city": "Halebidu",
+        "state": "Karnataka",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          13.2131,
+          75.9942
+        ],
+        "coordObj": {
+          "lat": 13.2131,
+          "lng": 75.9942
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hoysaleswara_Temple_Halebidu_Sculpture.jpg/1280px-Hoysaleswara_Temple_Halebidu_Sculpture.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hoysaleswara_Temple_Halebidu_Sculpture.jpg/1280px-Hoysaleswara_Temple_Halebidu_Sculpture.jpg",
+        "timing": "6:30 AM - 6:30 PM",
+        "fee": "₹25 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 300
+        },
+        "historicalEra": "1121 CE Hoysala King Narasimha I",
+        "description": "UNESCO World Heritage twin-shrine temple dedicated to Shiva. Its outer walls feature continuous friezes of over 20,000 elephants, lions, mythical makaras, and epic narratives from the Mahabharata and Ramayana.",
+        "shortDesc": "UNESCO World Heritage twin-shrine soapstone temple adorned with continuous friezes of 20,000 carved animals and mythological epics.",
+        "tip": "Hire an ASI certified guide to decode the signature inscriptions of 12th-century master sculptors like Mallitamma and Dasoja on the base stones."
+      },
+      {
+        "id": "hoysala-somanathapura",
+        "name": "Keshava Temple, Somanathapura",
+        "city": "Somanathapura",
+        "state": "Karnataka",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          12.2764,
+          76.9056
+        ],
+        "coordObj": {
+          "lat": 12.2764,
+          "lng": 76.9056
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keshava_Temple_Somanathapura_Rear.jpg/1280px-Keshava_Temple_Somanathapura_Rear.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keshava_Temple_Somanathapura_Rear.jpg/1280px-Keshava_Temple_Somanathapura_Rear.jpg",
+        "timing": "8:30 AM - 5:30 PM",
+        "fee": "₹25 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 300
+        },
+        "historicalEra": "1268 CE Hoysala General Somanatha",
+        "description": "UNESCO World Heritage trikuta (three-shrined) temple standing on a raised star-shaped platform on the banks of the Kaveri. Celebrated for its perfectly preserved symmetrically balanced ornate stone ceilings and towers.",
+        "shortDesc": "UNESCO World Heritage 13th-century trikuta temple celebrated for its immaculate star-shaped platform and 16 unique carved stone ceilings.",
+        "tip": "Notice how all 16 interior ceilings are carved with completely different floral, vegetal, and cosmic geometry designs."
+      }
+    ]
+  },
+  {
+    "id": "rajasthan-forts",
+    "name": "Chittorgarh & Hill Forts of Rajasthan",
+    "state": "Rajasthan",
+    "zone": "West",
+    "coordinates": [
+      24.8879,
+      74.6454
+    ],
+    "tagline": "The monumental military bastions, royal palaces, and valorous heritage of Rajputana.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Chittorgarh_Fort_Tower_of_Victory.jpg/1280px-Chittorgarh_Fort_Tower_of_Victory.jpg",
+    "bestTimeToVisit": "October to March (10°C - 26°C)",
+    "bestDuration": "3-4 Days",
+    "climate": "Golden sunshine and crisp desert breeze ideal for exploring expansive ramparts.",
+    "overview": "The Hill Forts of Rajasthan comprise six majestic fortresses inscribed as a serial UNESCO World Heritage Site: Chittorgarh, Kumbhalgarh, Ranthambore, Amber, Jaisalmer, and Gagron.",
+    "localFoodSpecialties": [
+      {
+        "name": "Dal Baati Churma",
+        "desc": "Crispy baked wheat balls dipped in warm ghee served with five-lentil panchmel dal and sweet crushed wheat churma.",
+        "place": "Chittorgarh Heritage Haveli",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Dal_Baati_Churma_Plate.jpg/1280px-Dal_Baati_Churma_Plate.jpg"
+      },
+      {
+        "name": "Laal Maas",
+        "desc": "Fiery royal mutton curry cooked with fiery Mathania red chillies and mustard oil.",
+        "place": "Jaisal Club Heritage Dining",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Laal_Maas_Rajasthani.jpg/1280px-Laal_Maas_Rajasthani.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "rajasthan-chittorgarh-fort",
+        "name": "Chittorgarh Fort & Vijay Stambha",
+        "city": "Chittorgarh",
+        "state": "Rajasthan",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          24.8879,
+          74.6454
+        ],
+        "coordObj": {
+          "lat": 24.8879,
+          "lng": 74.6454
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Chittorgarh_Fort_Tower_of_Victory.jpg/1280px-Chittorgarh_Fort_Tower_of_Victory.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Chittorgarh_Fort_Tower_of_Victory.jpg/1280px-Chittorgarh_Fort_Tower_of_Victory.jpg",
+        "timing": "6:00 AM - 6:00 PM",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "7th Century CE Maurya / Mewar Rajputs",
+        "description": "UNESCO World Heritage Site and India's largest fort complex covering 700 acres atop a 180-meter cliff. Features the 9-story Vijay Stambha (Tower of Victory), Kirti Stambha, and Rani Padmini's water palace.",
+        "shortDesc": "UNESCO World Heritage site and India's largest fortress featuring the 9-story Vijay Stambha and Rani Padmini's water palace.",
+        "tip": "Climb the narrow spiral staircase inside Vijay Stambha for a panoramic vantage over the fort's ancient stepwells and ramparts."
+      },
+      {
+        "id": "rajasthan-jaisalmer-fort",
+        "name": "Jaisalmer Fort (Sonar Qila)",
+        "city": "Jaisalmer",
+        "state": "Rajasthan",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          26.9124,
+          70.9126
+        ],
+        "coordObj": {
+          "lat": 26.9124,
+          "lng": 70.9126
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jaisalmer_Fort_Golden_Bastions.jpg/1280px-Jaisalmer_Fort_Golden_Bastions.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jaisalmer_Fort_Golden_Bastions.jpg/1280px-Jaisalmer_Fort_Golden_Bastions.jpg",
+        "timing": "Open 24/7 (Palace museum 9:00 AM - 6:00 PM)",
+        "fee": "Free for Fort (₹100 for Palace Museum)",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1156 CE Rawal Jaisal",
+        "description": "UNESCO World Heritage Site and one of the world's few surviving 'living forts'. Built with golden-yellow sandstone that blends seamlessly into the Thar Desert, housing a fourth of the city's population inside its 99 bastions.",
+        "shortDesc": "UNESCO World Heritage 'Golden Fort' rising from the Thar Desert, home to thousands of residents, royal havelis, and 7 Jain temples.",
+        "tip": "Visit the 7 intricately carved Jain temples inside the fort between 7:00 AM and 12:00 PM to admire their exquisite marble pillars."
+      },
+      {
+        "id": "rajasthan-ranthambore-fort",
+        "name": "Ranthambore Fort",
+        "city": "Sawai Madhopur",
+        "state": "Rajasthan",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          26.0173,
+          76.4533
+        ],
+        "coordObj": {
+          "lat": 26.0173,
+          "lng": 76.4533
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Ranthambore_Fort_Panorama.jpg/1280px-Ranthambore_Fort_Panorama.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Ranthambore_Fort_Panorama.jpg/1280px-Ranthambore_Fort_Panorama.jpg",
+        "timing": "6:00 AM - 6:00 PM",
+        "fee": "Free Entry",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "10th Century CE Chauhan Dynasty",
+        "description": "UNESCO World Heritage Site perched on a 700-foot cliff deep within the Ranthambore Tiger Reserve. Overlooks lakes and jungles where wild Bengal tigers roam near 10th-century stone gates and the Trinetra Ganesha Temple.",
+        "shortDesc": "UNESCO World Heritage wilderness fortress overlooking tiger sanctuaries, lakes, and the revered Trinetra Ganesha Temple.",
+        "tip": "Walk up to the 32-pillared cenotaph (Battis Khamba Chhatri) for breathtaking bird's-eye views over Padam Talao lake."
+      },
+      {
+        "id": "rajasthan-gagron-fort",
+        "name": "Gagron Fort, Jhalawar",
+        "city": "Jhalawar",
+        "state": "Rajasthan",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          24.6293,
+          76.1856
+        ],
+        "coordObj": {
+          "lat": 24.6293,
+          "lng": 76.1856
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Gagron_Fort_River_View.jpg/1280px-Gagron_Fort_River_View.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Gagron_Fort_River_View.jpg/1280px-Gagron_Fort_River_View.jpg",
+        "timing": "9:00 AM - 5:30 PM",
+        "fee": "₹25 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 300
+        },
+        "historicalEra": "7th - 14th Century CE Khichi Chauhan",
+        "description": "UNESCO World Heritage Site and India's premier Jal Durg (water fort). Surrounded on three sides by the swirling waters of the Ahu and Kali Sindh rivers, it requires no artificial foundation.",
+        "shortDesc": "UNESCO World Heritage water fortress enclosed on three sides by rivers, famous for its invincible bastions and Rajput valor.",
+        "tip": "Stand by the confluence viewpoint (Sangam) during sunset when the fortress ramparts glow fiery bronze over the water."
+      },
+      {
+        "id": "rajasthan-keoladeo-park",
+        "name": "Keoladeo National Park (Bharatpur)",
+        "city": "Bharatpur",
+        "state": "Rajasthan",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          27.16,
+          77.5222
+        ],
+        "coordObj": {
+          "lat": 27.16,
+          "lng": 77.5222
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Sarus_Cranes_at_Keoladeo.jpg/1280px-Sarus_Cranes_at_Keoladeo.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Sarus_Cranes_at_Keoladeo.jpg/1280px-Sarus_Cranes_at_Keoladeo.jpg",
+        "timing": "6:00 AM - 6:00 PM",
+        "fee": "₹50 (Indians) / ₹400 (Foreigners)",
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 400
+        },
+        "historicalEra": "1850 CE Wetland Reserve",
+        "description": "UNESCO World Heritage Site and globally acclaimed wetland sanctuary hosting over 370 bird species, including migratory waterfowl from Siberia and Central Asia, painted storks, and sarus cranes.",
+        "shortDesc": "UNESCO World Heritage avian paradise sheltering 370+ migratory bird species, painted storks, and sarus cranes.",
+        "tip": "Rent a cycle or hire a trained cycle-rickshaw naturalist at the entrance gate for quiet, non-intrusive birdwatching."
+      },
+      {
+        "id": "rajasthan-kumbhalgarh-fort",
+        "name": "Kumbhalgarh Fort (Great Wall of India)",
+        "city": "Rajsamand",
+        "state": "Rajasthan",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          25.1479,
+          73.5875
+        ],
+        "coordObj": {
+          "lat": 25.1479,
+          "lng": 73.5875
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kumbhalgarh_Fort_Ramparts.jpg/1280px-Kumbhalgarh_Fort_Ramparts.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kumbhalgarh_Fort_Ramparts.jpg/1280px-Kumbhalgarh_Fort_Ramparts.jpg",
+        "timing": "9:00 AM - 6:00 PM (Light & Sound Show 7:00 PM)",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "15th Century CE Maharana Kumbha",
+        "description": "UNESCO World Heritage Site perched at 1,100 meters in the Aravalli Hills. Encircled by a 36-kilometer continuous stone perimeter wall—the second longest continuous wall in the world after the Great Wall of China.",
+        "shortDesc": "UNESCO World Heritage fortress protected by a 36-km continuous stone rampart, the Great Wall of India.",
+        "tip": "Climb up to the highest point, Badal Mahal (Palace of Clouds), for sweeping panoramic views across the Mewar plains and Marwar desert."
+      }
+    ]
+  },
+  {
+    "id": "assam-heritage",
+    "name": "Kaziranga, Manas & Ahom Moidams",
+    "state": "Assam",
+    "zone": "East",
+    "coordinates": [
+      26.5775,
+      93.1711
+    ],
+    "tagline": "The domain of the great Indian one-horned rhino and the royal earthen pyramids of the Ahom Dynasty.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaziranga_Rhino_Grasslands.jpg/1280px-Kaziranga_Rhino_Grasslands.jpg",
+    "bestTimeToVisit": "November to April (12°C - 25°C)",
+    "bestDuration": "4-5 Days",
+    "climate": "Lush post-monsoon greenery with misty Brahmaputra mornings and pristine jungle safaris.",
+    "overview": "Assam holds three celebrated UNESCO World Heritage properties: Kaziranga National Park (holding two-thirds of the world's one-horned rhinos), Manas Wildlife Sanctuary, and the newly inscribed Moidams of the Ahom Dynasty at Charaideo.",
+    "localFoodSpecialties": [
+      {
+        "name": "Assamese Thali with Masor Tenga",
+        "desc": "Fragrant Joha rice served with tangy sour fish curry cooked with elephant apple and raw tomatoes.",
+        "place": "Heritage Khorikaa, Kaziranga",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Assamese_Thali_with_Fish.jpg/1280px-Assamese_Thali_with_Fish.jpg"
+      },
+      {
+        "name": "Kaji Nemu Duck Curry",
+        "desc": "Slow-cooked native duck infused with aromatic Assam lemon (Kaji Nemu) and black pepper.",
+        "place": "Charaideo Heritage Mess",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Assamese_Duck_Curry.jpg/1280px-Assamese_Duck_Curry.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "assam-kaziranga-park",
+        "name": "Kaziranga National Park",
+        "city": "Golaghat / Nagaon",
+        "state": "Assam",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          26.5775,
+          93.1711
+        ],
+        "coordObj": {
+          "lat": 26.5775,
+          "lng": 93.1711
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaziranga_Rhino_Grasslands.jpg/1280px-Kaziranga_Rhino_Grasslands.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaziranga_Rhino_Grasslands.jpg/1280px-Kaziranga_Rhino_Grasslands.jpg",
+        "timing": "Morning Safari: 7:00 AM - 10:00 AM / Afternoon: 1:30 PM - 4:00 PM",
+        "fee": "₹100 Entry + Safari Jeep charges",
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 650
+        },
+        "historicalEra": "1905 CE Conservation Reserve",
+        "description": "UNESCO World Heritage Site situated on the floodplains of the Brahmaputra River. It shelters the world's largest population of the great Indian one-horned rhinoceros, along with wild water buffalo, tigers, and elephants.",
+        "shortDesc": "UNESCO World Heritage wildlife sanctuary sheltering two-thirds of the world's one-horned rhinos, tigers, and wild water buffalo.",
+        "tip": "Book the Central (Kohora) or Western (Bagori) range jeep safari for the highest probability of spotting rhinos grazing near water bodies."
+      },
+      {
+        "id": "assam-manas-sanctuary",
+        "name": "Manas Wildlife Sanctuary",
+        "city": "Barpeta / Baksa",
+        "state": "Assam",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          26.7167,
+          91.0333
+        ],
+        "coordObj": {
+          "lat": 26.7167,
+          "lng": 91.0333
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Manas_National_Park_Landscape.jpg/1280px-Manas_National_Park_Landscape.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Manas_National_Park_Landscape.jpg/1280px-Manas_National_Park_Landscape.jpg",
+        "timing": "6:00 AM - 5:00 PM",
+        "fee": "₹100 Entry + Safari charges",
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 500
+        },
+        "historicalEra": "1928 CE Sanctuary / 1985 UNESCO",
+        "description": "UNESCO World Heritage Site in the eastern Himalayan foothills contiguous with Bhutan. Renowned for rare and endangered endemic wildlife like the pygmy hog, hispid hare, and golden langur.",
+        "shortDesc": "UNESCO World Heritage Himalayan foothill biodiversity hotspot home to golden langurs, wild elephants, and Bengal tigers.",
+        "tip": "Take the river rafting excursion on the Manas River to view wildlife peacefully coming to drink along the Bhutanese border."
+      },
+      {
+        "id": "assam-charaideo-moidams",
+        "name": "Moidams of the Ahom Dynasty (Charaideo)",
+        "city": "Charaideo",
+        "state": "Assam",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          26.9389,
+          94.8697
+        ],
+        "coordObj": {
+          "lat": 26.9389,
+          "lng": 94.8697
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Charaideo_Moidam_Ahom_Assam.jpg/1280px-Charaideo_Moidam_Ahom_Assam.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Charaideo_Moidam_Ahom_Assam.jpg/1280px-Charaideo_Moidam_Ahom_Assam.jpg",
+        "timing": "9:00 AM - 5:00 PM",
+        "fee": "₹25 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 300
+        },
+        "historicalEra": "13th - 18th Century CE Ahom Dynasty",
+        "description": "Inscribed as India's 43rd UNESCO World Heritage Site in 2024. The sacred burial mounds (moidams) of Ahom royalty feature vaulted brick chambers covered by hemispherical earthen mounds, likened to the pyramids of Egypt.",
+        "shortDesc": "UNESCO World Heritage earthen burial mounds of the Tai-Ahom royalty, revered as the sacred royal necropolis of Assam.",
+        "tip": "Walk to Moidam No. 2 to inspect the exposed architectural brick vault and the ancient banyan trees sacred to Tai-Ahom ancestor worship."
+      }
+    ]
+  },
+  {
+    "id": "gujarat-heritage",
+    "name": "Patan, Champaner & Dholavira",
+    "state": "Gujarat",
+    "zone": "West",
+    "coordinates": [
+      23.8589,
+      72.1017
+    ],
+    "tagline": "Subterranean stepwell artistry at Patan, Bronze Age engineering at Dholavira, and sultanate splendor at Champaner.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Rani_ki_vav_Patan.jpg/1280px-Rani_ki_vav_Patan.jpg",
+    "bestTimeToVisit": "October to March (14°C - 30°C)",
+    "bestDuration": "3-4 Days",
+    "climate": "Dry sunny days with refreshing desert nights, ideal for subterranean architectural walks.",
+    "overview": "Gujarat is home to four official UNESCO World Heritage sites: Rani ki Vav (Queen's Stepwell), Champaner-Pavagadh Archaeological Park, Dholavira (Harappan city), and the Historic City of Ahmedabad.",
+    "localFoodSpecialties": [
+      {
+        "name": "Kathiyawadi Thali with Ringna No Olo",
+        "desc": "Woodfire-roasted spiced eggplant mash served with bajra rotla, fresh white butter, and garlic chutney.",
+        "place": "Patan Heritage Bhojanalaya",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kathiyawadi_Thali_Gujarati.jpg/1280px-Kathiyawadi_Thali_Gujarati.jpg"
+      },
+      {
+        "name": "Patan Patola & Malpua",
+        "desc": "Crispy golden sweet pancakes soaked in saffron syrup paired with rabdi.",
+        "place": "Salvi Wada Sweets, Patan",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Malpua_Sweet_India.jpg/1280px-Malpua_Sweet_India.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "gujarat-rani-ki-vav",
+        "name": "Rani ki Vav (The Queen's Stepwell)",
+        "city": "Patan",
+        "state": "Gujarat",
+        "category": "Monument",
+        "categoryType": "Monument",
+        "coordinates": [
+          23.8589,
+          72.1017
+        ],
+        "coordObj": {
+          "lat": 23.8589,
+          "lng": 72.1017
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Rani_ki_vav_Patan.jpg/1280px-Rani_ki_vav_Patan.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Rani_ki_vav_Patan.jpg/1280px-Rani_ki_vav_Patan.jpg",
+        "timing": "8:00 AM - 6:00 PM",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "1063 CE Solanki Dynasty Queen Udayamati",
+        "description": "UNESCO World Heritage Site built as an inverted temple honoring subterranean water sanctity. Features seven levels of pillared galleries adorned with over 500 principal sculptures depicting Lord Vishnu's ten avatars.",
+        "shortDesc": "UNESCO World Heritage subterranean stepwell featuring seven tiered levels with 500+ masterfully sculpted avatars of Vishnu.",
+        "tip": "Descend to the fourth level to admire the breathtaking Sheshashayi Vishnu sculpture resting gracefully on the serpent Shesha."
+      },
+      {
+        "id": "gujarat-champaner-pavagadh",
+        "name": "Champaner-Pavagadh Archaeological Park",
+        "city": "Champaner / Panchmahal",
+        "state": "Gujarat",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          22.4842,
+          73.535
+        ],
+        "coordObj": {
+          "lat": 22.4842,
+          "lng": 73.535
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Jami_Masjid%2C_Champaner_01.jpg/1280px-Jami_Masjid%2C_Champaner_01.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Jami_Masjid%2C_Champaner_01.jpg/1280px-Jami_Masjid%2C_Champaner_01.jpg",
+        "timing": "8:30 AM - 5:30 PM",
+        "fee": "₹40 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 40,
+          "foreigner": 600
+        },
+        "historicalEra": "8th - 16th Century CE Solanki / Sultanate",
+        "description": "UNESCO World Heritage Site encompassing an ancient hill fortress, prehistoric sites, and an unexcavated 16th-century capital of Gujarat. Features the celebrated Jami Masjid with 172 carved pillars and Kalika Mata temple.",
+        "shortDesc": "UNESCO World Heritage site preserving an intact pre-Mughal Islamic capital and the magnificent 172-pillared Jami Masjid.",
+        "tip": "Visit Jami Masjid in the morning to witness the golden sun filtering through the symmetrical lattice screens into the main prayer hall."
+      },
+      {
+        "id": "gujarat-dholavira",
+        "name": "Dholavira: A Harappan City",
+        "city": "Khadir Bet, Kutch",
+        "state": "Gujarat",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          23.8864,
+          70.2131
+        ],
+        "coordObj": {
+          "lat": 23.8864,
+          "lng": 70.2131
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Dholavira_reservoirs.jpg/1280px-Dholavira_reservoirs.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Dholavira_reservoirs.jpg/1280px-Dholavira_reservoirs.jpg",
+        "timing": "6:00 AM - 6:00 PM",
+        "fee": "Free Entry",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "2600 - 1600 BCE Indus Valley Civilization",
+        "description": "UNESCO World Heritage Site situated in the Great Rann of Kutch. One of the most remarkable Bronze Age urban centers, renowned for its sophisticated water harvesting reservoirs, citadel, and the famous 10-character signboard.",
+        "shortDesc": "UNESCO World Heritage Bronze Age metropolis showcasing massive stone-cut water reservoirs and planned urban citadel streets.",
+        "tip": "Walk along the rock-cut stepped reservoirs to appreciate how ancient Harappans gathered monsoon storm waters 4,500 years ago."
+      }
+    ]
+  },
+  {
+    "id": "tamil-heritage",
+    "name": "Thanjavur & Great Living Chola Temples",
+    "state": "Tamil Nadu",
+    "zone": "South",
+    "coordinates": [
+      10.7828,
+      79.1318
+    ],
+    "tagline": "The monumental granite vimanas, bronze sculptures, and classical music of the Chola Empire.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Brihadisvara_Temple_Thanjavur_Vimana.jpg/1280px-Brihadisvara_Temple_Thanjavur_Vimana.jpg",
+    "bestTimeToVisit": "October to March (18°C - 30°C)",
+    "bestDuration": "3-4 Days",
+    "climate": "Pleasant tropical winters in the Cauvery delta surrounded by emerald paddy fields.",
+    "overview": "The Great Living Chola Temples serial UNESCO World Heritage Site comprises three 11th and 12th-century Dravidian granite masterpieces: Brihadisvara at Thanjavur, Gangaikonda Cholapuram, and Airavatesvara at Darasuram.",
+    "localFoodSpecialties": [
+      {
+        "name": "Thanjavur Kadappa & Idli",
+        "desc": "Steamed fluffy rice cakes paired with mild moong dal gravy simmered with potatoes, fennel, and coconut.",
+        "place": "Sathars Restaurant, Thanjavur",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Idli_Sambar_Chutney.jpg/1280px-Idli_Sambar_Chutney.jpg"
+      },
+      {
+        "name": "Ashoka Halwa (Thiruvaiyaru)",
+        "desc": "Glossy melt-in-mouth sweet confection made from moong dal, ghee, cardamom, and roasted cashews.",
+        "place": "Andavar Sweets, Thiruvaiyaru",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Indian_Moong_Halwa.jpg/1280px-Indian_Moong_Halwa.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "tamil-brihadisvara-thanjavur",
+        "name": "Brihadisvara Temple, Thanjavur",
+        "city": "Thanjavur",
+        "state": "Tamil Nadu",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          10.7828,
+          79.1318
+        ],
+        "coordObj": {
+          "lat": 10.7828,
+          "lng": 79.1318
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Brihadisvara_Temple_Thanjavur_Vimana.jpg/1280px-Brihadisvara_Temple_Thanjavur_Vimana.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Brihadisvara_Temple_Thanjavur_Vimana.jpg/1280px-Brihadisvara_Temple_Thanjavur_Vimana.jpg",
+        "timing": "6:00 AM - 12:30 PM / 4:00 PM - 8:30 PM",
+        "fee": "Free Entry (Active Living Temple)",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1010 CE Chola Emperor Rajaraja I",
+        "description": "UNESCO World Heritage Site and the pinnacle of Chola architecture. Its soaring 66-meter granite vimana is topped by an 80-tonne monolithic cupola, guarding a colossal 20-tonne monolithic Nandi bull.",
+        "shortDesc": "UNESCO World Heritage 11th-century granite marvel featuring a 66-meter vimana tower and monolithic 80-tonne summit cupola.",
+        "tip": "Observe the temple base inscriptions recording the names and royal grants of hundreds of classical dancers, musicians, and goldsmiths."
+      },
+      {
+        "id": "tamil-gangaikonda-cholapuram",
+        "name": "Temple of Gangaikonda Cholapuram",
+        "city": "Jayankondam",
+        "state": "Tamil Nadu",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          11.2061,
+          79.4539
+        ],
+        "coordObj": {
+          "lat": 11.2061,
+          "lng": 79.4539
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Gangaikonda_Cholapuram_Temple_Vimana.jpg/1280px-Gangaikonda_Cholapuram_Temple_Vimana.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Gangaikonda_Cholapuram_Temple_Vimana.jpg/1280px-Gangaikonda_Cholapuram_Temple_Vimana.jpg",
+        "timing": "6:00 AM - 12:00 PM / 4:00 PM - 8:00 PM",
+        "fee": "Free Entry",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1035 CE Chola Emperor Rajendra I",
+        "description": "UNESCO World Heritage Site built by Rajendra I to commemorate his conquest up to the sacred river Ganges. Famed for its graceful concave curved vimana tower and majestic lion-head water well (Simhakinar).",
+        "shortDesc": "UNESCO World Heritage temple built by Rajendra I, renowned for its graceful curved granite vimana and sculpted Chola bronzes.",
+        "tip": "Notice the softer, more feminine curved profile of the vimana compared to the masculine straight angles of Thanjavur."
+      },
+      {
+        "id": "tamil-airavatesvara-darasuram",
+        "name": "Airavatesvara Temple, Darasuram",
+        "city": "Darasuram / Kumbakonam",
+        "state": "Tamil Nadu",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          10.9483,
+          79.3564
+        ],
+        "coordObj": {
+          "lat": 10.9483,
+          "lng": 79.3564
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Airavatesvara_Temple_Darasuram_Front.jpg/1280px-Airavatesvara_Temple_Darasuram_Front.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Airavatesvara_Temple_Darasuram_Front.jpg/1280px-Airavatesvara_Temple_Darasuram_Front.jpg",
+        "timing": "6:00 AM - 12:00 PM / 4:00 PM - 8:00 PM",
+        "fee": "Free Entry",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "12th Century CE Chola Emperor Rajaraja II",
+        "description": "UNESCO World Heritage Site conceptualized as a celestial stone chariot drawn by galloping horses and elephants. Renowned for its stone musical steps, micro-carvings of 63 Nayanmar saints, and filigree stone wheels.",
+        "shortDesc": "UNESCO World Heritage chariot-shaped temple famous for its stone musical steps and exquisite micro-carved dancer friezes.",
+        "tip": "Inspect the stone steps at the front portico that are carved to produce different musical notes (swaras) when lightly tapped."
+      },
+      {
+        "id": "tamil-nilgiri-railway",
+        "name": "Nilgiri Mountain Railway (Ooty Toy Train)",
+        "city": "Mettupalayam / Ooty",
+        "state": "Tamil Nadu",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          11.3436,
+          76.7972
+        ],
+        "coordObj": {
+          "lat": 11.3436,
+          "lng": 76.7972
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nilgiri_Mountain_Railway_steam_locomotive.jpg/1280px-Nilgiri_Mountain_Railway_steam_locomotive.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nilgiri_Mountain_Railway_steam_locomotive.jpg/1280px-Nilgiri_Mountain_Railway_steam_locomotive.jpg",
+        "timing": "Daily Departures (7:10 AM from Mettupalayam to Ooty)",
+        "fee": "₹30 - ₹205 (IRCTC Ticket)",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1908 CE British Indian Railway",
+        "description": "UNESCO World Heritage Site and India's only rack-and-pinion mountain railway. Climbs 46 km through 208 curves, 16 tunnels, and 250 bridges across misty tea gardens from Mettupalayam to Udhagamandalam.",
+        "shortDesc": "UNESCO World Heritage rack-and-pinion heritage steam train scaling the blue Nilgiri hills through tunnels and tea valleys.",
+        "tip": "Sit on the left side when ascending from Mettupalayam to Ooty for the most dramatic views of deep gorges and waterfalls."
+      }
+    ]
+  },
+  {
+    "id": "bengal-heritage",
+    "name": "Sundarbans & Santiniketan",
+    "state": "West Bengal",
+    "zone": "East",
+    "coordinates": [
+      21.9497,
+      89.1833
+    ],
+    "tagline": "The mystical mangrove delta of royal Bengal tigers and Rabindranath Tagore's utopian university.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sundarbans_Mangrove_Forest_Delta.jpg/1280px-Sundarbans_Mangrove_Forest_Delta.jpg",
+    "bestTimeToVisit": "October to March (14°C - 26°C)",
+    "bestDuration": "3-4 Days",
+    "climate": "Cool coastal and rural breezes ideal for open-air boat cruising and garden university walks.",
+    "overview": "West Bengal celebrates two unique UNESCO World Heritage properties: the Sundarbans National Park, the world's largest mangrove forest, and Santiniketan, the visionary open-air university created by Nobel laureate Rabindranath Tagore.",
+    "localFoodSpecialties": [
+      {
+        "name": "Chingri Malai Curry",
+        "desc": "Succulent jumbo tiger prawns gently poached in fragrant coconut milk with cinnamon, cloves, and green cardamom.",
+        "place": "Sundarbans Boat Deck Dining",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Chingri_Malai_Curry.jpg/1280px-Chingri_Malai_Curry.jpg"
+      },
+      {
+        "name": "Santiniketan Posto Bora",
+        "desc": "Crisp shallow-fried patties made of ground poppy seed paste, green chillies, and mustard oil.",
+        "place": "Kopai Heritage Kitchen, Santiniketan",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Postor_Bora_Bengali.jpg/1280px-Postor_Bora_Bengali.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "bengal-sundarbans-park",
+        "name": "Sundarbans National Park",
+        "city": "South 24 Parganas",
+        "state": "West Bengal",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          21.9497,
+          89.1833
+        ],
+        "coordObj": {
+          "lat": 21.9497,
+          "lng": 89.1833
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sundarbans_Mangrove_Forest_Delta.jpg/1280px-Sundarbans_Mangrove_Forest_Delta.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sundarbans_Mangrove_Forest_Delta.jpg/1280px-Sundarbans_Mangrove_Forest_Delta.jpg",
+        "timing": "7:00 AM - 5:00 PM (Boat Safaris)",
+        "fee": "₹60 (Indians) / ₹200 (Foreigners) + Boat Permit",
+        "asiFee": {
+          "indian": 60,
+          "foreigner": 200
+        },
+        "historicalEra": "1973 Project Tiger / 1987 UNESCO",
+        "description": "UNESCO World Heritage Site and the world's largest halophytic mangrove forest across the Ganges-Brahmaputra delta. Habitat of the swimming Royal Bengal Tiger, estuarine crocodiles, and Gangetic dolphins.",
+        "shortDesc": "UNESCO World Heritage mangrove delta home to the world's only swimming Royal Bengal tigers and estuarine crocodiles.",
+        "tip": "Visit the Sajnekhali Watch Tower and Dobanki Canopy Walk for a safe aerial perspective over mangrove creeks."
+      },
+      {
+        "id": "bengal-santiniketan",
+        "name": "Santiniketan & Visva-Bharati",
+        "city": "Bolpur / Birbhum",
+        "state": "West Bengal",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          23.6789,
+          87.6833
+        ],
+        "coordObj": {
+          "lat": 23.6789,
+          "lng": 87.6833
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Santiniketan_Upasana_Griha.jpg/1280px-Santiniketan_Upasana_Griha.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Santiniketan_Upasana_Griha.jpg/1280px-Santiniketan_Upasana_Griha.jpg",
+        "timing": "10:30 AM - 4:30 PM (Closed on Wednesdays)",
+        "fee": "₹50 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 50,
+          "foreigner": 300
+        },
+        "historicalEra": "1901 CE Rabindranath Tagore",
+        "description": "Inscribed as a UNESCO World Heritage Site in 2023. Established by Nobel Laureate Rabindranath Tagore as an open-air residential school and university dedicated to pan-Asian modernism and arts without religious or geographical barriers.",
+        "shortDesc": "UNESCO World Heritage residential university founded by Rabindranath Tagore, celebrating open-air learning under banyan trees.",
+        "tip": "Visit the Upasana Griha (Prayer Hall) on Wednesday mornings, built with stained Belgian glass that shines in kaleidoscopic hues."
+      }
+    ]
+  },
+  {
+    "id": "telangana-heritage",
+    "name": "Warangal & Ramappa Temple",
+    "state": "Telangana",
+    "zone": "South",
+    "coordinates": [
+      18.2612,
+      79.9431
+    ],
+    "tagline": "The architectural brilliance of floating bricks and Kakatiya dynastic craftsmanship.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Ramappa_Temple_Warangal.jpg/1280px-Ramappa_Temple_Warangal.jpg",
+    "bestTimeToVisit": "October to March (18°C - 30°C)",
+    "bestDuration": "2-3 Days",
+    "climate": "Crisp sunny Deccan climate with pleasant evenings beside ancient Kakatiya reservoirs.",
+    "overview": "Telangana's premier heritage center, highlighting the UNESCO-inscribed Kakatiya Rudreshwara (Ramappa) Temple celebrated for its lightweight floating bricks, sandbox foundations, and lustrous basalt sculptures.",
+    "localFoodSpecialties": [
+      {
+        "name": "Telangana Sarva Pindi",
+        "desc": "Savory crispy rice flour flatbread spiced with roasted peanuts, sesame seeds, curry leaves, and green chillies.",
+        "place": "Warangal Heritage Mess",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Sarva_Pindi_Telangana.jpg/1280px-Sarva_Pindi_Telangana.jpg"
+      },
+      {
+        "name": "Gongura Mutton",
+        "desc": "Tender lamb simmered with tangy sorrel leaves (gongura) and fragrant whole spices.",
+        "place": "Kakatiya Dining Hall",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Gongura_Mutton_Curry.jpg/1280px-Gongura_Mutton_Curry.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "telangana-ramappa-temple",
+        "name": "Kakatiya Rudreshwara (Ramappa) Temple",
+        "city": "Palampet / Mulugu",
+        "state": "Telangana",
+        "category": "Temple",
+        "categoryType": "Temple",
+        "coordinates": [
+          18.2612,
+          79.9431
+        ],
+        "coordObj": {
+          "lat": 18.2612,
+          "lng": 79.9431
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Ramappa_Temple_Warangal.jpg/1280px-Ramappa_Temple_Warangal.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Ramappa_Temple_Warangal.jpg/1280px-Ramappa_Temple_Warangal.jpg",
+        "timing": "6:00 AM - 6:00 PM",
+        "fee": "Free Entry",
+        "asiFee": {
+          "indian": 0,
+          "foreigner": 0
+        },
+        "historicalEra": "1213 CE Kakatiya General Recharla Rudra",
+        "description": "UNESCO World Heritage Site and the only Indian temple named after its master sculptor, Ramappa. Built on earthquake-resistant sandbox foundations with porous spongy bricks that float on water, crowned with lustrous black basalt bracket figures.",
+        "shortDesc": "UNESCO World Heritage Kakatiya temple built with floating bricks and earthquake-resistant sandbox foundations.",
+        "tip": "Observe the 12 dancing maiden bracket figures carved from polished black dolerite that ring like metallic bells when tapped."
+      },
+      {
+        "id": "telangana-warangal-fort",
+        "name": "Warangal Fort & Kakatiya Kala Thoranam",
+        "city": "Warangal",
+        "state": "Telangana",
+        "category": "Historic",
+        "categoryType": "Historic",
+        "coordinates": [
+          17.9554,
+          79.6175
+        ],
+        "coordObj": {
+          "lat": 17.9554,
+          "lng": 79.6175
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Warangal_Fort_Kala_Thoranam.jpg/1280px-Warangal_Fort_Kala_Thoranam.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Warangal_Fort_Kala_Thoranam.jpg/1280px-Warangal_Fort_Kala_Thoranam.jpg",
+        "timing": "9:00 AM - 6:00 PM",
+        "fee": "₹25 (Indians) / ₹300 (Foreigners)",
+        "asiFee": {
+          "indian": 25,
+          "foreigner": 300
+        },
+        "historicalEra": "13th Century CE Kakatiya Dynasty",
+        "description": "The capital of the Kakatiya kingdom featuring concentric circular earthen and granite fortification rings. Famed for its four majestic freestanding ornamental archways (Kakatiya Kala Thoranam) adopted in the Telangana state emblem.",
+        "shortDesc": "13th-century Kakatiya fortress ruins featuring the four iconic carved stone Kala Thoranam ceremonial gateways.",
+        "tip": "Visit the central open-air museum where hundreds of carved temple pillars and friezes unearthed by archaeologists are preserved."
+      }
+    ]
+  },
+  {
+    "id": "himalayan-parks",
+    "name": "Great Himalayan & Valley of Flowers",
+    "state": "Himachal Pradesh & Uttarakhand",
+    "zone": "North",
+    "coordinates": [
+      31.7333,
+      77.4
+    ],
+    "tagline": "Glacial peaks, subalpine meadows of rare Himalayan blooms, and pristine biodiversity.",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Great_Himalayan_National_Park_Valley.jpg/1280px-Great_Himalayan_National_Park_Valley.jpg",
+    "bestTimeToVisit": "May to October (8°C - 20°C)",
+    "bestDuration": "4-6 Days",
+    "climate": "Crisp mountain air, alpine summer blooms, and snow-capped Himalayan panoramas.",
+    "overview": "Northern India's pristine natural UNESCO World Heritage properties: Great Himalayan National Park in Himachal Pradesh, and Nanda Devi & Valley of Flowers National Parks in Uttarakhand.",
+    "localFoodSpecialties": [
+      {
+        "name": "Himachali Siddu with Ghee",
+        "desc": "Steamed leavened wheat bread stuffed with spiced crushed walnuts and poppy seeds dipped in desi ghee.",
+        "place": "Tirthan Valley River Cafe",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Himachali_Siddu_Food.jpg/1280px-Himachali_Siddu_Food.jpg"
+      },
+      {
+        "name": "Garhwali Kafuli",
+        "desc": "Nutritious thick mountain curry made from spinach and fenugreek leaves tempered with jakhiya seeds.",
+        "place": "Joshimath Mountain Kitchen",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Kafuli_Uttarakhand_Food.jpg/1280px-Kafuli_Uttarakhand_Food.jpg"
+      }
+    ],
+    "places": [
+      {
+        "id": "himalayan-great-park",
+        "name": "Great Himalayan National Park",
+        "city": "Kullu",
+        "state": "Himachal Pradesh",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          31.7333,
+          77.4
+        ],
+        "coordObj": {
+          "lat": 31.7333,
+          "lng": 77.4
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Great_Himalayan_National_Park_Valley.jpg/1280px-Great_Himalayan_National_Park_Valley.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Great_Himalayan_National_Park_Valley.jpg/1280px-Great_Himalayan_National_Park_Valley.jpg",
+        "timing": "Sunrise to Sunset (Trekking Permits Required)",
+        "fee": "₹100 (Indians) / ₹400 (Foreigners)",
+        "asiFee": {
+          "indian": 100,
+          "foreigner": 400
+        },
+        "historicalEra": "1984 Park / 2014 UNESCO",
+        "description": "UNESCO World Heritage Site in the western Himalayas covering pristine alpine meadows, glaciers, and oak forests. Protects endangered species including the western tragopan, snow leopard, and Himalayan brown bear.",
+        "shortDesc": "UNESCO World Heritage glacial biodiversity sanctuary sheltering the elusive snow leopard and western tragopan.",
+        "tip": "Base yourself in the serene Tirthan Valley (Gushaini) to begin gentle day-hikes along the crystal-clear Tirthan river into the park."
+      },
+      {
+        "id": "himalayan-valley-of-flowers",
+        "name": "Valley of Flowers & Nanda Devi",
+        "city": "Chamoli / Joshimath",
+        "state": "Uttarakhand",
+        "category": "Scenic",
+        "categoryType": "Scenic",
+        "coordinates": [
+          30.728,
+          79.6053
+        ],
+        "coordObj": {
+          "lat": 30.728,
+          "lng": 79.6053
+        },
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Valley_of_Flowers_National_Park_Uttarakhand.jpg/1280px-Valley_of_Flowers_National_Park_Uttarakhand.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Valley_of_Flowers_National_Park_Uttarakhand.jpg/1280px-Valley_of_Flowers_National_Park_Uttarakhand.jpg",
+        "timing": "7:00 AM - 5:00 PM (Open June to October)",
+        "fee": "₹150 (Indians) / ₹600 (Foreigners)",
+        "asiFee": {
+          "indian": 150,
+          "foreigner": 600
+        },
+        "historicalEra": "1982 Park / 1988 UNESCO",
+        "description": "UNESCO World Heritage Site nestled in the Garhwal Himalayas. A high-altitude meadow carpeted with over 500 varieties of wild alpine blooms, including the sacred Brahma Kamal, blue poppies, and cobra lilies.",
+        "shortDesc": "UNESCO World Heritage alpine flower valley nestled beneath glacial peaks, carpeted with 500+ species of wild blooms.",
+        "tip": "Visit between mid-July and mid-August when the monsoon rains trigger the peak blooming of the legendary blue poppy and Brahma Kamal."
       }
     ]
   }

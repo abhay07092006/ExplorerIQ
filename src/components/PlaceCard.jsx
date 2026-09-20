@@ -32,15 +32,15 @@ export default function PlaceCard({
   catStyle = { bg: 'bg-sky-50 text-sky-700 border-sky-200', label: 'Highlight' }
 }) {
   const { openRoutePlanner } = useTravel();
-  const [imageSrc, setImageSrc] = useState(place.image);
+  const [imageSrc, setImageSrc] = useState(place.imageUrl || place.image);
   const [isResolvingWiki, setIsResolvingWiki] = useState(false);
   const hasAttemptedWiki = useRef(false);
 
   // Sync imageSrc when place prop changes
   useEffect(() => {
-    setImageSrc(place.image);
+    setImageSrc(place.imageUrl || place.image);
     hasAttemptedWiki.current = false;
-  }, [place.image, place.name]);
+  }, [place.imageUrl, place.image, place.name]);
 
   // Dynamic Wikipedia resolution on error
   const handleImageError = async () => {
@@ -54,7 +54,7 @@ export default function PlaceCard({
     hasAttemptedWiki.current = true;
 
     // Check memory cache first
-    const cacheKey = place.name.trim().toLowerCase();
+    const cacheKey = (place.name || '').trim().toLowerCase();
     if (wikiCache.has(cacheKey)) {
       const cached = wikiCache.get(cacheKey);
       if (cached) {
@@ -65,7 +65,11 @@ export default function PlaceCard({
 
     setIsResolvingWiki(true);
     try {
-      const queryName = place.name.replace(/\(.*?\)/g, '').trim();
+      // Clean query name to maximize Wikipedia match accuracy
+      const queryName = (place.name || '')
+        .replace(/\(.*?\)/g, '')
+        .replace(/[^\w\s-]/g, ' ')
+        .trim();
       const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(queryName)}&gsrlimit=1&prop=pageimages&pithumbsize=800&format=json&origin=*`;
       const res = await fetch(searchUrl);
       if (res.ok) {
@@ -177,7 +181,7 @@ export default function PlaceCard({
               <span>Entry Fee</span>
             </span>
             <p className="font-bold text-slate-800 text-[11px] truncate">
-              {place.fee || (place.asiFee != null ? (place.asiFee === 0 ? 'Free Entry' : `₹${place.asiFee} (ASI Entry)`) : 'Free Entry')}
+              {place.fee || (place.asiFee != null ? (typeof place.asiFee === 'object' ? `₹${place.asiFee.indian || 50} (ASI)` : (place.asiFee === 0 ? 'Free Entry' : `₹${place.asiFee} (ASI)`)) : 'Free Entry')}
             </p>
           </div>
         </div>
