@@ -6,8 +6,6 @@ import {
   CalendarDays, 
   Sparkles, 
   Bookmark, 
-  MapPin, 
-  ChevronDown, 
   Menu, 
   X, 
   Volume2,
@@ -16,26 +14,18 @@ import {
 import { useTravel } from '../context/useTravel';
 
 import BookmarkModal from './Common/BookmarkModal';
-import { handleImageError } from '../utils/imageUtils';
 
 export default function Navbar() {
   const { 
     activeTab, 
     setActiveTab, 
-    currentCityId, 
-    setCurrentCityId, 
-    destinations = [],
-    currentCity,
     bookmarks,
     audioState,
     openRoutePlanner
   } = useTravel();
 
-  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
   const [isBookmarkModalOpen, setIsBookmarkModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const activeCity = currentCity || destinations.find((c) => c.id === currentCityId) || destinations[0] || { name: 'Explore', state: '' };
 
   const navItems = [
     { id: 'explore', label: 'Search & Discover', icon: Search, badge: 'Smart Filter' },
@@ -105,7 +95,7 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right Action Controls: City Switcher, Saved Bookmarks & Audio Pulse */}
+            {/* Right Action Controls: Route Planner, Saved Bookmarks & Audio Pulse */}
             <div className="hidden sm:flex items-center gap-3">
               {/* Audio Pulse Indicator */}
               {audioState.isPlaying && (
@@ -114,53 +104,6 @@ export default function Navbar() {
                   <span className="text-[11px] font-semibold">Narrating...</span>
                 </div>
               )}
-
-              {/* City Switcher Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
-                  className="flex items-center gap-2 px-3 py-2 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors"
-                >
-                  <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="font-semibold">{activeCity?.name || 'Explore'}</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-                </button>
-
-                {isCityDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-56 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
-                    <p className="text-[10px] uppercase font-bold text-slate-400 px-3 py-1.5">
-                      Select Destination
-                    </p>
-                    <div className="max-h-60 overflow-y-auto space-y-1">
-                      {destinations.map((city) => (
-                        <button
-                          key={city.id}
-                          onClick={() => {
-                            setCurrentCityId(city.id);
-                            setIsCityDropdownOpen(false);
-                          }}
-                          className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs transition-colors ${
-                            city.id === currentCityId
-                              ? 'bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30'
-                              : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                          }`}
-                        >
-                          <img
-                            src={city.heroImage}
-                            alt={city.name}
-                            onError={handleImageError}
-                            className="w-7 h-7 rounded-lg object-cover border border-slate-700"
-                          />
-                          <div>
-                            <p className="font-semibold text-white">{city.name}</p>
-                            <p className="text-[10px] text-slate-400">{city.state}</p>
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
 
               {/* Route Planner Quick Button */}
               <button
@@ -243,27 +186,6 @@ export default function Navbar() {
               <Navigation className="w-4 h-4" />
               <span>Open Live Route & Transit Planner</span>
             </button>
-
-            {/* Mobile Destination Selector */}
-            <div className="pt-2">
-              <label className="text-xs font-semibold text-slate-400 block mb-1">
-                Active Destination:
-              </label>
-              <select
-                value={currentCityId}
-                onChange={(e) => {
-                  setCurrentCityId(e.target.value);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
-              >
-                {destinations.map((city) => (
-                  <option key={city.id} value={city.id}>
-                    {city.name} ({city.state})
-                  </option>
-                ))}
-              </select>
-            </div>
           </div>
         )}
       </header>
