@@ -42,6 +42,8 @@ import {
   calculateRoute
 } from '../controllers/routeController.js';
 
+import { handleClerkWebhook } from '../controllers/clerkWebhookController.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadDir = path.join(__dirname, '..', 'uploads');
@@ -65,6 +67,7 @@ const upload = multer({
 });
 
 const router = Router();
+router.post('/webhooks/clerk', handleClerkWebhook);
 
 // Health Check
 router.get('/health', (req, res) => {

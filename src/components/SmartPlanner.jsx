@@ -235,8 +235,8 @@ export default function SmartPlanner() {
       
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-600 text-xs font-bold mb-3">
-          <Sparkles className="w-4 h-4 text-sky-500 animate-spin" style={{ animationDuration: '8s' }} />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-600/10 border border-amber-600/30 text-amber-700 text-xs font-bold mb-3">
+          <Sparkles className="w-4 h-4 text-amber-600 animate-spin" style={{ animationDuration: '8s' }} />
           <span>User-Defined Budget Engine • 45% Accommodation Cap • Live ASI Pricing</span>
         </div>
         <h1 className="font-display font-black text-2xl sm:text-4xl text-slate-900 tracking-tight">
@@ -297,7 +297,7 @@ export default function SmartPlanner() {
                 step="500"
                 value={totalBudget}
                 onChange={(e) => setTotalBudget(Math.max(100, parseInt(e.target.value, 10) || 0))}
-                className="w-full pl-10 pr-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl text-lg font-extrabold text-slate-900 focus:outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl text-lg font-extrabold text-slate-900 focus:outline-none focus:border-amber-600 focus:ring-4 focus:ring-amber-600/10 transition-all"
                 placeholder="e.g. 25000"
               />
             </div>
@@ -311,7 +311,7 @@ export default function SmartPlanner() {
                   onClick={() => setTotalBudget(preset)}
                   className={`px-3 py-2.5 rounded-xl text-xs font-bold border transition-all whitespace-nowrap ${
                     totalBudget === preset
-                      ? 'bg-sky-500 text-white border-sky-500 shadow-sm'
+                      ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                   }`}
                 >
@@ -323,7 +323,7 @@ export default function SmartPlanner() {
 
           {/* 45% Rule Indicator */}
           <div className="mt-2.5 flex items-center gap-2 text-xs text-slate-500">
-            <Info className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
+            <Info className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
             <span>
               45% Hotel Cap: Maximum <strong className="text-slate-700">{currency === 'USD' ? `$${Math.round(totalBudget * 0.45)}` : `₹${Math.round(totalBudget * 0.45).toLocaleString('en-IN')}`}</strong> will be allocated for accommodation.
             </span>
@@ -336,7 +336,7 @@ export default function SmartPlanner() {
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
               Step 2: Destination Hub
             </span>
-            <span className="text-xs font-bold text-sky-600">
+            <span className="text-xs font-bold text-amber-700">
               {activeCity.name}, {activeCity.state}
             </span>
           </div>
@@ -372,7 +372,7 @@ export default function SmartPlanner() {
                     value={citySearch}
                     onChange={(e) => setCitySearch(e.target.value)}
                     placeholder="Search 29 destinations..."
-                    className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+                    className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-amber-600/40"
                   />
                 </div>
                 <div className="overflow-y-auto space-y-1 flex-1">
@@ -386,11 +386,11 @@ export default function SmartPlanner() {
                       }}
                       className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs transition-colors ${
                         c.id === selectedCityId
-                          ? 'bg-sky-50 text-sky-700 font-bold'
+                          ? 'bg-amber-50 text-amber-700 font-bold'
                           : 'text-slate-700 hover:bg-slate-50'
                       }`}
                     >
-                      <MapPin className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
+                      <MapPin className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
                       <span>{c.name}</span>
                       <span className="text-slate-400 ml-auto text-[11px]">{c.state}</span>
                     </button>
@@ -405,7 +405,7 @@ export default function SmartPlanner() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3 border-t border-slate-100">
           <div>
             <label className="text-xs font-bold text-slate-700 block mb-1.5 flex items-center gap-1.5">
-              <CalendarDays className="w-4 h-4 text-sky-500" />
+              <CalendarDays className="w-4 h-4 text-amber-600" />
               <span>Check-in Date</span>
             </label>
             <input
@@ -413,15 +413,15 @@ export default function SmartPlanner() {
               min={todayString}
               value={checkIn}
               onChange={(e) => handleCheckInChange(e.target.value)}
-              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-600/40"
             />
           </div>
 
           <div>
             <label className="text-xs font-bold text-slate-700 block mb-1.5 flex items-center gap-1.5">
-              <CalendarDays className="w-4 h-4 text-sky-500" />
+              <CalendarDays className="w-4 h-4 text-amber-600" />
               <span>Check-out Date</span>
-              <span className="ml-auto text-[11px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md">
+              <span className="ml-auto text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
                 {nightsCount} Night{nightsCount > 1 ? 's' : ''} ({nightsCount} Day{nightsCount > 1 ? 's' : ''})
               </span>
             </label>
@@ -430,13 +430,13 @@ export default function SmartPlanner() {
               min={minCheckOutDate}
               value={checkOut}
               onChange={(e) => handleCheckOutChange(e.target.value)}
-              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-600/40"
             />
           </div>
 
           <div>
             <label className="text-xs font-bold text-slate-700 block mb-1.5 flex items-center gap-1.5">
-              <Users className="w-4 h-4 text-sky-500" />
+              <Users className="w-4 h-4 text-amber-600" />
               <span>Guests Count</span>
               <span className="ml-auto text-[11px] text-slate-400 font-medium">
                 {Math.ceil(guests / 2)} Room(s)
@@ -478,7 +478,7 @@ export default function SmartPlanner() {
                   onClick={() => toggleStyle(style.id)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all border ${
                     isSelected
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                      ? 'bg-[#6B1E2B] text-white border-slate-900 shadow-xs'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                   }`}
                 >
@@ -499,7 +499,7 @@ export default function SmartPlanner() {
           <button
             onClick={() => handleGeneratePlan()}
             disabled={isLoadingPlanner}
-            className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold text-xs shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50"
+            className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-[#D88924] to-[#6B1E2B] hover:from-[#C2761D] hover:to-[#54202A] text-white font-bold text-xs shadow-lg shadow-amber-600/25 flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50"
           >
             {isLoadingPlanner ? (
               <>
@@ -518,18 +518,18 @@ export default function SmartPlanner() {
 
       {/* Loading HUD */}
       {isLoadingPlanner && (
-        <div className="bg-white rounded-3xl p-8 border border-sky-200 shadow-lg text-center max-w-lg mx-auto animate-in fade-in zoom-in-95 duration-200 space-y-4">
-          <div className="w-14 h-14 mx-auto rounded-2xl bg-sky-500/10 text-sky-600 flex items-center justify-center">
-            <RefreshCw className="w-7 h-7 animate-spin text-sky-500" />
+        <div className="bg-white rounded-3xl p-8 border border-amber-200 shadow-lg text-center max-w-lg mx-auto animate-in fade-in zoom-in-95 duration-200 space-y-4">
+          <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-600/10 text-amber-700 flex items-center justify-center">
+            <RefreshCw className="w-7 h-7 animate-spin text-amber-600" />
           </div>
           <div>
             <h4 className="font-bold text-slate-900 text-base">Allocating Real-Time Travel Budget</h4>
-            <p className="text-xs text-sky-600 font-medium mt-1 animate-pulse">
+            <p className="text-xs text-amber-700 font-medium mt-1 animate-pulse">
               {plannerLoadingMessage || 'Applying 45% accommodation cap and querying verified ASI rates...'}
             </p>
           </div>
           <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-            <div className="bg-sky-500 h-full w-2/3 animate-[pulse_1.5s_infinite]" />
+            <div className="bg-amber-500 h-full w-2/3 animate-[pulse_1.5s_infinite]" />
           </div>
         </div>
       )}
@@ -618,14 +618,14 @@ export default function SmartPlanner() {
               {progress?.accommodationPct > 0 && (
                 <div
                   style={{ width: `${Math.min(100, progress.accommodationPct)}%` }}
-                  className="bg-sky-500 hover:opacity-90 transition-all cursor-pointer"
+                  className="bg-amber-500 hover:opacity-90 transition-all cursor-pointer"
                   title={`Accommodation: ${progress.accommodationPct}%`}
                 />
               )}
               {progress?.ticketsPct > 0 && (
                 <div
                   style={{ width: `${Math.min(100, progress.ticketsPct)}%` }}
-                  className="bg-purple-500 hover:opacity-90 transition-all cursor-pointer"
+                  className="bg-orange-700 hover:opacity-90 transition-all cursor-pointer"
                   title={`ASI Tickets: ${progress.ticketsPct}%`}
                 />
               )}
@@ -662,11 +662,11 @@ export default function SmartPlanner() {
             {/* Progress Bar Legend */}
             <div className="flex flex-wrap items-center gap-4 text-xs pt-1">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-sky-500" />
+                <span className="w-3 h-3 rounded-full bg-amber-500" />
                 <span className="text-slate-600">Hotel ({progress?.accommodationPct}%)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-purple-500" />
+                <span className="w-3 h-3 rounded-full bg-orange-700" />
                 <span className="text-slate-600">ASI Tickets ({progress?.ticketsPct}%)</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -699,11 +699,11 @@ export default function SmartPlanner() {
             <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-xs font-bold text-sky-600">
+                  <div className="flex items-center gap-2 text-xs font-bold text-amber-700">
                     <BedDouble className="w-4 h-4" />
                     <span>Selected Under 45% Cap</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-sky-100 text-sky-700">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-amber-100 text-amber-800">
                     {plannerResult.budgetTier}
                   </span>
                 </div>
@@ -754,7 +754,7 @@ export default function SmartPlanner() {
                   </div>
                   <div className="flex justify-between text-sm font-extrabold text-slate-900 pt-1 border-t border-slate-100">
                     <span>Total Stay Cost:</span>
-                    <span className="text-sky-600">₹{budget?.accommodation?.total?.toLocaleString('en-IN') || 0}</span>
+                    <span className="text-amber-700">₹{budget?.accommodation?.total?.toLocaleString('en-IN') || 0}</span>
                   </div>
                 </div>
 
@@ -768,7 +768,7 @@ export default function SmartPlanner() {
                   })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 w-full py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-colors"
+                  className="mt-4 w-full py-2 bg-[#6B1E2B] hover:bg-[#54202A] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <span>Check Property on Booking.com</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -780,11 +780,11 @@ export default function SmartPlanner() {
             <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-xs font-bold text-purple-600">
+                  <div className="flex items-center gap-2 text-xs font-bold text-orange-800">
                     <Ticket className="w-4 h-4" />
                     <span>Verified ASI Monument Tickets</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-purple-100 text-purple-700">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-orange-100 text-orange-900">
                     ASI Verified
                   </span>
                 </div>
@@ -823,7 +823,7 @@ export default function SmartPlanner() {
                   </div>
                   <div className="flex justify-between text-sm font-extrabold text-slate-900 pt-1 border-t border-slate-100">
                     <span>Total Entry Tickets:</span>
-                    <span className="text-purple-600">₹{budget?.tickets?.total?.toLocaleString('en-IN') || 0}</span>
+                    <span className="text-orange-800">₹{budget?.tickets?.total?.toLocaleString('en-IN') || 0}</span>
                   </div>
                 </div>
               </div>
@@ -861,15 +861,15 @@ export default function SmartPlanner() {
                     </p>
                   </div>
 
-                  <div className="p-3 bg-blue-50/60 border border-blue-200/60 rounded-xl">
+                  <div className="p-3 bg-[#F4E7D0] border border-[#D8B98A] rounded-xl">
                     <div className="flex justify-between items-center text-xs">
-                      <span className="font-bold text-blue-900 flex items-center gap-1.5">
-                        <Car className="w-3.5 h-3.5 text-blue-600" />
+                      <span className="font-bold text-[#6B1E2B] flex items-center gap-1.5">
+                        <Car className="w-3.5 h-3.5 text-[#A44A3F]" />
                         <span>Intra-City Transit:</span>
                       </span>
-                      <span className="font-extrabold text-blue-950">₹{budget?.transit?.perDay} / day</span>
+                      <span className="font-extrabold text-[#54202A]">₹{budget?.transit?.perDay} / day</span>
                     </div>
-                    <p className="text-[11px] text-blue-800/80 mt-1">
+                    <p className="text-[11px] text-[#7A4A3A] mt-1">
                       Covers full-day e-rickshaws, autos, and transit between scheduled landmarks.
                     </p>
                   </div>
@@ -896,9 +896,9 @@ export default function SmartPlanner() {
           </div>
 
           {/* Grand Total Calculation Banner */}
-          <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="bg-[#6B1E2B] text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-[#54202A] flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center lg:text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-sky-300 text-xs font-bold">
                 <Wallet className="w-3.5 h-3.5" />
                 <span>Exact Mathematical Grand Total</span>
               </div>
@@ -912,17 +912,17 @@ export default function SmartPlanner() {
             </div>
 
             <div className="flex items-center gap-4 w-full lg:w-auto justify-center lg:justify-end">
-              <div className="text-center p-3 bg-slate-800/80 rounded-2xl border border-slate-700 min-w-[120px]">
+              <div className="text-center p-3 bg-[#54202A]/80 rounded-2xl border border-[#7A3940] min-w-[120px]">
                 <span className="text-[11px] text-slate-400 block font-medium">Per Person</span>
                 <span className="text-base font-extrabold text-white">₹{budget?.perPersonCost?.toLocaleString('en-IN')}</span>
               </div>
-              <div className="text-center p-3 bg-slate-800/80 rounded-2xl border border-slate-700 min-w-[120px]">
+              <div className="text-center p-3 bg-[#54202A]/80 rounded-2xl border border-[#7A3940] min-w-[120px]">
                 <span className="text-[11px] text-slate-400 block font-medium">Daily Average</span>
                 <span className="text-base font-extrabold text-white">₹{budget?.dailyAverage?.toLocaleString('en-IN')}</span>
               </div>
               <button
                 onClick={handlePrint}
-                className="px-4 py-3 bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs rounded-2xl transition-colors flex items-center gap-2 flex-shrink-0"
+                className="px-4 py-3 bg-amber-500 hover:bg-amber-700 text-slate-950 font-bold text-xs rounded-2xl transition-colors flex items-center gap-2 flex-shrink-0"
               >
                 <Printer className="w-4 h-4" />
                 <span className="hidden sm:inline">Print / Save PDF</span>
@@ -951,7 +951,7 @@ export default function SmartPlanner() {
                 <div key={day.dayNumber} className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                     <div className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-xl bg-sky-500 text-white font-extrabold text-sm flex items-center justify-center">
+                      <span className="w-8 h-8 rounded-xl bg-amber-500 text-white font-extrabold text-sm flex items-center justify-center">
                         D{day.dayNumber}
                       </span>
                       <h4 className="font-bold text-base text-slate-900">{day.dayTitle}</h4>
@@ -969,14 +969,14 @@ export default function SmartPlanner() {
                             isCompleted
                               ? 'bg-slate-50/70 border-slate-200 opacity-60'
                               : slot.slotIndex === 3
-                              ? 'bg-purple-50/30 border-purple-200 shadow-xs'
+                              ? 'bg-orange-50/30 border-orange-200 shadow-xs'
                               : 'bg-white border-slate-200 hover:border-slate-300'
                           }`}
                         >
                           <div className="flex items-start justify-between gap-3 mb-2">
                             <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md ${
                               slot.slotIndex === 3
-                                ? 'bg-purple-100 text-purple-700 border border-purple-200'
+                                ? 'bg-orange-100 text-orange-900 border border-orange-200'
                                 : slot.isFood
                                 ? 'bg-amber-100 text-amber-700 border border-amber-200'
                                 : 'bg-slate-100 text-slate-700'
@@ -1013,7 +1013,7 @@ export default function SmartPlanner() {
                             <span className="text-slate-500 flex items-center gap-1">
                               {slot.transit}
                             </span>
-                            <span className={`font-bold ${slot.numericFee > 0 ? 'text-purple-600 font-extrabold' : 'text-slate-600'}`}>
+                            <span className={`font-bold ${slot.numericFee > 0 ? 'text-orange-800 font-extrabold' : 'text-slate-600'}`}>
                               {slot.entryFee}
                             </span>
                           </div>
@@ -1022,7 +1022,7 @@ export default function SmartPlanner() {
                             <div className="mt-2 flex items-center justify-between gap-2">
                               <button
                                 onClick={() => openPlaceDrawer(slot.place)}
-                                className="text-[11px] font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1"
+                                className="text-[11px] font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1"
                               >
                                 <span>View details</span>
                                 <ArrowRight className="w-3 h-3" />
@@ -1030,10 +1030,10 @@ export default function SmartPlanner() {
 
                               <button
                                 onClick={() => openRoutePlanner && openRoutePlanner(slot.place)}
-                                className="text-[11px] font-bold text-slate-700 hover:text-sky-600 flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 hover:bg-sky-50 transition-colors"
+                                className="text-[11px] font-bold text-slate-700 hover:text-amber-700 flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 hover:bg-amber-50 transition-colors"
                                 title="Plan Route & Transit to Stop"
                               >
-                                <Navigation className="w-3 h-3 text-sky-500" />
+                                <Navigation className="w-3 h-3 text-amber-600" />
                                 <span>Directions</span>
                               </button>
                             </div>
